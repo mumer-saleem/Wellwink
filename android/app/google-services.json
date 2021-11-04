@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "376981623102",
+    "project_id": "wellwink-5732b",
+    "storage_bucket": "wellwink-5732b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376981623102:android:5568bbd0fefbfb41c59c6f",
+        "android_client_info": {
+          "package_name": "com.wellwink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "376981623102-jord10kranamjspmg18pi10igejstpi6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHsbI_ewtYcdtPoYvvAkFk85BozJbF3Vc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "376981623102-jord10kranamjspmg18pi10igejstpi6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
