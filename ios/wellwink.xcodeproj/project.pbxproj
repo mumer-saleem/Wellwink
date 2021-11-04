@@ -8,13 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* wellwinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* wellwinkTests.m */; };
+		0884DCDD4E20424398157D12 /* Mulish-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A8218F6CD6E4D4589015FD9 /* Mulish-SemiBold.ttf */; };
 		09B52D8B2733C0BE00F79B2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09B52D8A2733C0BE00F79B2D /* GoogleService-Info.plist */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		4F2B8F6140E241658F0EECDE /* Mulish-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78CA116A18264580AE485D9F /* Mulish-Regular.ttf */; };
+		50E399E9867B47C0980B0BB0 /* Oswald-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7076A77CED3E4F748ABB8B16 /* Oswald-SemiBold.ttf */; };
+		51DF1FE37D0D410FA9513FFA /* Mulish-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A7357A8579D44C3B87CFB7F /* Mulish-Medium.ttf */; };
+		5704C4A1443B419EB8D2E27A /* SpaceMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 524868F0587D475497B8BBBD /* SpaceMono-Regular.ttf */; };
 		6172F2D35A4C3AA820D92908 /* libPods-wellwink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-wellwink.a */; };
+		680AC54480D140019B666422 /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 160B261EF8A446E59258481A /* Oswald-Medium.ttf */; };
 		7EF68E3733C33B6898317E18 /* libPods-wellwink-wellwinkTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-wellwink-wellwinkTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9EA16EF85E674AB7BDE88CCC /* Muli600SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2DF8A7C6E064F39A24AA5EE /* Muli600SemiBold.ttf */; };
+		A2B48AE899214A508348D611 /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A675FA54DC78421AA279A61B /* Oswald-Regular.ttf */; };
+		C113CE61D0E64009A738C384 /* Mulish-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CD460D775F141A7B5430946 /* Mulish-Bold.ttf */; };
+		C7142052092E4F089B907C30 /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5FA981CD149343DFB747EFC4 /* Oswald-Bold.ttf */; };
+		E168E8B9CF8748D68DF3C55F /* Muli400Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBC2307152F7425AB7EAE609 /* Muli400Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,14 +50,25 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = wellwink/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = wellwink/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = wellwink/main.m; sourceTree = "<group>"; };
+		160B261EF8A446E59258481A /* Oswald-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Oswald-Medium.ttf"; path = "../src/assets/fonts/Oswald-Medium.ttf"; sourceTree = "<group>"; };
 		1D0AE47A65C8663E3B452821 /* Pods-wellwink-wellwinkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wellwink-wellwinkTests.release.xcconfig"; path = "Target Support Files/Pods-wellwink-wellwinkTests/Pods-wellwink-wellwinkTests.release.xcconfig"; sourceTree = "<group>"; };
+		524868F0587D475497B8BBBD /* SpaceMono-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "SpaceMono-Regular.ttf"; path = "../src/assets/fonts/SpaceMono-Regular.ttf"; sourceTree = "<group>"; };
+		5A8218F6CD6E4D4589015FD9 /* Mulish-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Mulish-SemiBold.ttf"; path = "../src/assets/fonts/Mulish-SemiBold.ttf"; sourceTree = "<group>"; };
+		5FA981CD149343DFB747EFC4 /* Oswald-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Oswald-Bold.ttf"; path = "../src/assets/fonts/Oswald-Bold.ttf"; sourceTree = "<group>"; };
 		6423831EA8574132BED9D8CC /* libPods-wellwink.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wellwink.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-wellwink-wellwinkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wellwink-wellwinkTests.debug.xcconfig"; path = "Target Support Files/Pods-wellwink-wellwinkTests/Pods-wellwink-wellwinkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7076A77CED3E4F748ABB8B16 /* Oswald-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Oswald-SemiBold.ttf"; path = "../src/assets/fonts/Oswald-SemiBold.ttf"; sourceTree = "<group>"; };
+		78CA116A18264580AE485D9F /* Mulish-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Mulish-Regular.ttf"; path = "../src/assets/fonts/Mulish-Regular.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = wellwink/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8A7357A8579D44C3B87CFB7F /* Mulish-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Mulish-Medium.ttf"; path = "../src/assets/fonts/Mulish-Medium.ttf"; sourceTree = "<group>"; };
+		9CD460D775F141A7B5430946 /* Mulish-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Mulish-Bold.ttf"; path = "../src/assets/fonts/Mulish-Bold.ttf"; sourceTree = "<group>"; };
+		A675FA54DC78421AA279A61B /* Oswald-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Oswald-Regular.ttf"; path = "../src/assets/fonts/Oswald-Regular.ttf"; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-wellwink-wellwinkTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wellwink-wellwinkTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBC2307152F7425AB7EAE609 /* Muli400Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Muli400Regular.ttf; path = ../src/assets/fonts/Muli400Regular.ttf; sourceTree = "<group>"; };
 		C0A881CF5CF3F2B244570E2A /* Pods-wellwink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wellwink.debug.xcconfig"; path = "Target Support Files/Pods-wellwink/Pods-wellwink.debug.xcconfig"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-wellwink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wellwink.release.xcconfig"; path = "Target Support Files/Pods-wellwink/Pods-wellwink.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F2DF8A7C6E064F39A24AA5EE /* Muli600SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Muli600SemiBold.ttf; path = ../src/assets/fonts/Muli600SemiBold.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +149,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				E233CBF5F47BEE60B243DCF8 /* Pods */,
+				F7523D87D7EA454188B505C5 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -151,6 +174,25 @@
 				1D0AE47A65C8663E3B452821 /* Pods-wellwink-wellwinkTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F7523D87D7EA454188B505C5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BBC2307152F7425AB7EAE609 /* Muli400Regular.ttf */,
+				F2DF8A7C6E064F39A24AA5EE /* Muli600SemiBold.ttf */,
+				9CD460D775F141A7B5430946 /* Mulish-Bold.ttf */,
+				8A7357A8579D44C3B87CFB7F /* Mulish-Medium.ttf */,
+				78CA116A18264580AE485D9F /* Mulish-Regular.ttf */,
+				5A8218F6CD6E4D4589015FD9 /* Mulish-SemiBold.ttf */,
+				5FA981CD149343DFB747EFC4 /* Oswald-Bold.ttf */,
+				160B261EF8A446E59258481A /* Oswald-Medium.ttf */,
+				A675FA54DC78421AA279A61B /* Oswald-Regular.ttf */,
+				7076A77CED3E4F748ABB8B16 /* Oswald-SemiBold.ttf */,
+				524868F0587D475497B8BBBD /* SpaceMono-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +293,17 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				09B52D8B2733C0BE00F79B2D /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				E168E8B9CF8748D68DF3C55F /* Muli400Regular.ttf in Resources */,
+				9EA16EF85E674AB7BDE88CCC /* Muli600SemiBold.ttf in Resources */,
+				C113CE61D0E64009A738C384 /* Mulish-Bold.ttf in Resources */,
+				51DF1FE37D0D410FA9513FFA /* Mulish-Medium.ttf in Resources */,
+				4F2B8F6140E241658F0EECDE /* Mulish-Regular.ttf in Resources */,
+				0884DCDD4E20424398157D12 /* Mulish-SemiBold.ttf in Resources */,
+				C7142052092E4F089B907C30 /* Oswald-Bold.ttf in Resources */,
+				680AC54480D140019B666422 /* Oswald-Medium.ttf in Resources */,
+				A2B48AE899214A508348D611 /* Oswald-Regular.ttf in Resources */,
+				50E399E9867B47C0980B0BB0 /* Oswald-SemiBold.ttf in Resources */,
+				5704C4A1443B419EB8D2E27A /* SpaceMono-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
