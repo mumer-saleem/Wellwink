@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import api from '../Services/api'
+
 export const testing1 = createAsyncThunk(
   'counter/testing',
   async (_, thunkAPI) => {
