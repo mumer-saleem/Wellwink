@@ -22,7 +22,7 @@
  import {ReducState} from '../../src/Type/index'
  import { signIn, signOut, } from '../Redux/Reducers/login/signIn'
  import {testing1} from '../Actions/login'
-
+ import SplashScreen from 'react-native-splash-screen'
  import {
    Colors,
    DebugInstructions,
@@ -72,7 +72,7 @@
    }, [Login?.isLogin])
 
   useEffect(() => {
- 
+    SplashScreen.hide();
  
   }, [])
    
