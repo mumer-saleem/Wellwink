@@ -81,9 +81,8 @@
    };
  
    return (
-     <SafeAreaView style={backgroundStyle}>
-       <StatusBar barStyle={'light-content'} backgroundColor="#60D1B1" />
-       <ScrollView
+ 
+        <ScrollView
          contentInsetAdjustmentBehavior="automatic"
          style={backgroundStyle}>
     
@@ -138,7 +137,7 @@
            <LearnMoreLinks />
          </View>
        </ScrollView>
-     </SafeAreaView>
+ 
    );
  };
  

@@ -8,51 +8,51 @@
  * @format
  */
 
- import React, { Component } from 'react'
- import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import { Provider  } from 'react-redux'
+import { SafeAreaView, AppRegistry, StatusBar } from 'react-native'
+import React,{Component} from "react";
+
+import { isIphoneX } from 'react-native-iphone-x-helper';
+import { Provider } from 'react-redux'
 import Appp from './src/Screens/App'
 import { PersistGate } from 'redux-persist/integration/react'
+import {Colors } from './src/configs/index'
 
-import {store,persistor} from './src/Redux/ReduxPresist/ReduxPersist'
+import appNavigation from './src/Navigation/AppContainer/appNavigation'
+import { store, persistor } from './src/Redux/ReduxPresist/ReduxPersist'
 
- 
-// export const store = configureStore({
-//   reducer: reducers
-// })
+
 class App extends Component {
 
-  componentDidMount=()=>{
+  componentDidMount = () => {
 
   }
-  render () {
+  render() {
+
     return (
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-        <Appp />
-        </PersistGate>
-      </Provider>
+
+      <SafeAreaView
+        style={{
+          flex: 1,
+          backgroundColor: Colors.appColor,
+          marginBottom: isIphoneX() ? -35 : 0,
+          paddingBottom: isIphoneX() ? 35 : 0,
+          marginTop: isIphoneX() ? -5 : 0,
+        }}>
+        <StatusBar barStyle='light-content' backgroundColor={Colors.appColor}></StatusBar>
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <Appp />
+          </PersistGate>
+        </Provider>
+      </SafeAreaView>
+
+
     )
+
   }
 }
 
 
- 
+
 export default App;

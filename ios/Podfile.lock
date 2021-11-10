@@ -456,6 +456,35 @@ PODS:
     - Firebase/Messaging (= 8.9.0)
     - React-Core
     - RNFBApp
+  - RNReanimated (2.2.4):
+    - DoubleConversion
+    - FBLazyVector
+    - FBReactNativeSpec
+    - glog
+    - RCT-Folly
+    - RCTRequired
+    - RCTTypeSafety
+    - React
+    - React-callinvoker
+    - React-Core
+    - React-Core/DevSupport
+    - React-Core/RCTWebSocket
+    - React-CoreModules
+    - React-cxxreact
+    - React-jsi
+    - React-jsiexecutor
+    - React-jsinspector
+    - React-RCTActionSheet
+    - React-RCTAnimation
+    - React-RCTBlob
+    - React-RCTImage
+    - React-RCTLinking
+    - React-RCTNetwork
+    - React-RCTSettings
+    - React-RCTText
+    - React-RCTVibration
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNScreens (3.9.0):
     - React-Core
     - React-RCTImage
@@ -523,6 +552,7 @@ DEPENDENCIES:
   - "RNFBAnalytics (from `../node_modules/@react-native-firebase/analytics`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
+  - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -627,6 +657,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBMessaging:
     :path: "../node_modules/@react-native-firebase/messaging"
+  RNReanimated:
+    :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   Yoga:
@@ -693,10 +725,11 @@ SPEC CHECKSUMS:
   RNFBAnalytics: 1e0c9761622ca1a90be17b0ebc3f4372d93cb424
   RNFBApp: 7e150ce2ff2d8a0f9c85e33001a6943b3deacc65
   RNFBMessaging: 842c9f93a4d0869f17e296e3ac8eb24787c3385c
+  RNReanimated: 65583befd5706cc9c86ae9a081786181ced37b93
   RNScreens: 4d79118be80f79fa1f4aa131909a1d6e86280af3
   Yoga: 2b4a01651f42a32f82e6cef3830a3ba48088237f
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 3a82061aa9bd0257d2fa1f8bd7fa4962dd28d262
+PODFILE CHECKSUM: ddd82d62a93348eb163c5aa30ff59f583154f484
 
 COCOAPODS: 1.11.2
