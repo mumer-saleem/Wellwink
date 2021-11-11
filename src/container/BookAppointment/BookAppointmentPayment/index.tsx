@@ -6,6 +6,7 @@ import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
 import ConfirmPayment from '../../../components/ConfirmPayment';
 import {DOCTOR_PROFILE} from '../../../configs/Data';
 import {useTheme} from '../../../configs/ChangeTheme'
+
 interface BookAppointmentPaymentProps {}
 
 const BookAppointmentPayment = memo(({}: BookAppointmentPaymentProps) => {
