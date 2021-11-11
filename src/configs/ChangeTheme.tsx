@@ -1,4 +1,4 @@
-import {Colors} from './index';
+import {Colors} from '../configs';
 import React, {useContext} from 'react';
 import {ColorValue} from 'react-native';
 
@@ -9,7 +9,7 @@ export interface ITheme {
   backgroundItem: ColorValue | string;
   text: ColorValue | string;
   text_placeholder: ColorValue | string;
-  // placeholder: ColorValue | string;
+  placeholder: ColorValue | string;
   borderColor: ColorValue | string;
   activeBackgroundColor: ColorValue | string;
   inactiveBackgroundColor: ColorValue | string;
@@ -30,7 +30,6 @@ export const themes = {
     activeTincolor: Colors.WhiteSmoke,
     inactiveBackgroundColor: Colors.Platinum,
     borderColor: Colors.BorderColor,
-    
   },
   light: {
     background: Colors.Snow,

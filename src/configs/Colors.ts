@@ -1,12 +1,10 @@
-const Colors = {
-  appColor:"#00e2af",
-  
+const Colors = { 
+
+  appColor:  '#12b2b3',
   Dark: 'rgba(20, 20, 21, 1)',
   Beluga: 'rgba(27, 27, 28, 1)',
-
   White: '#FFFFFF',
   WhiteOpacity: 'rgba(255,255,255,0.3)',
-  
   Blue: '#2F54EB',
   LightPink: '#FFB6C1',
   Tomato: '#FF6347',
@@ -20,7 +18,6 @@ const Colors = {
   Isabelline: '#F0F0F0',
   GrayBlue: '#9393AA',
   BlueCrayola: '#2574FF',
-  
   Platinum: '#E0E0E0',
   DarkJungleGreen: '#1E1F20',
   DarkJungleGreenOpacity: 'rgba(30, 31, 32, 0.2)',
@@ -33,7 +30,6 @@ const Colors = {
   OysterBay: '#D9F3F3',
   PinkOrange: '#FE9870',
   WhiteSmoke: '#F6F6F6',
-
   GrayBoder: '#E5E5EA',
   GrayBoder1: '#7D8699',
   GrayBoder2: '#D8D8D8',

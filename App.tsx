@@ -14,45 +14,41 @@ import React,{Component} from "react";
 
 import { isIphoneX } from 'react-native-iphone-x-helper';
 import { Provider } from 'react-redux'
-import Appp from './src/Screens/App'
+import SignUp from './src/container/Account/SignUp/index'
 import { PersistGate } from 'redux-persist/integration/react'
-import {Colors } from './src/configs/index'
+import {Colors } from './src/configs/index' 
+import {useTheme} from './src/configs/ChangeTheme';
 
-import appNavigation from './src/Navigation/AppContainer/appNavigation'
+import AppNavigation from './src/Navigation/AppContainer/appNavigation'
 import { store, persistor } from './src/Redux/ReduxPresist/ReduxPersist'
 
+ 
+ 
+ 
+ 
+ const App = () => {
+  const {theme} = useTheme();
+   return (
+     <SafeAreaView
+    style={{
+      flex: 1,
+      backgroundColor: Colors.White,
 
-class App extends Component {
-
-  componentDidMount = () => {
-
-  }
-  render() {
-
-    return (
-
-      <SafeAreaView
-        style={{
-          flex: 1,
-          backgroundColor: Colors.appColor,
-          marginBottom: isIphoneX() ? -35 : 0,
-          paddingBottom: isIphoneX() ? 35 : 0,
-          marginTop: isIphoneX() ? -5 : 0,
-        }}>
-        <StatusBar barStyle='light-content' backgroundColor={Colors.appColor}></StatusBar>
-        <Provider store={store}>
-          <PersistGate loading={null} persistor={persistor}>
-            <Appp />
-          </PersistGate>
-        </Provider>
-      </SafeAreaView>
-
-
-    )
-
-  }
-}
-
-
-
-export default App;
+      marginBottom: isIphoneX() ? -35 : 0,
+      paddingBottom: isIphoneX() ? 35 : 0,
+      marginTop: isIphoneX() ? -5 : 0,
+    }}>
+    <StatusBar barStyle='dark-content' backgroundColor={Colors.White}></StatusBar>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+     <AppNavigation/>
+      </PersistGate>
+    </Provider>
+  </SafeAreaView>
+   );
+ };
+ 
+ 
+ 
+ export default App;
+ 
