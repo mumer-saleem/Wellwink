@@ -36,6 +36,7 @@
     "react-native-screens": "^3.9.0",
     "react-native-sensitive-info": "^5.5.8",
     "react-native-splash-screen": "^3.2.0",
+    "react-native-svg": "^12.1.1",
     "react-navigation": "^4.4.4",
     "react-redux": "^7.2.6",
     "redux-persist": "^6.0.0"

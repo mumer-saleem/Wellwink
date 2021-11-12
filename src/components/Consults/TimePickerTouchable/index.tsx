@@ -1,14 +1,14 @@
 import React, {memo, useCallback, useState} from 'react';
 import {TouchableOpacity, View, StyleSheet, Image} from 'react-native';
-import Text from 'elements/Text';
-import {Colors} from 'configs';
-import {ICON} from 'images/Icon';
-import Theme from 'style/Theme';
-import ButtonIcon from 'elements/Buttons/ButtonIcon';
+import Text from '../../../elements/Text';
+import {Colors} from '../../../configs';
+import {ICON} from '../../../images/Icon';
+import Theme from '../../../style/Theme';
+import ButtonIcon from '../../../elements/Buttons/ButtonIcon';
 import Moment from 'moment';
-import {width} from 'configs/Const';
+import {width} from '../../../configs/Const';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import {useTheme} from 'configs/ChangeTheme'
+import {useTheme} from '../../../configs/ChangeTheme'
 
 interface TimePickerTouchableProps {
   id?: number;

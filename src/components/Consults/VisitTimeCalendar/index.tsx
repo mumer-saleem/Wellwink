@@ -1,9 +1,9 @@
 import React, {memo, useCallback, useState} from 'react';
 import {StyleSheet, View, ViewStyle} from 'react-native';
 import {Calendar, CalendarList, LocaleConfig} from 'react-native-calendars';
-import {Colors, Constants} from 'configs';
-import scale from 'utils/scale';
-import {useTheme} from 'configs/ChangeTheme'
+import {Colors, Constants} from '../../configs';
+import scale from '../../utils/scale';
+import {useTheme} from '../../configs/ChangeTheme'
 
 LocaleConfig.locales.fr = {
   monthNames: [

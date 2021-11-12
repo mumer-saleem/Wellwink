@@ -1,10 +1,10 @@
-import Text from "elements/Text";
-import { Colors } from "configs";
-import { SOURCE_ICON } from "images";
+import Text from "../../elements/Text";
+import { Colors } from "../../configs";
+// import { SOURCE_ICON } from "../../images";
 import * as React from "react";
 import { Animated, Easing, Image, StyleSheet, View } from "react-native";
 import Svg, { Circle, G } from "react-native-svg";
-import Theme from "style/Theme";
+import Theme from "../../style/Theme";
 
 const CircleAnimation = Animated.createAnimatedComponent(Circle);
 

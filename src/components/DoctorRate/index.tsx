@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { View, StyleSheet, Image, ImageSourcePropType } from "react-native";
-import Theme from "style/Theme";
-import { Colors } from "configs";
-import Text from "elements/Text";
+import Theme from "../../style/Theme";
+import { Colors } from "../../configs";
+import Text from "../../elements/Text";
 
 interface DoctorRateProps {
   name: string;

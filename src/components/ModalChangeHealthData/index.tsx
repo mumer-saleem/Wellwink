@@ -6,13 +6,13 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-import Text from "elements/Text";
-import TextInput from "elements/TextInput";
-import scale from "utils/scale";
-import Theme from "style/Theme";
-import { Colors } from "configs";
-import changeAlias from "utils/stringAlias";
-import { ICON } from "images/Icon";
+import Text from "../../elements/Text";
+import TextInput from "../../elements/TextInput";
+import scale from "../../utils/scale";
+import Theme from "../../style/Theme";
+import { Colors } from "../../configs";
+import changeAlias from "../../utils/stringAlias";
+import { ICON } from "../../images/Icon";
 
 interface ModalChangeHealthDataProps {
   onChange: (item: any) => void;

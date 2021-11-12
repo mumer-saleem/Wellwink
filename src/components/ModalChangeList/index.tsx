@@ -6,13 +6,13 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-import Text from "elements/Text";
-import TextInput from "elements/TextInput";
-import scale from "utils/scale";
-import Theme from "style/Theme";
-import { Colors } from "configs";
-import { categoryList } from "type/category";
-import { RELATIONSHIP } from "configs/Data";
+import Text from "../../elements/Text";
+import TextInput from "../../elements/TextInput";
+import scale from "../../utils/scale";
+import Theme from "../../style/Theme";
+import { Colors } from "../../configs";
+import { categoryList } from "../../type/category";
+import { RELATIONSHIP } from "../../configs/Data";
 
 interface ModalChangeListProps {
   onChangeList: (item: any) => void;

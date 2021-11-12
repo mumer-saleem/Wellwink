@@ -1,17 +1,17 @@
 import React, {Dispatch, memo, SetStateAction} from 'react';
 import {View, StyleSheet, Image, ViewStyle} from 'react-native';
-import Text from 'elements/Text';
-import {Colors} from 'configs';
-import scale from 'utils/scale';
+import Text from '../../elements/Text';
+import {Colors} from '../../configs';
+import scale from '../../utils/scale';
 import SettingItem from '../AskFreeQuestion/SettingItem';
-import {dataAddition} from 'type/healthyQuestion';
-import {ICON} from 'images/Icon';
-import {condition} from 'type/condition';
-import ButtonIconText from 'elements/Buttons/ButtonIconText';
-import Theme from 'style/Theme';
-import Layout from 'elements/Layout/Layout';
-import Line from 'elements/Layout/Line';
-import {themes, useTheme} from 'configs/ChangeTheme';
+import {dataAddition} from '../../type/healthyQuestion';
+import {ICON} from '../../images/Icon';
+import {condition} from '../../type/condition';
+import ButtonIconText from '../../elements/Buttons/ButtonIconText';
+import Theme from '../../style/Theme';
+import Layout from '../../elements/Layout/Layout';
+import Line from '../../elements/Layout/Line';
+import {themes, useTheme} from '../../configs/ChangeTheme';
 
 interface Props {
   data: Array<dataAddition>;

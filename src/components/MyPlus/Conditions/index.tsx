@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { View, StyleSheet } from "react-native";
-import Text from "elements/Text";
-import Theme from "style/Theme";
-import { width } from "configs/Const";
+import Text from "../../../elements/Text";
+import Theme from "../../../style/Theme";
+import { width } from "../../../configs/Const";
 
 export default memo(() => {
   return (

@@ -1,4 +1,4 @@
-import {width} from 'configs/Const';
+import {width} from '../../configs/Const';
 import React, {memo, useState} from 'react';
 import {
   TouchableOpacity,
@@ -8,12 +8,12 @@ import {
   ImageSourcePropType,
   ImageProps,
 } from 'react-native';
-import Theme from 'style/Theme';
-import Text from 'elements/Text';
-import {Colors} from 'configs';
+import Theme from '../../style/Theme';
+import Text from '../../elements/Text';
+import {Colors} from '../../configs';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import Animated from 'react-native-reanimated';
-import Layout from 'elements/Layout/Layout';
+import Layout from '../../elements/Layout/Layout';
 
 interface FilesItemProps {
   id?: number;

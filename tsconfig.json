@@ -59,6 +59,39 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
     "baseUrl": ".",
     "paths": {
+      "*": [
+        "src/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@container/*": [
+        "src/container/*"
+      ],
+      "@elements/*": [
+        "src/elements/*"
+      ],
+      "@configs/*": [
+        "src/configs/*"
+      ],
+      "@navigation/*": [
+        "src/navigation/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@svg/*": [
+        "./src/svg/*"
+      ],
+      "@images/*": [
+        "src/images/*"
+      ],
+      "@configs": [
+        "src/configs/index"
+      ],
+      "@store/*": [
+        "src/store/*"
+      ],
 			"react-native-redash/lib/module/v1": ["./node_modules/react-native-redash/lib/typescript/v1/index.d.ts"]
 		},
 

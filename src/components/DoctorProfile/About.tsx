@@ -7,18 +7,18 @@ import {
   ScrollView,
   Animated,
 } from 'react-native';
-import Text from 'elements/Text';
-import {Colors} from 'configs';
-import Theme from 'style/Theme';
-import ButtonIcon from 'elements/Buttons/ButtonIcon';
-import scale from 'utils/scale';
+import Text from '../../elements/Text';
+import {Colors} from '../../configs';
+import Theme from '../../style/Theme';
+import ButtonIcon from '../../elements/Buttons/ButtonIcon';
+import scale from '../../utils/scale';
 import Dots from './Dots';
 import ProfileItem from './ProfileItem';
-import LinearColors from 'elements/LinearColors';
-import ButtonText from 'elements/Buttons/ButtonText';
-import {ICON} from 'images/Icon';
-import Container from 'elements/Layout/Container';
-import Layout from 'elements/Layout/Layout';
+import LinearColors from '../../elements/LinearColors';
+import ButtonText from '../../elements/Buttons/ButtonText';
+import {ICON} from '../../images/Icon';
+import Container from '../../elements/Layout/Container';
+import Layout from '../../elements/Layout/Layout';
 
 interface AboutProps {
   information?: string;

@@ -1,15 +1,15 @@
-import {Colors, Routes} from 'configs';
+import {Colors, Routes} from '../../configs';
 import React, {memo, useCallback} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import Text from 'elements/Text';
-import Theme from 'style/Theme';
-import {ICON} from 'images/Icon';
-import ButtonIcon from 'elements/Buttons/ButtonIcon';
-import scale from 'utils/scale';
+import Text from '../../elements/Text';
+import Theme from '../../style/Theme';
+import {ICON} from '../../images/Icon';
+import ButtonIcon from '../../elements/Buttons/ButtonIcon';
+import scale from '../../utils/scale';
 import {useNavigation} from '@react-navigation/native';
-import {useTheme} from 'configs/ChangeTheme';
+import {useTheme} from '../../configs/ChangeTheme';
 
-import Layout from 'elements/Layout/Layout';
+import Layout from '../../elements/Layout/Layout';
 interface ContactDoctorItemProps {
   style?: any;
   id?: number;

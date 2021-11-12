@@ -1,16 +1,16 @@
 import React, {memo} from 'react';
 import {View, TouchableOpacity, StyleSheet, TextInput} from 'react-native';
-import Text from 'elements/Text';
-import scale from 'utils/scale';
-import {Colors, Constants} from 'configs';
+import Text from '../../elements/Text';
+import scale from '../../utils/scale';
+import {Colors, Constants} from '../../configs';
 import Animated, {sub} from 'react-native-reanimated';
-import Theme from 'style/Theme';
-import ButtonBorder from 'elements/Buttons/ButtonBorder';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
-import Layout from 'elements/Layout/Layout';
-import {useTheme} from 'configs/ChangeTheme'
+import Theme from '../../style/Theme';
+import ButtonBorder from '../../elements/Buttons/ButtonBorder';
+import ButtonLinear from '../../elements/Buttons/ButtonLinear';
+import Layout from '../../elements/Layout/Layout';
+import {useTheme} from '../../configs/ChangeTheme'
 
-import Container from 'elements/Layout/Container';
+import Container from '../../elements/Layout/Container';
 
 interface Props {
   open: () => void;

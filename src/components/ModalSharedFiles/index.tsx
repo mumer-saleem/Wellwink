@@ -6,11 +6,11 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import Text from 'elements/Text';
-import {Colors} from 'configs';
-import {height} from 'configs/Const';
-import Theme from 'style/Theme';
-import Content from 'elements/Layout/Content';
+import Text from '../../elements/Text';
+import {Colors} from '../../configs';
+import {height} from '../../configs/Const';
+import Theme from '../../style/Theme';
+import Content from '../../elements/Layout/Content';
 
 interface ModalSharedFilesProps {
   fileList: any;

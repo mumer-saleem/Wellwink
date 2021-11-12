@@ -1,12 +1,12 @@
-import {Colors, Constants} from 'configs';
+import {Colors, Constants} from '../../configs';
 import React, {useState} from 'react';
 import {View, StyleSheet, TouchableOpacity, ScrollView} from 'react-native';
 import Animated, {sub} from 'react-native-reanimated';
-import Text from 'elements/Text';
-import {Alphabet} from 'configs/Data';
-import Theme from 'style/Theme';
-import Content from 'elements/Layout/Content';
-import {useTheme} from 'configs/ChangeTheme'
+import Text from '../../elements/Text';
+import {Alphabet} from '../../configs/Data';
+import Theme from '../../style/Theme';
+import Content from '../../elements/Layout/Content';
+import {useTheme} from '../../configs/ChangeTheme'
 
 
 interface ModalAtoZProps {

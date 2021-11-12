@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { View, StyleSheet } from "react-native";
-import Text from "elements/Text";
-import CheckBox from "elements/CheckBox";
-import Theme from "style/Theme";
+import Text from "../../../elements/Text";
+import CheckBox from "../../../elements/CheckBox";
+import Theme from "../../../style/Theme";
 
 interface VisitTimeItemProps {
   id: number;

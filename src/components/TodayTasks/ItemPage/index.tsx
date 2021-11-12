@@ -1,8 +1,8 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import Text from 'elements/Text';
-import Theme from 'style/Theme';
-import scale from 'utils/scale';
+import Text from '../../../elements/Text';
+import Theme from '../../../style/Theme';
+import scale from '../../../utils/scale';
 
 interface ItemProps {
   image: string;

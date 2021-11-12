@@ -1,15 +1,15 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, FlatList, Modal} from 'react-native';
-import Text from 'elements/Text';
+import Text from '../../../elements/Text';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {Colors, Routes} from 'configs';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
-import keyExtractor from 'utils/keyExtractor';
-import QuestionAnswerItem from 'components/QuestionAnswerItem';
-import {FOLLOWING_QUESTIONS} from 'configs/Data';
-import {width} from 'configs/Const';
-import useModalAnimation from 'hooks/useModalAnimation';
-import ModalSelect from 'components/ModalSelect';
+import {Colors, Routes} from '../../../configs';
+import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import keyExtractor from '../../../utils/keyExtractor';
+import QuestionAnswerItem from '../../../components/QuestionAnswerItem';
+import {FOLLOWING_QUESTIONS} from '../../../configs/Data';
+import {width} from '../../../configs/Const';
+import useModalAnimation from '../../../hooks/useModalAnimation';
+import ModalSelect from '../../../components/ModalSelect';
 
 const menuOptions = [
   {

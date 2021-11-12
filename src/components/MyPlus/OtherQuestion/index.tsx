@@ -6,17 +6,17 @@ import {
   TouchableOpacity,
   ImageSourcePropType,
 } from 'react-native';
-import {Colors} from 'configs';
-import Theme from 'style/Theme';
-import Text from 'elements/Text';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
-import ButtonIcon from 'elements/Buttons/ButtonIcon';
-import useModalAnimation from 'hooks/useModalAnimation';
-import {ICON} from 'images/Icon';
-import DoctorRate from 'components/DoctorRate';
-import ButtonBorder from 'elements/Buttons/ButtonBorder';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
-import Layout from 'elements/Layout/Layout';
+import {Colors} from '../../../configs';
+import Theme from '../../../style/Theme';
+import Text from '../../../elements/Text';
+import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import ButtonIcon from '../../../elements/Buttons/ButtonIcon';
+import useModalAnimation from '../../../hooks/useModalAnimation';
+import {ICON} from '../../../images/Icon';
+import DoctorRate from '../../../components/DoctorRate';
+import ButtonBorder from '../../../elements/Buttons/ButtonBorder';
+import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import Layout from '../../../elements/Layout/Layout';
 
 interface OtherAnswerProps {
   doctor: {

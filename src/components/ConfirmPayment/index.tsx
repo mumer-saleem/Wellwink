@@ -7,22 +7,22 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import Text from 'elements/Text';
-import {Colors} from 'configs';
-import scale from 'utils/scale';
-import {dataAddition} from 'type/healthyQuestion';
-import {condition} from 'type/condition';
-import {width} from 'configs/Const';
-import ButtonIcon from 'elements/Buttons/ButtonIcon';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
-import {ICON} from 'images/Icon';
+import Text from '../../elements/Text';
+import {Colors} from '../../configs';
+import scale from '../../utils/scale';
+import {dataAddition} from '../../type/healthyQuestion';
+import {condition} from '../../type/condition';
+import {width} from '../../configs/Const';
+import ButtonIcon from '../../elements/Buttons/ButtonIcon';
+import ButtonLinear from '../../elements/Buttons/ButtonLinear';
+import {ICON} from '../../images/Icon';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import Theme from 'style/Theme';
-import ContactDoctorItem from 'components/ContactDoctorItem';
-import {payment} from 'type/payment';
-import Container from 'elements/Layout/Container';
-import Layout from 'elements/Layout/Layout';
-import Content from 'elements/Layout/Content';
+import Theme from '../../style/Theme';
+import ContactDoctorItem from '../../components/ContactDoctorItem';
+import {payment} from '../../type/payment';
+import Container from '../../elements/Layout/Container';
+import Layout from '../../elements/Layout/Layout';
+import Content from '../../elements/Layout/Content';
 
 interface Props {
   stepCurrent: number;

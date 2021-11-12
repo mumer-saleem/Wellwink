@@ -1,12 +1,12 @@
 import React, {memo} from 'react';
 import {View, Image, StyleSheet} from 'react-native';
-import Text from 'elements/Text';
-import {Colors} from 'configs';
-import scale from 'utils/scale';
-import Theme from 'style/Theme';
-import KFormat from 'utils/format/kFormat';
-import {ICON} from 'images/Icon';
-import Layout from 'elements/Layout/Layout';
+import Text from '../../elements/Text';
+import {Colors} from '../../configs';
+import scale from '../../utils/scale';
+import Theme from '../../style/Theme';
+import KFormat from '../../utils/format/kFormat';
+import {ICON} from '../../images/Icon';
+import Layout from '../../elements/Layout/Layout';
 
 interface ProfileManagementProps {
   name?: string;

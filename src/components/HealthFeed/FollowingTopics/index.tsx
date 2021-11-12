@@ -1,13 +1,13 @@
 import React, {memo, useCallback} from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
-import Text from 'elements/Text';
-import {width} from 'configs/Const';
+import Text from '../../../elements/Text';
+import {width} from '../../../configs/Const';
 import FollowingTopicItem from '../FollowingTopicItem';
 import FollowingTopicHeaderItem from '../FollowingTopicHeaderItem';
-import keyExtractor from 'utils/keyExtractor';
-import {FOLLOWING_TOPIC, FOLLOWING_TOPIC_HEADER} from 'configs/Data';
-import Layout from 'elements/Layout/Layout';
-import Container from 'elements/Layout/Container';
+import keyExtractor from '../../../utils/keyExtractor';
+import {FOLLOWING_TOPIC, FOLLOWING_TOPIC_HEADER} from '../../../configs/Data';
+import Layout from '../../../elements/Layout/Layout';
+import Container from '../../../elements/Layout/Container';
 
 export default memo(() => {
   const renderItem = useCallback(item => {

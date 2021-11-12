@@ -1,12 +1,12 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import Text from 'elements/Text';
-import {Colors} from 'configs';
-import Theme from 'style/Theme';
-import kFormat from 'utils/format/kFormat';
-import {ICON} from 'images/Icon';
+import Text from '../../elements/Text';
+import {Colors} from '../../configs';
+import Theme from '../../style/Theme';
+import kFormat from '../../utils/format/kFormat';
+import {ICON} from '../../images/Icon';
 import {useTheme} from '../../configs/ChangeTheme';
-import Line from 'elements/Layout/Line';
+import Line from '../../elements/Layout/Line';
 
 interface HealthFeedItemProps {
   style?: any;

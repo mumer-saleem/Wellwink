@@ -1,12 +1,12 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import Text from 'elements/Text';
-import {Colors} from 'configs';
-import ButtonIcon from 'elements/Buttons/ButtonIcon';
-import Theme from 'style/Theme';
-import {ICON} from 'images/Icon';
-import Layout from 'elements/Layout/Layout';
-import Line from 'elements/Layout/Line';
+import Text from '../../elements/Text';
+import {Colors} from '../../configs';
+import ButtonIcon from '../../elements/Buttons/ButtonIcon';
+import Theme from '../../style/Theme';
+import {ICON} from '../../images/Icon';
+import Layout from '../../elements/Layout/Layout';
+import Line from '../../elements/Layout/Line';
 
 interface ProfileItemProps {
   icon?: string;

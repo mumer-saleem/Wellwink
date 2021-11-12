@@ -6,12 +6,12 @@ import {
   TouchableOpacity,
   ImageSourcePropType,
 } from "react-native";
-import Text from "elements/Text";
-import { Colors } from "configs";
-import { IMAGE } from "images/Image";
-import { ICON } from "images/Icon";
-import Theme from "style/Theme";
-import Container from "elements/Layout/Container";
+import Text from "../../../elements/Text";
+import { Colors } from "../../../configs";
+import { IMAGE } from "../../../images/Image";
+import { ICON } from "../../../images/Icon";
+import Theme from "../../../style/Theme";
+import Container from "../../../elements/Layout/Container";
 
 interface AttachItemProps {
   img?: ImageSourcePropType;

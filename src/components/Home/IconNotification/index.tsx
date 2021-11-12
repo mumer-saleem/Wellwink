@@ -6,12 +6,12 @@ import {
   ViewStyle,
   TouchableOpacity,
 } from 'react-native';
-import Text from 'elements/Text';
-import Theme from 'style/Theme';
-import {Colors, Routes} from 'configs';
+import Text from '../../../elements/Text';
+import Theme from '../../../style/Theme';
+import {Colors, Routes} from '../../../configs';
 import {useNavigation} from '@react-navigation/native';
-import Layout from 'elements/Layout/Layout';
-import {useTheme} from 'configs/ChangeTheme'
+import Layout from '../../../elements/Layout/Layout';
+import {useTheme} from '../../../configs/ChangeTheme'
 
 interface IconNotificationProps {
   style?: ViewStyle;

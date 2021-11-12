@@ -1,5 +1,5 @@
-import { Colors } from "configs";
-import { width } from "configs/Const";
+import { Colors } from "../../configs";
+import { width } from "../../configs/Const";
 import React, { memo } from "react";
 import { Animated, StyleSheet, View, ViewStyle } from "react-native";
 

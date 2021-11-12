@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
-import Text from "elements/Text";
+import Text from "../../elements/Text";
 
 interface VisitTimeProps {
   style?: any;

@@ -7,15 +7,15 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import Text from 'elements/Text';
-import {Colors} from 'configs';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import Text from '../../elements/Text';
+import {Colors} from '../../configs';
+import ButtonLinear from '../../elements/Buttons/ButtonLinear';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import Theme from 'style/Theme';
-import VisitTimeItem from 'components/DoctorProfile/VisitTimeItem';
-import {ICON} from 'images/Icon';
-import Container from 'elements/Layout/Container';
-import {useTheme} from 'configs/ChangeTheme'
+import Theme from '../../style/Theme';
+import VisitTimeItem from '../../components/DoctorProfile/VisitTimeItem';
+import {ICON} from '../../images/Icon';
+import Container from '../../elements/Layout/Container';
+import {useTheme} from '../../configs/ChangeTheme'
 
 
 export default React.memo(

@@ -1,12 +1,12 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
-import Text from 'elements/Text';
+import Text from '../../elements/Text';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import scale from 'utils/scale';
-import {Colors, Constants} from 'configs';
+import scale from '../../utils/scale';
+import {Colors, Constants} from '../../configs';
 import Animated, {sub} from 'react-native-reanimated';
-import Layout from 'elements/Layout/Layout';
-import {useTheme} from 'configs/ChangeTheme'
+import Layout from '../../elements/Layout/Layout';
+import {useTheme} from '../../configs/ChangeTheme'
 
 interface Props {
   open: () => void;

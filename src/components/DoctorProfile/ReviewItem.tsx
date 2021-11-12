@@ -6,10 +6,10 @@ import {
   ViewStyle,
   TouchableOpacity,
 } from "react-native";
-import Text from "elements/Text";
-import Theme from "style/Theme";
-import { Colors } from "configs";
-import { ICON } from "images/Icon";
+import Text from "../../elements/Text";
+import Theme from "../../style/Theme";
+import { Colors } from "../../configs";
+import { ICON } from "../../images/Icon";
 
 interface ReviewItemProps {
   style?: ViewStyle;

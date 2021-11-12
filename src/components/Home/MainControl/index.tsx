@@ -1,10 +1,10 @@
 import React, {memo} from 'react';
 import {View, StyleSheet} from 'react-native';
-import Theme from 'style/Theme';
-import {Routes} from 'configs';
-import FeatureItem from 'components/FeatureItem';
-import {IMAGE} from 'images/Image';
-import Container from 'elements/Layout/Container';
+import Theme from '../../../style/Theme';
+import {Routes} from '../../../configs';
+import FeatureItem from '../../../components/FeatureItem';
+import {IMAGE} from '../../../images/Image';
+import Container from '../../../elements/Layout/Container';
 
 const mainFeature = [
   {

@@ -9,13 +9,13 @@ import {
   TouchableOpacity,
   ColorValue,
 } from 'react-native';
-import Text from 'elements/Text';
-import Theme from 'style/Theme';
-import {Colors} from 'configs';
-import {ICON} from 'images/Icon';
-import Layout from 'elements/Layout/Layout';
-import {useTheme} from 'configs/ChangeTheme';
-import Line from 'elements/Layout/Line';
+import Text from '../../../elements/Text';
+import Theme from '../../../style/Theme';
+import {Colors} from '../../../configs';
+import {ICON} from '../../../images/Icon';
+import Layout from '../../../elements/Layout/Layout';
+import {useTheme} from '../../../configs/ChangeTheme';
+import Line from '../../../elements/Layout/Line';
 
 interface SubtitleItemProps {
   icon: string;

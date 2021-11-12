@@ -7,19 +7,19 @@ import {
   Modal,
   Image,
 } from 'react-native';
-import Text from 'elements/Text';
-import {Colors} from 'configs';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import Text from '../../elements/Text';
+import {Colors} from '../../configs';
+import ButtonLinear from '../../elements/Buttons/ButtonLinear';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import ModalNote from 'components/ModalNote';
-import Theme from 'style/Theme';
-import scale from 'utils/scale';
-import ButtonBorder from 'elements/Buttons/ButtonBorder';
-import UploadProgress from 'components/UploadProgres';
-import {width} from 'configs/Const';
-import {IMAGE} from 'images/Image';
-import Container from 'elements/Layout/Container';
-import {useTheme} from 'configs/ChangeTheme'
+import ModalNote from '../../components/ModalNote';
+import Theme from '../../style/Theme';
+import scale from '../../utils/scale';
+import ButtonBorder from '../../elements/Buttons/ButtonBorder';
+import UploadProgress from '../../components/UploadProgres';
+import {width} from '../../configs/Const';
+import {IMAGE} from '../../images/Image';
+import Container from '../../elements/Layout/Container';
+import {useTheme} from '../../configs/ChangeTheme'
 
 
 const ModalAddNewFile = React.memo(

@@ -1,10 +1,10 @@
 import React, { memo } from "react";
 import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
-import Text from "elements/Text";
-import { ICON } from "images/Icon";
-import { Colors } from "configs";
-import Theme from "style/Theme";
-import scale from "utils/scale";
+import Text from "../../elements/Text";
+import { ICON } from "../../images/Icon";
+import { Colors } from "../../configs";
+import Theme from "../../style/Theme";
+import scale from "../../utils/scale";
 
 interface CareServiceProps {
   style?: any;

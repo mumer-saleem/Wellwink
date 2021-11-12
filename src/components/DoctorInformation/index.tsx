@@ -6,12 +6,12 @@ import {
   TouchableOpacity,
   ViewStyle,
 } from 'react-native';
-import Text from 'elements/Text';
-import {Colors} from 'configs';
-import {ICON} from 'images/Icon';
-import Theme from 'style/Theme';
-import Layout from 'elements/Layout/Layout';
-import Line from 'elements/Layout/Line';
+import Text from '../../elements/Text';
+import {Colors} from '../../configs';
+import {ICON} from '../../images/Icon';
+import Theme from '../../style/Theme';
+import Layout from '../../elements/Layout/Layout';
+import Line from '../../elements/Layout/Line';
 
 interface DoctorInformationProps {
   id: number;

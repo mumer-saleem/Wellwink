@@ -1,15 +1,15 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import Text from 'elements/Text';
-import {width} from 'configs/Const';
-import {Colors} from 'configs';
-import TabBar from 'elements/TabBar';
+import Text from '../../elements/Text';
+import {width} from '../../configs/Const';
+import {Colors} from '../../configs';
+import TabBar from '../../elements/TabBar';
 import AnimatedCircle from './AnimatedCircle';
-import Theme from 'style/Theme';
+import Theme from '../../style/Theme';
 import ReviewItem from './ReviewItem';
-import {ICON} from 'images/Icon';
-import Container from 'elements/Layout/Container';
-import {useTheme} from 'configs/ChangeTheme'
+import {ICON} from '../../images/Icon';
+import Container from '../../elements/Layout/Container';
+import {useTheme} from '../../configs/ChangeTheme'
 
 
 interface Props {

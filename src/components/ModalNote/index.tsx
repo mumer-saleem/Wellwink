@@ -1,10 +1,10 @@
 import React, {Dispatch, memo, SetStateAction} from 'react';
 import {View, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
-import Text from 'elements/Text';
+import Text from '../../elements/Text';
 import Animated from 'react-native-reanimated';
-import {Colors} from 'configs';
-import {useKeyboardShowTranslation} from 'hooks/useKeyboardShowTranslation';
-import Layout from 'elements/Layout/Layout';
+import {Colors} from '../../configs';
+import {useKeyboardShowTranslation} from '../../hooks/useKeyboardShowTranslation';
+import Layout from '../../elements/Layout/Layout';
 interface ModalNoteProps {
   note: string;
   setNote: Dispatch<SetStateAction<string>>;

@@ -6,15 +6,15 @@ import {
   Image,
   ViewStyle,
 } from 'react-native';
-import Text from 'elements/Text';
-import TextInput from 'elements/TextInput';
-import {Colors} from 'configs';
-import Theme from 'style/Theme';
-import {width} from 'configs/Const';
-import {ICON} from 'images/Icon';
-import {TcodeArea} from 'type/codeArea';
-import Layout from 'elements/Layout/Layout';
-import {useTheme} from 'configs/ChangeTheme'
+import Text from '../../elements/Text';
+import TextInput from '../../elements/TextInput';
+import {Colors} from '../../configs';
+import Theme from '../../style/Theme';
+import {width} from '../../configs/Const';
+import {ICON} from '../../images/Icon';
+import {TcodeArea} from '../../type/codeArea';
+import Layout from '../../elements/Layout/Layout';
+import {useTheme} from '../../configs/ChangeTheme'
 
 interface InputItemProps {
   id?: number;

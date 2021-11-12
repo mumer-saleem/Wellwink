@@ -1,9 +1,9 @@
 import React, {memo} from 'react';
 import {TouchableOpacity, StyleSheet, Image} from 'react-native';
-import Text from 'elements/Text';
-import Theme from 'style/Theme';
-import {ICON} from 'images/Icon';
-import {Colors, Routes} from 'configs';
+import Text from '../../elements/Text';
+import Theme from '../../style/Theme';
+import {ICON} from '../../images/Icon';
+import {Colors, Routes} from '../../configs';
 import {useNavigation} from '@react-navigation/native';
 
 interface ServiceItemProps {

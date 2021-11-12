@@ -1,10 +1,10 @@
 import React, {memo} from 'react';
 import {View, StyleSheet} from 'react-native';
-import Text from 'elements/Text';
-import Theme from 'style/Theme';
-import {Colors} from 'configs';
-import ImageBackgroundCustom from 'components/TodayTasks/ImageBackgroundCustom';
-import Container from 'elements/Layout/Container';
+import Text from '../../../elements/Text';
+import Theme from '../../../style/Theme';
+import {Colors} from '../../../configs';
+import ImageBackgroundCustom from '../../../components/TodayTasks/ImageBackgroundCustom';
+import Container from '../../../elements/Layout/Container';
 
 interface ConsultForTodayProps {
   step: number;

@@ -1,14 +1,14 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, FlatList, Modal} from 'react-native';
-import keyExtractor from 'utils/keyExtractor';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
-import SearchBox from 'elements/SearchBox';
-import useModalWithKeyboard from 'hooks/useModalWithKeyboard';
-import {Colors} from 'configs';
-import Theme from 'style/Theme';
-import ContactDoctorItem from 'components/ContactDoctorItem';
-import ModalInNetworkFilter from 'components/ModalInNetworkFilter';
-import Container from 'elements/Layout/Container';
+import keyExtractor from '../../utils/keyExtractor';
+import ButtonIconHeader from '../../elements/Buttons/ButtonIconHeader';
+import SearchBox from '../../elements/SearchBox';
+import useModalWithKeyboard from '../../hooks/useModalWithKeyboard';
+import {Colors} from '../../configs';
+import Theme from '../../style/Theme';
+import ContactDoctorItem from '../../components/ContactDoctorItem';
+import ModalInNetworkFilter from '../../components/ModalInNetworkFilter';
+import Container from '../../elements/Layout/Container';
 
 interface InNetworkProps {
   inNetwork: any;

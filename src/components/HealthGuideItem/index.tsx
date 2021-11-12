@@ -6,10 +6,10 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import {Colors} from 'configs';
-import Theme from 'style/Theme';
-import Text from 'elements/Text';
-import {ICON} from 'images/Icon';
+import {Colors} from '../../configs';
+import Theme from '../../style/Theme';
+import Text from '../../elements/Text';
+import {ICON} from '../../images/Icon';
 
 interface HealthGuideProps {
   id?: number;

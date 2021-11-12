@@ -1,14 +1,14 @@
 import React, {memo, useCallback} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import Text from 'elements/Text';
-import {ICON} from 'images/Icon';
-import {Colors, Routes} from 'configs';
-import Theme from 'style/Theme';
-import {width} from 'configs/Const';
+import Text from '../../../elements/Text';
+import {ICON} from '../../../images/Icon';
+import {Colors, Routes} from '../../../configs';
+import Theme from '../../../style/Theme';
+import {width} from '../../../configs/Const';
 import {useNavigation} from '@react-navigation/native';
-import Layout from 'elements/Layout/Layout';
-import {useTheme} from 'configs/ChangeTheme';
-import Line from 'elements/Layout/Line';
+import Layout from '../../../elements/Layout/Layout';
+import {useTheme} from '../../../configs/ChangeTheme';
+import Line from '../../../elements/Layout/Line';
 
 interface FollowingTopicItemProps {}
 
