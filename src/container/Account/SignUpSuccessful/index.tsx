@@ -1,12 +1,12 @@
 import React, {memo, useCallback} from 'react';
 import {View, StyleSheet} from 'react-native';
-import Text from '../../../elements/Text';
-import Theme from '../../../style/Theme';
-import {Colors, Routes} from '../../../configs';
-import scale from '../../../utils/scale';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import Text from 'elements/Text';
+import Theme from 'style/Theme';
+import {Colors, Routes} from 'configs';
+import scale from 'utils/scale';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import {useNavigation} from '@react-navigation/native';
-import Layout from '../../../elements/Layout/Layout';
+import Layout from 'elements/Layout/Layout';
 
 interface SignUpSuccessfulProps {}
 

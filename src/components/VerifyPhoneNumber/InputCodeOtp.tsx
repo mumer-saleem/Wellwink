@@ -7,12 +7,12 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import Text from '../../elements/Text';
-import {Colors, Constants} from '../../configs';
-import Theme from '../../style/Theme';
-import fillNumberLength from '../../utils/convert/fillNumberLength';
-import Container from '../../elements/Layout/Container';
-import Layout from '../../elements/Layout/Layout';
+import Text from 'elements/Text';
+import {Colors, Constants} from 'configs';
+import Theme from 'style/Theme';
+import fillNumberLength from 'utils/convert/fillNumberLength';
+import Container from 'elements/Layout/Container';
+import Layout from 'elements/Layout/Layout';
 interface InputCodeOtpProps {
   style?: ViewStyle;
   codeLength?: number;
@@ -70,7 +70,7 @@ const InputCodeOtp = ({
       {renderInputBox()}
       {code.length === codeLength && (
         <Image
-          source={require('../../images/Icon/ic_accept.png')}
+          source={require('images/Icon/ic_accept.png')}
           style={styles.iconAccept}
         />
       )}

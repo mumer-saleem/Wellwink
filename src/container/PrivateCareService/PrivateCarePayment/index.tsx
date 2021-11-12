@@ -1,22 +1,22 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, Modal} from 'react-native';
-import Theme from '../../../style/Theme';
-import scale from '../../../utils/scale';
-import Colors from '../../../configs/Colors';
+import Theme from 'style/Theme';
+import scale from 'utils/scale';
+import Colors from 'configs/Colors';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {useLayoutEffect} from 'react';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import {width} from '../../../configs/Const';
-import ConfirmPayment from '../../../components/ConfirmPayment';
-import useModalAnimation from '../../../hooks/useModalAnimation';
-import DialogInputCode from '../../../components/DialogInputCode';
-import {Routes} from '../../../configs';
-import {payment} from '../../../type/payment';
-import {DOCTOR_PROFILE} from '../../../configs/Data';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Container from '../../../elements/Layout/Container';
-import Layout from '../../../elements/Layout/Layout';
+import {width} from 'configs/Const';
+import ConfirmPayment from 'components/ConfirmPayment';
+import useModalAnimation from 'hooks/useModalAnimation';
+import DialogInputCode from 'components/DialogInputCode';
+import {Routes} from 'configs';
+import {payment} from 'type/payment';
+import {DOCTOR_PROFILE} from 'configs/Data';
+import {useTheme} from 'configs/ChangeTheme'
+import Container from 'elements/Layout/Container';
+import Layout from 'elements/Layout/Layout';
 
 const PrivateCarePayment = memo(({route}: any) => {
   const {navigate, setOptions} = useNavigation();

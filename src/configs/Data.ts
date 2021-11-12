@@ -1,10 +1,10 @@
-import { Colors } from "../configs";
-import { AVATAR } from "../images/Avatar";
-import { IMAGE } from "../images/Image";
-import { Tasks } from "../type/tasks";
-import { condition } from "../type/condition";
+import { Colors } from "configs";
+import { AVATAR } from "images/Avatar";
+import { IMAGE } from "images/Image";
+import { Tasks } from "type/tasks";
+import { condition } from "type/condition";
 import Routes from "./Routes";
-import { ICON } from "../images/Icon";
+import { ICON } from "images/Icon";
 
 export const phonesAreaCodes = [
   {

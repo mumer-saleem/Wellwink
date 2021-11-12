@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
-import {Colors} from '../configs';
+import {Colors} from 'configs';
 import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
-import scale from '../utils/scale';
+import scale from 'utils/scale';
 
 export default StyleSheet.create({
   flexRowSpace: {

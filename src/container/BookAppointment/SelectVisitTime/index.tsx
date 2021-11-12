@@ -1,16 +1,16 @@
 import React, {memo, useLayoutEffect, useState} from 'react';
 import {View, StyleSheet, ScrollView, Dimensions} from 'react-native';
-import Text from '../../../elements/Text';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import Text from 'elements/Text';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import {useNavigation} from '@react-navigation/native';
-import {Colors, Routes} from '../../../configs';
-import VisitTimeCalendar from '../../../components/Consults/VisitTimeCalendar';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import EditVisitTimeItem from '../../../components/ModalEditVisitTime/EditVisitTimeItem';
-import {VISIT_TIME_LIST} from '../../../configs/Data';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Container from '../../../elements/Layout/Container';
-import Layout from '../../../elements/Layout/Layout';
+import {Colors, Routes} from 'configs';
+import VisitTimeCalendar from 'components/Consults/VisitTimeCalendar';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import EditVisitTimeItem from 'components/ModalEditVisitTime/EditVisitTimeItem';
+import {VISIT_TIME_LIST} from 'configs/Data';
+import {useTheme} from 'configs/ChangeTheme'
+import Container from 'elements/Layout/Container';
+import Layout from 'elements/Layout/Layout';
 
 export default memo(() => {
   const {navigate, setOptions} = useNavigation();

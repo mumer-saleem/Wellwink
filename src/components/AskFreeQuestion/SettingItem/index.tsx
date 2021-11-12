@@ -1,15 +1,15 @@
 import React, {Dispatch, SetStateAction, useCallback} from 'react';
 import {View, Image, TouchableOpacity, StyleSheet} from 'react-native';
-import Text from '../../../elements/Text';
-import {Colors} from '../../../configs';
-import Switch from '../../../elements/Switch';
-import scale from '../../../utils/scale';
-import {condition} from '../../../type/condition';
-import {ICON} from '../../../images/Icon';
-import {useTheme} from '../../../configs/ChangeTheme';
+import Text from 'elements/Text';
+import {Colors} from 'configs';
+import Switch from 'elements/Switch';
+import scale from 'utils/scale';
+import {condition} from 'type/condition';
+import {ICON} from 'images/Icon';
+import {useTheme} from 'configs/ChangeTheme';
 
-import Layout from '../../../elements/Layout/Layout';
-import Container from '../../../elements/Layout/Container';
+import Layout from 'elements/Layout/Layout';
+import Container from 'elements/Layout/Container';
 
 interface Props {
   style?: object;

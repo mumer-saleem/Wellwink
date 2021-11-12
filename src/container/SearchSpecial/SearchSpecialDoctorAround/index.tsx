@@ -1,15 +1,15 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, ScrollView, Image} from 'react-native';
-import Text from '../../../elements/Text';
-import Theme from '../../../style/Theme';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {Colors} from '../../../configs';
-import {height, width} from '../../../configs/Const';
+import Text from 'elements/Text';
+import Theme from 'style/Theme';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {Colors} from 'configs';
+import {height, width} from 'configs/Const';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import {IN_NETWORK} from '../../../configs/Data';
-import ContactDoctorItem from '../../../components/ContactDoctorItem';
-import {IMAGE} from '../../../images/Image';
-import {useTheme} from '../../../configs/ChangeTheme'
+import {IN_NETWORK} from 'configs/Data';
+import ContactDoctorItem from 'components/ContactDoctorItem';
+import {IMAGE} from 'images/Image';
+import {useTheme} from 'configs/ChangeTheme'
 
 export default memo(() => {
   const {theme} = useTheme();

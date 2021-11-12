@@ -1,20 +1,20 @@
 import React, {memo, useLayoutEffect, useState} from 'react';
 import {View, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
-import {Colors, Routes} from '../../configs';
-import Theme from '../../style/Theme';
-import scale from '../../utils/scale';
+import {Colors, Routes} from 'configs';
+import Theme from 'style/Theme';
+import scale from 'utils/scale';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import Text from '../../elements/Text';
-import {DATA_CONDITION} from '../../configs/Data';
-import changeAlias from '../../utils/stringAlias';
+import Text from 'elements/Text';
+import {DATA_CONDITION} from 'configs/Data';
+import changeAlias from 'utils/stringAlias';
 import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
-import SearchBox from '../../elements/SearchBox';
-import ButtonText from '../../elements/Buttons/ButtonText';
-import keyExtractor from '../../utils/keyExtractor';
-import {useTheme} from '../../configs/ChangeTheme'
+import SearchBox from 'elements/SearchBox';
+import ButtonText from 'elements/Buttons/ButtonText';
+import keyExtractor from 'utils/keyExtractor';
+import {useTheme} from 'configs/ChangeTheme'
 
-import Container from '../../elements/Layout/Container';
-import Layout from '../../elements/Layout/Layout';
+import Container from 'elements/Layout/Container';
+import Layout from 'elements/Layout/Layout';
 
 const HealthSearch = memo(({route}: any) => {
   const {navigate, setOptions, goBack} = useNavigation();

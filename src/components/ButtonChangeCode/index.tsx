@@ -1,12 +1,12 @@
 import React, {memo, useCallback} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import Text from '../../elements/Text';
-import Theme from '../../style/Theme';
-import {Colors} from '../../configs';
-import {phonesAreaCodes} from '../../configs/Data';
-import {TcodeArea} from '../../type/codeArea';
-import Layout from '../../elements/Layout/Layout';
-import {themes, useTheme} from '../../configs/ChangeTheme';
+import Text from 'elements/Text';
+import Theme from 'style/Theme';
+import {Colors} from 'configs';
+import {phonesAreaCodes} from 'configs/Data';
+import {TcodeArea} from 'type/codeArea';
+import Layout from 'elements/Layout/Layout';
+import {themes, useTheme} from 'configs/ChangeTheme';
 
 interface ButtonChangeCodeProps {
   codeArea: TcodeArea;
@@ -31,7 +31,7 @@ const ButtonChangeCode = memo((props: ButtonChangeCodeProps) => {
           {codeArea.code}
         </Text>
         <View style={styles.changePhoneCode}>
-          <Image source={require('../../images/Icon/down.png')} />
+          <Image source={require('images/Icon/down.png')} />
         </View>
       </Layout>
     </TouchableOpacity>

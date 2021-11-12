@@ -1,17 +1,17 @@
 import React, {useState, useEffect, useCallback, memo} from 'react';
 import {View, StyleSheet} from 'react-native';
-import Text from '../../../elements/Text';
-import {Colors, Routes} from '../../../configs';
-import Theme from '../../../style/Theme';
-import scale from '../../../utils/scale';
-import InputApp from '../../../elements/InputApp';
-import validationEmail from '../../../utils/validation/email';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import Text from 'elements/Text';
+import {Colors, Routes} from 'configs';
+import Theme from 'style/Theme';
+import scale from 'utils/scale';
+import InputApp from 'elements/InputApp';
+import validationEmail from 'utils/validation/email';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import {useNavigation} from '@react-navigation/native';
 import {useLayoutEffect} from 'react';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Container from '../../../elements/Layout/Container';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {useTheme} from 'configs/ChangeTheme'
+import Container from 'elements/Layout/Container';
 import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
 
 interface ForgetPasswordProps {}

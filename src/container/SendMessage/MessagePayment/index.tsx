@@ -1,11 +1,11 @@
 import React, {memo, useLayoutEffect} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {Colors, Routes} from '../../../configs';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import ConfirmPayment from '../../../components/ConfirmPayment';
-import {DOCTOR_PROFILE} from '../../../configs/Data';
-import {useTheme} from '../../../configs/ChangeTheme'
+import {Colors, Routes} from 'configs';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import ConfirmPayment from 'components/ConfirmPayment';
+import {DOCTOR_PROFILE} from 'configs/Data';
+import {useTheme} from 'configs/ChangeTheme'
 
 interface MessagePaymentProps {}
 

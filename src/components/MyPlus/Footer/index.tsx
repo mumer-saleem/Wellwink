@@ -1,15 +1,15 @@
 import React, {memo, useCallback, useRef, useState} from 'react';
 import {StyleSheet, TouchableOpacity, View, Image} from 'react-native';
-import {Colors} from '../../../configs';
-import QuestionItem from '../../../components/QuestionItem';
+import {Colors} from 'configs';
+import QuestionItem from 'components/QuestionItem';
 import {Transition, Transitioning} from 'react-native-reanimated';
-import Text from '../../../elements/Text';
-import DropList from '../../../components/DropList';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
-import {ICON} from '../../../images/Icon';
-import Theme from '../../../style/Theme';
-import Layout from '../../../elements/Layout/Layout';
-import Line from '../../../elements/Layout/Line';
+import Text from 'elements/Text';
+import DropList from 'components/DropList';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import {ICON} from 'images/Icon';
+import Theme from 'style/Theme';
+import Layout from 'elements/Layout/Layout';
+import Line from 'elements/Layout/Line';
 
 interface FooterProps {
   relatedTopics?: any[];

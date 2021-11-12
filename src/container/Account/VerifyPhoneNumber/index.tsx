@@ -1,18 +1,18 @@
 import React, {memo, useState, useCallback} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import Text from '../../../elements/Text';
-import Theme from '../../../style/Theme';
-import {Colors, Routes} from '../../../configs';
-import scale from '../../../utils/scale';
-import InputCodeOtp from '../../../components/VerifyPhoneNumber/InputCodeOtp';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import Text from 'elements/Text';
+import Theme from 'style/Theme';
+import {Colors, Routes} from 'configs';
+import scale from 'utils/scale';
+import InputCodeOtp from 'components/VerifyPhoneNumber/InputCodeOtp';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import {useNavigation} from '@react-navigation/native';
 import {useLayoutEffect} from 'react';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {useTheme} from '../../../configs/ChangeTheme'
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {useTheme} from 'configs/ChangeTheme'
 import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
-import Container from '../../../elements/Layout/Container';
-import Layout from '../../../elements/Layout/Layout';
+import Container from 'elements/Layout/Container';
+import Layout from 'elements/Layout/Layout';
 
 interface VerifyPhoneNumberProps {}
 
@@ -59,7 +59,7 @@ const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
         style={styles.buttonLinear}
         children={
           <Image
-            source={require('../../../images/Icon/ic_next.png')}
+            source={require('images/Icon/ic_next.png')}
             style={styles.buttonChildren}
           />
         }

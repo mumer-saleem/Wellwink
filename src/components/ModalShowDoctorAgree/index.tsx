@@ -1,11 +1,11 @@
 import React, {memo, useCallback} from 'react';
 import {View, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
-import Text from '../../elements/Text';
-import scale from '../../utils/scale';
-import Theme from '../../style/Theme';
-import {Colors} from '../../configs';
-import DoctorInformation from '../../components/DoctorInformation';
-import Container from '../../elements/Layout/Container';
+import Text from 'elements/Text';
+import scale from 'utils/scale';
+import Theme from 'style/Theme';
+import {Colors} from 'configs';
+import DoctorInformation from 'components/DoctorInformation';
+import Container from 'elements/Layout/Container';
 
 interface ModalShowDoctorAgreeProps {
   data: any;

@@ -1,20 +1,20 @@
 import React, {memo, useState, useCallback} from 'react';
 import {View, StyleSheet, ScrollView, Image} from 'react-native';
-import Text from '../../../elements/Text';
-import Theme from '../../../style/Theme';
-import scale from '../../../utils/scale';
-import {Routes} from '../../../configs';
-import InputApp from '../../../elements/InputApp';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import Text from 'elements/Text';
+import Theme from 'style/Theme';
+import scale from 'utils/scale';
+import {Routes} from 'configs';
+import InputApp from 'elements/InputApp';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import {useNavigation} from '@react-navigation/native';
-import AvatarProfile from '../../../components/UpdateProfile/BasicInformation/AvatarProfile';
+import AvatarProfile from 'components/UpdateProfile/BasicInformation/AvatarProfile';
 import {useLayoutEffect} from 'react';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import Colors from '../../../configs/Colors';
-import {ICON} from '../../../images/Icon';
-import Layout from '../../../elements/Layout/Layout';
-import {useTheme} from '../../../configs/ChangeTheme';
-import Container from '../../../elements/Layout/Container';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import Colors from 'configs/Colors';
+import {ICON} from 'images/Icon';
+import Layout from 'elements/Layout/Layout';
+import {useTheme} from 'configs/ChangeTheme';
+import Container from 'elements/Layout/Container';
 
 const BasicInformation = memo(() => {
   const [firstName, setFirstName] = useState('Devin');

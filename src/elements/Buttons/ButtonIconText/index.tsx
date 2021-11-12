@@ -6,10 +6,10 @@ import {
   Image,
   ColorValue,
 } from 'react-native';
-import Text, {TextProps} from '../../../elements/Text';
-import {Colors} from '../../../configs';
-import Theme from '../../../style/Theme';
-import {ICON} from '../../../images/Icon';
+import Text, {TextProps} from 'elements/Text';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
+import {ICON} from 'images/Icon';
 
 interface ButtonTextProps {
   title?: string;

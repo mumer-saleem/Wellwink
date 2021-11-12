@@ -6,17 +6,17 @@ import {
   Image,
   FlatList,
 } from 'react-native';
-import Text from '../../../elements/Text';
+import Text from 'elements/Text';
 import {useNavigation} from '@react-navigation/native';
-import {Colors} from '../../../configs';
-import Theme from '../../../style/Theme';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
 import NotificationItem, {
   NotificationEnum,
-} from '../../../components/Notification/NotificationItem';
-import keyExtractor from '../../../utils/keyExtractor';
-import Layout from '../../../elements/Layout/Container';
-import {useTheme} from '../../../configs/ChangeTheme';
+} from 'components/Notification/NotificationItem';
+import keyExtractor from 'utils/keyExtractor';
+import Layout from 'elements/Layout/Container';
+import {useTheme} from 'configs/ChangeTheme';
 
 interface NotificationProps {}
 

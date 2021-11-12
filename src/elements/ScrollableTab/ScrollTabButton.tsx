@@ -1,9 +1,9 @@
 import React, {memo, useCallback} from 'react';
 import {TouchableOpacity, StyleSheet, View, TextStyle} from 'react-native';
-import Text from '../../elements/Text';
-import {Colors} from '../../configs';
-import {useTheme} from '../../configs/ChangeTheme';
-import Container from '../../elements/Layout/Container';
+import Text from 'elements/Text';
+import {Colors} from 'configs';
+import {useTheme} from 'configs/ChangeTheme';
+import Container from 'elements/Layout/Container';
 
 interface Props {
   index?: number;

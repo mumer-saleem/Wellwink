@@ -6,9 +6,9 @@ import {
   Image,
   ColorValue,
 } from 'react-native';
-import {Colors} from '../../../configs';
-import Theme from '../../../style/Theme';
-import {ICON} from '../../../images/Icon';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
+import {ICON} from 'images/Icon';
 
 interface ButtonIconProps {
   icon?: any;

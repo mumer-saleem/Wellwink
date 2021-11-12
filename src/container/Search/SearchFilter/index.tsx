@@ -6,21 +6,21 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import Text from '../../../elements/Text';
-import TextInput from '../../../elements/TextInput';
+import Text from 'elements/Text';
+import TextInput from 'elements/TextInput';
 import {useNavigation} from '@react-navigation/native';
-import {Colors} from '../../../configs';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import ButtonText from '../../../elements/Buttons/ButtonText';
+import {Colors} from 'configs';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import ButtonText from 'elements/Buttons/ButtonText';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
-import {ICON} from '../../../images/Icon';
-import CheckBox from '../../../elements/CheckBox';
-import Theme from '../../../style/Theme';
-import TabBar from '../../../elements/TabBar';
-import {useTheme} from '../../../configs/ChangeTheme';
-import Container from '../../../elements/Layout/Container';
-import Layout from '../../../elements/Layout/Layout';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import {ICON} from 'images/Icon';
+import CheckBox from 'elements/CheckBox';
+import Theme from 'style/Theme';
+import TabBar from 'elements/TabBar';
+import {useTheme} from 'configs/ChangeTheme';
+import Container from 'elements/Layout/Container';
+import Layout from 'elements/Layout/Layout';
 
 const SPECIALITY_DATA = [
   {id: 0, name: 'Urology'},

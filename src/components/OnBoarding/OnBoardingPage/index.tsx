@@ -1,8 +1,8 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, Image, ImageSourcePropType} from 'react-native';
-import Text from '../../../elements/Text';
-import {Colors, Constants} from '../../../configs';
-import Layout from '../../../elements/Layout/Layout';
+import Text from 'elements/Text';
+import {Colors, Constants} from 'configs';
+import Layout from 'elements/Layout/Layout';
 interface OnboardingPageProps {
   image: ImageSourcePropType;
   description: string;

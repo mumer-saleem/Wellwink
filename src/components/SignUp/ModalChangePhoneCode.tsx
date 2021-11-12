@@ -6,14 +6,14 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import Text from '../../elements/Text';
-import TextInput from '../../elements/TextInput';
-import scale from '../../utils/scale';
-import Theme from '../../style/Theme';
-import {Colors} from '../../configs';
-import {TcodeArea} from '../../type/codeArea';
-import changeAlias from '../../utils/stringAlias';
-import Layout from '../../elements/Layout/Layout';
+import Text from 'elements/Text';
+import TextInput from 'elements/TextInput';
+import scale from 'utils/scale';
+import Theme from 'style/Theme';
+import {Colors} from 'configs';
+import {TcodeArea} from 'type/codeArea';
+import changeAlias from 'utils/stringAlias';
+import Layout from 'elements/Layout/Layout';
 
 interface ModalChangePhoneCodeProps {
   onChangeCode: (item: TcodeArea) => void;
@@ -69,7 +69,7 @@ const ModalChangePhoneCode = memo(
         <TextInput
           iconLeft={
             <Image
-              source={require('../../images/Icon/ic_search_normal.png')}
+              source={require('images/Icon/ic_search_normal.png')}
               style={styles.iconSearch}
             />
           }

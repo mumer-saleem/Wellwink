@@ -6,12 +6,12 @@ import {
   Image,
   ImageSourcePropType,
 } from 'react-native';
-import Text from '../../../../../elements/Text';
-import {Colors} from '../../../../../configs';
-import Theme from '../../../../../style/Theme';
+import Text from 'elements/Text';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
 import {ItemOption} from '.';
-import {ICON} from '../../../../../images/Icon';
-import Layout from '../../../../../elements/Layout/Layout';
+import {ICON} from 'images/Icon';
+import Layout from 'elements/Layout/Layout';
 
 interface CheckItemProps {
   title: string;

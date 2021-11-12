@@ -1,6 +1,6 @@
 import { useCallback, useState, useRef } from "react";
 import { Animated } from "react-native";
-import { height } from "../configs/Const";
+import { height } from "configs/Const";
 
 const useModalAni = (initValue: boolean = false) => {
   const [visible, setValue] = useState<boolean>(initValue);

@@ -1,18 +1,18 @@
 import React, {memo, useLayoutEffect} from 'react';
 import {View, Image, StyleSheet, ScrollView} from 'react-native';
-import Text from '../../../elements/Text';
-import {ICON} from '../../../images/Icon';
-import {Colors} from '../../../configs';
-import Theme from '../../../style/Theme';
+import Text from 'elements/Text';
+import {ICON} from 'images/Icon';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
 import {useNavigation} from '@react-navigation/native';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {width} from '../../../configs/Const';
-import InputItem from '../../../components/InputItem';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {width} from 'configs/Const';
+import InputItem from 'components/InputItem';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import {useTheme} from '../../../configs/ChangeTheme';
-import Content from '../../../elements/Layout/Content';
-import Layout from '../../../elements/Layout/Layout';
-import Line from '../../../elements/Layout/Line';
+import {useTheme} from 'configs/ChangeTheme';
+import Content from 'elements/Layout/Content';
+import Layout from 'elements/Layout/Layout';
+import Line from 'elements/Layout/Line';
 
 const BASIC_INFOMATION_DATA = [
   {

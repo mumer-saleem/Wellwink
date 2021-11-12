@@ -1,9 +1,9 @@
 import React, { memo } from "react";
 import { View, StyleSheet } from "react-native";
-import StatusScreenItem from "../../../components/StatusScreenItem";
-import ButtonLinear from "../../../elements/Buttons/ButtonLinear";
+import StatusScreenItem from "components/StatusScreenItem";
+import ButtonLinear from "elements/Buttons/ButtonLinear";
 import { useNavigation } from "@react-navigation/native";
-import { Routes } from "../../../configs";
+import { Routes } from "configs";
 
 export default memo(() => {
   const { navigate } = useNavigation();

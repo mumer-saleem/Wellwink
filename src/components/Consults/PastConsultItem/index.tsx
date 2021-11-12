@@ -7,14 +7,14 @@ import {
   TouchableOpacity,
   ViewStyle,
 } from 'react-native';
-import Text from '../../../elements/Text';
-import {Colors, Constants, Routes} from '../../../configs';
-import Theme from '../../../style/Theme';
-import {ConsultsStatus, ConsultsType} from '../../../configs/Const';
+import Text from 'elements/Text';
+import {Colors, Constants, Routes} from 'configs';
+import Theme from 'style/Theme';
+import {ConsultsStatus, ConsultsType} from 'configs/Const';
 import {useLinkProps, useNavigation} from '@react-navigation/native';
-import {consult} from '../../../type/consult';
-import {ICON} from '../../../images/Icon';
-import {useTheme} from '../../../configs/ChangeTheme'
+import {consult} from 'type/consult';
+import {ICON} from 'images/Icon';
+import {useTheme} from 'configs/ChangeTheme'
 
 export interface PastConsultsItemProps {
   id: number;

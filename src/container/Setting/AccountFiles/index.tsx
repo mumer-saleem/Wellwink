@@ -1,20 +1,20 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {Colors} from '../../../configs';
-import {ICON} from '../../../images/Icon';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {Colors} from 'configs';
+import {ICON} from 'images/Icon';
 import React, {memo, useCallback, useLayoutEffect, useState} from 'react';
 import {FlatList, View, StyleSheet, Modal} from 'react-native';
-import Text from '../../../elements/Text';
-import FilesItem from '../../../components/FilesItem';
-import keyExtractor from '../../../utils/keyExtractor';
-import {height} from '../../../configs/Const';
-import useModalWithKeyboard from '../../../hooks/useModalWithKeyboard';
-import ModalSelect from '../../../components/ModalSelect';
-import ModalAddNewFile from '../../../components/ModalAddNewFile';
-import {FILE_EXAMPLES} from '../../../configs/Data';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Container from '../../../elements/Layout/Container';
-import Layout from '../../../elements/Layout/Layout';
+import Text from 'elements/Text';
+import FilesItem from 'components/FilesItem';
+import keyExtractor from 'utils/keyExtractor';
+import {height} from 'configs/Const';
+import useModalWithKeyboard from 'hooks/useModalWithKeyboard';
+import ModalSelect from 'components/ModalSelect';
+import ModalAddNewFile from 'components/ModalAddNewFile';
+import {FILE_EXAMPLES} from 'configs/Data';
+import {useTheme} from 'configs/ChangeTheme'
+import Container from 'elements/Layout/Container';
+import Layout from 'elements/Layout/Layout';
 
 const menuOptions = [
   {

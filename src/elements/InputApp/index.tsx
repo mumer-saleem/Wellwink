@@ -1,9 +1,9 @@
 import React, {Dispatch, SetStateAction, memo} from 'react';
 import {View, StyleSheet, ViewStyle, TouchableOpacity} from 'react-native';
-import Text from '../../elements/Text';
-import TextInput from '../../elements/TextInput';
-import {Colors} from '../../configs';
-import {themes, useTheme} from '../../configs/ChangeTheme';
+import Text from 'elements/Text';
+import TextInput from 'elements/TextInput';
+import {Colors} from 'configs';
+import {themes, useTheme} from 'configs/ChangeTheme';
 
 interface InputAppProps {
   value: string;

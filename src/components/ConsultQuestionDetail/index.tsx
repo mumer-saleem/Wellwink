@@ -1,12 +1,12 @@
 import React, { memo } from "react";
 import { View, StyleSheet, ViewStyle } from "react-native";
-import Text from "../../elements/Text";
-import TextInput from "../../elements/TextInput";
-import { Colors } from "../../configs";
-import ButtonBorder from "../../elements/Buttons/ButtonBorder";
-import Theme from "../../style/Theme";
-import AttachItem from "../../components/BookAppointment/AttachItem";
-import { ICON } from "../../images/Icon";
+import Text from "elements/Text";
+import TextInput from "elements/TextInput";
+import { Colors } from "configs";
+import ButtonBorder from "elements/Buttons/ButtonBorder";
+import Theme from "style/Theme";
+import AttachItem from "components/BookAppointment/AttachItem";
+import { ICON } from "images/Icon";
 
 interface ConsultQuestionDetailProps {
   style?: ViewStyle;

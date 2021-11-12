@@ -1,20 +1,20 @@
 import React, {memo, useCallback, useLayoutEffect, useState} from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
-import Text from '../../../elements/Text';
+import Text from 'elements/Text';
 import {useNavigation} from '@react-navigation/native';
-import {Colors} from '../../../configs';
-import Theme from '../../../style/Theme';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import ConsultCalendar from '../../../components/Consults/ConsultCalendar';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import ConsultCalendar from 'components/Consults/ConsultCalendar';
 import {
   NEXT_CONSULT_DATA_ANOTHER,
   NEXT_CONSULT_DATA,
-} from '../../../components/Consults/NextConsults';
-import NextConsultItem from '../../../components/Consults/NextConsultItem';
-import Container from '../../../elements/Layout/Container';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Layout from '../../../elements/Layout/Layout';
-import Content from '../../../elements/Layout/Content';
+} from 'components/Consults/NextConsults';
+import NextConsultItem from 'components/Consults/NextConsultItem';
+import Container from 'elements/Layout/Container';
+import {useTheme} from 'configs/ChangeTheme'
+import Layout from 'elements/Layout/Layout';
+import Content from 'elements/Layout/Content';
 
 export default memo((props: any) => {
   const {setOptions, navigate} = useNavigation();

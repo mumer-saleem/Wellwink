@@ -1,16 +1,16 @@
 import React, {memo, useCallback, useState} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import Text from '../../elements/Text';
+import Text from 'elements/Text';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import {Colors} from '../../configs';
-import scale from '../../utils/scale';
-import Theme from '../../style/Theme';
-import ButtonBorder from '../../elements/Buttons/ButtonBorder';
-import ButtonLinear from '../../elements/Buttons/ButtonLinear';
+import {Colors} from 'configs';
+import scale from 'utils/scale';
+import Theme from 'style/Theme';
+import ButtonBorder from 'elements/Buttons/ButtonBorder';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import InputApp from 'elements/InputApp';
-import {dataPerson} from '../../type/healthyQuestion';
-import {ICON} from '../../images/Icon';
-import Line from '../../elements/Layout/Line';
+import {dataPerson} from 'type/healthyQuestion';
+import {ICON} from 'images/Icon';
+import Line from 'elements/Layout/Line';
 
 interface Props {
   idCurrent?: number;

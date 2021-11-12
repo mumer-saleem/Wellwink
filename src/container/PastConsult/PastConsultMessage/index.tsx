@@ -1,22 +1,22 @@
 import React, {memo, useLayoutEffect} from 'react';
-import Text from '../../../elements/Text';
+import Text from 'elements/Text';
 import {View, StyleSheet, Image, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {Colors} from '../../../configs';
-import Theme from '../../../style/Theme';
-import SubtitleItem from '../../../components/Consults/SubtilteItem';
-import ButtonBorder from '../../../elements/Buttons/ButtonBorder';
-import AdditionalInformationItem from '../../../components/Consults/AdditionalInformationItem';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
-import DoctorInformation from '../../../components/DoctorInformation';
-import {useTheme} from '../../../configs/ChangeTheme';
-import Layout from '../../../elements/Layout/Layout';
-import Content from '../../../elements/Layout/Content';
-import {width} from '../../../configs/Const';
-import Container from '../../../elements/Layout/Container';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
+import SubtitleItem from 'components/Consults/SubtilteItem';
+import ButtonBorder from 'elements/Buttons/ButtonBorder';
+import AdditionalInformationItem from 'components/Consults/AdditionalInformationItem';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import DoctorInformation from 'components/DoctorInformation';
+import {useTheme} from 'configs/ChangeTheme';
+import Layout from 'elements/Layout/Layout';
+import Content from 'elements/Layout/Content';
+import {width} from 'configs/Const';
+import Container from 'elements/Layout/Container';
 import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
-import scale from '../../../utils/scale';
+import scale from 'utils/scale';
 
 export default memo(({route}: any) => {
   const {setOptions} = useNavigation();

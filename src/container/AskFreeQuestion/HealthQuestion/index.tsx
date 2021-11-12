@@ -8,29 +8,29 @@ import {
   Modal,
   ScrollView,
 } from 'react-native';
-import {Colors, Routes} from '../../../configs';
-import Theme from '../../../style/Theme';
-import scale from '../../../utils/scale';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import {Colors, Routes} from 'configs';
+import Theme from 'style/Theme';
+import scale from 'utils/scale';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
 import {useNavigation, useFocusEffect} from '@react-navigation/native';
-import Text from '../../../elements/Text';
-import TouchablePerson from '../../../components/TouchablePerson';
-import TextInputQuestion from '../../../components/TextInputQuestion';
-import AdditionInfo from '../../../components/AdditionInfo';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
-import ModalAddSomeone from '../../../components/ModalAddSomeone';
-import useModalAnimation from '../../../hooks/useModalAnimation';
-import ModalSlideBottom from '../../../components/ModalSlideBottom';
-import {dataPerson, dataAddition} from '../../../type/healthyQuestion';
-import {DATA_ADDITION, DATA_PERSON, DATA_CONDITION} from '../../../configs/Data';
-import {ICON} from '../../../images/Icon';
-import ModalCondition from '../../../components/ModalCondition';
-import {condition} from '../../../type/condition';
-import ModalMenuOption from '../../../components/ModalMenuOption';
-import ModalSuggestSimilarQuestion from '../../../components/AskFreeQuestion/ModalSuggestSimilarQuestion';
-import {useTheme} from '../../../configs/ChangeTheme';
-import Content from '../../../elements/Layout/Content';
-import Container from '../../../elements/Layout/Container';
+import Text from 'elements/Text';
+import TouchablePerson from 'components/TouchablePerson';
+import TextInputQuestion from 'components/TextInputQuestion';
+import AdditionInfo from 'components/AdditionInfo';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import ModalAddSomeone from 'components/ModalAddSomeone';
+import useModalAnimation from 'hooks/useModalAnimation';
+import ModalSlideBottom from 'components/ModalSlideBottom';
+import {dataPerson, dataAddition} from 'type/healthyQuestion';
+import {DATA_ADDITION, DATA_PERSON, DATA_CONDITION} from 'configs/Data';
+import {ICON} from 'images/Icon';
+import ModalCondition from 'components/ModalCondition';
+import {condition} from 'type/condition';
+import ModalMenuOption from 'components/ModalMenuOption';
+import ModalSuggestSimilarQuestion from 'components/AskFreeQuestion/ModalSuggestSimilarQuestion';
+import {useTheme} from 'configs/ChangeTheme';
+import Content from 'elements/Layout/Content';
+import Container from 'elements/Layout/Container';
 
 const HealthQuestion = memo(({route}: any) => {
   const {setOptions, navigate} = useNavigation();

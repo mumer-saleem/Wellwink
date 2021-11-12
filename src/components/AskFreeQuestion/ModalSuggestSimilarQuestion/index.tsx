@@ -1,14 +1,14 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, Image, FlatList} from 'react-native';
-import Text from '../../../elements/Text';
+import Text from 'elements/Text';
 
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import {Colors} from '../../../configs';
-import scale from '../../../utils/scale';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
-import {ICON} from '../../../images/Icon';
-import {DATA_SUGGEST_SIMILAR_QUESTION} from '../../../configs/Data';
-import Line from '../../../elements/Layout/Line';
+import {Colors} from 'configs';
+import scale from 'utils/scale';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import {ICON} from 'images/Icon';
+import {DATA_SUGGEST_SIMILAR_QUESTION} from 'configs/Data';
+import Line from 'elements/Layout/Line';
 interface DataSuggest {
   id: number;
   title: string;

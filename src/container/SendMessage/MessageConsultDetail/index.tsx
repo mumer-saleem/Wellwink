@@ -7,46 +7,46 @@ import {
   Modal,
   TouchableOpacity,
 } from 'react-native';
-import Text from '../../../elements/Text';
-import SubtitleItem from '../../../components/Consults/SubtilteItem';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
-import {ICON} from '../../../images/Icon';
-import Theme from '../../../style/Theme';
+import Text from 'elements/Text';
+import SubtitleItem from 'components/Consults/SubtilteItem';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import {ICON} from 'images/Icon';
+import Theme from 'style/Theme';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import {width} from '../../../configs/Const';
-import {Colors, Routes} from '../../../configs';
-import InputItem from '../../../components/InputItem';
+import {width} from 'configs/Const';
+import {Colors, Routes} from 'configs';
+import InputItem from 'components/InputItem';
 import {useNavigation} from '@react-navigation/native';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import useModalAnimation from '../../../hooks/useModalAnimation';
-import ModalSlideBottom from '../../../components/ModalSlideBottom';
-import ModalChangePhoneCode from '../../../components/SignUp/ModalChangePhoneCode';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import useModalAnimation from 'hooks/useModalAnimation';
+import ModalSlideBottom from 'components/ModalSlideBottom';
+import ModalChangePhoneCode from 'components/SignUp/ModalChangePhoneCode';
 import {
   DATA_ADDITION,
   DATA_CONDITION,
   DATA_PERSON,
   LIST_HEALTH_DATA,
   phonesAreaCodes,
-} from '../../../configs/Data';
-import CheckBox from '../../../elements/CheckBox';
-import AdditionalInformationQuestionItem from '../../../components/BookAppointment/AdditionalInformationQuestion';
-import ModalSelect from '../../../components/ModalSelect';
-import ModalAddNewFile from '../../../components/ModalAddNewFile';
-import useModalWithKeyboard from '../../../hooks/useModalWithKeyboard';
-import ModalChangeHealthData from '../../../components/ModalChangeHealthData';
-import {IMAGE} from '../../../images/Image';
-import ModalProcess from '../../../components/ModalProcess';
-import ImportSuccessful from '../../../components/BookAppointment/ImportSuccessful';
-import ModalAddSomeone from '../../../components/ModalAddSomeone';
-import TouchablePerson from '../../../components/TouchablePerson';
-import scale from '../../../utils/scale';
-import {dataPerson, dataAddition} from '../../../type/healthyQuestion';
-import {condition} from '../../../type/condition';
-import ConsultQuestionDetail from '../../../components/ConsultQuestionDetail';
-import SyncHealth from '../../../components/SyncHealth';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Layout from '../../../elements/Layout/Layout';
-import Container from '../../../elements/Layout/Container';
+} from 'configs/Data';
+import CheckBox from 'elements/CheckBox';
+import AdditionalInformationQuestionItem from 'components/BookAppointment/AdditionalInformationQuestion';
+import ModalSelect from 'components/ModalSelect';
+import ModalAddNewFile from 'components/ModalAddNewFile';
+import useModalWithKeyboard from 'hooks/useModalWithKeyboard';
+import ModalChangeHealthData from 'components/ModalChangeHealthData';
+import {IMAGE} from 'images/Image';
+import ModalProcess from 'components/ModalProcess';
+import ImportSuccessful from 'components/BookAppointment/ImportSuccessful';
+import ModalAddSomeone from 'components/ModalAddSomeone';
+import TouchablePerson from 'components/TouchablePerson';
+import scale from 'utils/scale';
+import {dataPerson, dataAddition} from 'type/healthyQuestion';
+import {condition} from 'type/condition';
+import ConsultQuestionDetail from 'components/ConsultQuestionDetail';
+import SyncHealth from 'components/SyncHealth';
+import {useTheme} from 'configs/ChangeTheme'
+import Layout from 'elements/Layout/Layout';
+import Container from 'elements/Layout/Container';
 
 const ChoosenHealthData = {
   img: IMAGE.fitbitHeart,

@@ -6,22 +6,21 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import Text from '../../../elements/Text';
+import Text from 'elements/Text';
 import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
-import scale from '../../../utils/scale';
-import {Colors, Routes} from '../../../configs';
-import InputApp from '../../../elements/InputApp';
-import Theme from '../../../style/Theme';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
- import validationEmail from '../../../utils/validation/email';
-import {IMAGE} from '../../../images/Image';
-import Container from '../../../elements/Layout/Container';
-import SplashScreen from 'react-native-splash-screen'
+import scale from 'utils/scale';
+import {Colors, Routes} from 'configs';
+import InputApp from 'elements/InputApp';
+import Theme from 'style/Theme';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import {useNavigation} from '@react-navigation/native';
+import validationEmail from 'utils/validation/email';
+import {IMAGE} from 'images/Image';
+import Container from 'elements/Layout/Container';
 
 interface LoginProps {}
 
-export const Login = memo(( props: LoginProps) => {
+const Login = memo((props: LoginProps) => {
   const {navigate} = useNavigation();
   const [email, setEmail] = useState('lehieuds@gmail.com');
   const [password, setPassword] = useState('12345678');
@@ -53,15 +52,12 @@ export const Login = memo(( props: LoginProps) => {
   const onLogInTwitter = useCallback(async () => {
     ///
   }, []);
-  useEffect(()=>{
-    SplashScreen.hide()
-  },[])
 
   return (
     <Container style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.logoApp}>
-          <Image source={IMAGE.logo1} style={styles.logo} resizeMode="center" />
+          <Image source={IMAGE.logo} style={styles.logo} resizeMode="center" />
           <Text type="H5" bold>
             Welcome back!
           </Text>
@@ -73,7 +69,7 @@ export const Login = memo(( props: LoginProps) => {
             onChangeText={setEmail}
             icon={
               <Image
-                source={require('../../../images/Icon/ic_accept.png')}
+                source={require('images/Icon/ic_accept.png')}
                 style={styles.icon}
               />
             }
@@ -87,7 +83,7 @@ export const Login = memo(( props: LoginProps) => {
             marginTop={24}
             icon={
               <Image
-                source={require('../../../images/Icon/ic_eye_on.png')}
+                source={require('images/Icon/ic_eye_on.png')}
                 style={styles.icon}
               />
             }
@@ -118,7 +114,7 @@ export const Login = memo(( props: LoginProps) => {
             onPress={onLogInFacebook}>
             <Image
               style={{width: scale(20), height: scale(20)}}
-              source={require('../../../images/Icon/ic_facebook.png')}
+              source={require('images/Icon/ic_facebook.png')}
             />
             <Text
               white
@@ -134,7 +130,7 @@ export const Login = memo(( props: LoginProps) => {
             onPress={onLogInTwitter}>
             <Image
               style={{width: scale(20), height: scale(20)}}
-              source={require('../../../images/Icon/ic_twitter.png')}
+              source={require('images/Icon/ic_twitter.png')}
             />
             <Text
               white

@@ -1,14 +1,14 @@
 import React, {memo, useCallback} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import Text from '../../../elements/Text';
-import scale from '../../../utils/scale';
-import {Routes} from '../../../configs';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import Text from 'elements/Text';
+import scale from 'utils/scale';
+import {Routes} from 'configs';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import {useNavigation} from '@react-navigation/native';
-import ButtonBorder from '../../../elements/Buttons/ButtonBorder';
-import {IMAGE} from '../../../images/Image';
-import Container from '../../../elements/Layout/Container';
-import {useTheme} from '../../../configs/ChangeTheme';
+import ButtonBorder from 'elements/Buttons/ButtonBorder';
+import {IMAGE} from 'images/Image';
+import Container from 'elements/Layout/Container';
+import {useTheme} from 'configs/ChangeTheme';
 interface SentSuccessQuestionProps {}
 
 const SentSuccessQuestion = memo((props: SentSuccessQuestionProps) => {

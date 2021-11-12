@@ -6,31 +6,31 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import Text from '../../../elements/Text';
-import Theme from '../../../style/Theme';
-import scale from '../../../utils/scale';
-import InputApp from '../../../elements/InputApp';
-import {Colors, Routes} from '../../../configs';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
-import GenderItem from '../../../components/UpdateProfile/BasicInformation/GenderItem';
+import Text from 'elements/Text';
+import Theme from 'style/Theme';
+import scale from 'utils/scale';
+import InputApp from 'elements/InputApp';
+import {Colors, Routes} from 'configs';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import GenderItem from 'components/UpdateProfile/BasicInformation/GenderItem';
 import {useNavigation} from '@react-navigation/native';
-import {ICON} from '../../../images/Icon';
+import {ICON} from 'images/Icon';
 import {useLayoutEffect} from 'react';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Container from '../../../elements/Layout/Container';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {useTheme} from 'configs/ChangeTheme'
+import Container from 'elements/Layout/Container';
 
 interface OtherInformationProps {}
 const genders = [
   {
     id: 1,
     title: 'Male',
-    icon: require('../../../images/Icon/ic_male.png'),
+    icon: require('images/Icon/ic_male.png'),
   },
   {
     id: 0,
     title: 'Female',
-    icon: require('../../../images/Icon/ic_female.png'),
+    icon: require('images/Icon/ic_female.png'),
   },
 ];
 const OtherInformation = memo((props: OtherInformationProps) => {
@@ -104,7 +104,7 @@ const OtherInformation = memo((props: OtherInformationProps) => {
           value={homeAddress}
           iconLeft={
             <Image
-              source={require('../../../images/Icon/ic_pin_map.png')}
+              source={require('images/Icon/ic_pin_map.png')}
               style={Theme.icons}
             />
           }
@@ -117,7 +117,7 @@ const OtherInformation = memo((props: OtherInformationProps) => {
           title={'Continue'}
           children={
             <Image
-              source={require('../../../images/Icon/ic_next.png')}
+              source={require('images/Icon/ic_next.png')}
               style={styles.buttonChildren}
             />
           }

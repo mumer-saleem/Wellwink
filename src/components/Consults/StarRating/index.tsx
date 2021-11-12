@@ -6,9 +6,9 @@ import {
   Image,
   ViewStyle,
 } from "react-native";
-import { ICON } from "../../../images/Icon";
-import { Colors } from "../../../configs";
-import Theme from "../../../style/Theme";
+import { ICON } from "images/Icon";
+import { Colors } from "configs";
+import Theme from "style/Theme";
 
 const starRate = [
   {

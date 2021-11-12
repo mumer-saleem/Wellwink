@@ -1,13 +1,13 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
-import Text from '../../../elements/Text';
-import {width, ConsultsType, ConsultsStatus} from '../../../configs/Const';
-import {Colors} from '../../../configs';
-import {AVATAR} from '../../../images/Avatar';
+import Text from 'elements/Text';
+import {width, ConsultsType, ConsultsStatus} from 'configs/Const';
+import {Colors} from 'configs';
+import {AVATAR} from 'images/Avatar';
 import NextConsultItem from '../NextConsultItem';
-import {IMAGE} from '../../../images/Image';
-import Content from '../../../elements/Layout/Content';
-import Layout from '../../../elements/Layout/Layout';
+import {IMAGE} from 'images/Image';
+import Content from 'elements/Layout/Content';
+import Layout from 'elements/Layout/Layout';
 
 export const NEXT_CONSULT_DATA = [
   {

@@ -6,11 +6,11 @@ import {
   Image,
   ImageSourcePropType,
 } from 'react-native';
-import {Colors} from '../../../configs';
-import scale from '../../../utils/scale';
-import Theme from '../../../style/Theme';
-import Text from '../../../elements/Text';
-import {themes, useTheme} from '../../../configs/ChangeTheme';
+import {Colors} from 'configs';
+import scale from 'utils/scale';
+import Theme from 'style/Theme';
+import Text from 'elements/Text';
+import {themes, useTheme} from 'configs/ChangeTheme';
 
 interface GenderItemProps {
   isChoose?: boolean;

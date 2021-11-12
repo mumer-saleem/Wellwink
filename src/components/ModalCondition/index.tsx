@@ -13,22 +13,22 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import Text from '../../elements/Text';
-import ModalSlideBottom from '../../components/ModalSlideBottom';
+import Text from 'elements/Text';
+import ModalSlideBottom from 'components/ModalSlideBottom';
 
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import {Colors} from '../../configs';
-import scale from '../../utils/scale';
-import Theme from '../../style/Theme';
-import ButtonBorder from '../../elements/Buttons/ButtonBorder';
-import ButtonLinear from '../../elements/Buttons/ButtonLinear';
+import {Colors} from 'configs';
+import scale from 'utils/scale';
+import Theme from 'style/Theme';
+import ButtonBorder from 'elements/Buttons/ButtonBorder';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import {useNavigation} from '@react-navigation/native';
-import InputApp from '../../elements/InputApp';
-import {ICON} from '../../images/Icon';
-import {condition} from '../../type/condition';
+import InputApp from 'elements/InputApp';
+import {ICON} from 'images/Icon';
+import {condition} from 'type/condition';
 import moment from 'moment';
-import Line from '../../elements/Layout/Line';
-import {useTheme} from '../../configs/ChangeTheme';
+import Line from 'elements/Layout/Line';
+import {useTheme} from 'configs/ChangeTheme';
 interface Props {
   open: () => void;
   close: () => void;

@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity, ViewStyle} from 'react-native';
-import Theme from '../../../style/Theme';
-import {Colors} from '../../../configs';
+import Theme from 'style/Theme';
+import {Colors} from 'configs';
 import ButtonBorder from '../ButtonBorder';
-import LinearColors from '../../../elements/LinearColors';
-import Text from '../../../elements/Text';
-import {useTheme} from '../../../configs/ChangeTheme';
+import LinearColors from 'elements/LinearColors';
+import Text from 'elements/Text';
+import {useTheme} from 'configs/ChangeTheme';
 interface ButtonLinearProps {
   title: string;
   style?: ViewStyle;

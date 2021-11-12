@@ -1,11 +1,11 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
-import {width} from '../../../configs/Const';
-import keyExtractor from '../../../utils/keyExtractor';
-import {Colors, Routes} from '../../../configs';
+import {width} from 'configs/Const';
+import keyExtractor from 'utils/keyExtractor';
+import {Colors, Routes} from 'configs';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
 import {useNavigation} from '@react-navigation/native';
-import SavedGuideItem from '../../../components/SavedGuideItem';
+import SavedGuideItem from 'components/SavedGuideItem';
 
 interface Props {
   data?: any;

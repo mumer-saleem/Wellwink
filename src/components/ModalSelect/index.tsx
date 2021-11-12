@@ -1,13 +1,13 @@
-import {width} from '../../configs/Const';
+import {width} from 'configs/Const';
 import React, {memo} from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import Theme from '../../style/Theme';
-import Text from '../../elements/Text';
-import {Colors} from '../../configs';
-import {useTheme} from '../../configs/ChangeTheme'
+import Theme from 'style/Theme';
+import Text from 'elements/Text';
+import {Colors} from 'configs';
+import {useTheme} from 'configs/ChangeTheme'
 
-import Container from '../../elements/Layout/Container';
+import Container from 'elements/Layout/Container';
 
 interface ModalSelectProps {
   close: () => void;

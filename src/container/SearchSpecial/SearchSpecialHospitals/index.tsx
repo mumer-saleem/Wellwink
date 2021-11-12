@@ -6,21 +6,21 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import Text from '../../../elements/Text';
-import TextInput from '../../../elements/TextInput';
+import Text from 'elements/Text';
+import TextInput from 'elements/TextInput';
 import {useNavigation} from '@react-navigation/native';
-import {Colors} from '../../../configs';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {ICON} from '../../../images/Icon';
-import {ALL_HOSPITAL} from '../../../configs/Data';
-import changeAlias from '../../../utils/stringAlias';
-import Theme from '../../../style/Theme';
-import {width} from '../../../configs/Const';
-import HospitalItem from '../../../components/Search/SearchSpecial/HospitalItem';
-import ButtonText from '../../../elements/Buttons/ButtonText';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Container from '../../../elements/Layout/Container';
-import scale from '../../../utils/scale';
+import {Colors} from 'configs';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {ICON} from 'images/Icon';
+import {ALL_HOSPITAL} from 'configs/Data';
+import changeAlias from 'utils/stringAlias';
+import Theme from 'style/Theme';
+import {width} from 'configs/Const';
+import HospitalItem from 'components/Search/SearchSpecial/HospitalItem';
+import ButtonText from 'elements/Buttons/ButtonText';
+import {useTheme} from 'configs/ChangeTheme'
+import Container from 'elements/Layout/Container';
+import scale from 'utils/scale';
 
 export default memo(() => {
   const {setOptions, navigate} = useNavigation();

@@ -8,7 +8,7 @@ import {
 } from "react-native-reanimated";
 import { useMemo, useCallback, useEffect, useState } from "react";
 import { Keyboard, Platform } from "react-native";
-import { runTiming } from "../utils/animations/runTiming";
+import { runTiming } from "utils/animations/runTiming";
 
 export const useKeyboardShowTranslation = (doneButtonHeight?: number) => {
   const clock = new Clock();

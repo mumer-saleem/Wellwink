@@ -1,12 +1,12 @@
 import React, {memo, useCallback, useState} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import Text from '../../../elements/Text';
-import {Colors} from '../../../configs';
-import Theme from '../../../style/Theme';
-import {ICON} from '../../../images/Icon';
-import LinearColors from '../../../elements/LinearColors';
+import Text from 'elements/Text';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
+import {ICON} from 'images/Icon';
+import LinearColors from 'elements/LinearColors';
 import {useFocusEffect} from '@react-navigation/native';
-import Layout from '../../../elements/Layout/Layout';
+import Layout from 'elements/Layout/Layout';
 
 interface ReminderItemProps {
   title: string;

@@ -10,18 +10,18 @@ import {
   TouchableOpacity,
   Modal,
 } from 'react-native';
-import {width} from '../../configs/Const';
-import {Colors, Routes} from '../../configs';
-import scale from '../../utils/scale';
+import {width} from 'configs/Const';
+import {Colors, Routes} from 'configs';
+import scale from 'utils/scale';
 import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
-import Theme from '../../style/Theme';
-import ButtonIconHeader from '../../elements/Buttons/ButtonIconHeader';
-import keyExtractor from '../../utils/keyExtractor';
-import ScrollTabButton from '../../elements/ScrollableTab/ScrollTabButton';
-import Text from '../../elements/Text';
-import {ICON} from '../../images/Icon';
-import {IMAGE} from '../../images/Image';
-import ProfileDoctor from '../../components/DoctorProfile/ProfileDoctor';
+import Theme from 'style/Theme';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import keyExtractor from 'utils/keyExtractor';
+import ScrollTabButton from 'elements/ScrollableTab/ScrollTabButton';
+import Text from 'elements/Text';
+import {ICON} from 'images/Icon';
+import {IMAGE} from 'images/Image';
+import ProfileDoctor from 'components/DoctorProfile/ProfileDoctor';
 import {
   ABOUT,
   DOCTOR_PROFILE,
@@ -30,18 +30,18 @@ import {
   REVIEWS,
   VISIT_TIME,
   IN_NETWORK,
-} from '../../configs/Data';
-import About from '../../components/DoctorProfile/About';
-import Reviews from '../../components/DoctorProfile/Reviews';
-import ServiceItem from '../../components/DoctorProfile/ServiceItem';
-import useModalWithKeyboard from '../../hooks/useModalWithKeyboard';
-import ModalCareServices from '../../components/ModalCareServices';
-import ModalVisitTime from '../../components/ModalVisitTime';
-import Insights from '../../components/DoctorProfile/Insights';
-import InNetwork from '../../components/DoctorProfile/InNetwork';
-import {useTheme} from '../../configs/ChangeTheme'
+} from 'configs/Data';
+import About from 'components/DoctorProfile/About';
+import Reviews from 'components/DoctorProfile/Reviews';
+import ServiceItem from 'components/DoctorProfile/ServiceItem';
+import useModalWithKeyboard from 'hooks/useModalWithKeyboard';
+import ModalCareServices from 'components/ModalCareServices';
+import ModalVisitTime from 'components/ModalVisitTime';
+import Insights from 'components/DoctorProfile/Insights';
+import InNetwork from 'components/DoctorProfile/InNetwork';
+import {useTheme} from 'configs/ChangeTheme'
 
-import Container from '../../elements/Layout/Container';
+import Container from 'elements/Layout/Container';
 
 export default memo(() => {
   const {setOptions, navigate} = useNavigation();

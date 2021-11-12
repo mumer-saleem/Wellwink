@@ -2,8 +2,8 @@ import React, { memo, useCallback } from "react";
 import { ScrollView, TextStyle } from "react-native";
 import ScrollTabButton from "./ScrollTabButton";
 import Animated, { useCode, call } from "react-native-reanimated";
-import { width } from "../../configs/Const";
-import { Colors } from "../../configs";
+import { width } from "configs/Const";
+import { Colors } from "configs";
 
 interface Props {
   scrollX: Animated.Node<number>;

@@ -1,6 +1,6 @@
 import { useCallback, useState, useRef, useEffect, useMemo } from "react";
 import { Animated, Easing, Platform, Keyboard } from "react-native";
-import { height } from "../configs/Const";
+import { height } from "configs/Const";
 
 const useModalWithKeyboard = (initValue: boolean = false) => {
   const [visible, setValue] = useState<boolean>(initValue);
