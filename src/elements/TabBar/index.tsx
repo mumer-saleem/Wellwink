@@ -1,5 +1,5 @@
-import Text from 'elements/Text';
-import {Colors} from 'configs';
+import Text from '../../elements/Text';
+import {Colors} from '../../configs';
 import React, {memo, useCallback} from 'react';
 import {
   View,
@@ -8,8 +8,8 @@ import {
   ViewProps,
   ColorValue,
 } from 'react-native';
-import Theme from 'style/Theme';
-import Layout from 'elements/Layout/Layout';
+import Theme from '../../style/Theme';
+import Layout from '../../elements/Layout/Layout';
 
 interface Props {
   tabs?: string[];

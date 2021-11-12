@@ -6,20 +6,20 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import Text from 'elements/Text';
-import TextInput from 'elements/TextInput';
+import Text from '../../../elements/Text';
+import TextInput from '../../../elements/TextInput';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {IN_NETWORK} from 'configs/Data';
-import {Colors, Routes} from 'configs';
-import {ICON} from 'images/Icon';
+import {IN_NETWORK} from '../../../configs/Data';
+import {Colors, Routes} from '../../../configs';
+import {ICON} from '../../../images/Icon';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import Theme from 'style/Theme';
-import ContactDoctorItem from 'components/ContactDoctorItem';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
-import changeAlias from 'utils/stringAlias';
-import {width} from 'configs/Const';
-import {useTheme} from 'configs/ChangeTheme';
-import Container from 'elements/Layout/Container';
+import Theme from '../../../style/Theme';
+import ContactDoctorItem from '../../../components/ContactDoctorItem';
+import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import changeAlias from '../../../utils/stringAlias';
+import {width} from '../../../configs/Const';
+import {useTheme} from '../../../configs/ChangeTheme';
+import Container from '../../../elements/Layout/Container';
 
 export default memo(() => {
   const {setOptions, navigate} = useNavigation();

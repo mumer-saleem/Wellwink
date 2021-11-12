@@ -8,28 +8,28 @@ import {
   ViewStyle,
   ScrollView,
 } from 'react-native';
-import Text from 'elements/Text';
-import TextInput from 'elements/TextInput';
+import Text from '../../../elements/Text';
+import TextInput from '../../../elements/TextInput';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
-import {Colors} from 'configs';
-import Theme from 'style/Theme';
-import useModalAnimation from 'hooks/useModalAnimation';
-import ButtonIcon from 'elements/Buttons/ButtonIcon';
-import {width} from 'configs/Const';
-import {CHAT_EXAMPLE, FILE_EXAMPLES} from 'configs/Data';
-import ModalSelect from 'components/ModalSelect';
-import {AVATAR} from 'images/Avatar';
+import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import {Colors} from '../../../configs';
+import Theme from '../../../style/Theme';
+import useModalAnimation from '../../../hooks/useModalAnimation';
+import ButtonIcon from '../../../elements/Buttons/ButtonIcon';
+import {width} from '../../../configs/Const';
+import {CHAT_EXAMPLE, FILE_EXAMPLES} from '../../../configs/Data';
+import ModalSelect from '../../../components/ModalSelect';
+import {AVATAR} from '../../../images/Avatar';
 import {now} from 'moment';
 import moment from 'moment';
-import ModalSharedFiles from 'components/ModalSharedFiles';
-import ModalSlideBottom from 'components/ModalSlideBottom';
-import useModalWithKeyboard from 'hooks/useModalWithKeyboard';
-import ModalAddNewFile from 'components/ModalAddNewFile';
-import {IMAGE} from 'images/Image';
-import {ICON} from 'images/Icon';
-import {useTheme} from 'configs/ChangeTheme'
-import Layout from 'elements/Layout/Layout';
+import ModalSharedFiles from '../../../components/ModalSharedFiles';
+import ModalSlideBottom from '../../../components/ModalSlideBottom';
+import useModalWithKeyboard from '../../../hooks/useModalWithKeyboard';
+import ModalAddNewFile from '../../../components/ModalAddNewFile';
+import {IMAGE} from '../../../images/Image';
+import {ICON} from '../../../images/Icon';
+import {useTheme} from '../../../configs/ChangeTheme'
+import Layout from '../../../elements/Layout/Layout';
 
 const choices = [
   {

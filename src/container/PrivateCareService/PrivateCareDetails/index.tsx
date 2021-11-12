@@ -7,43 +7,43 @@ import {
   Modal,
   TouchableOpacity,
 } from 'react-native';
-import {Colors, Routes} from 'configs';
-import Theme from 'style/Theme';
-import scale from 'utils/scale';
+import {Colors, Routes} from '../../../configs';
+import Theme from '../../../style/Theme';
+import scale from '../../../utils/scale';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import Text from 'elements/Text';
+import Text from '../../../elements/Text';
 import {
   DATA_ADDITION,
   DATA_CONDITION,
   DATA_PERSON,
   phonesAreaCodes,
-} from 'configs/Data';
-import {ICON} from 'images/Icon';
+} from '../../../configs/Data';
+import {ICON} from '../../../images/Icon';
 import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
-import TouchablePerson from 'components/TouchablePerson';
-import TextInputQuestion from 'components/TextInputQuestion';
-import AdditionInfo from 'components/AdditionInfo';
-import ButtonChangeCode from 'components/ButtonChangeCode';
+import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import TouchablePerson from '../../../components/TouchablePerson';
+import TextInputQuestion from '../../../components/TextInputQuestion';
+import AdditionInfo from '../../../components/AdditionInfo';
+import ButtonChangeCode from '../../../components/ButtonChangeCode';
 
-import InputApp from 'elements/InputApp';
-import TextInput from 'elements/TextInput';
-import useModalAnimation from 'hooks/useModalAnimation';
+import InputApp from '../../../elements/InputApp';
+import TextInput from '../../../elements/TextInput';
+import useModalAnimation from '../../../hooks/useModalAnimation';
 //type
-import {dataAddition, dataPerson} from 'type/healthyQuestion';
-import {TcodeArea} from 'type/codeArea';
-import {condition} from 'type/condition';
+import {dataAddition, dataPerson} from '../../../type/healthyQuestion';
+import {TcodeArea} from '../../../type/codeArea';
+import {condition} from '../../../type/condition';
 //modal
-import ModalAddSomeone from 'components/ModalAddSomeone';
-import ModalChangePhoneCode from 'components/SignUp/ModalChangePhoneCode';
-import ModalSlideBottom from 'components/ModalSlideBottom';
-import ModalCondition from 'components/ModalCondition';
-import ModalMenuOption from 'components/ModalMenuOption';
-import ConnectionMethod from 'components/PrivateCareService/ConnectionMethod';
-import {useTheme} from 'configs/ChangeTheme'
+import ModalAddSomeone from '../../../components/ModalAddSomeone';
+import ModalChangePhoneCode from '../../../components/SignUp/ModalChangePhoneCode';
+import ModalSlideBottom from '../../../components/ModalSlideBottom';
+import ModalCondition from '../../../components/ModalCondition';
+import ModalMenuOption from '../../../components/ModalMenuOption';
+import ConnectionMethod from '../../../components/PrivateCareService/ConnectionMethod';
+import {useTheme} from '../../../configs/ChangeTheme'
 ;
-import Container from 'elements/Layout/Container';
-import Layout from 'elements/Layout/Layout';
+import Container from '../../../elements/Layout/Container';
+import Layout from '../../../elements/Layout/Layout';
 
 const PrivateCareDetails = memo(({route}: any) => {
   const {navigate, setOptions} = useNavigation();

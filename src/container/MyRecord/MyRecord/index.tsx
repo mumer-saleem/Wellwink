@@ -7,28 +7,28 @@ import React, {
   useState,
 } from 'react';
 import Animated, {Value, event, set} from 'react-native-reanimated';
-import Text from 'elements/Text';
+import Text from '../../../elements/Text';
 import {View, StyleSheet, FlatList, Modal, Platform, Image} from 'react-native';
-import {Colors, Routes} from 'configs';
-import AccountItem from 'components/AccountItem';
-import {ICON} from 'images/Icon';
+import {Colors, Routes} from '../../../configs';
+import AccountItem from '../../../components/AccountItem';
+import {ICON} from '../../../images/Icon';
 import {useFocusEffect} from '@react-navigation/native';
-import keyExtractor from 'utils/keyExtractor';
-import {AVATAR} from 'images/Avatar';
-import Theme from 'style/Theme';
-import {width} from 'configs/Const';
+import keyExtractor from '../../../utils/keyExtractor';
+import {AVATAR} from '../../../images/Avatar';
+import Theme from '../../../style/Theme';
+import {width} from '../../../configs/Const';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import SyncHealth from 'components/SyncHealth';
-import ModalSlideBottom from 'components/ModalSlideBottom';
-import ModalChangeHealthData from 'components/ModalChangeHealthData';
-import {LIST_HEALTH_DATA} from 'configs/Data';
-import useModalAnimation from 'hooks/useModalAnimation';
-import ModalProcess from 'components/ModalProcess';
-import ImportSuccessful from 'components/BookAppointment/ImportSuccessful';
-import ButtonIcon from 'elements/Buttons/ButtonIcon';
-import MyRecordProgressBar from 'components/MyRecord/MyRecordProgressBar';
-import Container from 'elements/Layout/Container';
-import Layout from 'elements/Layout/Layout';
+import SyncHealth from '../../../components/SyncHealth';
+import ModalSlideBottom from '../../../components/ModalSlideBottom';
+import ModalChangeHealthData from '../../../components/ModalChangeHealthData';
+import {LIST_HEALTH_DATA} from '../../../configs/Data';
+import useModalAnimation from '../../../hooks/useModalAnimation';
+import ModalProcess from '../../../components/ModalProcess';
+import ImportSuccessful from '../../../components/BookAppointment/ImportSuccessful';
+import ButtonIcon from '../../../elements/Buttons/ButtonIcon';
+import MyRecordProgressBar from '../../../components/MyRecord/MyRecordProgressBar';
+import Container from '../../../elements/Layout/Container';
+import Layout from '../../../elements/Layout/Layout';
 
 const PROFILE = [
   {

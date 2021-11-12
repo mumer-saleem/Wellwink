@@ -1,4 +1,4 @@
-import {useTheme} from 'configs/ChangeTheme';
+import {useTheme} from '../../configs/ChangeTheme';
 import React from 'react';
 import {
   View as DefaultView,

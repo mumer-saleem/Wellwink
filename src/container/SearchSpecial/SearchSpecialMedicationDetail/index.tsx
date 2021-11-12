@@ -1,20 +1,20 @@
 import React, {memo, useState} from 'react';
 import {View, StyleSheet, Image, ScrollView, Modal} from 'react-native';
-import Text from 'elements/Text';
+import Text from '../../../elements/Text';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
-import Theme from 'style/Theme';
-import {width} from 'configs/Const';
-import {Colors} from 'configs';
-import AccountItem from 'components/AccountItem';
-import {DATA_PERSON, MEDICATION_DETAIL_BUTTON} from 'configs/Data';
-import ForWhoItem from 'components/ForWhoItem';
-import ModalSlideBottom from 'components/ModalSlideBottom';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
-import useModalAnimation from 'hooks/useModalAnimation';
-import ButtonBorder from 'elements/Buttons/ButtonBorder';
-import Container from 'elements/Layout/Container';
-import Content from 'elements/Layout/Content';
+import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import Theme from '../../../style/Theme';
+import {width} from '../../../configs/Const';
+import {Colors} from '../../../configs';
+import AccountItem from '../../../components/AccountItem';
+import {DATA_PERSON, MEDICATION_DETAIL_BUTTON} from '../../../configs/Data';
+import ForWhoItem from '../../../components/ForWhoItem';
+import ModalSlideBottom from '../../../components/ModalSlideBottom';
+import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import useModalAnimation from '../../../hooks/useModalAnimation';
+import ButtonBorder from '../../../elements/Buttons/ButtonBorder';
+import Container from '../../../elements/Layout/Container';
+import Content from '../../../elements/Layout/Content';
 
 const SearchSpecialMedicationDetail = memo(({route}: any) => {
   const {doctor, img, detail} = route.params;

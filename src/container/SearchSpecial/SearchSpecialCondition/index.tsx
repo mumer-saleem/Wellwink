@@ -7,28 +7,28 @@ import {
   ScrollView,
   Modal,
 } from 'react-native';
-import TextInput from 'elements/TextInput';
-import {Colors} from 'configs';
+import TextInput from '../../../elements/TextInput';
+import {Colors} from '../../../configs';
 import {useNavigation, useFocusEffect} from '@react-navigation/native';
-import {ALL_CONDITION, DATA_PERSON} from 'configs/Data';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
-import {ICON} from 'images/Icon';
-import Theme from 'style/Theme';
-import {width} from 'configs/Const';
-import changeAlias from 'utils/stringAlias';
+import {ALL_CONDITION, DATA_PERSON} from '../../../configs/Data';
+import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import {ICON} from '../../../images/Icon';
+import Theme from '../../../style/Theme';
+import {width} from '../../../configs/Const';
+import changeAlias from '../../../utils/stringAlias';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import useModalAnimation from 'hooks/useModalAnimation';
-import SubtitleItem from 'components/Consults/SubtilteItem';
-import TopicItem from 'components/Search/SearchSpecial/TopicItem';
-import ModalAtoZ from 'components/ModalAtoZ';
-import ModalSlideBottom from 'components/ModalSlideBottom';
-import ForWhoItem from 'components/ForWhoItem';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
-import {useTheme} from 'configs/ChangeTheme'
-import scale from 'utils/scale';
-import Container from 'elements/Layout/Container';
-import Content from 'elements/Layout/Content';
-import Layout from 'elements/Layout/Layout';
+import useModalAnimation from '../../../hooks/useModalAnimation';
+import SubtitleItem from '../../../components/Consults/SubtilteItem';
+import TopicItem from '../../../components/Search/SearchSpecial/TopicItem';
+import ModalAtoZ from '../../../components/ModalAtoZ';
+import ModalSlideBottom from '../../../components/ModalSlideBottom';
+import ForWhoItem from '../../../components/ForWhoItem';
+import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import {useTheme} from '../../../configs/ChangeTheme'
+import scale from '../../../utils/scale';
+import Container from '../../../elements/Layout/Container';
+import Content from '../../../elements/Layout/Content';
+import Layout from '../../../elements/Layout/Layout';
 
 export default memo(() => {
   const {setOptions, navigate} = useNavigation();

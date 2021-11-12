@@ -1,5 +1,5 @@
 import React, {memo, useCallback, useLayoutEffect, useState} from 'react';
-import Text from 'elements/Text';
+import Text from '../../../elements/Text';
 import {
   View,
   StyleSheet,
@@ -7,22 +7,22 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {Colors} from 'configs';
-import Theme from 'style/Theme';
-import {ICON} from 'images/Icon';
-import keyExtractor from 'utils/keyExtractor';
-import {height} from 'configs/Const';
-import {IMAGE} from 'images/Image';
-import MyRecordConditionItem from 'components/MyRecord/MyRecordConditionItem';
+import {Colors} from '../../../configs';
+import Theme from '../../../style/Theme';
+import {ICON} from '../../../images/Icon';
+import keyExtractor from '../../../utils/keyExtractor';
+import {height} from '../../../configs/Const';
+import {IMAGE} from '../../../images/Image';
+import MyRecordConditionItem from '../../../components/MyRecord/MyRecordConditionItem';
 import {
   CURRENT_MY_RECORD_CONDITION,
   PAST_MY_RECORD_CONDITION,
-} from 'configs/Data';
-import {useTheme} from 'configs/ChangeTheme';
-import Container from 'elements/Layout/Container';
-import Layout from 'elements/Layout/Layout';
+} from '../../../configs/Data';
+import {useTheme} from '../../../configs/ChangeTheme';
+import Container from '../../../elements/Layout/Container';
+import Layout from '../../../elements/Layout/Layout';
 
 export default memo(() => {
   const [current, setCurrent] = useState<any>([]);

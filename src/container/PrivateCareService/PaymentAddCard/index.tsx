@@ -1,8 +1,8 @@
 import {ThemeProvider, useNavigation} from '@react-navigation/native';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
-import {Colors, Routes} from 'configs';
-import {height, width} from 'configs/Const';
-import {ICON} from 'images/Icon';
+import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import {Colors, Routes} from '../../../configs';
+import {height, width} from '../../../configs/Const';
+import {ICON} from '../../../images/Icon';
 import React, {memo, useCallback, useLayoutEffect, useState} from 'react';
 import {
   View,
@@ -12,16 +12,16 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import scale from 'utils/scale';
-import {IMAGE} from 'images/Image';
-import Text from 'elements/Text';
-import Theme from 'style/Theme';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
-import useKeyboard from 'hooks/useKeyboard';
+import scale from '../../../utils/scale';
+import {IMAGE} from '../../../images/Image';
+import Text from '../../../elements/Text';
+import Theme from '../../../style/Theme';
+import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import useKeyboard from '../../../hooks/useKeyboard';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import {useTheme} from 'configs/ChangeTheme'
+import {useTheme} from '../../../configs/ChangeTheme'
 ;
-import Container from 'elements/Layout/Container';
+import Container from '../../../elements/Layout/Container';
 
 const ArrayNumber = [
   '-',

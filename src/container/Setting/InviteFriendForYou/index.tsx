@@ -1,14 +1,14 @@
 import React, {memo, useCallback, useLayoutEffect, useState} from 'react';
 import {StyleSheet, Image} from 'react-native';
-import Text from 'elements/Text';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
-import {Colors, Routes} from 'configs';
+import Text from '../../../elements/Text';
+import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import {Colors, Routes} from '../../../configs';
 import {useNavigation} from '@react-navigation/native';
-import TextInput from 'elements/TextInput';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
-import {ICON} from 'images/Icon';
-import {useTheme} from 'configs/ChangeTheme'
-import Container from 'elements/Layout/Container';
+import TextInput from '../../../elements/TextInput';
+import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import {ICON} from '../../../images/Icon';
+import {useTheme} from '../../../configs/ChangeTheme'
+import Container from '../../../elements/Layout/Container';
 export default memo(() => {
   const {setOptions, navigate} = useNavigation();
   const [name, setName] = useState<string>('Devin Shelton');

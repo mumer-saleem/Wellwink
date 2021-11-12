@@ -7,27 +7,27 @@ import {
   Modal,
   Animated,
 } from 'react-native';
-import Text from 'elements/Text';
-import {Colors, Routes} from 'configs';
-import Theme from 'style/Theme';
+import Text from '../../../elements/Text';
+import {Colors, Routes} from '../../../configs';
+import Theme from '../../../style/Theme';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
-import {AVATAR} from 'images/Avatar';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
-import {ICON} from 'images/Icon';
-import {IMAGE} from 'images/Image';
-import VideoCallFooter from 'components/PrivateCareService/VideoCallFooter';
-import useModalAnimation from 'hooks/useModalAnimation';
-import IncomingCallFooter from 'components/PrivateCareService/IncomingCallFooter';
-import ModalSlideBottom from 'components/ModalSlideBottom';
-import {FILE_EXAMPLES} from 'configs/Data';
-import ModalSharedFiles from 'components/ModalSharedFiles';
+import {AVATAR} from '../../../images/Avatar';
+import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import {ICON} from '../../../images/Icon';
+import {IMAGE} from '../../../images/Image';
+import VideoCallFooter from '../../../components/PrivateCareService/VideoCallFooter';
+import useModalAnimation from '../../../hooks/useModalAnimation';
+import IncomingCallFooter from '../../../components/PrivateCareService/IncomingCallFooter';
+import ModalSlideBottom from '../../../components/ModalSlideBottom';
+import {FILE_EXAMPLES} from '../../../configs/Data';
+import ModalSharedFiles from '../../../components/ModalSharedFiles';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import ButtonBorder from 'elements/Buttons/ButtonBorder';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import ButtonBorder from '../../../elements/Buttons/ButtonBorder';
+import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
 import PrivateCareLiveChat from '../PrivateCareLiveChat';
-import {height} from 'configs/Const';
-import Container from 'elements/Layout/Container';
-import Layout from 'elements/Layout/Layout';
+import {height} from '../../../configs/Const';
+import Container from '../../../elements/Layout/Container';
+import Layout from '../../../elements/Layout/Layout';
 
 export default memo(() => {
   const {navigate} = useNavigation();

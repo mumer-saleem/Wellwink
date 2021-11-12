@@ -1,22 +1,22 @@
 import React, {memo, useCallback, useLayoutEffect} from 'react';
-import Text from 'elements/Text';
+import Text from '../../../elements/Text';
 import {View, StyleSheet, Image, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
-import {Colors, Routes} from 'configs';
-import Theme from 'style/Theme';
-import SubtitleItem from 'components/Consults/SubtilteItem';
-import ButtonBorder from 'elements/Buttons/ButtonBorder';
-import AdditionalInformationItem from 'components/Consults/AdditionalInformationItem';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import {Colors, Routes} from '../../../configs';
+import Theme from '../../../style/Theme';
+import SubtitleItem from '../../../components/Consults/SubtilteItem';
+import ButtonBorder from '../../../elements/Buttons/ButtonBorder';
+import AdditionalInformationItem from '../../../components/Consults/AdditionalInformationItem';
+import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import DoctorInformation from 'components/DoctorInformation';
-import {useTheme} from 'configs/ChangeTheme';
-import Content from 'elements/Layout/Content';
-import Layout from 'elements/Layout/Layout';
-import Container from 'elements/Layout/Container';
-import {width} from 'configs/Const';
-import scale from 'utils/scale';
+import DoctorInformation from '../../../components/DoctorInformation';
+import {useTheme} from '../../../configs/ChangeTheme';
+import Content from '../../../elements/Layout/Content';
+import Layout from '../../../elements/Layout/Layout';
+import Container from '../../../elements/Layout/Container';
+import {width} from '../../../configs/Const';
+import scale from '../../../utils/scale';
 
 export default memo(({route}: any) => {
   const {setOptions, navigate} = useNavigation();

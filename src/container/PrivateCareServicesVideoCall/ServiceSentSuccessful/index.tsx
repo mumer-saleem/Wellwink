@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import StatusScreenItem from "components/StatusScreenItem";
+import StatusScreenItem from "../../../components/StatusScreenItem";
 
 export default memo(({ route }: any) => {
   const { img, status, thank, notify } = route?.params;

@@ -1,16 +1,16 @@
 import React, {memo, useLayoutEffect} from 'react';
 import {View, StyleSheet} from 'react-native';
-import Text from 'elements/Text';
+import Text from '../../../elements/Text';
 import {useNavigation} from '@react-navigation/native';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
-import {Colors} from 'configs';
-import Theme from 'style/Theme';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
-import {width} from 'configs/Const';
-import {useTheme} from 'configs/ChangeTheme';
-import Layout from 'elements/Layout/Layout';
-import Container from 'elements/Layout/Container';
-import scale from 'utils/scale';
+import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import {Colors} from '../../../configs';
+import Theme from '../../../style/Theme';
+import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import {width} from '../../../configs/Const';
+import {useTheme} from '../../../configs/ChangeTheme';
+import Layout from '../../../elements/Layout/Layout';
+import Container from '../../../elements/Layout/Container';
+import scale from '../../../utils/scale';
 
 export default memo(({route}: any) => {
   const {item, statusName, statusColor} = route?.params;

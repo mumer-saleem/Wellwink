@@ -7,28 +7,28 @@ import {
   ScrollView,
   Modal,
 } from 'react-native';
-import Text from 'elements/Text';
+import Text from '../../../elements/Text';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
-import Theme from 'style/Theme';
-import {Colors, Routes} from 'configs';
-import SubtitleItem from 'components/Consults/SubtilteItem';
-import InputItem from 'components/InputItem';
-import {ICON} from 'images/Icon';
-import ButtonIcon from 'elements/Buttons/ButtonIcon';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
-import ButtonBorder from 'elements/Buttons/ButtonBorder';
-import useModalAnimation from 'hooks/useModalAnimation';
-import ModalSlideBottom from 'components/ModalSlideBottom';
-import ModalChangeList from 'components/ModalChangeList';
-import Calendar from 'components/Schedule/Calendar';
-import TimePickerTouchable from 'components/Consults/TimePickerTouchable';
-import ForWhoItem from 'components/ForWhoItem';
-import {TAKER} from 'configs/Data';
+import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import Theme from '../../../style/Theme';
+import {Colors, Routes} from '../../../configs';
+import SubtitleItem from '../../../components/Consults/SubtilteItem';
+import InputItem from '../../../components/InputItem';
+import {ICON} from '../../../images/Icon';
+import ButtonIcon from '../../../elements/Buttons/ButtonIcon';
+import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import ButtonBorder from '../../../elements/Buttons/ButtonBorder';
+import useModalAnimation from '../../../hooks/useModalAnimation';
+import ModalSlideBottom from '../../../components/ModalSlideBottom';
+import ModalChangeList from '../../../components/ModalChangeList';
+import Calendar from '../../../components/Schedule/Calendar';
+import TimePickerTouchable from '../../../components/Consults/TimePickerTouchable';
+import ForWhoItem from '../../../components/ForWhoItem';
+import {TAKER} from '../../../configs/Data';
 import {themes, useTheme} from '../../../configs/ChangeTheme';
-import Layout from 'elements/Layout/Layout';
-import Content from 'elements/Layout/Content';
-import scale from 'utils/scale';
+import Layout from '../../../elements/Layout/Layout';
+import Content from '../../../elements/Layout/Content';
+import scale from '../../../utils/scale';
 
 export const TIMES = [
   {

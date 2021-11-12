@@ -6,22 +6,22 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
-import Text from 'elements/Text';
-import ScrollableTab from 'elements/ScrollableTab';
-import {Colors, Routes} from 'configs';
+import Text from '../../../elements/Text';
+import ScrollableTab from '../../../elements/ScrollableTab';
+import {Colors, Routes} from '../../../configs';
 import {useNavigation} from '@react-navigation/native';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
-import SearchResultAll from 'components/SearchResult/SearchResultAll';
-import SearchResultAnswers from 'components/SearchResult/SearchResultAnswers';
-import SearchResultDoctors from 'components/SearchResult/SearchResultDoctors';
-import SearchResultTips from 'components/SearchResult/SearchResultTips';
-import SearchResultTopics from 'components/SearchResult/SearchResultTopics';
-import Theme from 'style/Theme';
-import {ICON} from 'images/Icon';
-import ButtonText from 'elements/Buttons/ButtonText';
-import SearchView from 'components/Search/SearchView';
-import Layout from 'elements/Layout/Layout';
-import Container from 'elements/Layout/Container';
+import SearchResultAll from '../../../components/SearchResult/SearchResultAll';
+import SearchResultAnswers from '../../../components/SearchResult/SearchResultAnswers';
+import SearchResultDoctors from '../../../components/SearchResult/SearchResultDoctors';
+import SearchResultTips from '../../../components/SearchResult/SearchResultTips';
+import SearchResultTopics from '../../../components/SearchResult/SearchResultTopics';
+import Theme from '../../../style/Theme';
+import {ICON} from '../../../images/Icon';
+import ButtonText from '../../../elements/Buttons/ButtonText';
+import SearchView from '../../../components/Search/SearchView';
+import Layout from '../../../elements/Layout/Layout';
+import Container from '../../../elements/Layout/Container';
 
 const SearchResult = memo(({route}: any) => {
   const {navigate} = useNavigation();

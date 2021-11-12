@@ -1,13 +1,13 @@
 import React, { memo, useCallback } from "react";
 import { View, StyleSheet, Image } from "react-native";
-import { Colors, Routes } from "configs";
-import HeaderButton from "elements/HeaderButton";
-import scale from "utils/scale";
-import Text from "elements/Text";
-import ButtonLinear from "elements/Buttons/ButtonLinear";
+import { Colors, Routes } from "../../../configs";
+import HeaderButton from "../../../elements/HeaderButton";
+import scale from "../../../utils/scale";
+import Text from "../../../elements/Text";
+import ButtonLinear from "../../../elements/Buttons/ButtonLinear";
 import { useNavigation } from "@react-navigation/native";
-import { IMAGE } from "images/Image";
-import Layout from "elements/Layout/Layout";
+import { IMAGE } from "../../../images/Image";
+import Layout from "../../../elements/Layout/Layout";
 
 const TodayTasksEmpty = memo(() => {
   const { navigate, goBack } = useNavigation();

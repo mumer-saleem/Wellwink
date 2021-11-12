@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { StyleSheet } from "react-native";
-import StatusScreenItem from "components/StatusScreenItem";
+import StatusScreenItem from "../../../components/StatusScreenItem";
 import { useNavigation } from "@react-navigation/native";
 
 export default memo(() => {

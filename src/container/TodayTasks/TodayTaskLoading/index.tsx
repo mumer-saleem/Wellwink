@@ -1,10 +1,10 @@
 import React, {memo} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {Colors} from 'configs';
-import Theme from 'style/Theme';
-import scale from 'utils/scale';
-import TodayTasksItemLoading from 'components/TodayTasks/TodayTaskItemLoading';
-import Layout from 'elements/Layout/Layout';
+import {Colors} from '../../../configs';
+import Theme from '../../../style/Theme';
+import scale from '../../../utils/scale';
+import TodayTasksItemLoading from '../../../components/TodayTasks/TodayTaskItemLoading';
+import Layout from '../../../elements/Layout/Layout';
 
 const TodayTasksLoading = memo(() => {
   return (

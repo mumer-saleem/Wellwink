@@ -1,20 +1,20 @@
 import React, {memo, useLayoutEffect} from 'react';
-import Text from 'elements/Text';
+import Text from '../../../elements/Text';
 import {View, StyleSheet, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
-import {Colors} from 'configs';
-import Theme from 'style/Theme';
-import SubtitleItem from 'components/Consults/SubtilteItem';
-import ButtonBorder from 'elements/Buttons/ButtonBorder';
-import AdditionalInformationItem from 'components/Consults/AdditionalInformationItem';
-import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import {Colors} from '../../../configs';
+import Theme from '../../../style/Theme';
+import SubtitleItem from '../../../components/Consults/SubtilteItem';
+import ButtonBorder from '../../../elements/Buttons/ButtonBorder';
+import AdditionalInformationItem from '../../../components/Consults/AdditionalInformationItem';
+import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import StarRating from 'components/Consults/StarRating';
-import DoctorInformation from 'components/DoctorInformation';
-import {useTheme} from 'configs/ChangeTheme'
-import Container from 'elements/Layout/Container';
-import Content from 'elements/Layout/Content';
+import StarRating from '../../../components/Consults/StarRating';
+import DoctorInformation from '../../../components/DoctorInformation';
+import {useTheme} from '../../../configs/ChangeTheme'
+import Container from '../../../elements/Layout/Container';
+import Content from '../../../elements/Layout/Content';
 
 export default memo(({route}: any) => {
   const {setOptions, navigate} = useNavigation();
