@@ -1,8 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-
-import React, {memo} from 'react';
+  import React, {memo} from 'react';
  import {Routes} from 'configs';
 import Login from 'container/Account/Login';
 import ForgetPassword from 'container/Account/ForgetPassword';

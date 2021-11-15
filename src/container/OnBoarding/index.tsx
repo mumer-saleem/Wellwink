@@ -1,4 +1,4 @@
-import React, {memo, useCallback} from 'react';
+import React, {memo, useCallback,useEffect} from 'react';
 import {View, StyleSheet} from 'react-native';
 import Theme from 'style/Theme';
 import LinearColors from 'elements/LinearColors';
@@ -12,6 +12,7 @@ import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
 import {useNavigation} from '@react-navigation/native';
 import {ONBOARDING} from 'configs/Data';
 import Container from 'elements/Layout/Container';
+import SplashScreen from 'react-native-splash-screen'
 
 interface OnBoardingProps {}
 
@@ -27,7 +28,9 @@ const OnBoarding = memo((props: OnBoardingProps) => {
     navigate(Routes.SignUp);
   }, [navigate]);
   const onGetHere = useCallback(() => {}, []);
-
+  useEffect(() => {
+    SplashScreen.hide()
+  }, [])
   return (
     <View style={styles.container}>
       <LinearColors
