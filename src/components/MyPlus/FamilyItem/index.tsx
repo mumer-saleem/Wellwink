@@ -1,9 +1,9 @@
 import React, {memo} from 'react';
 import {TouchableOpacity, StyleSheet, Image} from 'react-native';
-import Text from '../../../elements/Text';
-import {Colors} from '../../../configs';
-import Theme from '../../../style/Theme';
-import {useTheme} from '../../../configs/ChangeTheme'
+import Text from 'elements/Text';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
+import {useTheme} from 'configs/ChangeTheme'
 
 interface FamilyItemProps {
   style?: any;

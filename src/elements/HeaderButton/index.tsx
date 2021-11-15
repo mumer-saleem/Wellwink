@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { View, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import Theme from "../../style/Theme";
-import { Colors } from "../../configs";
+import Theme from "style/Theme";
+import { Colors } from "configs";
 
 interface HeaderButtonProps {}
 

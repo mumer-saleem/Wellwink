@@ -1,6 +1,4 @@
-const Colors = { 
-
-  appColor:  '#12b2b3',
+const Colors = {
   Dark: 'rgba(20, 20, 21, 1)',
   Beluga: 'rgba(27, 27, 28, 1)',
   White: '#FFFFFF',

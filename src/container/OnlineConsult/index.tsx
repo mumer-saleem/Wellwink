@@ -1,20 +1,20 @@
 import React, {memo, useLayoutEffect} from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
-import Text from '../../elements/Text';
-import Theme from '../../style/Theme';
-import scale from '../../utils/scale';
+import Text from 'elements/Text';
+import Theme from 'style/Theme';
+import scale from 'utils/scale';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import ButtonArrowRight from '../../components/OnlineConsult/ButtonArrowRight';
-import ContactDoctorItem from '../../components/ContactDoctorItem';
-import {IN_NETWORK} from '../../configs/Data';
+import ButtonArrowRight from 'components/OnlineConsult/ButtonArrowRight';
+import ContactDoctorItem from 'components/ContactDoctorItem';
+import {IN_NETWORK} from 'configs/Data';
 import {useNavigation} from '@react-navigation/native';
-import {Routes} from '../../configs';
-import ButtonIconHeader from '../../elements/Buttons/ButtonIconHeader';
-import Colors from '../../configs/Colors';
-import keyExtractor from '../../utils/keyExtractor';
-import {useTheme} from '../../configs/ChangeTheme'
+import {Routes} from 'configs';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import Colors from 'configs/Colors';
+import keyExtractor from 'utils/keyExtractor';
+import {useTheme} from 'configs/ChangeTheme'
 
-import Container from '../../elements/Layout/Container';
+import Container from 'elements/Layout/Container';
 
 const OnlineConsult = memo(() => {
   const {navigate, setOptions} = useNavigation();

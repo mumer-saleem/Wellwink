@@ -1,19 +1,19 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity, Modal} from 'react-native';
-import Theme from '../../../style/Theme';
-import scale from '../../../utils/scale';
-import Colors from '../../../configs/Colors';
+import Theme from 'style/Theme';
+import scale from 'utils/scale';
+import Colors from 'configs/Colors';
 import {useNavigation} from '@react-navigation/native';
 import {useLayoutEffect} from 'react';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import Text from '../../../elements/Text';
-import {ICON} from '../../../images/Icon';
-import useModalAnimation from '../../../hooks/useModalAnimation';
-import DialogConfirm from '../../../components/DialogConfirm';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import Text from 'elements/Text';
+import {ICON} from 'images/Icon';
+import useModalAnimation from 'hooks/useModalAnimation';
+import DialogConfirm from 'components/DialogConfirm';
 
-import {useTheme} from '../../../configs/ChangeTheme'
-import Container from '../../../elements/Layout/Container';
-import Layout from '../../../elements/Layout/Layout';
+import {useTheme} from 'configs/ChangeTheme'
+import Container from 'elements/Layout/Container';
+import Layout from 'elements/Layout/Layout';
 
 const PaymentSuccessful = memo(({route}: any) => {
   const {navigate, setOptions} = useNavigation();

@@ -1,19 +1,19 @@
 import React, {memo, useCallback, useEffect, useState} from 'react';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {View, StyleSheet, Image} from 'react-native';
-import {Colors, Routes} from '../../../configs';
-import Theme from '../../../style/Theme';
-import HeaderButton from '../../../elements/HeaderButton';
-import scale from '../../../utils/scale';
-import Text from '../../../elements/Text';
-import ItemPage from '../../../components/TodayTasks/ItemPage';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
-import {Tasks} from '../../../type/tasks';
-import {ICON} from '../../../images/Icon';
+import {Colors, Routes} from 'configs';
+import Theme from 'style/Theme';
+import HeaderButton from 'elements/HeaderButton';
+import scale from 'utils/scale';
+import Text from 'elements/Text';
+import ItemPage from 'components/TodayTasks/ItemPage';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import {Tasks} from 'type/tasks';
+import {ICON} from 'images/Icon';
 import {useLayoutEffect} from 'react';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import Layout from '../../../elements/Layout/Layout';
-import {useTheme} from '../../../configs/ChangeTheme';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import Layout from 'elements/Layout/Layout';
+import {useTheme} from 'configs/ChangeTheme';
 
 const TodayTasksDetail = memo(({route}: any) => {
   const {navigate, setOptions} = useNavigation();

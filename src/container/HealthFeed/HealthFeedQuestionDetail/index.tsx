@@ -1,31 +1,31 @@
 import React, {memo, useCallback, useLayoutEffect, useState} from 'react';
 import {View, StyleSheet, FlatList, Modal, Image} from 'react-native';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {Colors} from '../../../configs';
-import Theme from '../../../style/Theme';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import keyExtractor from '../../../utils/keyExtractor';
-import Footer from '../../../components/MyPlus/Footer';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import keyExtractor from 'utils/keyExtractor';
+import Footer from 'components/MyPlus/Footer';
 import {
   DOCTOR_AGREE_LIST,
   FOLLOWING_QUESTION_DETAILS,
   RELATED_QUESTIONS,
   RELATED_TOPIC,
-} from '../../../configs/Data';
-import useModalWithKeyboard from '../../../hooks/useModalWithKeyboard';
-import ModalSelect from '../../../components/ModalSelect';
-import HealthFeedQuestionDetails from '../../../components/HealthFeed/HealthFeedQuestionDetails';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
-import {ICON} from '../../../images/Icon';
-import Text from '../../../elements/Text';
-import LinearColors from '../../../elements/LinearColors';
-import useModalAnimation from '../../../hooks/useModalAnimation';
-import ModalSlideBottom from '../../../components/ModalSlideBottom';
-import ModalShowDoctorAgree from '../../../components/ModalShowDoctorAgree';
-import {useTheme} from '../../../configs/ChangeTheme';
-import Content from '../../../elements/Layout/Content';
-import Container from '../../../elements/Layout/Container';
-import Layout from '../../../elements/Layout/Layout';
+} from 'configs/Data';
+import useModalWithKeyboard from 'hooks/useModalWithKeyboard';
+import ModalSelect from 'components/ModalSelect';
+import HealthFeedQuestionDetails from 'components/HealthFeed/HealthFeedQuestionDetails';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import {ICON} from 'images/Icon';
+import Text from 'elements/Text';
+import LinearColors from 'elements/LinearColors';
+import useModalAnimation from 'hooks/useModalAnimation';
+import ModalSlideBottom from 'components/ModalSlideBottom';
+import ModalShowDoctorAgree from 'components/ModalShowDoctorAgree';
+import {useTheme} from 'configs/ChangeTheme';
+import Content from 'elements/Layout/Content';
+import Container from 'elements/Layout/Container';
+import Layout from 'elements/Layout/Layout';
 
 export default memo(({route}: any) => {
   const questionDetails = route?.params;

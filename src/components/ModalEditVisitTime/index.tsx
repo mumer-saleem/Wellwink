@@ -1,13 +1,13 @@
 import React, {memo, useState} from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
-import Text from '../../elements/Text';
-import ButtonText from '../../elements/Buttons/ButtonText';
-import Theme from '../../style/Theme';
-import {Colors} from '../../configs';
+import Text from 'elements/Text';
+import ButtonText from 'elements/Buttons/ButtonText';
+import Theme from 'style/Theme';
+import {Colors} from 'configs';
 import EditVisitTimeItem from './EditVisitTimeItem';
-import VisitTimeCalendar from '../../components/Consults/VisitTimeCalendar';
-import {VISIT_TIME_LIST} from '../../configs/Data';
-import Container from '../../elements/Layout/Container';
+import VisitTimeCalendar from 'components/Consults/VisitTimeCalendar';
+import {VISIT_TIME_LIST} from 'configs/Data';
+import Container from 'elements/Layout/Container';
 
 interface ModalEditVisitTimeProps {
   onPressDone?: () => void;

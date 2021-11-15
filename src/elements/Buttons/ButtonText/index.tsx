@@ -5,10 +5,10 @@ import {
   TouchableOpacity,
   ColorValue,
 } from 'react-native';
-import Text, {TextProps} from '../../../elements/Text';
-import {Colors} from '../../../configs';
-import Theme from '../../../style/Theme';
-import {useTheme} from '../../../configs/ChangeTheme';
+import Text, {TextProps} from 'elements/Text';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
+import {useTheme} from 'configs/ChangeTheme';
 
 interface ButtonTextProps {
   title?: string;

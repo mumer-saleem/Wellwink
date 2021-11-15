@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
-import {Colors, Constants} from '../../configs';
+import {Colors, Constants} from 'configs';
 import Animated, {sub} from 'react-native-reanimated';
-import Layout from '../../elements/Layout/Container';
-import {useTheme} from '../../configs/ChangeTheme'
+import Layout from 'elements/Layout/Container';
+import {useTheme} from 'configs/ChangeTheme'
 
 
 interface ModalSlideBottomProps {

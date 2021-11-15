@@ -1,23 +1,23 @@
 import React, {memo, useLayoutEffect} from 'react';
-import Text from '../../../elements/Text';
+import Text from 'elements/Text';
 import {View, StyleSheet, ScrollView, Modal} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {Colors} from '../../../configs';
-import Theme from '../../../style/Theme';
-import SubtitleItem from '../../../components/Consults/SubtilteItem';
-import AdditionalInformationItem from '../../../components/Consults/AdditionalInformationItem';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
+import SubtitleItem from 'components/Consults/SubtilteItem';
+import AdditionalInformationItem from 'components/Consults/AdditionalInformationItem';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import DoctorInformation from '../../../components/DoctorInformation';
-import useModalAnimation from '../../../hooks/useModalAnimation';
-import ModalSlideBottom from '../../../components/ModalSlideBottom';
-import ModalEditVisitTime from '../../../components/ModalEditVisitTime';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
-import {width} from '../../../configs/Const';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Content from '../../../elements/Layout/Content';
-import Layout from '../../../elements/Layout/Layout';
-import scale from '../../../utils/scale';
+import DoctorInformation from 'components/DoctorInformation';
+import useModalAnimation from 'hooks/useModalAnimation';
+import ModalSlideBottom from 'components/ModalSlideBottom';
+import ModalEditVisitTime from 'components/ModalEditVisitTime';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import {width} from 'configs/Const';
+import {useTheme} from 'configs/ChangeTheme'
+import Content from 'elements/Layout/Content';
+import Layout from 'elements/Layout/Layout';
+import scale from 'utils/scale';
 
 export default memo(({route}: any) => {
   const {setOptions} = useNavigation();

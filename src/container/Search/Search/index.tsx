@@ -6,25 +6,25 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import Text from '../../../elements/Text';
-import Theme from '../../../style/Theme';
+import Text from 'elements/Text';
+import Theme from 'style/Theme';
 import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
-import {ICON} from '../../../images/Icon';
-import {Colors} from '../../../configs';
+import {ICON} from 'images/Icon';
+import {Colors} from 'configs';
 import {
   FOLLOWING_TOPIC_HEADER,
   SEARCH_SPECIAL_BUTTON,
   TOP_SPECIALITIES,
-} from '../../../configs/Data';
-import LinearColors from '../../../elements/LinearColors';
-import FollowingTopicHeaderItem from '../../../components/HealthFeed/FollowingTopicHeaderItem';
-import AccountItem from '../../../components/AccountItem';
-import SearchView from '../../../components/Search/SearchView';
+} from 'configs/Data';
+import LinearColors from 'elements/LinearColors';
+import FollowingTopicHeaderItem from 'components/HealthFeed/FollowingTopicHeaderItem';
+import AccountItem from 'components/AccountItem';
+import SearchView from 'components/Search/SearchView';
 import {useNavigation} from '@react-navigation/native';
-import Container from '../../../elements/Layout/Container';
-import Content from '../../../elements/Layout/Content';
-import {useTheme} from '../../../configs/ChangeTheme';
-import Layout from '../../../elements/Layout/Layout';
+import Container from 'elements/Layout/Container';
+import Content from 'elements/Layout/Content';
+import {useTheme} from 'configs/ChangeTheme';
+import Layout from 'elements/Layout/Layout';
 
 export default memo(() => {
   const {navigate} = useNavigation();

@@ -2,9 +2,9 @@ import React, {memo} from 'react';
 import {View, ImageSourcePropType} from 'react-native';
 import CheckItem from './CheckItem';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import scale from '../../../../../utils/scale';
-import Layout from '../../../../../elements/Layout/Layout';
-import Container from '../../../../../elements/Layout/Container';
+import scale from 'utils/scale';
+import Layout from 'elements/Layout/Layout';
+import Container from 'elements/Layout/Container';
 
 export interface ItemOption {
   title: string;

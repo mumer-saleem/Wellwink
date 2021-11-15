@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import { View, StyleSheet, Image } from "react-native";
-import Theme from "../../../style/Theme";
-import Text from "../../../elements/Text";
-import { AVATAR } from "../../../images/Avatar";
+import Theme from "style/Theme";
+import Text from "elements/Text";
+import { AVATAR } from "images/Avatar";
 
 interface GreetingProps { }
 

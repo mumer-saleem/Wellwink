@@ -1,7 +1,7 @@
-import { Constants } from "../configs";
+import { Constants } from "configs";
 import { useState, useMemo } from "react";
 import Animated from "react-native-reanimated";
-import { runTiming } from "../utils/runTiming";
+import { runTiming } from "utils/runTiming";
 
 const {
   Value,

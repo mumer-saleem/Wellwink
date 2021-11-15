@@ -6,21 +6,21 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import Text from '../../../elements/Text';
-import {Colors, Routes} from '../../../configs';
-import Theme from '../../../style/Theme';
-import {AVATAR} from '../../../images/Avatar';
-import {ICON} from '../../../images/Icon';
+import Text from 'elements/Text';
+import {Colors, Routes} from 'configs';
+import Theme from 'style/Theme';
+import {AVATAR} from 'images/Avatar';
+import {ICON} from 'images/Icon';
 import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import ButtonIcon from '../../../elements/Buttons/ButtonIcon';
-import AccountItem from '../../../components/AccountItem';
-import {IMAGE} from '../../../images/Image';
-import {useTheme} from '../../../configs/ChangeTheme';
-import Content from '../../../elements/Layout/Content';
-import scale from '../../../utils/scale';
-import {height} from '../../../configs/Const';
-import Layout from '../../../elements/Layout/Layout';
+import ButtonIcon from 'elements/Buttons/ButtonIcon';
+import AccountItem from 'components/AccountItem';
+import {IMAGE} from 'images/Image';
+import {useTheme} from 'configs/ChangeTheme';
+import Content from 'elements/Layout/Content';
+import scale from 'utils/scale';
+import {height} from 'configs/Const';
+import Layout from 'elements/Layout/Layout';
 export const ACCOUNT_SAMPLE = {
   id: 1,
   name: 'Devin Shelton',

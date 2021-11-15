@@ -6,8 +6,8 @@ import {
   StyleSheet,
   Animated,
 } from "react-native";
-import { Colors } from "../../configs";
-import scale from "../../utils/scale";
+import { Colors } from "configs";
+import scale from "utils/scale";
 
 
 interface Props {

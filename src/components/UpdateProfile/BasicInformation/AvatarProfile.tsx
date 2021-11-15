@@ -1,9 +1,9 @@
 import React from "react";
 import { View, StyleSheet, Image } from "react-native";
-import scale from "../../../utils/scale";
-import Theme from "../../../style/Theme";
-import { Colors } from "../../../configs";
-import { AVATAR } from "../../../images/Avatar";
+import scale from "utils/scale";
+import Theme from "style/Theme";
+import { Colors } from "configs";
+import { AVATAR } from "images/Avatar";
 interface AvatarProfileProps {
   onPress?: () => void;
 }

@@ -1,5 +1,5 @@
-import LinearColors from '../../elements/LinearColors';
-import {Colors} from '../../configs';
+import LinearColors from 'elements/LinearColors';
+import {Colors} from 'configs';
 import React, {memo} from 'react';
 import {
   View,
@@ -8,13 +8,13 @@ import {
   TouchableOpacity,
   ViewStyle,
 } from 'react-native';
-import Theme from '../../style/Theme';
-import Text from '../../elements/Text';
-import {ICON} from '../../images/Icon';
+import Theme from 'style/Theme';
+import Text from 'elements/Text';
+import {ICON} from 'images/Icon';
 import {Switch} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
-import {speciality} from '../../type/speciality';
-import {useTheme} from '../../configs/ChangeTheme';
+import {speciality} from 'type/speciality';
+import {useTheme} from 'configs/ChangeTheme';
 
 interface AccountItemProps {
   icon?: any;

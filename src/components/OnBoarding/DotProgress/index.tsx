@@ -1,10 +1,10 @@
 import React, {memo, useCallback, useState} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {Colors, Constants} from '../../../configs';
-import Theme from '../../../style/Theme';
+import {Colors, Constants} from 'configs';
+import Theme from 'style/Theme';
 import Animated, {interpolateNode} from 'react-native-reanimated';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import {runTiming} from '../../../utils/runTiming';
+import {runTiming} from 'utils/runTiming';
 import {useTheme} from '../../../configs/ChangeTheme';
 
 interface DotProgressProps {

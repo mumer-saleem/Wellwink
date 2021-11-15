@@ -1,6 +1,7 @@
 
 {
   "compilerOptions": {
+    
     /* Basic Options */
     "target": "esnext",                       /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
     "module": "commonjs",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
@@ -92,12 +93,15 @@
       "@store/*": [
         "src/store/*"
       ],
-			"react-native-redash/lib/module/v1": ["./node_modules/react-native-redash/lib/typescript/v1/index.d.ts"]
-		},
-
-
+      "react-native-redash/lib/module/v1": [
+        "./node_modules/react-native-redash/lib/typescript/v1/index.d.ts"
+      ]
+    }
   },
   "exclude": [
-    "node_modules", "babel.config.js", "metro.config.js", "jest.config.js"
-  ],
- }
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
+}

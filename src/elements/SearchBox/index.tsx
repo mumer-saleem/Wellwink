@@ -7,10 +7,10 @@ import {
   ViewStyle,
   ColorValue,
 } from 'react-native';
-import Theme from '../../style/Theme';
-import {Colors} from '../../configs';
-import {ICON} from '../../images/Icon';
-import {useTheme} from '../../configs/ChangeTheme';
+import Theme from 'style/Theme';
+import {Colors} from 'configs';
+import {ICON} from 'images/Icon';
+import {useTheme} from 'configs/ChangeTheme';
 
 interface SearchBoxProps {
   value?: string;

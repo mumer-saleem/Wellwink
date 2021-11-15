@@ -5,8 +5,8 @@ import {
   ViewStyle,
   PressableStateCallbackType,
 } from 'react-native';
-import {useTheme} from '../../configs/ChangeTheme';
-import Theme from '../../style/Theme';
+import {useTheme} from 'configs/ChangeTheme';
+import Theme from 'style/Theme';
 
 interface Props extends ViewProps {
   children?:

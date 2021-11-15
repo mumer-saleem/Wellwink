@@ -1,11 +1,11 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import Text from '../../../elements/Text';
-import Theme from '../../../style/Theme';
-import {ICON} from '../../../images/Icon';
-import {IMAGE} from '../../../images/Image';
-import {Colors} from '../../../configs';
-import Layout from '../../../elements/Layout/Layout';
+import Text from 'elements/Text';
+import Theme from 'style/Theme';
+import {ICON} from 'images/Icon';
+import {IMAGE} from 'images/Image';
+import {Colors} from 'configs';
+import Layout from 'elements/Layout/Layout';
 
 export default memo(() => {
   return (

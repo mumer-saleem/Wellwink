@@ -1,17 +1,17 @@
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {Colors} from '../../../configs';
-import {height} from '../../../configs/Const';
-import {ICON} from '../../../images/Icon';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {Colors} from 'configs';
+import {height} from 'configs/Const';
+import {ICON} from 'images/Icon';
 import React, {memo, useCallback, useLayoutEffect, useState} from 'react';
 import {View, StyleSheet, FlatList, Image} from 'react-native';
-import Text from '../../../elements/Text';
-import keyExtractor from '../../../utils/keyExtractor';
-import AccountPaymentItem from '../../../components/Setting/AccountPaymentItem';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
-import {IMAGE} from '../../../images/Image';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Container from '../../../elements/Layout/Container';
+import Text from 'elements/Text';
+import keyExtractor from 'utils/keyExtractor';
+import AccountPaymentItem from 'components/Setting/AccountPaymentItem';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import {IMAGE} from 'images/Image';
+import {useTheme} from 'configs/ChangeTheme'
+import Container from 'elements/Layout/Container';
 
 const Payment = [
   {

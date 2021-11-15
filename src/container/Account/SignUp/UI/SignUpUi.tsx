@@ -6,16 +6,16 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import Theme from '../../../../style/Theme';
-import Text from '../../../../elements/Text';
-import scale from '../../../../utils/scale';
-import {Colors} from '../../../../configs';
-import InputApp from '../../../../elements/InputApp';
-import TextInput from '../../../../elements/TextInput';
-import ButtonLinear from '../../../../elements/Buttons/ButtonLinear';
-import ButtonChangeCode from '../../../../components/ButtonChangeCode';
-import {TcodeArea} from '../../../../type/codeArea';
-import Content from '../../../../elements/Layout/Content';
+import Theme from 'style/Theme';
+import Text from 'elements/Text';
+import scale from 'utils/scale';
+import {Colors} from 'configs';
+import InputApp from 'elements/InputApp';
+import TextInput from 'elements/TextInput';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import ButtonChangeCode from 'components/ButtonChangeCode';
+import {TcodeArea} from 'type/codeArea';
+import Content from 'elements/Layout/Content';
 import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
 interface SignUpUiProps {
   email: string;
@@ -86,7 +86,7 @@ const SignUpUi = memo(
           isShowIcon={isValidEmail}
           icon={
             <Image
-              source={require('../../../../images/Icon/ic_accept.png')}
+              source={require('images/Icon/ic_accept.png')}
               style={Theme.icons}
             />
           }
@@ -111,7 +111,7 @@ const SignUpUi = memo(
           marginTop={24}
           icon={
             <Image
-              source={require('../../../../images/Icon/ic_eye_on.png')}
+              source={require('images/Icon/ic_eye_on.png')}
               style={Theme.icons}
             />
           }
@@ -136,7 +136,7 @@ const SignUpUi = memo(
             onPress={onLogInFacebook}>
             <Image
               style={{width: scale(20), height: scale(20)}}
-              source={require('../../../../images/Icon/ic_facebook.png')}
+              source={require('images/Icon/ic_facebook.png')}
             />
             <Text
               white
@@ -152,7 +152,7 @@ const SignUpUi = memo(
             onPress={onLogInTwitter}>
             <Image
               style={{width: scale(20), height: scale(20)}}
-              source={require('../../../../images/Icon/ic_twitter.png')}
+              source={require('images/Icon/ic_twitter.png')}
             />
             <Text
               white

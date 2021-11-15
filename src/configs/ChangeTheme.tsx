@@ -1,4 +1,4 @@
-import {Colors} from '../configs';
+import {Colors} from 'configs';
 import React, {useContext} from 'react';
 import {ColorValue} from 'react-native';
 

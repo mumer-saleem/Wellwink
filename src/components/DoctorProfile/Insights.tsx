@@ -1,14 +1,14 @@
 import React, {memo} from 'react';
 import {View, StyleSheet, FlatList, Modal} from 'react-native';
-import SearchBox from '../../elements/SearchBox';
-import ButtonIconHeader from '../../elements/Buttons/ButtonIconHeader';
-import {Colors} from '../../configs';
-import Theme from '../../style/Theme';
-import keyExtractor from '../../utils/keyExtractor';
-import HealthFeedItem from '../../components/HealthFeedItem';
-import useModalWithKeyboard from '../../hooks/useModalWithKeyboard';
-import ModalInsightsFilter from '../../components/ModalInsightsFilter';
-import Container from '../../elements/Layout/Container';
+import SearchBox from 'elements/SearchBox';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
+import keyExtractor from 'utils/keyExtractor';
+import HealthFeedItem from 'components/HealthFeedItem';
+import useModalWithKeyboard from 'hooks/useModalWithKeyboard';
+import ModalInsightsFilter from 'components/ModalInsightsFilter';
+import Container from 'elements/Layout/Container';
 
 interface InsightsProps {
   insights?: any;

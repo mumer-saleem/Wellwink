@@ -1,16 +1,16 @@
 import React, {memo, useState} from 'react';
 import {View, StyleSheet, Image, ScrollView} from 'react-native';
-import Text from '../../../elements/Text';
-import {IMAGE} from '../../../images/Image';
-import {width} from '../../../configs/Const';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import Theme from '../../../style/Theme';
+import Text from 'elements/Text';
+import {IMAGE} from 'images/Image';
+import {width} from 'configs/Const';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import Theme from 'style/Theme';
 import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
-import {Colors} from '../../../configs';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
-import {ICON} from '../../../images/Icon';
-import Container from '../../../elements/Layout/Container';
-import Layout from '../../../elements/Layout/Layout';
+import {Colors} from 'configs';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import {ICON} from 'images/Icon';
+import Container from 'elements/Layout/Container';
+import Layout from 'elements/Layout/Layout';
 
 interface HealthFeedTipsDetailProps {}
 

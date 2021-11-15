@@ -6,14 +6,14 @@ import {
   Animated,
   Image,
 } from 'react-native';
-import Text from '../../elements/Text';
-import {Colors} from '../../configs';
-import ButtonLinear from '../../elements/Buttons/ButtonLinear';
+import Text from 'elements/Text';
+import {Colors} from 'configs';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import Theme from '../../style/Theme';
-import {ICON} from '../../images/Icon';
-import {useTheme} from '../../configs/ChangeTheme';
-import Line from '../../elements/Layout/Line';
+import Theme from 'style/Theme';
+import {ICON} from 'images/Icon';
+import {useTheme} from 'configs/ChangeTheme';
+import Line from 'elements/Layout/Line';
 
 interface Props {
   translateY: any;

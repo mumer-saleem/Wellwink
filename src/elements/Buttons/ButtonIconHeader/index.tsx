@@ -6,11 +6,11 @@ import {
   ViewStyle,
   ColorValue,
 } from 'react-native';
-import {Colors} from '../../../configs';
-import Theme from '../../../style/Theme';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
 import {useNavigation} from '@react-navigation/native';
-import {ICON} from '../../../images/Icon';
-import {useTheme} from '../../../configs/ChangeTheme'
+import {ICON} from 'images/Icon';
+import {useTheme} from 'configs/ChangeTheme'
 
 interface ButtonIconHeaderProps {
   onPress?: () => void;

@@ -1,13 +1,13 @@
 import React, {useCallback, memo} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import Text from '../../../elements/Text';
-import {Colors, Routes} from '../../../configs';
-import scale from '../../../utils/scale';
-import Theme from '../../../style/Theme';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import Text from 'elements/Text';
+import {Colors, Routes} from 'configs';
+import scale from 'utils/scale';
+import Theme from 'style/Theme';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import {useNavigation} from '@react-navigation/native';
-import {IMAGE} from '../../../images/Image';
-import Container from '../../../elements/Layout/Container';
+import {IMAGE} from 'images/Image';
+import Container from 'elements/Layout/Container';
 interface ChangePasswordSuccessfulProps {}
 
 const ChangePasswordSuccessful = memo(

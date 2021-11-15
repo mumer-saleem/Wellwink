@@ -1,15 +1,15 @@
 import React, {memo, useLayoutEffect} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import Text from '../../../elements/Text';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {Colors} from '../../../configs';
+import Text from 'elements/Text';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {Colors} from 'configs';
 import {useNavigation} from '@react-navigation/native';
-import ButtonText from '../../../elements/Buttons/ButtonText';
-import Theme from '../../../style/Theme';
-import {height} from '../../../configs/Const';
-import {ICON} from '../../../images/Icon';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Container from '../../../elements/Layout/Container';
+import ButtonText from 'elements/Buttons/ButtonText';
+import Theme from 'style/Theme';
+import {height} from 'configs/Const';
+import {ICON} from 'images/Icon';
+import {useTheme} from 'configs/ChangeTheme'
+import Container from 'elements/Layout/Container';
 
 export const SOCIAL_MEDIA = [
   {id: 0, name: 'facebook', icon: 'facebook', color: Colors.bDazzledBlue},

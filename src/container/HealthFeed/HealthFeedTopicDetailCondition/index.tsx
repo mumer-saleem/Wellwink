@@ -8,24 +8,24 @@ import {
   Modal,
   ScrollView,
 } from 'react-native';
-import Text from '../../../elements/Text';
+import Text from 'elements/Text';
 import {useNavigation} from '@react-navigation/native';
-import {Colors} from '../../../configs';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import Theme from '../../../style/Theme';
-import {ICON} from '../../../images/Icon';
-import useModalAnimation from '../../../hooks/useModalAnimation';
-import ModalSlideBottom from '../../../components/ModalSlideBottom';
-import ForWhoItem from '../../../components/ForWhoItem';
-import {DATA_PERSON, HEALTH_FEED_CONDITION_AND_SYMTOMS} from '../../../configs/Data';
-import ButtonBorder from '../../../elements/Buttons/ButtonBorder';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
-import {useTheme} from '../../../configs/ChangeTheme';
+import {Colors} from 'configs';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import Theme from 'style/Theme';
+import {ICON} from 'images/Icon';
+import useModalAnimation from 'hooks/useModalAnimation';
+import ModalSlideBottom from 'components/ModalSlideBottom';
+import ForWhoItem from 'components/ForWhoItem';
+import {DATA_PERSON, HEALTH_FEED_CONDITION_AND_SYMTOMS} from 'configs/Data';
+import ButtonBorder from 'elements/Buttons/ButtonBorder';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import {useTheme} from 'configs/ChangeTheme';
 
-import Container from '../../../elements/Layout/Container';
-import Content from '../../../elements/Layout/Content';
-import Layout from '../../../elements/Layout/Layout';
-import Line from '../../../elements/Layout/Line';
+import Container from 'elements/Layout/Container';
+import Content from 'elements/Layout/Content';
+import Layout from 'elements/Layout/Layout';
+import Line from 'elements/Layout/Line';
 export default memo(() => {
   const {setOptions} = useNavigation();
   const {theme} = useTheme();

@@ -1,10 +1,10 @@
 import React, {memo, useCallback} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import Text from '../../elements/Text';
-import {Colors} from '../../configs';
-import ButtonLinear from '../../elements/Buttons/ButtonLinear';
-import {IMAGE} from '../../images/Image';
-import Layout from '../../elements/Layout/Layout';
+import Text from 'elements/Text';
+import {Colors} from 'configs';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import {IMAGE} from 'images/Image';
+import Layout from 'elements/Layout/Layout';
 
 interface ModalDisconnectProps {}
 

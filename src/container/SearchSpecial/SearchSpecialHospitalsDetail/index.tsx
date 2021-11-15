@@ -6,14 +6,14 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import Text from '../../../elements/Text';
-import {Colors} from '../../../configs';
-import {width} from '../../../configs/Const';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
+import Text from 'elements/Text';
+import {Colors} from 'configs';
+import {width} from 'configs/Const';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
-import Theme from '../../../style/Theme';
-import {ICON} from '../../../images/Icon';
-import Container from '../../../elements/Layout/Container';
+import Theme from 'style/Theme';
+import {ICON} from 'images/Icon';
+import Container from 'elements/Layout/Container';
 
 export default memo(({route}: any) => {
   const {

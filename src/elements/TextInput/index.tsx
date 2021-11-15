@@ -7,10 +7,10 @@ import {
   TouchableOpacity,
   ColorValue,
 } from 'react-native';
-import {Colors} from '../../configs';
-import Theme from '../../style/Theme';
-import Text from '../../elements/Text';
-import {useTheme} from '../../configs/ChangeTheme';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
+import Text from 'elements/Text';
+import {useTheme} from 'configs/ChangeTheme';
 
 interface Props {
   value: string;

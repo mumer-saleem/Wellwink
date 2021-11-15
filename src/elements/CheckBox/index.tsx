@@ -6,9 +6,9 @@ import {
   ViewStyle,
   TouchableOpacity,
 } from "react-native";
-import Text from "../../elements/Text";
-import Theme from "../../style/Theme";
-import { ICON } from "../../images/Icon";
+import Text from "elements/Text";
+import Theme from "style/Theme";
+import { ICON } from "images/Icon";
 
 interface CheckBoxProps {
   icon?: string

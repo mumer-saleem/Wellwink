@@ -1,8 +1,8 @@
 import React, {memo, useCallback} from 'react';
 import {View, StyleSheet, TouchableOpacity, Image} from 'react-native';
-import Text from '../../elements/Text';
-import {Colors} from '../../configs';
-import Theme from '../../style/Theme';
+import Text from 'elements/Text';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
 export interface ItemOption {
   title: string;
   id: number;
@@ -25,7 +25,7 @@ const TagItem = memo((props: TagItemProps) => {
       </Text>
       <TouchableOpacity style={styles.touch} onPress={onPress}>
         <Image
-          source={require('../../images/Icon/ic_close_16.png')}
+          source={require('images/Icon/ic_close_16.png')}
           style={styles.icon}
         />
       </TouchableOpacity>

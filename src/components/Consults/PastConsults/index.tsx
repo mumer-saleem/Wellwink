@@ -1,11 +1,11 @@
 import React, { memo } from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
-import Text from "../../../elements/Text";
-import { width, ConsultsType, ConsultsStatus } from "../../../configs/Const";
-import { Colors } from "../../../configs";
-import { AVATAR } from "../../../images/Avatar";
-import { IMAGE } from "../../../images/Image";
-import PastConsultItem from "../../../components/Consults/PastConsultItem";
+import Text from "elements/Text";
+import { width, ConsultsType, ConsultsStatus } from "configs/Const";
+import { Colors } from "configs";
+import { AVATAR } from "images/Avatar";
+import { IMAGE } from "images/Image";
+import PastConsultItem from "components/Consults/PastConsultItem";
 
 export const PAST_CONSULT_DATA = [
   //#region Appointment

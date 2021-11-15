@@ -1,24 +1,24 @@
 import React, {memo, useState, useCallback} from 'react';
 import {View, StyleSheet, ScrollView, Image} from 'react-native';
-import Text from '../../../elements/Text';
-import Theme from '../../../style/Theme';
-import scale from '../../../utils/scale';
-import {Colors, Routes} from '../../../configs';
-import TextInput from '../../../elements/TextInput';
-import TagItem from '../../../components/FollowTopic/TagItem';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import Text from 'elements/Text';
+import Theme from 'style/Theme';
+import scale from 'utils/scale';
+import {Colors, Routes} from 'configs';
+import TextInput from 'elements/TextInput';
+import TagItem from 'components/FollowTopic/TagItem';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import {useNavigation} from '@react-navigation/native';
-import changeAlias from '../../../utils/stringAlias';
+import changeAlias from 'utils/stringAlias';
 import FilterOptions from './components/FilterOptions';
-import {categoryInFollowTopic} from '../../../configs/Data';
-import {ICON} from '../../../images/Icon';
+import {categoryInFollowTopic} from 'configs/Data';
+import {ICON} from 'images/Icon';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
 import {useLayoutEffect} from 'react';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Container from '../../../elements/Layout/Container';
-import Content from '../../../elements/Layout/Content';
-import Layout from '../../../elements/Layout/Layout';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {useTheme} from 'configs/ChangeTheme'
+import Container from 'elements/Layout/Container';
+import Content from 'elements/Layout/Content';
+import Layout from 'elements/Layout/Layout';
 
 interface FollowTopicProps {}
 
@@ -115,7 +115,7 @@ const FollowTopic = memo((props: FollowTopicProps) => {
         <TextInput
           iconLeft={
             <Image
-              source={require('../../../images/Icon/ic_search_normal.png')}
+              source={require('images/Icon/ic_search_normal.png')}
               style={styles.iconSearch}
             />
           }

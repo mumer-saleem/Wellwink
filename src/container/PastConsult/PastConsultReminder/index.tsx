@@ -1,14 +1,14 @@
 import React, {memo, useLayoutEffect} from 'react';
 import {StyleSheet, ScrollView} from 'react-native';
-import Text from '../../../elements/Text';
+import Text from 'elements/Text';
 import {useNavigation} from '@react-navigation/native';
-import {Colors, Routes} from '../../../configs';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import ReminderItem from '../../../components/Consults/ReminderItem';
+import {Colors, Routes} from 'configs';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import ReminderItem from 'components/Consults/ReminderItem';
 import {shareType} from '../PastConsultNewReminder';
-import {TAKER} from '../../../configs/Data';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Content from '../../../elements/Layout/Content';
+import {TAKER} from 'configs/Data';
+import {useTheme} from 'configs/ChangeTheme'
+import Content from 'elements/Layout/Content';
 
 const PAST_REMINDER = [
   {

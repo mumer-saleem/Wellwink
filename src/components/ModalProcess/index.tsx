@@ -1,13 +1,13 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
-import {Colors, Constants} from '../../configs';
+import {Colors, Constants} from 'configs';
 import Animated, {sub} from 'react-native-reanimated';
-import ButtonLinear from '../../elements/Buttons/ButtonLinear';
-import scale from '../../utils/scale';
-import Theme from '../../style/Theme';
-import {width} from '../../configs/Const';
-import Layout from '../../elements/Layout/Layout';
-import {useTheme} from '../../configs/ChangeTheme'
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import scale from 'utils/scale';
+import Theme from 'style/Theme';
+import {width} from 'configs/Const';
+import Layout from 'elements/Layout/Layout';
+import {useTheme} from 'configs/ChangeTheme'
 
 
 interface ModalProcessProps {

@@ -1,23 +1,23 @@
 import React, {memo, useState, useCallback, useEffect} from 'react';
 import {View, StyleSheet, Modal} from 'react-native';
-import Theme from '../../../style/Theme';
-import scale from '../../../utils/scale';
-import validationEmail from '../../../utils/validation/email';
-import {phonesAreaCodes} from '../../../configs/Data';
-import SignUpUi from '../SignUp/UI/SignUpUi';
+import Theme from 'style/Theme';
+import scale from 'utils/scale';
+import validationEmail from 'utils/validation/email';
+import {phonesAreaCodes} from 'configs/Data';
+import SignUpUi from './UI/SignUpUi';
 import {useNavigation} from '@react-navigation/native';
-import {Routes} from '../../../configs';
-import ModalSlideBottom from '../../../components/ModalSlideBottom';
-import ModalChangePhoneCode from '../../../components/SignUp/ModalChangePhoneCode';
-import {TcodeArea} from '../../../type/codeArea';
-import useModalAnimation from '../../../hooks/useModalAnimation';
+import {Routes} from 'configs';
+import ModalSlideBottom from 'components/ModalSlideBottom';
+import ModalChangePhoneCode from 'components/SignUp/ModalChangePhoneCode';
+import {TcodeArea} from 'type/codeArea';
+import useModalAnimation from 'hooks/useModalAnimation';
 import {useLayoutEffect} from 'react';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Container from '../../../elements/Layout/Container';
-import SplashScreen from 'react-native-splash-screen'
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {useTheme} from 'configs/ChangeTheme'
+import Container from 'elements/Layout/Container';
 
 interface SignUpProps {}
+
 const SignUp = memo((props: SignUpProps) => {
   const [email, setEmail] = useState('lehieuds@gmail.com');
   const [phoneNumber, setPhoneNumber] = useState('419-319-9837');
@@ -57,10 +57,6 @@ const SignUp = memo((props: SignUpProps) => {
   }, []);
   const onLogInTwitter = useCallback(async () => {
     ///
-  }, []);
-  useEffect(() => {
-    SplashScreen.hide();
-    
   }, []);
   const {theme} = useTheme();
   useLayoutEffect(() => {

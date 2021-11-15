@@ -1,23 +1,23 @@
 import React, {memo} from 'react';
 import {View, FlatList, StyleSheet, Modal} from 'react-native';
-import Text from '../../../elements/Text';
-import Theme from '../../../style/Theme';
-import scale from '../../../utils/scale';
-import Colors from '../../../configs/Colors';
-import {DATA_SPECIALITY} from '../../../configs/Data';
-import SearchBox from '../../../elements/SearchBox';
-import changeAlias from '../../../utils/stringAlias';
-import AccountItem from '../../../components/AccountItem';
-import useModalAnimation from '../../../hooks/useModalAnimation';
-import ModalConfirm from '../../../components/OnlineConsult/ModalConfirm';
-import {speciality} from '../../../type/speciality';
+import Text from 'elements/Text';
+import Theme from 'style/Theme';
+import scale from 'utils/scale';
+import Colors from 'configs/Colors';
+import {DATA_SPECIALITY} from 'configs/Data';
+import SearchBox from 'elements/SearchBox';
+import changeAlias from 'utils/stringAlias';
+import AccountItem from 'components/AccountItem';
+import useModalAnimation from 'hooks/useModalAnimation';
+import ModalConfirm from 'components/OnlineConsult/ModalConfirm';
+import {speciality} from 'type/speciality';
 import {useNavigation} from '@react-navigation/native';
-import {Routes} from '../../../configs';
+import {Routes} from 'configs';
 import {useLayoutEffect} from 'react';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import keyExtractor from '../../../utils/keyExtractor';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Container from '../../../elements/Layout/Container';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import keyExtractor from 'utils/keyExtractor';
+import {useTheme} from 'configs/ChangeTheme'
+import Container from 'elements/Layout/Container';
 
 const dataTemp = [
   {

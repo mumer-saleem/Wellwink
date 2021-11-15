@@ -1,16 +1,16 @@
 import React, {useState, useCallback, memo} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import Text from '../../../elements/Text';
-import scale from '../../../utils/scale';
-import {Colors, Routes} from '../../../configs';
-import Theme from '../../../style/Theme';
+import Text from 'elements/Text';
+import scale from 'utils/scale';
+import {Colors, Routes} from 'configs';
+import Theme from 'style/Theme';
 import {useNavigation} from '@react-navigation/native';
-import InputApp from '../../../elements/InputApp';
-import ButtonLinear from '../../../elements/Buttons/ButtonLinear';
+import InputApp from 'elements/InputApp';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import {useLayoutEffect} from 'react';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {useTheme} from '../../../configs/ChangeTheme'
-import Container from '../../../elements/Layout/Container';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {useTheme} from 'configs/ChangeTheme'
+import Container from 'elements/Layout/Container';
 import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
 interface RecoveryPasswordProps {}
 
@@ -72,7 +72,7 @@ const RecoveryPassword = memo((props: RecoveryPasswordProps) => {
         isShowIcon={true}
         icon={
           <Image
-            source={require('../../../images/Icon/ic_eye_on.png')}
+            source={require('images/Icon/ic_eye_on.png')}
             style={styles.icon}
           />
         }
@@ -87,7 +87,7 @@ const RecoveryPassword = memo((props: RecoveryPasswordProps) => {
         isShowIcon={true}
         icon={
           <Image
-            source={require('../../../images/Icon/ic_eye_on.png')}
+            source={require('images/Icon/ic_eye_on.png')}
             style={styles.icon}
           />
         }

@@ -7,13 +7,13 @@ import {
   ViewStyle,
   ImageBackground,
 } from 'react-native';
-import Text from '../../elements/Text';
-import Theme from '../../style/Theme';
-import {Colors} from '../../configs';
+import Text from 'elements/Text';
+import Theme from 'style/Theme';
+import {Colors} from 'configs';
 import {useNavigation} from '@react-navigation/native';
-import scale from '../../utils/scale';
-import {width} from '../../configs/Const';
-import {useTheme} from '../../configs/ChangeTheme'
+import scale from 'utils/scale';
+import {width} from 'configs/Const';
+import {useTheme} from 'configs/ChangeTheme'
 
 
 interface ItemProps {

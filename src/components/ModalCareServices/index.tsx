@@ -1,12 +1,12 @@
 import * as React from "react";
 import { View, StyleSheet, TouchableOpacity, Animated } from "react-native";
-import Text from "../../elements/Text";
-import { Colors } from "../../configs";
-import ButtonLinear from "../../elements/Buttons/ButtonLinear";
+import Text from "elements/Text";
+import { Colors } from "configs";
+import ButtonLinear from "elements/Buttons/ButtonLinear";
 import { getBottomSpace } from "react-native-iphone-x-helper";
-import Theme from "../../style/Theme";
-import CareServiceItem from "../../components/DoctorProfile/CareServiceItem";
-import { MODAL_CARE_SERVICES } from "../../configs/Data";
+import Theme from "style/Theme";
+import CareServiceItem from "components/DoctorProfile/CareServiceItem";
+import { MODAL_CARE_SERVICES } from "configs/Data";
 
 export default React.memo(
   ({

@@ -1,11 +1,11 @@
 import React, {memo, useCallback, useState} from 'react';
 import {View, StyleSheet, Switch, Image} from 'react-native';
-import Text from '../../../elements/Text';
-import Theme from '../../../style/Theme';
-import {width} from '../../../configs/Const';
-import ButtonBorder from '../../../elements/Buttons/ButtonBorder';
-import {ICON} from '../../../images/Icon';
-import {Colors} from '../../../configs';
+import Text from 'elements/Text';
+import Theme from 'style/Theme';
+import {width} from 'configs/Const';
+import ButtonBorder from 'elements/Buttons/ButtonBorder';
+import {ICON} from 'images/Icon';
+import {Colors} from 'configs';
 
 interface AdditionalInformationQuestionItemProps {
   title?: string;

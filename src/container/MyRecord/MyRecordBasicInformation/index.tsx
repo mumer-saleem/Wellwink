@@ -7,29 +7,29 @@ import {
   ScrollView,
   Modal,
 } from 'react-native';
-import Text from '../../../elements/Text';
-import TextInput from '../../../elements/TextInput';
-import {ICON} from '../../../images/Icon';
-import {Colors} from '../../../configs';
-import Theme from '../../../style/Theme';
-import {AVATAR} from '../../../images/Avatar';
+import Text from 'elements/Text';
+import TextInput from 'elements/TextInput';
+import {ICON} from 'images/Icon';
+import {Colors} from 'configs';
+import Theme from 'style/Theme';
+import {AVATAR} from 'images/Avatar';
 import {useNavigation} from '@react-navigation/native';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {width} from '../../../configs/Const';
-import ModalChangePhoneCode from '../../../components/SignUp/ModalChangePhoneCode';
-import ModalSlideBottom from '../../../components/ModalSlideBottom';
-import useModalAnimation from '../../../hooks/useModalAnimation';
-import {GENDER, phonesAreaCodes, RELATIONSHIP} from '../../../configs/Data';
-import {TcodeArea} from '../../../type/codeArea';
-import ModalSelect from '../../../components/ModalSelect';
-import {categoryList} from '../../../type/category';
-import ModalChangeRelationship from '../../../components/ModalChangeRelationship';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {width} from 'configs/Const';
+import ModalChangePhoneCode from 'components/SignUp/ModalChangePhoneCode';
+import ModalSlideBottom from 'components/ModalSlideBottom';
+import useModalAnimation from 'hooks/useModalAnimation';
+import {GENDER, phonesAreaCodes, RELATIONSHIP} from 'configs/Data';
+import {TcodeArea} from 'type/codeArea';
+import ModalSelect from 'components/ModalSelect';
+import {categoryList} from 'type/category';
+import ModalChangeRelationship from 'components/ModalChangeRelationship';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import InputItem from '../../../components/InputItem';
-import {useTheme} from '../../../configs/ChangeTheme';
-import Layout from '../../../elements/Layout/Layout';
-import Line from '../../../elements/Layout/Line';
-import scale from '../../../utils/scale';
+import InputItem from 'components/InputItem';
+import {useTheme} from 'configs/ChangeTheme';
+import Layout from 'elements/Layout/Layout';
+import Line from 'elements/Layout/Line';
+import scale from 'utils/scale';
 
 const MY_RECORD_INFORMATION = {
   name: 'Devin Shelton',

@@ -1,20 +1,20 @@
 import React, {memo, useCallback, useState} from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
-import {Colors} from '../../../configs';
-import scale from '../../../utils/scale';
-import TaskstForToday from '../../../components/Home/TasksForToday';
-import TodayTasksItem from '../../../components/TodayTasks/TodayTaskItem';
-import keyExtractor from '../../../utils/keyExtractor';
+import {Colors} from 'configs';
+import scale from 'utils/scale';
+import TaskstForToday from 'components/Home/TasksForToday';
+import TodayTasksItem from 'components/TodayTasks/TodayTaskItem';
+import keyExtractor from 'utils/keyExtractor';
 import TodayTasksLoading from '../TodayTaskLoading';
-import {TodayTaskFakeData} from '../../../configs/Data';
-import {Tasks} from '../../../type/tasks';
+import {TodayTaskFakeData} from 'configs/Data';
+import {Tasks} from 'type/tasks';
 import TodayTasksEmpty from '../TodayTaskEmpty';
 import {useLayoutEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import ButtonIconHeader from '../../../elements/Buttons/ButtonIconHeader';
-import {useTheme} from '../../../configs/ChangeTheme';
-import Layout from '../../../elements/Layout/Layout';
-import Container from '../../../elements/Layout/Container';
+import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
+import {useTheme} from 'configs/ChangeTheme';
+import Layout from 'elements/Layout/Layout';
+import Container from 'elements/Layout/Container';
 
 const TodayTasks = memo(({route}: any) => {
   const [data, setData] = useState<Array<Tasks>>(TodayTaskFakeData);

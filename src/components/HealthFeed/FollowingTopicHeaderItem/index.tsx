@@ -6,11 +6,11 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
-import Text from '../../../elements/Text';
-import {Colors, Routes} from '../../../configs';
-import Theme from '../../../style/Theme';
+import Text from 'elements/Text';
+import {Colors, Routes} from 'configs';
+import Theme from 'style/Theme';
 import {useNavigation} from '@react-navigation/native';
-import Layout from '../../../elements/Layout/Layout';
+import Layout from 'elements/Layout/Layout';
 
 const FollowingTopicHeaderItem = memo((data: any) => {
   const {setOptions, navigate} = useNavigation();

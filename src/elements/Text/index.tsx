@@ -1,7 +1,7 @@
 import React from 'react';
 import {ColorValue, StyleSheet, Text, TextStyle} from 'react-native';
-import {Colors} from '../../configs';
-import {useTheme} from '../../configs/ChangeTheme';
+import {Colors} from 'configs';
+import {useTheme} from 'configs/ChangeTheme';
 
 type SizeHeight = {
   [key: string]: number;

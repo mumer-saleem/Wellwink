@@ -6,7 +6,7 @@ import {
   ScrollViewProps,
   ColorValue,
 } from 'react-native';
-import {useTheme} from '../../configs/ChangeTheme'
+import {useTheme} from 'configs/ChangeTheme'
 
 interface Props extends ScrollViewProps {
   children?:
