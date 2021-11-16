@@ -27,7 +27,7 @@ export const IMAGE: any = {
   bgShape: require("images/Image/bg_shape.png"),
   healthFeed: require("images/Image/img_health_feed.png"),
   consultMange: require("images/Image/img_consult_mange.png"),
-  logo: require("images/Image/img_logo.png"),
+  logo: require("images/Image/img_logo1.png"),
   warning: require("images/Image/img_warning.png"),
   success: require("images/Image/img_success.png"),
   sentMessage: require("images/Image/img_sent_message.png"),

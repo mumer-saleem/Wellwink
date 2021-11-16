@@ -19,7 +19,7 @@
    useColorScheme,
    View,
  } from 'react-native';
- import {ReducState} from '../../src/Type/index'
+ import {RootState} from '../../src/type/index'
  import { signIn, signOut, } from '../Redux/Reducers/login/signIn'
  import {testing1} from '../Actions/login'
  import SplashScreen from 'react-native-splash-screen'

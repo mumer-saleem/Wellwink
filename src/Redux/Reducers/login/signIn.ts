@@ -1,46 +1,50 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
  
-import {testing1} from '../../../Actions/login'
+import {LoginAction} from '../../../Actions/login'
 
 export interface LoginState {
-  isLogin: boolean,
-  list:Array<object>
+  fetching: boolean|null,
+  data: object|null,
+  success: boolean|null,
+  error: undefined|string
 }
 
 const initialState: LoginState = {
-  isLogin: false,
-  list:[]
+  fetching: null,
+  data: null,
+  success: null,
+  error: undefined,
 }
-
 const logIn = createSlice({
-  name: 'counter',
+  name: 'Login',
   initialState,
   reducers: {
     signIn: (state) => { 
-      state.isLogin =true
-      console.log( state.isLogin," state.isLogin state.isLogin state.isLogin state.isLogin");
+ 
     },
     signOut: (state) => {
-      state.isLogin=false
-      console.log( state.isLogin," state.isLogin state.isLogin state.isLogin state.isLogin");
 
     },
  
   },
    extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(testing1.pending, (state, action) => {
-       console.log(action,"statestatestatestatestatestate")
+    builder.addCase(LoginAction.pending, (state, action) => {
+      state.fetching=true
     })
-    builder.addCase(testing1.fulfilled, (state, action) => {
-      console.log(action,"statestatestatestatestatestate")
+    builder.addCase(LoginAction.fulfilled, (state, action) => {
+      state.fetching= false,
+      state.data=action.payload.data.data,
+      state.error = undefined
+      state.success= true
    })
-   builder.addCase(testing1.rejected, (state, action) => {
-    console.log(action,"statestatestatestatestatestate")
+   builder.addCase(LoginAction.rejected, (state, action) => {
+        state.success= false
+        state.fetching=false
+        state.error = action.error.message
+    
  })
-      // Add reducers for additional action types here, and handle loading state as needed
-  
-
+ 
 }
 
 }

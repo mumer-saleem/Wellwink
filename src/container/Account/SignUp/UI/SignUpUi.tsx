@@ -125,11 +125,12 @@ const SignUpUi = memo(
           onPress={onSignUp}
           style={{marginTop: scale(24)}}
         />
-        <View style={styles.loginSocial}>
+        {/* <View style={styles.loginSocial}>
           <Text type="H6" color={Colors.GrayBlue} style={styles.textUnderline}>
             Log in with social account
           </Text>
         </View>
+      
         <View style={styles.frameLoginSocial}>
           <TouchableOpacity
             style={styles.buttonFacebook}
@@ -163,7 +164,8 @@ const SignUpUi = memo(
               Twitter
             </Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
+
         <Text
           type="P6"
           color={Colors.DarkJungleGreen}

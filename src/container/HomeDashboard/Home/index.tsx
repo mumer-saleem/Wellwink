@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
   },
   contentContainerStyle: {
     paddingBottom: 16,
+    
     paddingHorizontal: 24,
     paddingTop: getStatusBarHeight() + 16,
   },

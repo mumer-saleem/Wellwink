@@ -84,11 +84,20 @@
       "@svg/*": [
         "./src/svg/*"
       ],
+      "@Redux/*": [
+        "./src/Redux/*"
+      ],
       "@images/*": [
         "src/images/*"
       ],
+      "@type/*": [
+        "src/type/*"
+      ],
       "@configs": [
         "src/configs/index"
+      ],
+      "@Services": [
+        "src/Services/*"
       ],
       "@store/*": [
         "src/store/*"

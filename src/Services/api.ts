@@ -1,23 +1,22 @@
-import {Header} from '../Type/index'
-import axios from 'axios';
+ import axios from 'axios';
 
 const headers = {
   'X-Custom-Header': 'foobar'
 }
  
 
-const create = (  baseURL = 'https://reqres.in') => {
+const create = (baseURL = 'http://192.168.4.92:3000/') => { 
 
-// live code 
-  // const create = (headers = headers, baseURL = 'https://salesdoor.com') => {
-    var instance = axios.create({
-      baseURL: 'https://some-domain.com/api/',
-      timeout: 1000,
-      headers: {'X-Custom-Header': 'foobar'}
+     var instance = axios.create({
+      baseURL: "http://192.168.4.169:3000/",
+      timeout: 3000,
+      headers: {
+        'X-Custom-Header': 'foobar'
+      }
     });
 
-    const userLogin = (  ) => {
-      return instance.get('https://httpbin.org/get?hello=world');
+    const userLogin = ( email:string,password:string ) => {
+      return instance.post('api/v1/auth/sign_in',{email:email,password:password});
     }
  
    

@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  Alert,
 } from 'react-native';
 import Text from 'elements/Text';
 import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
@@ -17,13 +18,25 @@ import {useNavigation} from '@react-navigation/native';
 import validationEmail from 'utils/validation/email';
 import {IMAGE} from 'images/Image';
 import Container from 'elements/Layout/Container';
+import  { useSelector,useDispatch } from "react-redux";
+import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
+
+import {LoginAction} from '../../../Actions/login';
+import {RootState} from 'type';
+import AuthManager from 'Services/authenticationManager'
+
+ 
 
 interface LoginProps {}
 
 const Login = memo((props: LoginProps) => {
+
+  const dispatch = useAppDispatch()
+
+  const list = useAppSelector((state) =>state)
   const {navigate} = useNavigation();
-  const [email, setEmail] = useState('lehieuds@gmail.com');
-  const [password, setPassword] = useState('12345678');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [visiblePassword, setVisiblePassword] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
 
@@ -33,26 +46,39 @@ const Login = memo((props: LoginProps) => {
 
   const onSignUp = useCallback(() => {
     navigate(Routes.SignUp);
+ 
   }, [navigate]);
+
   const onLogin = useCallback(() => {
-    navigate(Routes.MainTab);
-  }, []);
+        dispatch(LoginAction({email:email,password:password})) 
+       .unwrap()
+       .then((originalPromiseResult) => {
+        navigate(Routes.MainTab);
+        })
+       .catch((rejectedValueOrSerializedError) => {
+         Alert.alert("Invalid Credentials")
+        })
+
+  }, [email,password]);
+
   const onForgotPassword = useCallback(() => {
     navigate(Routes.ForgetPassword);
   }, [navigate]);
 
   useEffect(() => {
+    console.log(email);
     const validation = validationEmail(email);
     setIsValidEmail(validation);
+    console.log(email);
   }, [email]);
+  
+  
+  useEffect(() => {
+ 
 
-  const onLogInFacebook = useCallback(async () => {
-    ///
-  }, []);
-  const onLogInTwitter = useCallback(async () => {
-    ///
   }, []);
 
+ 
   return (
     <Container style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -65,8 +91,9 @@ const Login = memo((props: LoginProps) => {
         <View style={styles.inputLogin}>
           <InputApp
             title={'Email'}
+            placeholder={'Enter Email'}
             value={email}
-            onChangeText={setEmail}
+            onChangeText={(text)=>setEmail(text)}
             icon={
               <Image
                 source={require('images/Icon/ic_accept.png')}
@@ -77,6 +104,7 @@ const Login = memo((props: LoginProps) => {
           />
           <InputApp
             title={'Password'}
+            placeholder={'Enter Password'}
             value={password}
             onChangeText={setPassword}
             secureTextEntry={!visiblePassword}
@@ -95,7 +123,7 @@ const Login = memo((props: LoginProps) => {
           white
           white
           title={'Log In'}
-          onPress={onLogin}
+          onPress={()=>onLogin()}
           style={{marginTop: scale(24)}}
         />
         <TouchableOpacity style={styles.forgot} onPress={onForgotPassword}>
@@ -103,12 +131,12 @@ const Login = memo((props: LoginProps) => {
             Forget Password?
           </Text>
         </TouchableOpacity>
-        <View style={styles.loginSocial}>
+        {/* <View style={styles.loginSocial}>
           <Text type="H6" color={Colors.GrayBlue} style={styles.textUnderline}>
             Log in with social account
           </Text>
-        </View>
-        <View style={styles.frameLoginSocial}>
+        </View> */}
+        {/* <View style={styles.frameLoginSocial}>
           <TouchableOpacity
             style={styles.buttonFacebook}
             onPress={onLogInFacebook}>
@@ -141,7 +169,7 @@ const Login = memo((props: LoginProps) => {
               Twitter
             </Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
         <View style={styles.signUp}>
           <Text type="H6" color={Colors.GrayBlue}>
             Don't have an account?{' '}

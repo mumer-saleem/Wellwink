@@ -5,42 +5,52 @@ export const sharedPreference = {
     keychainService: 'myKeychain'
 }
 
+interface am {
+    _accessToken: null|string,
+    _uid : null|string,
+    _client: null|string, 
+
+}
 export class AuthenticationManager {
 
-    static myInstance = null
-    _am = {
+    private static _instance:AuthenticationManager;
+    _am:am = {
         _accessToken: null,
-        _uid: null,
-        _client: null,
-        _userId: null,
-        _firstName: null
+        _uid : null,
+        _client: null, 
     }
 
-    static getInstance() {
-        if (this.myInstance == null) {
-            this.myInstance = new AuthenticationManager();
+    
+    public static getInstance()
+    {
+        if (this._instance == null)
+        {
+            this._instance = new AuthenticationManager();
         }
-        return this.myInstance;
+        return this._instance;
     }
-
-    constructor() {}
-
+    constructor()
+    {
+        if(AuthenticationManager._instance)
+        {
+            throw new Error("Error: Instantiation failed: Use SingletonClass.getInstance() instead of new.");
+        }
+    }
+    
     _restoreToken = async () => {
         try {
             this._am._accessToken = await SInfo.getItem('accessToken', sharedPreference)
             this._am._uid = await SInfo.getItem('uId', sharedPreference)
-            this._am._client = await SInfo.getItem('client', sharedPreference)
-            this._am._userId = await SInfo.getItem('userId', sharedPreference)
-            this._am._firstName = await SInfo.getItem('firstName', sharedPreference)
+            this._am._client = await SInfo.getItem('client', sharedPreference) 
         } catch (error) {
             console.warn("Error in restore Token",error)
         }
     }
 
-    isAuthorized = () => {
-        let v = (this._token && this._uid && this._client)
-        return v !== undefined && v !== null
-    }
+    // isAuthorized = () => {
+    //     let v = (this._token && this._uid && this._client)
+    //     return v !== undefined && v !== null
+    // }
 
     getAuthHeaders = () => {
       return {
@@ -48,9 +58,7 @@ export class AuthenticationManager {
           'carrier': 'Mobile',
           'access-token': this._am._accessToken,
           'uid': this._am._uid,
-          'client': this._am._client,
-          'userId': this._am._userId,
-          'firstName': this._am._firstName,
+          'client': this._am._client, 
           'token-type': 'Bearer'
       }
     }
@@ -60,9 +68,7 @@ export class AuthenticationManager {
         try {
             this._am._accessToken = await SInfo.getItem('accessToken', sharedPreference)
             this._am._uid = await SInfo.getItem('uId', sharedPreference)
-            this._am._client = await SInfo.getItem('client', sharedPreference)
-            this._am._userId = await SInfo.getItem('userId', sharedPreference)
-            this._am._firstName = await SInfo.getItem('firstName', sharedPreference)
+            this._am._client = await SInfo.getItem('client', sharedPreference) 
             return this._am
         } catch (error) {
             console.warn('error in get token',error)
@@ -70,16 +76,13 @@ export class AuthenticationManager {
         return this._am
     }
 
-    setTokenResponse = async (tokenResponse) => {
-        let now = new Date().getTime()/1000
-        // let expirationDate = now + tokenResponse.expires_in
+    setTokenResponse = async (tokenResponse:any) => { 
         const responseHeaders = tokenResponse.headers
         const responseData = tokenResponse.data
         this._am._accessToken = await SInfo.setItem('accessToken', responseHeaders['access-token'], sharedPreference)
         this._am._uid = await SInfo.setItem('uId', responseHeaders['uid'], sharedPreference)
         this._am._client = await SInfo.setItem('client', responseHeaders['client'], sharedPreference)
-        this._am._userId = await SInfo.setItem('userId', responseData['id'].toString(), sharedPreference)
-        this._am._firstName = await SInfo.setItem('firstName', responseData['first_name'], sharedPreference)
+     
         return this._am
     }
 
@@ -88,20 +91,19 @@ export class AuthenticationManager {
             _accessToken: null,
             _uid: null,
             _client: null,
-            _userId: null,
-            _firstName: null
+       
         }
         try {
             await SInfo.deleteItem('accessToken', sharedPreference)
             await SInfo.deleteItem('uId', sharedPreference)
-            await SInfo.deleteItem('client', sharedPreference)
-            await SInfo.deleteItem('userId', sharedPreference)
-            await SInfo.deleteItem('firstName', sharedPreference)
+            await SInfo.deleteItem('client', sharedPreference) 
         } catch(error) {
             console.warn('error in revoke token',error)
-        }
+                       }
     }
 }
 
 const AuthManager = AuthenticationManager.getInstance()
 export default AuthManager
+
+ 

@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux'
 import { persistReducer } from 'redux-persist'
-import configureStore from './CreateStore'
 import ReduxPersist from '../ReduxPresist/ReduxPersist'
  
 
