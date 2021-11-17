@@ -24,12 +24,18 @@ import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist"
 import {LoginAction} from '../../../Actions/login';
 import {RootState} from 'type';
 import AuthManager from 'Services/authenticationManager'
-
- 
+import * as Yup from "yup";
+import { Formik } from "formik";
+ import {EmailValidation,PasswordValidation} from 'utils/validation';
 
 interface LoginProps {}
 
 const Login = memo((props: LoginProps) => {
+
+  const validationSchema =  Yup.object().shape({
+    email: EmailValidation,
+    password:PasswordValidation
+  });
 
   const dispatch = useAppDispatch()
 
@@ -45,11 +51,11 @@ const Login = memo((props: LoginProps) => {
   }, []);
 
   const onSignUp = useCallback(() => {
-    navigate(Routes.SignUp);
+    navigate(Routes.BasicInformation);
  
   }, [navigate]);
 
-  const onLogin = useCallback(() => {
+  const onLogin = useCallback((email,password) => {
         dispatch(LoginAction({email:email,password:password})) 
        .unwrap()
        .then((originalPromiseResult) => {
@@ -66,11 +72,9 @@ const Login = memo((props: LoginProps) => {
   }, [navigate]);
 
   useEffect(() => {
-    console.log(email);
-    const validation = validationEmail(email);
+     const validation = validationEmail(email);
     setIsValidEmail(validation);
-    console.log(email);
-  }, [email]);
+   }, [email]);
   
   
   useEffect(() => {
@@ -89,12 +93,25 @@ const Login = memo((props: LoginProps) => {
             Welcome back!
           </Text>
         </View>
+        <Formik
+            initialValues={{   
+              email: "",
+              password:"" }}
+            validationSchema={validationSchema}
+            onSubmit={async (values) => {
+
+              onLogin(values.email,values.password)
+          
+            }}
+          >
+            {({errors, handleChange, handleBlur, handleSubmit, values,touched }) => (
+   <View>
         <View style={styles.inputLogin}>
           <InputApp
             title={'Email'}
             placeholder={'Enter Email'}
-            value={email}
-            onChangeText={(text)=>setEmail(text)}
+            value={values.email}
+            onChangeText={ handleChange("email") }
             icon={
               <Image
                 source={require('images/Icon/ic_accept.png')}
@@ -103,11 +120,15 @@ const Login = memo((props: LoginProps) => {
             }
             isShowIcon={isValidEmail}
           />
+           {errors.email==undefined &&  setEmail(values.email) }
+           {errors.email && touched.email&& <Text style={{ color:"red", paddingHorizontal: 10 }}>{errors.email}</Text> }
+
+ 
           <InputApp
             title={'Password'}
             placeholder={'Enter Password'}
-            value={password}
-            onChangeText={setPassword}
+            value={values.password}
+            onChangeText={ handleChange("password") }
             secureTextEntry={!visiblePassword}
             marginTop={24}
             icon={
@@ -119,14 +140,21 @@ const Login = memo((props: LoginProps) => {
             isShowIcon
             iconPress={onShowHidePassword}
           />
+       {errors.password&& touched.email&&  <Text style={{ color:"red", paddingHorizontal: 10 }}>{errors.password}</Text>}
+
         </View>
+        
+
         <ButtonLinear
           white
           white
           title={'Log In'}
-          onPress={()=>onLogin()}
+          onPress={handleSubmit}
           style={{marginTop: scale(24)}}
         />
+        </View>
+            )}
+        </Formik>
         <TouchableOpacity style={styles.forgot} onPress={onForgotPassword}>
           <Text type="H6" color={Colors.GrayBlue} style={styles.textUnderline}>
             Forget Password?

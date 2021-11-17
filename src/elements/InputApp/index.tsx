@@ -82,6 +82,7 @@ const InputApp = memo(
             iconPressLeft,
             multiline,
             editable,
+            
           }}
           style={{marginTop: 4, ...style}}
         />
