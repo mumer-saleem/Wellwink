@@ -2,6 +2,9 @@ export const ICON: any = {
   // example
   //nameIcon :require("images/Icon/ic_name_icon.png"),
   home: require("images/Icon/ic_home_normal.png"),
+  addImage: require("images/Icon/addImage.png"),
+  addIcon: require("images/Icon/addIcon.png"),
+  editIcon: require("images/Icon/editIcon.png"),
   homeActive: require("images/Icon/ic_home_active.png"),
   notification: require("images/Icon/ic_chat_active.png"),
   account: require("images/Icon/ic_account_normal.png"),

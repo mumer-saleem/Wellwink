@@ -1,5 +1,5 @@
 import React, {memo, useState, useCallback} from 'react';
-import {View, StyleSheet, ScrollView, Image} from 'react-native';
+import {View, StyleSheet, ScrollView, Image,Modal, Alert} from 'react-native';
 import Text from 'elements/Text';
 import Theme from 'style/Theme';
 import scale from 'utils/scale';
@@ -16,16 +16,30 @@ import Layout from 'elements/Layout/Layout';
 import {useTheme} from 'configs/ChangeTheme';
 import Container from 'elements/Layout/Container';
 
+import {CameraImage ,libraryImage,menuOptions} from 'utils/imagePiker';
+import useModalAnimation from 'hooks/useModalAnimation';
+import ModalSelect from 'components/ModalSelect';
+
 const BasicInformation = memo(() => {
+
+  const {visible, open, close} = useModalAnimation();
+ 
   const [firstName, setFirstName] = useState('Devin');
   const [lastName, setLastName] = useState('Sheton');
+  const [avatarSource, setAvatarSource] = useState('');
 
   const {navigate, setOptions} = useNavigation();
   const {theme} = useTheme();
+
+
   const onGoToOtherInfo = useCallback(() => {
     navigate(Routes.OtherInformation);
   }, [navigate]);
-  const onUploadAvatar = useCallback(() => {}, []);
+
+  const onUploadAvatar = useCallback(async() => {
+    let response =  await CameraImage()
+   }, []);
+  
   useLayoutEffect(() => {
     setOptions({
       title: null,
@@ -39,6 +53,32 @@ const BasicInformation = memo(() => {
       ),
     });
   }, [setOptions]);
+
+  const onPressItem = useCallback(async(result) => {
+          switch (result.id) {
+            case 0:
+           let result= await libraryImage()
+              uploadImage(result.assets)
+              close()
+              break;
+           case 1:
+            let result1= await CameraImage()
+            uploadImage(result1.assets)
+            close()
+                break;
+            default:
+              break;
+          } 
+  }, []);
+
+  const uploadImage = useCallback(async(result) => {
+ 
+         if(result[0]){
+         setAvatarSource(result[0].uri)
+       }
+    }  , [avatarSource]);
+  
+ 
   return (
     <Container style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -60,7 +100,9 @@ const BasicInformation = memo(() => {
           Update your profile to get better the answer from
           {'\n'}doctor.
         </Text>
-        <AvatarProfile onPress={onUploadAvatar} />
+
+        <AvatarProfile onPress={onUploadAvatar}  avatarSource={avatarSource} open={open} />
+
         <InputApp
           title={'First Name'}
           marginTop={scale(38)}
@@ -81,6 +123,9 @@ const BasicInformation = memo(() => {
           style={styles.buttonLinear}
         />
       </ScrollView>
+      <Modal visible={visible} onRequestClose={close} transparent>
+        <ModalSelect choices={menuOptions} close={close} onPressItem={onPressItem} />
+      </Modal>
     </Container>
   );
 });

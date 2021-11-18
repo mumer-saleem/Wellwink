@@ -1,51 +1,73 @@
-import React from "react";
-import { View, StyleSheet, Image } from "react-native";
+import React, {memo, useState, useEffect} from 'react';
+import { View, StyleSheet, Image,TouchableOpacity } from "react-native";
 import scale from "utils/scale";
 import Theme from "style/Theme";
 import { Colors } from "configs";
-import { AVATAR } from "images/Avatar";
+import { ICON } from "images/Icon";
 interface AvatarProfileProps {
   onPress?: () => void;
+  avatarSource:string,
+  open: () => void;
+
 }
 
-const AvatarProfile = (props: AvatarProfileProps) => {
+ 
+
+const AvatarProfile = memo((props: AvatarProfileProps) => {
+  
+   const {avatarSource,open}=props;
+
+ 
+
   return (
     <View style={styles.container}>
       <View style={styles.avatar}>
         <Image
-          source={AVATAR.avatar2}
+           source={ avatarSource == "" ? ICON.addImage : { uri: avatarSource }} 
           resizeMode="stretch"
           style={styles.img}
         />
       </View>
+      <View style={styles.buttonUpload}>
+         <TouchableOpacity onPress={open}>
+       <Image source={avatarSource == "" ?  ICON.addIcon  :  ICON.editIcon } style={{ alignSelf: 'center',     height: scale(25), width: scale(25), borderRadius: 20 }} />
+             </TouchableOpacity>
+        </View>
     </View>
   );
-};
+});
 
 export default AvatarProfile;
 
 const styles = StyleSheet.create({
   container: {
     marginTop: scale(40),
-    justifyContent: "center",
-    ...Theme.flexRow,
+    justifyContent: 'center',
+     ...Theme.flexRow,
+     flexDirection:"column",
   },
   avatar: {
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center", 
+    overflow: "hidden",
     width: scale(112),
     height: scale(112),
-    overflow: "hidden",
+    borderRadius: scale(16),
+ 
+   
   },
   buttonUpload: {
-    height: scale(36),
-    marginRight: scale(19),
+    height: scale(25),
+    width: scale(25),
+    marginLeft: scale(70),
+    marginTop:scale(-30),
     backgroundColor: Colors.TealBlue,
     ...Theme.center,
-    borderRadius: scale(8),
+    borderRadius: scale(16),
   },
   img: {
     width: scale(112),
     height: scale(112),
+    borderRadius:30,
   },
 });
