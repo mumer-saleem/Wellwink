@@ -5,6 +5,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
+  Modal
 } from 'react-native';
 import Text from 'elements/Text';
 import Theme from 'style/Theme';
@@ -19,40 +20,106 @@ import {useLayoutEffect} from 'react';
 import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
 import {useTheme} from 'configs/ChangeTheme'
 import Container from 'elements/Layout/Container';
+import useModalAnimation from 'hooks/useModalAnimation';
+import ModalSlideBottom from 'components/ModalSlideBottom';
+import Calendar from 'components/Schedule/Calendar';
 
 interface OtherInformationProps {}
 const genders = [
+ 
   {
-    id: 1,
+    id: 2,
     title: 'Male',
     icon: require('images/Icon/ic_male.png'),
   },
   {
-    id: 0,
+    id: 1,
     title: 'Female',
     icon: require('images/Icon/ic_female.png'),
   },
+  {
+    id: 0,
+    title: 'others',
+    icon: require('images/Icon/others.png'),
+  },
 ];
 const OtherInformation = memo((props: OtherInformationProps) => {
-  const [homeAddress, setHomeAddress] = useState('934 Miller Turnpike');
-  const [birthday, setBirthday] = useState('02/12/1956');
+
+  // const [homeAddress, setHomeAddress] = useState('934 Miller Turnpike');
+ const [ motherName,setMotherName] = useState('');
+  const [date, setDate] = useState<string>('Select Date');
   const [gender, setGender] = useState<{
     id?: number | null;
     title?: string | null;
     icon: any;
-  }>({id: null, title: null, icon: null});
+  }>({id: 2, title: "Male",   icon: require('images/Icon/ic_male.png'),});
+  const [genderError, setGenderError] = useState("");
+  
+  const [state, setState] = useState({
+    motherName:"",
+    motherNameError:"",
+    date:'Select Date',
+    dateError:"",
+   
+ 
+  });
+
+
   const {navigate, setOptions} = useNavigation();
-  const onGoToChangeAddress = useCallback(() => {
-    // navigate(Routes.SelectAddress, { onChangeAddress: setHomeAddress });
-  }, []);
+
+  // const onGoToChangeAddress = useCallback(() => {
+  //   // navigate(Routes.SelectAddress, { onChangeAddress: setHomeAddress });
+  // }, []);
+
+  const {  visible: dateVisible,  open: dateOpen,  close: dateClose,  transY: dateTransY, } = useModalAnimation();
+
+  const onPickDatePress = useCallback(day => {
+      setState(  prevState => ({
+      ...prevState,
+      date:day.dateString,
+      dateError:""
+
+  }))
+  
+  dateClose();
+  }, [state]);
+ 
+  const isvalidate=useCallback(() => {
+    const {motherName,motherNameError,date,dateError}=state
+    // if(gender.id==null){
+    //   setGenderError("Required")
+    // }
+     if(motherName==''||  date=='Select Date'){
+      
+       setState(  prevState => ({...prevState, 
+        motherNameError:motherName==""?"Required":"",
+        dateError:date=='Select Date'?"Required":"",
+        genderError:gender.id==null?"Required":"",
+        })  )
+    
+        return false
+   }
+   return true
+   },[state])
+
 
   const onGotoFollowTopic = useCallback(() => {
-    navigate(Routes.FollowTopic);
-  }, [navigate]);
-  const {theme} = useTheme();
+    const validation =  isvalidate()
+    validation&& navigate(Routes.SignUp);
+  }, 
+  [state]); 
+   const {theme} = useTheme();
+
   useLayoutEffect(() => {
     setOptions({
       title: null,
+      headerStyle: {
+        shadowColor: 'transparent',
+        shadowRadius: 0,
+        shadowOffset: {height: 0},
+        elevation: 0,
+        backgroundColor: theme.background,
+      },
       headerBackground: () => (
         <Container style={{flex: 1, backgroundColor: theme.background}} />
       ),
@@ -65,7 +132,7 @@ const OtherInformation = memo((props: OtherInformationProps) => {
     <Container style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Text size={13} lineHeight={16} bold marginTop={32}>
-          Step 2 of 3
+          Step 2 of 5
         </Text>
         <Text size={24} lineHeight={28} bold marginTop={16}>
           Others Information
@@ -75,10 +142,12 @@ const OtherInformation = memo((props: OtherInformationProps) => {
           {'\n'}doctor.
         </Text>
         <View style={styles.genders}>
-          {genders.map((i, index) => {
+        {genders.map((i, index) => {
             const onPress = () => {
               setGender(i);
+              setGenderError("")
             };
+          
             return (
               <GenderItem
                 {...i}
@@ -90,15 +159,23 @@ const OtherInformation = memo((props: OtherInformationProps) => {
             );
           })}
         </View>
+        <View style={{height:scale(24)}}> 
+        {genderError!=""&&<Text style={{ color:"red",   }}>{genderError}</Text>}
+         </View>
         <InputApp
           title={'Birthday'}
-          marginTop={scale(42)}
-          value={birthday}
-          onChangeText={setBirthday}
-          iconLeft={<Image source={ICON.calendar} style={Theme.icons} />}
+          marginTop={scale(24)}
+          value={state.date}
+           iconLeft={<Image source={ICON.calendar} style={Theme.icons} />}
           isShowIconLeft
+          onPress={()=>dateOpen()}
+          editable={false}
         />
-        <InputApp
+        <View style={{height:scale(24)}}> 
+
+        {state.dateError!=""&&<Text style={{ color:"red",   }}>{state.dateError}</Text>}
+       </View>
+        {/* <InputApp
           title={'Address'}
           marginTop={scale(24)}
           value={homeAddress}
@@ -111,7 +188,26 @@ const OtherInformation = memo((props: OtherInformationProps) => {
           isShowIconLeft
           editable={false}
           onPress={onGoToChangeAddress}
+        /> */}
+
+         <InputApp
+          title={'Mother Name'}
+          placeholder={"Mother Name"}
+          // marginTop={scale(24)}
+          value={state.motherName}
+          onChangeText={(text)=>{
+            setState(  prevState => ({
+              ...prevState,
+              motherName:text,
+              motherNameError:state.motherName.length<1?"Atleast 2 cherecters ":""
+      
+          }))
+        }}
         />
+        <View style={{height:scale(24)}}> 
+
+        {state.motherNameError!=""&&<Text style={{ color:"red",   }}>{state.motherNameError}</Text>}
+       </View>   
         <ButtonLinear white 
           white
           title={'Continue'}
@@ -125,6 +221,15 @@ const OtherInformation = memo((props: OtherInformationProps) => {
           style={styles.buttonLinear}
         />
       </ScrollView>
+      <Modal
+        visible={dateVisible}
+        onRequestClose={dateClose}
+        transparent
+        animationType="fade">
+        <ModalSlideBottom onClose={dateClose} transY={dateTransY}>
+          <Calendar onPress={onPickDatePress}  value={state.date=='Select Date'?"1999-01-01":state.date}/>
+        </ModalSlideBottom>
+      </Modal>
     </Container>
   );
 });

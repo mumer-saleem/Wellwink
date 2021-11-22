@@ -3,8 +3,6 @@ import {View, StyleSheet, Image} from 'react-native';
 import Text from 'elements/Text';
 import Theme from 'style/Theme';
 import {Colors, Routes} from 'configs';
-import Constants from 'configs/Const';
-
 import scale from 'utils/scale';
 import InputCodeOtp from 'components/VerifyPhoneNumber/InputCodeOtp';
 import ButtonLinear from 'elements/Buttons/ButtonLinear';
@@ -15,16 +13,15 @@ import {useTheme} from 'configs/ChangeTheme'
 import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
 import Container from 'elements/Layout/Container';
 import Layout from 'elements/Layout/Layout';
-import ButtonText from 'elements/Buttons/ButtonText';
 
-interface VerifyPhoneNumberProps {}
+interface VerifyEmail {}
 
-const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
+const VerifyEmailAddress = memo((props: VerifyEmail) => {
   const [code, setCode] = useState('');
   const {navigate, setOptions} = useNavigation();
   const onSendAgain = useCallback(() => {}, []);
   const onVerify = useCallback(() => {
-    navigate(Routes.SentVerifySuccessful);
+    navigate(Routes.VerifyPhoneNumber);
   }, [navigate]);
   const {theme} = useTheme();
   useLayoutEffect(() => {
@@ -46,13 +43,13 @@ const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
   return (
     <Container style={styles.container}>
            <Text size={13} lineHeight={16} bold  >
-          Step 5 of 5
+          Step 4 of 5
         </Text>
       <Text size={24} lineHeight={28} bold  marginTop={16}>
-        Number Verification
+        Email Verification
       </Text>
       <Text size={13} lineHeight={22} marginTop={16}>
-        Please check you message for a six-digit security code and enter it below.
+        Please check you inbox for a five-digit security code and enter it below.
       </Text>
       <InputCodeOtp style={styles.enterCode} {...{code, setCode}} />
      
@@ -71,12 +68,11 @@ const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
 
       
 
-      <ButtonLinear 
-        white 
+      <ButtonLinear white 
         white
         title={'Verify'}
         style={styles.buttonLinear}
-         children={
+        children={
           <Image
             source={require('images/Icon/ic_next.png')}
             style={styles.buttonChildren}
@@ -84,20 +80,11 @@ const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
         }
         onPress={onVerify}
       />
-           <ButtonText
-          backgroundColor={Colors.White}
-          hilight
-          title={'Skip'}
-          style={styles.signUpButton}
-          titleColor={Colors.TealBlue}
-          textProps={{bold: true}}
-          onPress={onVerify}
-         />
     </Container>
   );
 });
 
-export default VerifyPhoneNumber;
+export default VerifyEmailAddress;
 
 const styles = StyleSheet.create({
   container: {
@@ -119,12 +106,5 @@ const styles = StyleSheet.create({
   },
   buttonLinear: {
     marginTop: 32,
-  },
-  signUpButton: {
-    width: (Constants.width-50 ) ,
-    height: 50,
-    marginTop: 10,
-    borderColor: Colors.Platinum,
-    borderWidth: 1,
   },
 });

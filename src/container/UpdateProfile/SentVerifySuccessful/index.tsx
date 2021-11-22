@@ -8,6 +8,8 @@ import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import {useNavigation} from '@react-navigation/native';
 import Layout from 'elements/Layout/Layout';
 import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
+import Constants from 'configs/Const';
+
 interface SentVerifySuccessfulProps {}
 
 const SentVerifySuccessful = memo((props: SentVerifySuccessfulProps) => {
@@ -24,7 +26,7 @@ const SentVerifySuccessful = memo((props: SentVerifySuccessfulProps) => {
         style={styles.successImage}
       />
       <Text size={20} lineHeight={24} bold>
-        Welcome to Doctor Plus!
+      {Constants.Welcometext}
       </Text>
       <Text size={15} lineHeight={24} center marginTop={16}>
         Get help instantly from top doctor anytime,

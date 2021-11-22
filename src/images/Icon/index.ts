@@ -107,6 +107,7 @@ export const ICON: any = {
   topic: require("images/Icon/ic_topic.png"),
   helpWhite: require("images/Icon/ic_help_white.png"),
   arrDown: require("images/Icon/ic_arr_down.png"),
+  blackArrDown: require("images/Icon/blackDownArrow.png"),
   arrBlueUp: require("images/Icon/ic_base_arrow_up.png"),
   attachBlue: require("images/Icon/ic_attach_blue.png"),
   healthyBlue: require("images/Icon/ic_health_guide_blue.png"),

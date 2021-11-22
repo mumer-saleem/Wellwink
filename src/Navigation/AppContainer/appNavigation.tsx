@@ -84,6 +84,9 @@ import VideoCall from 'container/PrivateCareServicesVideoCall/VideoCall';
 import ReviewDoctor from 'container/PrivateCareServicesVideoCall/ReviewDoctor';
 import ServicesPayment from 'container/PrivateCareServicesVideoCall/ServicesPayment';
 import PrivateCareLiveChat from 'container/PrivateCareServicesVideoCall/PrivateCareLiveChat';
+import VerifyEmail from 'container/Account/VerifyEmail';
+import { EmailValidation } from 'utils/validation';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -121,6 +124,10 @@ const AppNavigation = memo(() => {
       <Stack.Screen
         name={Routes.VerifyPhoneNumber}
         component={VerifyPhoneNumber}
+      />
+       <Stack.Screen
+        name={Routes.VerifyEmail}
+        component={VerifyEmail}
       />
       <Stack.Screen
         name={Routes.SignUpSuccessful}

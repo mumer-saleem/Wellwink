@@ -25,13 +25,15 @@ import {LoginAction} from '../../../Actions/login';
 import {RootState} from 'type';
 import AuthManager from 'Services/authenticationManager'
 import * as Yup from "yup";
-import { Formik } from "formik";
+import { Formik , useFormikContext, } from "formik";
+ 
+
  import {EmailValidation,PasswordValidation} from 'utils/validation';
 
 interface LoginProps {}
 
 const Login = memo((props: LoginProps) => {
-
+ 
   const validationSchema =  Yup.object().shape({
     email: EmailValidation,
     password:PasswordValidation
@@ -104,7 +106,7 @@ const Login = memo((props: LoginProps) => {
           
             }}
           >
-            {({errors, handleChange, handleBlur, handleSubmit, values,touched }) => (
+            {({errors, handleChange, handleBlur, handleSubmit, values,touched,}) => (
    <View>
         <View style={styles.inputLogin}>
           <InputApp
@@ -121,8 +123,9 @@ const Login = memo((props: LoginProps) => {
             isShowIcon={isValidEmail}
           />
            {errors.email==undefined &&  setEmail(values.email) }
-           {errors.email && touched.email&& <Text style={{ color:"red", paddingHorizontal: 10 }}>{errors.email}</Text> }
-
+           <View style={{height:scale(24)}}>       
+           {errors.email && touched.email&& <Text style={{ color:"red",   }}>{errors.email}</Text> }
+           </View>
  
           <InputApp
             title={'Password'}
@@ -130,7 +133,7 @@ const Login = memo((props: LoginProps) => {
             value={values.password}
             onChangeText={ handleChange("password") }
             secureTextEntry={!visiblePassword}
-            marginTop={24}
+            // marginTop={24}
             icon={
               <Image
                 source={require('images/Icon/ic_eye_on.png')}
@@ -140,8 +143,10 @@ const Login = memo((props: LoginProps) => {
             isShowIcon
             iconPress={onShowHidePassword}
           />
-       {errors.password&& touched.email&&  <Text style={{ color:"red", paddingHorizontal: 10 }}>{errors.password}</Text>}
-
+          <View style={{height:scale(24)}}> 
+          
+       {errors.password&& touched.email&&  <Text style={{ color:"red",   }}>{errors.password}</Text>}
+           </View>
         </View>
         
 
@@ -231,9 +236,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    marginBottom: scale(12, true),
+  
     marginLeft: scale(12),
-    width: scale(60),
+    width: scale(180),
     height: scale(60),
   },
   inputLogin: {

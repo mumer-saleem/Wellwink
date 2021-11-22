@@ -68,6 +68,6 @@ const styles = StyleSheet.create({
   img: {
     width: scale(112),
     height: scale(112),
-    borderRadius:30,
+    borderRadius: scale(16),
   },
 });

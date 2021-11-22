@@ -1793,3 +1793,32 @@ export const VISIT_TIME_LIST = [
   { id: 4, timeFrom: "07:30 PM", timeTo: "08:00 PM" },
   { id: 5, timeFrom: "08:30 PM", timeTo: "09:00 PM" },
 ];
+
+
+
+export const ModalManueOptions = {
+  ImagePickerOptions : [
+    {
+      id: 0,
+      name: 'Photo Gallery',
+    },
+    {
+      id: 1,
+      name: 'Camera',
+    },
+
+  ],
+  titileOptions : [
+    {
+      id: 0,
+      name: 'Mr.',
+    },
+    {
+      id: 1,
+      name: 'Ms.',
+    },
+
+  ],
+
+};
+ 

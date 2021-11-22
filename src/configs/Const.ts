@@ -5,6 +5,7 @@ const Constants = {
   width: Dimensions.get("window").width,
   height: Dimensions.get("window").height,
   FONTS_APP: "Mulish",
+  Welcometext:"Welcome to WellWink!"
 };
 export default Constants;
 
@@ -29,3 +30,5 @@ export enum ConsultsStatus {
 }
 
 
+
+ 

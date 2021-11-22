@@ -27,6 +27,7 @@ const TodayTasksDetail = memo(({route}: any) => {
   useLayoutEffect(() => {
     setOptions({
       title: null,
+      
       headerBackground: () => (
         <View style={{backgroundColor: theme.background, flex: 1}} />
       ),

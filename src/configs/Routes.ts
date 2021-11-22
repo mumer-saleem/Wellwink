@@ -14,6 +14,7 @@ const Routes = {
   BasicInformation: "BasicInformation",
   OtherInformation: "OtherInformation",
   SentVerifySuccessful: "SentVerifySuccessful",
+  VerifyEmail:"VerifyEmail",
   // Chat
   ChatStack: "ChatStack",
   Chat: "Chat",

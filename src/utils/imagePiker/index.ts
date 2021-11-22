@@ -26,14 +26,4 @@ export const libraryImage = async () => {
 
 }
 
-export const menuOptions = [
-    {
-      id: 0,
-      name: 'Photo Gallery',
-    },
-    {
-      id: 1,
-      name: 'Camera',
-    },
-
-  ];
+ 

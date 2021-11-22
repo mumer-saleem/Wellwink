@@ -34,7 +34,7 @@ const SignUp = memo((props: SignUpProps) => {
   }, []);
 
   const onSignUp = useCallback(() => {
-    navigate(Routes.VerifyPhoneNumber);
+    navigate(Routes.VerifyEmail);
   }, []);
   const onTermOfUse = useCallback(() => {}, []);
   const onPrivacyPolicy = useCallback(() => {}, []);
@@ -62,6 +62,13 @@ const SignUp = memo((props: SignUpProps) => {
   useLayoutEffect(() => {
     setOptions({
       title: null,
+      headerStyle: {
+        shadowColor: 'transparent',
+        shadowRadius: 0,
+        shadowOffset: {height: 0},
+        elevation: 0,
+        backgroundColor: theme.background,
+      },
       headerBackground: () => (
         <Container style={{flex: 1, backgroundColor: theme.background}} />
       ),

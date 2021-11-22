@@ -7,6 +7,7 @@ import scale from 'utils/scale';
 import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import {useNavigation} from '@react-navigation/native';
 import Layout from 'elements/Layout/Layout';
+import Constants from 'configs/Const';
 
 interface SignUpSuccessfulProps {}
 
@@ -18,12 +19,9 @@ const SignUpSuccessful = memo((props: SignUpSuccessfulProps) => {
 
   return (
     <Layout style={styles.container}>
-      {/* <Image
-        source={require("images/Avatar/avatar-2.png")}
-        style={styles.successImage}
-      /> */}
+      
       <Text size={20} lineHeight={24} bold>
-        Welcome to Doctor Plus!
+      {Constants.Welcometext}
       </Text>
       <Text size={15} lineHeight={24} center marginTop={16}>
         Get help instantly from top doctor anytime, anywhere.

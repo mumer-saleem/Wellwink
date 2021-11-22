@@ -10,6 +10,7 @@ import Theme from 'style/Theme';
 import Text from 'elements/Text';
 import scale from 'utils/scale';
 import {Colors} from 'configs';
+ 
 import InputApp from 'elements/InputApp';
 import TextInput from 'elements/TextInput';
 import ButtonLinear from 'elements/Buttons/ButtonLinear';
@@ -59,8 +60,8 @@ const SignUpUi = memo(
   }: SignUpUiProps) => {
     return (
       <Content style={styles.container} showsVerticalScrollIndicator={false}>
-        <Text size={24} lineHeight={28} bold>
-          Welcome to Doctor Plus!
+        {/* <Text size={24} lineHeight={28} bold>
+           {Constants.Welcometext}
         </Text>
         <Text
           size={13}
@@ -76,12 +77,21 @@ const SignUpUi = memo(
             onPress={onGoToLogin}>
             Log in
           </Text>
+        </Text> */}
+         <Text size={13} lineHeight={16} bold  >
+          Step 3 of 5
+        </Text>
+        <Text size={24} lineHeight={28} bold marginTop={16}>
+          Account 
+        </Text>
+        <Text size={13} lineHeight={22} marginTop={16}>
+        Give your email address and phone number for your account verification.
         </Text>
         <InputApp
           value={email}
           onChangeText={setEmail}
           title={'Email'}
-          marginTop={scale(32)}
+          marginTop={scale(16)}
           placeholder={'Email'}
           isShowIcon={isValidEmail}
           icon={
