@@ -5,9 +5,8 @@ import api from 'Services/api'
 export const emailOtpAction = createAsyncThunk(
   'SendOtp/emailOtpAction',
    async (arg: any, thunkAPI) => {
-    const {id,type}=arg
-    try {
-      let response=  await api.create().postEmailOtp(id,type)
+     try {
+      let response=  await api.create().postEmailOtp(arg)
       return response;
   } catch (err:any) {
     if (!err.response) {

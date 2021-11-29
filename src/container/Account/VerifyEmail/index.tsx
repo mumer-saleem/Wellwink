@@ -36,25 +36,25 @@ const VerifyEmailAddress = memo((props: VerifyEmail) => {
   const {navigate, setOptions} = useNavigation();
   const navigation = useNavigation();
 
-  useBackButton(()=>{
-     navigation.dispatch({
-      ...CommonActions.reset({
-          index: 0,
-          routes: [{ name: "MainTab" }],
-      }),
-  })
-  return true;
-  })
+  // useBackButton(()=>{
+  //    navigation.dispatch({
+  //     ...CommonActions.reset({
+  //         index: 0,
+  //         routes: [{ name: "MainTab" }],
+  //     }),
+  // })
+  // return true;
+  // })
 
-  const resetStack=()=>{
-    navigation.dispatch({
-      ...CommonActions.reset({
-          index: 0,
-          routes: [{ name: "MainTab" }],
-      }),
-  })
-  return true;
-  }
+  // const resetStack=()=>{
+  //   navigation.dispatch({
+  //     ...CommonActions.reset({
+  //         index: 0,
+  //         routes: [{ name: "MainTab" }],
+  //     }),
+  // })
+  // return true;
+  // }
   const onSendAgain = useCallback(() => {
     !sendOtpState.fetching&&dispatch(emailOtpAction({id:signUpState.data?.hashid,type:'email' })).then((res) => {
      res.type=="SendOtp/emailOtpAction/fulfilled"?navigateAction(): navigateError(res.payload)})
@@ -74,6 +74,12 @@ const VerifyEmailAddress = memo((props: VerifyEmail) => {
      alert("Please Verify Email First")
    }
    else{
+     navigation.dispatch({
+      ...CommonActions.reset({
+          index: 0,
+          routes: [{ name: "MainTab" }],
+      }),
+  })
     navigate(Routes.VerifyPhoneNumber);
    }
     
@@ -93,7 +99,7 @@ const VerifyEmailAddress = memo((props: VerifyEmail) => {
       },
       headerBackground: () => <Container style={styles.header} />,
       headerLeft: () => (
-        <ButtonIconHeader marginLeft={24} tintColor={theme.activeTincolor} onPress={resetStack} />
+         <ButtonIconHeader marginLeft={24} tintColor={theme.activeTincolor}  />
       ),
     });
   }, [setOptions]);

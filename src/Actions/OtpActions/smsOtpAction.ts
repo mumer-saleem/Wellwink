@@ -5,9 +5,8 @@ import api from 'Services/api'
 export const smsOtpAction = createAsyncThunk(
   'SendOtp/smsOtpAction',
    async (arg: any, thunkAPI) => {
-    const {id,type}=arg
-    try {
-      let response=  await api.create().postSmsOtp(id,type)
+     try {
+      let response=  await api.create().postSmsOtp(arg)
       return response;
   } catch (err:any) {
     if (!err.response) {

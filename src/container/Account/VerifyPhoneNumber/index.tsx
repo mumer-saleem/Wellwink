@@ -63,6 +63,12 @@ const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
       alert("Please Verify Email First")
     }
     else{
+      navigation.dispatch({
+        ...CommonActions.reset({
+            index: 0,
+            routes: [{ name: "MainTab" }],
+        }),
+    })
       navigate(Routes.SentVerifySuccessful);
 
     }
@@ -81,29 +87,29 @@ const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
       },
       headerBackground: () => <Container style={styles.header} />,
       headerLeft: () => (
-        <ButtonIconHeader marginLeft={24} tintColor={theme.activeTincolor} onPress={resetStack}/>
+        <ButtonIconHeader marginLeft={24} tintColor={theme.activeTincolor} />
       ),
     });
   }, [setOptions]);
   
-  useBackButton(()=>{
-    navigation.dispatch({
-      ...CommonActions.reset({
-          index: 0,
-          routes: [{ name: "MainTab" }],
-      }),
-  })
-  return true;  })
+  // useBackButton(()=>{
+  //   navigation.dispatch({
+  //     ...CommonActions.reset({
+  //         index: 0,
+  //         routes: [{ name: "MainTab" }],
+  //     }),
+  // })
+  // return true;  })
 
-  const resetStack=()=>{
-    navigation.dispatch({
-      ...CommonActions.reset({
-          index: 0,
-          routes: [{ name: "MainTab" }],
-      }),
-  })
-  return true;
-  }
+  // const resetStack=()=>{
+  //   navigation.dispatch({
+  //     ...CommonActions.reset({
+  //         index: 0,
+  //         routes: [{ name: "MainTab" }],
+  //     }),
+  // })
+  // return true;
+  // }
 
 
   const verification = useCallback((text:string) => {

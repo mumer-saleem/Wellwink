@@ -22,6 +22,7 @@ import  { accountInfo } from "Redux/Reducers/signUp/signUp";
 import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
 import {SignUpAction} from 'Actions/SignUp/signUp'
 import  LoaderAbsolute from 'elements/Loader/LoaderAbsolute'
+import { CommonActions } from '@react-navigation/native';
 
 
 
@@ -37,6 +38,7 @@ const SignUp = memo((props: SignUpProps) => {
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [codeArea, setCodeArea] = useState(phonesAreaCodes[0]);
   const {visible, open, close, transY} = useModalAnimation();
+  const navigation = useNavigation();
 
    
   const validationSchema =  Yup.object().shape({
@@ -65,7 +67,14 @@ const SignUp = memo((props: SignUpProps) => {
     action.error?alert(action.error):alert("Network Error")
   }, []);
   const navigateAction = useCallback(async () => {
-    navigate(Routes.VerifyEmail) 
+    navigation.dispatch({
+      ...CommonActions.reset({
+          index: 0,
+          routes: [{ name: "MainTab" }],
+      }),
+  })
+    navigate(Routes.VerifyEmail)
+    
    }, []);
 
   const onTermOfUse = useCallback(() => {}, []);

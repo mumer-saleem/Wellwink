@@ -6,9 +6,9 @@ import api from 'Services/api'
 export const forgetPasswordAction = createAsyncThunk(
   'ForgetPassword/forgetPasswordAction',
    async (arg: any, thunkAPI) => {
-    const {email,url}=arg
+    // const {email,url}=arg
     try {
-      let response=  await api.create().postForgetPassword(email,url) 
+      let response=  await api.create().postForgetPassword(arg) 
         return response;
   } catch (err:any) {
     if (!err.response) {
@@ -18,3 +18,6 @@ export const forgetPasswordAction = createAsyncThunk(
   }
   }
 )
+
+ 
+

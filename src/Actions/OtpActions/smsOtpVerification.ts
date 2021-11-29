@@ -5,9 +5,8 @@ import api from 'Services/api'
 export const smsOtpVerification = createAsyncThunk(
   'verifyOtp/smsOtpVerification',
    async (arg: any, thunkAPI) => {
-    const {id,otp}=arg
-    try {
-      let response=  await api.create().postVerifySmsOtp(id,otp)
+     try {
+      let response=  await api.create().postVerifySmsOtp(arg)
       
       return response;
   } catch (err:any) {

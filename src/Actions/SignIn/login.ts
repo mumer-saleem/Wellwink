@@ -6,9 +6,9 @@ import api from 'Services/api'
 export const LoginAction = createAsyncThunk(
   'Login/LoginAction',
    async (arg: any, thunkAPI) => {
-    const {email,password}=arg
+    // const {email,password}=arg
     try {
-      let response=  await api.create().userLogin(email,password) 
+      let response=  await api.create().userLogin(arg)
        response.status==200&&AuthManager.setTokenResponse(response)
        return response;
   } catch (err:any) {

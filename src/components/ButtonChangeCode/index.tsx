@@ -20,7 +20,8 @@ const ButtonChangeCode = memo((props: ButtonChangeCodeProps) => {
     props.onPress && props.onPress();
   }, [props.onPress]);
   return (
-    <TouchableOpacity onPress={onShowModal}>
+    // <TouchableOpacity onPress={onShowModal}>
+    
       <Layout style={[styles.phoneAreaCode, {borderColor: theme.borderColor}]}>
         <Image source={codeArea.img} style={styles.flag} />
         <Text
@@ -30,11 +31,11 @@ const ButtonChangeCode = memo((props: ButtonChangeCodeProps) => {
           color={Colors.DarkJungleGreen}>
           {codeArea.code}
         </Text>
-        <View style={styles.changePhoneCode}>
+        {/* <View style={styles.changePhoneCode}>
           <Image source={require('images/Icon/down.png')} />
-        </View>
+        </View> */}
       </Layout>
-    </TouchableOpacity>
+    // </TouchableOpacity>
   );
 });
 
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   phoneAreaCode: {
-    width: 144,
+    width: 100,
     height: 48,
     borderRadius: 8,
     borderWidth: 1,

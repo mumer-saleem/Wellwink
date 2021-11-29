@@ -5,9 +5,8 @@ import api from 'Services/api'
 export const emailOtpVerification = createAsyncThunk(
   'verifyOtp/emailOtpVerification',
    async (arg: any, thunkAPI) => {
-    const {id,otp}=arg
-    try {
-      let response=  await api.create().postVerifyEmailOtp(id,otp)
+     try {
+      let response=  await api.create().postVerifyEmailOtp(arg)
       return response;
   } catch (err:any) {
     if (!err.response) {

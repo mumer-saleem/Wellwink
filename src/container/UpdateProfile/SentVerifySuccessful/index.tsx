@@ -26,15 +26,15 @@ const SentVerifySuccessful = memo((props: SentVerifySuccessfulProps) => {
   })
   }, [navigate]);
 
-  useBackButton(()=>{
-    navigation.dispatch({
-      ...CommonActions.reset({
-          index: 0,
-          routes: [{ name: "MainTab" }],
-      }),
-  })
-  return true;
-  })
+  // useBackButton(()=>{
+  //   navigation.dispatch({
+  //     ...CommonActions.reset({
+  //         index: 0,
+  //         routes: [{ name: "MainTab" }],
+  //     }),
+  // })
+  // return true;
+  // })
  
 
 

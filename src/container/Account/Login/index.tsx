@@ -27,7 +27,8 @@ import {RootState} from 'type';
 import AuthManager from 'Services/authenticationManager'
 import * as Yup from "yup";
 import { Formik , useFormikContext, } from "formik";
- 
+import { CommonActions } from '@react-navigation/native';
+
 
  import {EmailValidation,PasswordValidation} from 'utils/validation';
 
@@ -48,6 +49,7 @@ const Login = memo((props: LoginProps) => {
   const [password, setPassword] = useState('');
   const [visiblePassword, setVisiblePassword] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
+  const navigation = useNavigation();
 
   const onShowHidePassword = useCallback(() => {
     setVisiblePassword(prev => !prev);
@@ -75,9 +77,13 @@ const Login = memo((props: LoginProps) => {
     }
    }, []);
   const navigateAction = useCallback(async () => {
-     navigate(Routes.MainTab);
-   }, []);
-
+    navigation.dispatch({
+      ...CommonActions.reset({
+          index: 0,
+          routes: [{ name: "MainTab" }],
+      }),
+    })
+    }, []);
 
   const onForgotPassword = useCallback(() => {
     navigate(Routes.ForgetPassword);
