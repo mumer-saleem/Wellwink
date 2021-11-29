@@ -9,15 +9,34 @@ import {useNavigation} from '@react-navigation/native';
 import Layout from 'elements/Layout/Layout';
 import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
 import Constants from 'configs/Const';
-
+import useBackButton from 'hooks/useBackButton';
+ import { CommonActions } from '@react-navigation/native';
 interface SentVerifySuccessfulProps {}
 
 const SentVerifySuccessful = memo((props: SentVerifySuccessfulProps) => {
   const {navigate} = useNavigation();
+  const navigation = useNavigation();
 
   const onGoToDashBoard = useCallback(() => {
-    navigate(Routes.MainTab);
+    navigation.dispatch({
+      ...CommonActions.reset({
+          index: 0,
+          routes: [{ name: "MainTab" }],
+      }),
+  })
   }, [navigate]);
+
+  useBackButton(()=>{
+    navigation.dispatch({
+      ...CommonActions.reset({
+          index: 0,
+          routes: [{ name: "MainTab" }],
+      }),
+  })
+  return true;
+  })
+ 
+
 
   return (
     <Layout style={styles.container}>

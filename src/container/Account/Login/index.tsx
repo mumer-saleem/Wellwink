@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  KeyboardAvoidingView,
   Alert,
 } from 'react-native';
 import Text from 'elements/Text';
@@ -20,8 +21,8 @@ import {IMAGE} from 'images/Image';
 import Container from 'elements/Layout/Container';
 import  { useSelector,useDispatch } from "react-redux";
 import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
-
-import {LoginAction} from '../../../Actions/login';
+import  LoaderAbsolute from 'elements/Loader/LoaderAbsolute'
+import {LoginAction} from '../../../Actions/SignIn/login';
 import {RootState} from 'type';
 import AuthManager from 'Services/authenticationManager'
 import * as Yup from "yup";
@@ -41,7 +42,7 @@ const Login = memo((props: LoginProps) => {
 
   const dispatch = useAppDispatch()
 
-  const list = useAppSelector((state) =>state)
+  const LogIn = useAppSelector((state) =>state.LogIn)
   const {navigate} = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -58,16 +59,25 @@ const Login = memo((props: LoginProps) => {
   }, [navigate]);
 
   const onLogin = useCallback((email,password) => {
-        dispatch(LoginAction({email:email,password:password})) 
-       .unwrap()
-       .then((originalPromiseResult) => {
-        navigate(Routes.MainTab);
-        })
-       .catch((rejectedValueOrSerializedError) => {
-         Alert.alert("Invalid Credentials")
-        })
+        dispatch(LoginAction({email:email,password:password})).then((res) => {
+          res.type=="Login/LoginAction/fulfilled"? navigateAction(): navigateError(res.payload) })
+  }, [email,password,LogIn]);
 
-  }, [email,password]);
+  const navigateError = useCallback(async (action) => {
+     if(action.error==401){
+      alert("Invalid email or password")
+    }
+    else if(action.error==409){
+      alert("User is inactive/blocked. Please contact our customer support to activate/unblock this user.")
+    }
+    else{
+      alert("Network Error")
+    }
+   }, []);
+  const navigateAction = useCallback(async () => {
+     navigate(Routes.MainTab);
+   }, []);
+
 
   const onForgotPassword = useCallback(() => {
     navigate(Routes.ForgetPassword);
@@ -88,7 +98,7 @@ const Login = memo((props: LoginProps) => {
  
   return (
     <Container style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView style={{  }} showsVerticalScrollIndicator={false}>
         <View style={styles.logoApp}>
           <Image source={IMAGE.logo} style={styles.logo} resizeMode="center" />
           <Text type="H5" bold>
@@ -160,11 +170,7 @@ const Login = memo((props: LoginProps) => {
         </View>
             )}
         </Formik>
-        <TouchableOpacity style={styles.forgot} onPress={onForgotPassword}>
-          <Text type="H6" color={Colors.GrayBlue} style={styles.textUnderline}>
-            Forget Password?
-          </Text>
-        </TouchableOpacity>
+     
         {/* <View style={styles.loginSocial}>
           <Text type="H6" color={Colors.GrayBlue} style={styles.textUnderline}>
             Log in with social account
@@ -204,7 +210,12 @@ const Login = memo((props: LoginProps) => {
             </Text>
           </TouchableOpacity>
         </View> */}
-        <View style={styles.signUp}>
+  <TouchableOpacity style={styles.forgot} onPress={onForgotPassword}>
+          <Text type="H6" color={Colors.GrayBlue} style={styles.textUnderline}>
+            Forget Password?
+          </Text>
+        </TouchableOpacity>
+      <View style={styles.signUp}>
           <Text type="H6" color={Colors.GrayBlue}>
             Don't have an account?{' '}
             <Text
@@ -218,6 +229,11 @@ const Login = memo((props: LoginProps) => {
           </Text>
         </View>
       </ScrollView>
+      {LogIn.fetching&&(
+ 
+ <LoaderAbsolute/>
+ )
+}
     </Container>
   );
 });
@@ -228,7 +244,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 24,
-    paddingBottom: getBottomSpace(),
+    
   },
   logoApp: {
     marginTop: getStatusBarHeight() + scale(36, true),
@@ -258,6 +274,8 @@ const styles = StyleSheet.create({
   signUp: {
     alignSelf: 'center',
     marginBottom: scale(16, true),
+    marginTop: scale(10, true),
+
     justifyContent: 'flex-end',
     borderRadius: 16,
     borderColor: Colors.Platinum,

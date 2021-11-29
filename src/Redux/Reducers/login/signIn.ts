@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
  
-import {LoginAction} from '../../../Actions/login'
+import {LoginAction} from '../../../Actions/SignIn/login'
 
 export interface LoginState {
   fetching: boolean|null,
@@ -33,15 +33,17 @@ const logIn = createSlice({
       state.fetching=true
     })
     builder.addCase(LoginAction.fulfilled, (state, action) => {
+ 
       state.fetching= false,
       state.data=action.payload.data.data,
       state.error = undefined
       state.success= true
    })
    builder.addCase(LoginAction.rejected, (state, action) => {
-        state.success= false
+     console.log(action)
+          state.success= false
         state.fetching=false
-        state.error = action.error.message
+        state.error = action.payload.error
     
  })
  

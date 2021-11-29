@@ -20,19 +20,15 @@ import {CameraImage ,libraryImage} from 'utils/imagePiker';
 import {ModalManueOptions} from 'configs/Data'
 import useModalAnimation from 'hooks/useModalAnimation';
 import ModalSelect from 'components/ModalSelect';
+import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
+import  { basicInfo } from "Redux/Reducers/signUp/signUp";
+
 
 const BasicInformation = memo(() => {
-
-  const {visible, open, close} = useModalAnimation();
+  const dispatch=useAppDispatch()
  
-  // const [firstName, setFirstName] = useState('');
-  // const [firstNameError, setFirstNameError] = useState('');
-  // const [lastName, setLastName] = useState('');
-  // const [lastNameError, setLastNameError] = useState('');
-  // const [title, setTitle] = useState('Selelct Title');
-  // const [titleError, setTitleError] = useState('Selelct Title');
-  // const [avatarSource, setAvatarSource] = useState('');
-  // const [avatarSourcError, setAvatarSourceError] = useState('');
+  const {visible, open, close} = useModalAnimation();
+  
   const [menuOptions, setMenuOptions] = useState({});
 
   const [state, setState] = useState({
@@ -42,8 +38,9 @@ const BasicInformation = memo(() => {
     lastNameError:"",
     title:'Selelct Title',
     titleError:"",
-    avatarSource:"",
-    avatarSourcError:""
+    // imageurl:"state.first.second[someId].fourth = someValue;",
+    // avatarSource:"",
+    // avatarSourcError:""
   });
   
 
@@ -51,11 +48,11 @@ const BasicInformation = memo(() => {
   const {theme} = useTheme();
 
   const isvalidate=useCallback(() => {
-   const {firstName,firstNameError,lastName,lastNameError,title,titleError,avatarSource,avatarSourcError}=state
-    if(firstName==''||lastName==''||title=='Selelct Title'||avatarSource==''){
+   const {firstName,firstNameError,lastName,lastNameError,title,titleError }=state
+    if(firstName==''||lastName==''||title=='Selelct Title' ){
       setState(  prevState => ({...prevState,  firstNameError:firstName==""?"Required":"", lastNameError:lastName==""?"Required":"", 
        titleError:title=="Selelct Title"?"Required":"",
-       avatarSourcError:avatarSource==""?"Required":"",
+      //  avatarSourcError:avatarSource==""?"Required":"",
        })  )
        return false
  
@@ -65,12 +62,18 @@ const BasicInformation = memo(() => {
 
   const onGoToOtherInfo = useCallback(() => {
      const validation =  isvalidate()
-     validation&& navigate(Routes.OtherInformation);
+     validation && navigate(Routes.OtherInformation);
+     validation && dispatch(basicInfo({
+      firstName:state.firstName, 
+      lastName:state.lastName, 
+      title:state.title,  
+      // imageurl:state.imageurl 
+    }))
   }, [state]);
 
-  const onUploadAvatar = useCallback(async() => {
-    let response =  await CameraImage()
-   }, []);
+  // const onUploadAvatar = useCallback(async() => {
+  //   let response =  await CameraImage()
+  //  }, []);
   
   useLayoutEffect(() => {
     setOptions({
@@ -96,27 +99,27 @@ const BasicInformation = memo(() => {
 
   const onPressItem = useCallback(async(result) => {
     ModalManueOptions.titileOptions==menuOptions&&selectTitle(result) 
-    ModalManueOptions.ImagePickerOptions==menuOptions&&selectImage(result)
+    // ModalManueOptions.ImagePickerOptions==menuOptions&&selectImage(result)
 
   }, [menuOptions]);
 
-  const selectImage = useCallback(async(result) => {
-    switch (result?.id) {
-      case 0:
-     let result= await libraryImage()
-        uploadImage(result?.assets)
-        close()
-        break;
-     case 1:
-      let result1= await CameraImage()
-      uploadImage(result1?.assets)
-      close()
-          break;
-      default:
-        break;
-    } 
+  // const selectImage = useCallback(async(result) => {
+  //   switch (result?.id) {
+  //     case 0:
+  //    let result= await libraryImage()
+  //       uploadImage(result?.assets)
+  //       close()
+  //       break;
+  //    case 1:
+  //     let result1= await CameraImage()
+  //     uploadImage(result1?.assets)
+  //     close()
+  //         break;
+  //     default:
+  //       break;
+  //   } 
  
-  }, []);
+  // }, []);
 
    const selectTitle = useCallback(async(result) => {
       // setTitle(result.name)
@@ -128,16 +131,16 @@ const BasicInformation = memo(() => {
     }))
   }, [state]);
 
-  const uploadImage = useCallback(async(result) => {
-         if(result[0]){
-           setState(  prevState => ({
-          ...prevState,
-          avatarSource:result[0].uri,
-          avatarSourcError:""
+  // const uploadImage = useCallback(async(result) => {
+  //        if(result[0]){
+  //          setState(  prevState => ({
+  //         ...prevState,
+  //         avatarSource:result[0].uri,
+  //         avatarSourcError:""
 
-      }))
-         }
-    }  , [state]);
+  //     }))
+  //        }
+  //   }  , [state]);
   
     const openModalForImage=useCallback(() => { 
       setMenuOptions(ModalManueOptions.ImagePickerOptions)
@@ -178,34 +181,21 @@ const BasicInformation = memo(() => {
      <Text size={24} lineHeight={28} bold marginTop={scale(32)}>
            {Constants.Welcometext} 
         </Text>
-        <Text
-          size={13}
-          lineHeight={22}
-          marginTop={16}
-          color={Colors.DarkJungleGreen}>
-          Already have an account?{' '}
-          <Text
-            blueLight
-            type="H6"
-            color={Colors.BlueCrayola}
-            semiBold
-            onPress={onGoToLogin}>
-            Log in
-          </Text>
-        </Text>
+  
          <Text
-          size={scale(13)}  lineHeight={scale(16)} bold  >
+          size={scale(13)}  lineHeight={scale(16)} bold marginTop={scale(10)} >
           Step 1 of 5
         </Text>
 
-         <AvatarProfile onPress={onUploadAvatar}  avatarSource={state.avatarSource} open={openModalForImage} />
+         {/* <AvatarProfile onPress={onUploadAvatar}  avatarSource={state.avatarSource} open={openModalForImage} /> */}
+{/* 
          <View style={{height:scale(24)}}> 
         
          {state.avatarSourcError!=""&&<Text style={{ color:"red",   }}>{state.avatarSourcError}</Text>}
-          </View>
+          </View> */}
         <InputApp
           title={'Title'}
-          // marginTop={scale(24)}
+          marginTop={scale(30)}
           value={state.title}
            onPress={()=>{openModalForTitle()}}
           isShowIconLeft
@@ -254,10 +244,30 @@ const BasicInformation = memo(() => {
           onPress={onGoToOtherInfo}
           style={styles.buttonLinear}
         />
+        <View style={{ marginBottom:20}}>
+          <Text
+          size={13}
+          lineHeight={22}
+          marginTop={26}
+          center
+          
+          color={Colors.DarkJungleGreen}>
+          Already have an account?{' '}
+          <Text
+            blueLight
+            type="H6"
+            color={Colors.BlueCrayola}
+            semiBold
+            onPress={onGoToLogin}>
+            Log in
+          </Text>
+        </Text>
+        </View>
       </ScrollView>
       <Modal visible={visible} onRequestClose={close} transparent>
         <ModalSelect choices={menuOptions} close={close} onPressItem={onPressItem} />
       </Modal>
+     
     </Container>
   );
 });
@@ -268,7 +278,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 24,
-  },
+     
+   },
   buttonChildren: {
     ...Theme.icons,
     marginLeft: scale(8),

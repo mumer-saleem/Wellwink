@@ -1,5 +1,5 @@
 import React, {memo, useState, useCallback} from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image, Alert} from 'react-native';
 import Text from 'elements/Text';
 import Theme from 'style/Theme';
 import {Colors, Routes} from 'configs';
@@ -16,16 +16,58 @@ import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
 import Container from 'elements/Layout/Container';
 import Layout from 'elements/Layout/Layout';
 import ButtonText from 'elements/Buttons/ButtonText';
+ import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
+import  { smsOtpAction} from "Actions/OtpActions/smsOtpAction";
+import  { smsOtpVerification} from "Actions/OtpActions/smsOtpVerification";
+import useBackButton from 'hooks/useBackButton';
+ import { CommonActions } from '@react-navigation/native';
 
 interface VerifyPhoneNumberProps {}
 
 const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
+  const dispatch=useAppDispatch();
+  const reduxState=useAppSelector((state)=>state);
+  const signUpState=reduxState.signUp;
+  const sendOtpState=reduxState.sendOtp;
+  const verifyOtpState=reduxState.verifyOtp;
+
+  const [isVerified, setIsVerified] = useState(false);
+  const navigation = useNavigation();
   const [code, setCode] = useState('');
   const {navigate, setOptions} = useNavigation();
-  const onSendAgain = useCallback(() => {}, []);
+
+
+  const onSendAgain = useCallback(() => {
+
+  dispatch(smsOtpAction({id:signUpState.data?.hashid,type:'sms' })).then((res) => {
+    !sendOtpState.fetching&&res.type=="SendOtp/smsOtpAction/fulfilled"?navigateAction(): navigateError(res.payload)})
+  }, [signUpState.signupbject]);
+
+  
+  const navigateError = useCallback(async (action) => {
+    action.error?alert(action.error):alert("Network Error")
+  }, []);
+
+
+  const navigateAction = useCallback(async () => {
+    alert("Phone Number verification code sent successfully")
+
+   }, []); 
+   
+   
+  //  const onVerify = useCallback(() => {
+  //   navigate(Routes.SentVerifySuccessful);
+  // }, [navigate]);
   const onVerify = useCallback(() => {
-    navigate(Routes.SentVerifySuccessful);
-  }, [navigate]);
+    if(!isVerified){
+      alert("Please Verify Email First")
+    }
+    else{
+      navigate(Routes.SentVerifySuccessful);
+
+    }
+  }, [isVerified]); 
+
   const {theme} = useTheme();
   useLayoutEffect(() => {
     setOptions({
@@ -39,12 +81,46 @@ const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
       },
       headerBackground: () => <Container style={styles.header} />,
       headerLeft: () => (
-        <ButtonIconHeader marginLeft={24} tintColor={theme.activeTincolor} />
+        <ButtonIconHeader marginLeft={24} tintColor={theme.activeTincolor} onPress={resetStack}/>
       ),
     });
   }, [setOptions]);
+  
+  useBackButton(()=>{
+    navigation.dispatch({
+      ...CommonActions.reset({
+          index: 0,
+          routes: [{ name: "MainTab" }],
+      }),
+  })
+  return true;  })
+
+  const resetStack=()=>{
+    navigation.dispatch({
+      ...CommonActions.reset({
+          index: 0,
+          routes: [{ name: "MainTab" }],
+      }),
+  })
+  return true;
+  }
+
+
+  const verification = useCallback((text:string) => {
+    setCode(text);
+   text.length==6&&!verifyOtpState.fetching&&dispatch(smsOtpVerification({id:signUpState.data?.hashid,otp:text })).then((res) => {
+     res.type=="verifyOtp/smsOtpVerification/fulfilled"?VerificationAction(): VerificationError(res.payload)})
+  }, [signUpState.signupbject]);
+
+  const VerificationAction = useCallback(async () => {
+    setIsVerified(true)
+    }, []);
+   const VerificationError = useCallback(async (action) => {
+     action.message?alert(action.message):alert("Network Error")
+  }, []);
+
   return (
-    <Container style={styles.container}>
+    <Container style={styles.container} shoeActivityIndicator={signUpState.fetching}>
            <Text size={13} lineHeight={16} bold  >
           Step 5 of 5
         </Text>
@@ -54,8 +130,8 @@ const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
       <Text size={13} lineHeight={22} marginTop={16}>
         Please check you message for a six-digit security code and enter it below.
       </Text>
-      <InputCodeOtp style={styles.enterCode} {...{code, setCode}} />
-     
+      <InputCodeOtp style={styles.enterCode} {...{code, verification,isVerified}} />
+
       <Text size={13} lineHeight={22} center color={Colors.DarkJungleGreen}>
         Didn'nt get a code?{' '}
         <Text
@@ -91,8 +167,9 @@ const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
           style={styles.signUpButton}
           titleColor={Colors.TealBlue}
           textProps={{bold: true}}
-          onPress={onVerify}
+          onPress={()=> navigate(Routes.SentVerifySuccessful)}
          />
+ 
     </Container>
   );
 });

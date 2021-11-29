@@ -1,5 +1,5 @@
 import React, {memo, useState, useCallback, useEffect} from 'react';
-import {View, StyleSheet, Modal} from 'react-native';
+import {View, StyleSheet, Modal,Alert} from 'react-native';
 import Theme from 'style/Theme';
 import scale from 'utils/scale';
 import validationEmail from 'utils/validation/email';
@@ -15,17 +15,35 @@ import {useLayoutEffect} from 'react';
 import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
 import {useTheme} from 'configs/ChangeTheme'
 import Container from 'elements/Layout/Container';
+import * as Yup from "yup";
+import { Formik , useFormikContext, } from "formik";
+import {EmailValidation,StrongPassword,PhoneValidation} from 'utils/validation';
+import  { accountInfo } from "Redux/Reducers/signUp/signUp";
+import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
+import {SignUpAction} from 'Actions/SignUp/signUp'
+import  LoaderAbsolute from 'elements/Loader/LoaderAbsolute'
+
+
 
 interface SignUpProps {}
 
 const SignUp = memo((props: SignUpProps) => {
-  const [email, setEmail] = useState('lehieuds@gmail.com');
-  const [phoneNumber, setPhoneNumber] = useState('419-319-9837');
-  const [password, setPassword] = useState('12345678');
+  const dispatch=useAppDispatch();
+  const signUpState=useAppSelector((state)=>state.signUp);
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [password, setPassword] = useState('');
   const [visiblePassword, setVisiblePassword] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [codeArea, setCodeArea] = useState(phonesAreaCodes[0]);
   const {visible, open, close, transY} = useModalAnimation();
+
+   
+  const validationSchema =  Yup.object().shape({
+    email: EmailValidation,
+    password:StrongPassword,
+    phoneNumber:PhoneValidation,
+  });
 
   const {navigate, setOptions} = useNavigation();
 
@@ -33,9 +51,23 @@ const SignUp = memo((props: SignUpProps) => {
     setVisiblePassword(prev => !prev);
   }, []);
 
-  const onSignUp = useCallback(() => {
-    navigate(Routes.VerifyEmail);
+  const onSignUp = useCallback((email,password,phoneNumber) => {
+    let signupbject ={...signUpState.signupbject,
+      password:password,
+      email:email,
+      phoneNumber:phoneNumber,
+    }
+    dispatch(SignUpAction(signupbject)).then((res) => {
+     res.type=="signUp/SignUpAction/fulfilled"?navigateAction(): navigateError(res.payload)})
+  }, [signUpState.signupbject]);
+
+  const navigateError = useCallback(async (action) => {
+    action.error?alert(action.error):alert("Network Error")
   }, []);
+  const navigateAction = useCallback(async () => {
+    navigate(Routes.VerifyEmail) 
+   }, []);
+
   const onTermOfUse = useCallback(() => {}, []);
   const onPrivacyPolicy = useCallback(() => {}, []);
   const onGoToLogin = useCallback(() => {
@@ -79,39 +111,75 @@ const SignUp = memo((props: SignUpProps) => {
   }, [setOptions]);
   return (
     <Container style={styles.container}>
+              <Formik
+            initialValues={{   
+              email: "",
+              password:"",
+              phoneNumber:"", }}
+              validationSchema={validationSchema}
+            onSubmit={async (values) => {
+               dispatch(accountInfo({
+                email: values.email,
+                password:values.password,
+                phoneNumber:values.phoneNumber, 
+               }))
+               &&onSignUp(values.email,values.password,values.phoneNumber)
+          
+             }}
+          >
+            {({errors, handleChange, handleBlur, handleSubmit, values,touched,}) => 
+              
+              (
       <SignUpUi
         {...{
-          email,
+          email:values.email,
           setEmail,
           isValidEmail,
           codeArea,
-          phoneNumber,
-          setPhoneNumber,
-          password,
-          setPassword,
+          phoneNumber:values.phoneNumber,
+          // setPhoneNumber,
+          password:values.password,
+          // setPassword,
           visiblePassword,
           onShowHidePassword,
-          onSignUp,
+          handleSubmit,
           onTermOfUse,
           onPrivacyPolicy,
           onGoToLogin,
           onLogInFacebook,
           onLogInTwitter,
+          values,
+          errors,
+          touched
         }}
-        openModalChange={open}
+        // openModalChange={open}
+        openModalChange={()=>console.log("no need to")}
+
       />
+
+       )
+
+}
+      </Formik>
       <Modal
         visible={visible}
         onRequestClose={close}
         transparent
         animationType={'none'}>
-        <ModalSlideBottom onClose={close} transY={transY}>
+        <ModalSlideBottom onClose={close} transY={transY}>              
           <ModalChangePhoneCode
             onChangeCode={onChangeCode}
             phonesAreaCodes={phonesAreaCodes}
           />
         </ModalSlideBottom>
       </Modal>
+    
+
+       {signUpState.fetching&&(
+ 
+          <LoaderAbsolute/>
+          )
+        }
     </Container>
   );
 });

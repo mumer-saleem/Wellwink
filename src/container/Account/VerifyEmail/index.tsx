@@ -1,5 +1,5 @@
-import React, {memo, useState, useCallback} from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import React, {memo, useState, useCallback,useEffect} from 'react';
+import {View, StyleSheet, Image, Alert} from 'react-native';
 import Text from 'elements/Text';
 import Theme from 'style/Theme';
 import {Colors, Routes} from 'configs';
@@ -13,16 +13,73 @@ import {useTheme} from 'configs/ChangeTheme'
 import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
 import Container from 'elements/Layout/Container';
 import Layout from 'elements/Layout/Layout';
+import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
+import  { emailOtpAction} from "Actions/OtpActions/emailOtpAction";
+import  { emailOtpVerification} from "Actions/OtpActions/emailOtpVerification";
+import useBackButton from 'hooks/useBackButton';
+ import { CommonActions } from '@react-navigation/native';
 
+ 
 interface VerifyEmail {}
 
 const VerifyEmailAddress = memo((props: VerifyEmail) => {
+  const dispatch=useAppDispatch();
+  const reduxState=useAppSelector((state)=>state);
+  const signUpState=reduxState.signUp;
+  const sendOtpState=reduxState.sendOtp;
+  const verifyOtpState=reduxState.verifyOtp;
+
+
   const [code, setCode] = useState('');
+  const [isVerified, setIsVerified] = useState(false);
+
   const {navigate, setOptions} = useNavigation();
-  const onSendAgain = useCallback(() => {}, []);
+  const navigation = useNavigation();
+
+  useBackButton(()=>{
+     navigation.dispatch({
+      ...CommonActions.reset({
+          index: 0,
+          routes: [{ name: "MainTab" }],
+      }),
+  })
+  return true;
+  })
+
+  const resetStack=()=>{
+    navigation.dispatch({
+      ...CommonActions.reset({
+          index: 0,
+          routes: [{ name: "MainTab" }],
+      }),
+  })
+  return true;
+  }
+  const onSendAgain = useCallback(() => {
+    !sendOtpState.fetching&&dispatch(emailOtpAction({id:signUpState.data?.hashid,type:'email' })).then((res) => {
+     res.type=="SendOtp/emailOtpAction/fulfilled"?navigateAction(): navigateError(res.payload)})
+  }, [signUpState.signupbject]);
+
+  const navigateError = useCallback(async (action) => {
+    action.error?alert(action.error):alert("Network Error")
+  }, []);
+
+   
+  const navigateAction = useCallback(async () => {
+    alert("Email verification code sent successfully")
+   }, []);
+
   const onVerify = useCallback(() => {
+   if(!isVerified){
+     alert("Please Verify Email First")
+   }
+   else{
     navigate(Routes.VerifyPhoneNumber);
-  }, [navigate]);
+   }
+    
+  }, [isVerified]);
+
+  
   const {theme} = useTheme();
   useLayoutEffect(() => {
     setOptions({
@@ -36,12 +93,27 @@ const VerifyEmailAddress = memo((props: VerifyEmail) => {
       },
       headerBackground: () => <Container style={styles.header} />,
       headerLeft: () => (
-        <ButtonIconHeader marginLeft={24} tintColor={theme.activeTincolor} />
+        <ButtonIconHeader marginLeft={24} tintColor={theme.activeTincolor} onPress={resetStack} />
       ),
     });
   }, [setOptions]);
+
+  const verification = useCallback((text:string) => {
+    setCode(text);
+   text.length==6&&!verifyOtpState.fetching&&dispatch(emailOtpVerification({id:signUpState.data?.hashid,otp:text })).then((res) => {
+     res.type=="verifyOtp/emailOtpVerification/fulfilled"?VerificationAction(): VerificationError(res.payload)})
+  }, [signUpState.signupbject]);
+
+  const VerificationAction = useCallback(async () => {
+    setIsVerified(true)
+    console.log("otp send")
+   }, []);
+   const VerificationError = useCallback(async (action) => {
+     action.message?alert(action.message):alert("Network Error")
+  }, []);
+
   return (
-    <Container style={styles.container}>
+    <Container style={styles.container} shoeActivityIndicator={(verifyOtpState.fetching||sendOtpState.fetching)}>
            <Text size={13} lineHeight={16} bold  >
           Step 4 of 5
         </Text>
@@ -51,7 +123,7 @@ const VerifyEmailAddress = memo((props: VerifyEmail) => {
       <Text size={13} lineHeight={22} marginTop={16}>
         Please check you inbox for a five-digit security code and enter it below.
       </Text>
-      <InputCodeOtp style={styles.enterCode} {...{code, setCode}} />
+      <InputCodeOtp style={styles.enterCode} {...{code, verification,isVerified}} />
      
       <Text size={13} lineHeight={22} center color={Colors.DarkJungleGreen}>
         Didn'nt get a code?{' '}
@@ -64,10 +136,7 @@ const VerifyEmailAddress = memo((props: VerifyEmail) => {
           Send again
           </Text>
       </Text>
-    
-
-      
-
+  
       <ButtonLinear white 
         white
         title={'Verify'}

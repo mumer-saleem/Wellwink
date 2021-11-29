@@ -13,6 +13,8 @@ import {useNavigation} from '@react-navigation/native';
 import {ONBOARDING} from 'configs/Data';
 import Container from 'elements/Layout/Container';
 import SplashScreen from 'react-native-splash-screen'
+import {resetNavigation} from 'utils/BackHandler'
+
 
 interface OnBoardingProps {}
 
@@ -25,7 +27,7 @@ const OnBoarding = memo((props: OnBoardingProps) => {
     navigate(Routes.Login);
   }, [navigate]);
   const onSignUp = useCallback(() => {
-    navigate(Routes.SignUp);
+    navigate(Routes.BasicInformation);
   }, [navigate]);
   const onGetHere = useCallback(() => {}, []);
   useEffect(() => {

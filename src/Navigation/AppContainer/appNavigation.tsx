@@ -87,14 +87,12 @@ import PrivateCareLiveChat from 'container/PrivateCareServicesVideoCall/PrivateC
 import VerifyEmail from 'container/Account/VerifyEmail';
 import { EmailValidation } from 'utils/validation';
 
-
-
 const Stack = createNativeStackNavigator();
 
 const AppNavigation = memo(() => {
   return (
     <NavigationContainer> 
-       <Stack.Navigator initialRouteName={Routes.OnBoarding}>
+       <Stack.Navigator initialRouteName={Routes.OnBoarding} screenOptions={{gestureEnabled: false}}>
       <Stack.Screen
         name={Routes.OnBoarding}
         component={OnBoarding}

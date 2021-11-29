@@ -17,14 +17,17 @@ interface InputCodeOtpProps {
   style?: ViewStyle;
   codeLength?: number;
   code: string;
-  setCode: Dispatch<SetStateAction<string>>;
+  isVerified: boolean;
+  // setCode: Dispatch<SetStateAction<string>>;
+  verification: (string:string)=>void;
 }
 
 const InputCodeOtp = ({
   style,
-  codeLength = 5,
+  codeLength = 6,
   code,
-  setCode,
+  isVerified,
+  verification,
 }: InputCodeOtpProps) => {
   const _code = fillNumberLength(code, codeLength);
   const inputRef: any = useRef();
@@ -40,7 +43,7 @@ const InputCodeOtp = ({
             _code.charAt(i) !== '#' && styles.alreadyEnter,
           ]}>
           {_code.charAt(i) !== '#' && (
-            <Text size={32} semiBold center lineHeight={40}>
+            <Text size={25} semiBold center lineHeight={30}>
               {_code.charAt(i)}
             </Text>
           )}
@@ -60,7 +63,7 @@ const InputCodeOtp = ({
       if (text.length > codeLength) {
         _text = text.substring(0, codeLength);
       }
-      setCode(_text);
+      verification(_text);
     },
     [codeLength],
   );
@@ -68,7 +71,7 @@ const InputCodeOtp = ({
   return (
     <TouchableOpacity style={[styles.container, style]} onPress={onPressInput}>
       {renderInputBox()}
-      {code.length === codeLength && (
+      {isVerified && (
         <Image
           source={require('images/Icon/ic_accept.png')}
           style={styles.iconAccept}
@@ -96,8 +99,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   box: {
-    width: 48,
-    height: 56,
+    width: 40,
+    height: 40,
     borderColor: Colors.DarkJungleGreen,
     borderWidth: 1,
     borderRadius: 12,

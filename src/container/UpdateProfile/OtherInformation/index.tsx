@@ -23,6 +23,8 @@ import Container from 'elements/Layout/Container';
 import useModalAnimation from 'hooks/useModalAnimation';
 import ModalSlideBottom from 'components/ModalSlideBottom';
 import Calendar from 'components/Schedule/Calendar';
+import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
+import  { basicInfo, otherInfo } from "Redux/Reducers/signUp/signUp";
 
 interface OtherInformationProps {}
 const genders = [
@@ -30,48 +32,47 @@ const genders = [
   {
     id: 2,
     title: 'Male',
+    value: 'male',
     icon: require('images/Icon/ic_male.png'),
   },
   {
     id: 1,
     title: 'Female',
+    value: 'female',
     icon: require('images/Icon/ic_female.png'),
   },
   {
     id: 0,
-    title: 'others',
+    title: 'Others',
+    value: 'others',
     icon: require('images/Icon/others.png'),
   },
 ];
 const OtherInformation = memo((props: OtherInformationProps) => {
 
-  // const [homeAddress, setHomeAddress] = useState('934 Miller Turnpike');
- const [ motherName,setMotherName] = useState('');
-  const [date, setDate] = useState<string>('Select Date');
-  const [gender, setGender] = useState<{
+  const dispatch=useAppDispatch()
+
+  const [ motherName,setMotherName] = useState('');
+   const [gender, setGender] = useState<{
     id?: number | null;
     title?: string | null;
     icon: any;
-  }>({id: 2, title: "Male",   icon: require('images/Icon/ic_male.png'),});
-  const [genderError, setGenderError] = useState("");
-  
+    value: string | null;
+  }>({id: null, title: null, value: null,  icon: null,});
+   
   const [state, setState] = useState({
     motherName:"",
     motherNameError:"",
     date:'Select Date',
     dateError:"",
+    genderError:""
    
  
   });
 
 
   const {navigate, setOptions} = useNavigation();
-
-  // const onGoToChangeAddress = useCallback(() => {
-  //   // navigate(Routes.SelectAddress, { onChangeAddress: setHomeAddress });
-  // }, []);
-
-  const {  visible: dateVisible,  open: dateOpen,  close: dateClose,  transY: dateTransY, } = useModalAnimation();
+  const {  visible,  open: dateOpen,  close: dateClose,  transY: dateTransY, } = useModalAnimation();
 
   const onPickDatePress = useCallback(day => {
       setState(  prevState => ({
@@ -86,10 +87,8 @@ const OtherInformation = memo((props: OtherInformationProps) => {
  
   const isvalidate=useCallback(() => {
     const {motherName,motherNameError,date,dateError}=state
-    // if(gender.id==null){
-    //   setGenderError("Required")
-    // }
-     if(motherName==''||  date=='Select Date'){
+     
+     if(motherName==''||  date=='Select Date'||gender.id==null){
       
        setState(  prevState => ({...prevState, 
         motherNameError:motherName==""?"Required":"",
@@ -106,6 +105,11 @@ const OtherInformation = memo((props: OtherInformationProps) => {
   const onGotoFollowTopic = useCallback(() => {
     const validation =  isvalidate()
     validation&& navigate(Routes.SignUp);
+    validation && dispatch(otherInfo({
+      gender:gender.value, 
+      db:state.date, 
+      motherName:state.motherName,  
+  }))
   }, 
   [state]); 
    const {theme} = useTheme();
@@ -144,8 +148,12 @@ const OtherInformation = memo((props: OtherInformationProps) => {
         <View style={styles.genders}>
         {genders.map((i, index) => {
             const onPress = () => {
-              setGender(i);
-              setGenderError("")
+              setGender(i);   
+              setState(  prevState => ({
+                ...prevState,
+                genderError:""
+        
+            }))
             };
           
             return (
@@ -160,7 +168,7 @@ const OtherInformation = memo((props: OtherInformationProps) => {
           })}
         </View>
         <View style={{height:scale(24)}}> 
-        {genderError!=""&&<Text style={{ color:"red",   }}>{genderError}</Text>}
+        {state.genderError!=""&&<Text style={{ color:"red",   }}>{state.genderError}</Text>}
          </View>
         <InputApp
           title={'Birthday'}
@@ -175,21 +183,7 @@ const OtherInformation = memo((props: OtherInformationProps) => {
 
         {state.dateError!=""&&<Text style={{ color:"red",   }}>{state.dateError}</Text>}
        </View>
-        {/* <InputApp
-          title={'Address'}
-          marginTop={scale(24)}
-          value={homeAddress}
-          iconLeft={
-            <Image
-              source={require('images/Icon/ic_pin_map.png')}
-              style={Theme.icons}
-            />
-          }
-          isShowIconLeft
-          editable={false}
-          onPress={onGoToChangeAddress}
-        /> */}
-
+  
          <InputApp
           title={'Mother Name'}
           placeholder={"Mother Name"}
@@ -222,7 +216,7 @@ const OtherInformation = memo((props: OtherInformationProps) => {
         />
       </ScrollView>
       <Modal
-        visible={dateVisible}
+        visible={visible}
         onRequestClose={dateClose}
         transparent
         animationType="fade">
@@ -254,3 +248,4 @@ const styles = StyleSheet.create({
     marginTop: scale(24),
   },
 });
+ 
