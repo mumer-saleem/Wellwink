@@ -24,12 +24,13 @@ const MainTab = memo(() => {
             navigation: any;
           },
         ) => <MyTabBar {...props} />}
-        lazy={true}>
-        <Tab.Screen name={Routes.HomeStack} component={HomeStack} />
-        <Tab.Screen name={Routes.SearchStack} component={SearchStack} />
-        <Tab.Screen name={Routes.MyPlusStack} component={MyPlusStack} />
-        <Tab.Screen name={Routes.MyRecordStack} component={MyRecordStack} />
-        <Tab.Screen name={Routes.SettingStack} component={SettingStack} />
+        // lazy={true}
+        >
+        <Tab.Screen name={Routes.HomeStack} component={HomeStack} options={{ headerShown: false }} />
+        <Tab.Screen name={Routes.SearchStack} component={SearchStack} options={{ headerShown: false }}/>
+        <Tab.Screen name={Routes.MyPlusStack} component={MyPlusStack} options={{ headerShown: false }}/>
+        <Tab.Screen name={Routes.MyRecordStack} component={MyRecordStack} options={{ headerShown: false }}/>
+        <Tab.Screen name={Routes.SettingStack} component={SettingStack} options={{ headerShown: false }}/>
       </Tab.Navigator>
     </View>
   );

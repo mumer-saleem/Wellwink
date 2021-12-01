@@ -63,6 +63,7 @@ const Login = memo((props: LoginProps) => {
   const onLogin = useCallback((email,password) => {
         dispatch(LoginAction({email:email,password:password})).then((res) => {
           res.type=="Login/LoginAction/fulfilled"? navigateAction(): navigateError(res.payload) })
+          
   }, [email,password,LogIn]);
 
   const navigateError = useCallback(async (action) => {
@@ -113,8 +114,8 @@ const Login = memo((props: LoginProps) => {
         </View>
         <Formik
             initialValues={{   
-              email: "",
-              password:"" }}
+              email: "mumersaleem79@gmail.com",
+              password:"Active123!" }}
             validationSchema={validationSchema}
             onSubmit={async (values) => {
 

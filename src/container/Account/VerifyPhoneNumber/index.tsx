@@ -38,12 +38,10 @@ const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
 
 
   const onSendAgain = useCallback(() => {
-
   dispatch(smsOtpAction({id:signUpState.data?.hashid,type:'sms' })).then((res) => {
     !sendOtpState.fetching&&res.type=="SendOtp/smsOtpAction/fulfilled"?navigateAction(): navigateError(res.payload)})
   }, [signUpState.signupbject]);
 
-  
   const navigateError = useCallback(async (action) => {
     action.error?alert(action.error):alert("Network Error")
   }, []);

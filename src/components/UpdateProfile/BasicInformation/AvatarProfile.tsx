@@ -3,6 +3,8 @@ import { View, StyleSheet, Image,TouchableOpacity } from "react-native";
 import scale from "utils/scale";
 import Theme from "style/Theme";
 import { Colors } from "configs";
+import {useTheme} from 'configs/ChangeTheme';
+
 import { ICON } from "images/Icon";
 interface AvatarProfileProps {
   onPress?: () => void;
@@ -16,12 +18,13 @@ interface AvatarProfileProps {
 const AvatarProfile = memo((props: AvatarProfileProps) => {
   
    const {avatarSource,open}=props;
+   const {theme} = useTheme();
 
  
 
   return (
     <View style={styles.container}>
-      <View style={styles.avatar}>
+      <View style={[styles.avatar,{ borderColor:theme.borderColor,}]}>
         <Image
            source={ avatarSource == "" ? ICON.addImage : { uri: avatarSource }} 
           resizeMode="stretch"
@@ -52,6 +55,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     width: scale(112),
     height: scale(112),
+    borderWidth:1,
     borderRadius: scale(16),
  
    

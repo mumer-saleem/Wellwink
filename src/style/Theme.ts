@@ -68,6 +68,7 @@ export default StyleSheet.create({
     shadowOpacity: 0.05,
     shadowRadius: 4,
     elevation: 4,
+    
   },
   buttonSlider: {
     width: 48,

@@ -28,7 +28,6 @@ import  { basicInfo, otherInfo } from "Redux/Reducers/signUp/signUp";
 
 interface OtherInformationProps {}
 const genders = [
- 
   {
     id: 2,
     title: 'Male',

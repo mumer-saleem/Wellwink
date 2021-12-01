@@ -63,7 +63,8 @@ export default memo(() => {
       {isSearch ? (
         <SearchView onCancel={onCancel} />
       ) : (
-        <Content showsVerticalScrollIndicator={false} scrollEventThrottle={16}>
+        <Content showsVerticalScrollIndicator={false} 
+        scrollEventThrottle={16}>
           <View style={styles.header}>
             <Text bold size={17} lineHeight={20}>
               Top Specialities

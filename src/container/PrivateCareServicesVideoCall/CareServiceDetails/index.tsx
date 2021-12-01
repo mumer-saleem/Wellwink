@@ -510,13 +510,13 @@ const BookAppointmentDetail = memo(() => {
             title="Additional Information">
             <View style={styles.additionalInformation}>
               <AdditionalInformationQuestionItem
-                title="Do you have any previous diagnosed conditions?"
+                title="Do you have any asasasaasdsd diagnosed conditions?"
                 buttonTitle="Add Condition"
                 list={conditionList}
                 onAdd={onAddInformationCondition}
               />
               <AdditionalInformationQuestionItem
-                title="Do you take any medications?"
+                title="Do you take asasasany medications?"
                 buttonTitle="Add Medication"
                 list={medicationList}
                 onAdd={onAddInformationMedication}

@@ -56,9 +56,9 @@ const VerifyEmailAddress = memo((props: VerifyEmail) => {
   // return true;
   // }
   const onSendAgain = useCallback(() => {
-    !sendOtpState.fetching&&dispatch(emailOtpAction({id:signUpState.data?.hashid,type:'email' })).then((res) => {
+     !sendOtpState.fetching&&dispatch(emailOtpAction({id:signUpState.data?.hashid,type:'email' })).then((res) => {
      res.type=="SendOtp/emailOtpAction/fulfilled"?navigateAction(): navigateError(res.payload)})
-  }, [signUpState.signupbject]);
+  }, [signUpState]);
 
   const navigateError = useCallback(async (action) => {
     action.error?alert(action.error):alert("Network Error")

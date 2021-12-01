@@ -1,0 +1,73 @@
+import React, {Dispatch, SetStateAction, memo,useState,useEffect} from 'react';
+import {View, StyleSheet, ViewStyle, TouchableOpacity,Image} from 'react-native';
+import Text from 'elements/Text';
+import TextInput from 'elements/TextInput';
+import {Colors} from 'configs';
+import {themes, useTheme} from 'configs/ChangeTheme';
+import Theme from 'style/Theme';
+import {getBottomSpace, getStatusBarHeight} from 'react-native-iphone-x-helper';
+import {AVATAR} from 'images/Avatar';
+import {ICON} from 'images/Icon';
+import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
+
+interface headerProps {
+    
+}
+
+const ProfileHeader = memo(
+  ({
+ 
+  }: headerProps) => {
+  const LogIn = useAppSelector((state) =>state.LogIn)
+  const info=LogIn.data
+  // const [info, setIsSearch] = useState(false);
+  // useEffect(()=>{
+
+  // },[LogIn.data])
+  
+
+    const {theme} = useTheme();
+    return (
+      <View style={[styles.infoView, {backgroundColor: theme.background}]}>
+      <View style={Theme.flexRow}>
+         <Image source={{uri:info.profile_pic}} style={styles.avatar} />
+        <View>
+          <Text size={15} bold marginBottom={4}>
+          {info.profileable_name}
+          </Text>
+          <Text style={styles.email}>{info.email}</Text>
+          <Text style={styles.type}>{info.profileable_type}</Text>
+        </View>
+      </View>
+      <Image source={ICON.arrDown} />
+      {/* <ButtonIcon icon="edit" style={styles.icon} onPress={onEditButton} /> */}
+    </View>
+    );
+  },
+);
+
+export default ProfileHeader;
+
+const styles = StyleSheet.create({
+  infoView: {
+    ...Theme.flexRowSpace,
+    marginHorizontal: 24,
+    marginBottom: 32,
+   paddingTop: getStatusBarHeight(),
+
+  },
+  avatar: {
+    width: 64,
+    height: 64,
+    marginRight: 16,
+    borderRadius:20
+  },
+  email: {
+    fontSize: 13,
+    marginBottom: 8,
+  },
+  type: {
+    fontSize: 13,
+    color: Colors.GrayBlue,
+  },
+});

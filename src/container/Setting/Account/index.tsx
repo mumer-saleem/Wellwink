@@ -21,6 +21,10 @@ import Content from 'elements/Layout/Content';
 import scale from 'utils/scale';
 import {height} from 'configs/Const';
 import Layout from 'elements/Layout/Layout';
+import Container from 'elements/Layout/Container';
+import ProfileHeader from 'elements/Headers/profileHeader';
+
+
 export const ACCOUNT_SAMPLE = {
   id: 1,
   name: 'Devin Shelton',
@@ -52,13 +56,8 @@ const Account = memo(() => {
   const onEditButton = () => {};
 
   return (
-    <Content
-      style={styles.container}
-      scrollEventThrottle={16}
-      bounces={false}
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={styles.contentContainerStyle}>
-      <View style={[styles.infoView, {backgroundColor: theme.background}]}>
+    <Container style={styles.container}>
+    {/* <View style={[styles.infoView, {backgroundColor: theme.background}]}>
         <View style={Theme.flexRow}>
           <Image source={AVATAR.avatar2} style={styles.avatar} />
           <View>
@@ -69,27 +68,52 @@ const Account = memo(() => {
             <Text style={styles.type}>{account.accountType}</Text>
           </View>
         </View>
-        <ButtonIcon icon="edit" style={styles.icon} onPress={onEditButton} />
-      </View>
+        <Image source={ICON.arrDown} />
+        {/* <ButtonIcon icon="edit" style={styles.icon} onPress={onEditButton} /> */}
+      {/* </View> */}
+    <ProfileHeader/>
+    <Content
+      style={styles.container}
+      scrollEventThrottle={16}
+      bounces={false}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={styles.contentContainerStyle}>
+   
       <Layout style={styles.content}>
         <AccountItem
           route={Routes.AccountFile}
           style={styles.firstView}
-          icon={ICON.photoLibrary}
-          name="Files"
+          icon={ICON.additional}
+          name="Demographics"
         />
-        <AccountItem
+        {/* <AccountItem
           route={Routes.AccountPaymentMethod}
           style={styles.middleView}
           icon={ICON.payment}
           name="Payment Method"
+        /> */}
+          <AccountItem
+          style={styles.middleView}
+          icon={ICON.clinicVital}
+          name="Emergerncy cnontact"
         />
+            <AccountItem
+          style={styles.middleView}
+          icon={ICON.addedCareTeam}
+          name="Insurance"
+        />
+          <AccountItem
+          style={styles.middleView}
+          icon={ICON.accountNormal}
+          name="Family"
+        />
+
         <AccountItem
           style={styles.middleView}
           icon={ICON.setting}
           name="Setting"
         />
-        <AccountItem
+        {/* <AccountItem
           onPress={toggleDarkMode}
           style={[styles.lastView1, {borderBottomColor: theme.background}]}
           icon={ICON.themeMode}
@@ -97,8 +121,9 @@ const Account = memo(() => {
           isToggle={true}
           switchValue={darkMode}
           onValueChange={toggleDarkMode}
-        />
+        /> */}
       </Layout>
+
       <Layout style={styles.content}>
         <AccountItem
           style={styles.firstView}
@@ -143,7 +168,8 @@ const Account = memo(() => {
         </View>
       </Layout>
     </Content>
-  );
+    </Container>
+   );
 });
 
 export default Account;
@@ -151,12 +177,14 @@ export default Account;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: getStatusBarHeight() + 52,
+    // paddingTop: getStatusBarHeight() + 52,
   },
   infoView: {
     ...Theme.flexRowSpace,
     marginHorizontal: 24,
     marginBottom: 32,
+   paddingTop: getStatusBarHeight(),
+
   },
   avatar: {
     width: 64,

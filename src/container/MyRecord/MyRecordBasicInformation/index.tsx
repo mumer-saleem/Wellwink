@@ -18,6 +18,7 @@ import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
 import {width} from 'configs/Const';
 import ModalChangePhoneCode from 'components/SignUp/ModalChangePhoneCode';
 import ModalSlideBottom from 'components/ModalSlideBottom';
+ import Calendar from 'components/Schedule/Calendar';
 import useModalAnimation from 'hooks/useModalAnimation';
 import {GENDER, phonesAreaCodes, RELATIONSHIP} from 'configs/Data';
 import {TcodeArea} from 'type/codeArea';
@@ -25,11 +26,20 @@ import ModalSelect from 'components/ModalSelect';
 import {categoryList} from 'type/category';
 import ModalChangeRelationship from 'components/ModalChangeRelationship';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
-import InputItem from 'components/InputItem';
+import MyBasicInformation from 'components/MyRecord/MyBasicInformation';
+import MyContactInformation from 'components/MyRecord/MyContactInformation';
+
 import {useTheme} from 'configs/ChangeTheme';
 import Layout from 'elements/Layout/Layout';
 import Line from 'elements/Layout/Line';
 import scale from 'utils/scale';
+import {CameraImage ,libraryImage} from 'utils/imagePiker';
+import {ModalManueOptions} from 'configs/Data'
+import Container from 'elements/Layout/Container';
+import { Formik , useFormikContext, } from "formik";
+import * as Yup from "yup";
+import {EmailValidation,StrongPassword,PhoneValidation,StringValidation} from 'utils/validation';
+
 
 const MY_RECORD_INFORMATION = {
   name: 'Devin Shelton',
@@ -69,8 +79,29 @@ const MY_RECORD_INFORMATION = {
 };
 
 export default memo(() => {
+  const validationSchema =  Yup.object().shape({
+    firstName:StringValidation,
+    lastName:StringValidation,
+    motherName:StringValidation,
+    email: EmailValidation, 
+     phone:PhoneValidation,
+     mobile:PhoneValidation,
+   });
   const {setOptions} = useNavigation();
   const [gender, setGender] = useState<any>(MY_RECORD_INFORMATION.gender);
+  const [menuOptions, setMenuOptions] = useState({});
+  const [state, setState] = useState({
+    avatarSource:"http://192.168.5.84:3000/ilaaj.png",
+    avatarSourcError:"",
+    date:'Select Date',
+    dateError:"",
+    address:"",
+    state:"",
+    city:"",
+    zipCode:"",
+  });
+
+
   const [relationship, setRelationship] = useState(
     MY_RECORD_INFORMATION.relationship,
   );
@@ -80,6 +111,7 @@ export default memo(() => {
   const [emergencyCodeArea, setEmergencyCodeArea] = useState(
     MY_RECORD_INFORMATION.emergencyContactPhoneCode,
   );
+
   const {
     visible: contactPhoneModal,
     open: openContactPhoneModal,
@@ -99,6 +131,8 @@ export default memo(() => {
     open: openGenderPick,
     close: closeGenderPick,
   } = useModalAnimation();
+
+  const {visible:imageModalVisible, open:openImageModal, close:closeImageModal} = useModalAnimation();
 
   const {
     visible: relationPick,
@@ -122,6 +156,7 @@ export default memo(() => {
       ),
     });
   }, [setOptions]);
+  const {  visible:dateVisisblity,  open: dateOpen,  close: dateClose,  transY: dateTransY, } = useModalAnimation();
 
   const [name, setName] = useState<any>(MY_RECORD_INFORMATION.name);
   const [contactEmail, setContactEmail] = useState<any>(
@@ -149,6 +184,12 @@ export default memo(() => {
     setGender(item.name);
     closeGenderPick();
   }, []);
+  const selectImageResource = useCallback(item => {
+    setGender(item.name);
+    closeGenderPick();
+  }, []);
+
+ 
   const onChangeRelationship = useCallback((item: categoryList) => {
     setRelationship(item);
     closeRelationPick();
@@ -166,8 +207,76 @@ export default memo(() => {
   const onChangeEmergencyContactPhone = useCallback(value => {
     setEmergencyContactPhone(value);
   }, []);
+    const onUploadAvatar = useCallback(async() => {
+    let response =  await CameraImage()
+   }, []);
+    
+   
+   const selectImage = useCallback(async(result) => {
+    switch (result?.id) {
+      case 0:
+     let result= await libraryImage()
+        uploadImage(result?.assets)
+        closeImageModal()
+        break;
+     case 1:
+      let result1= await CameraImage()
+      uploadImage(result1?.assets)
+      closeImageModal()
+          break;
+      default:
+        break;
+    } 
+ 
+  }, []);
+   
+  const uploadImage = useCallback(async(result) => {
+         if(result[0]){
+           setState(  prevState => ({
+          ...prevState,
+          avatarSource:result[0].uri,
+          avatarSourcError:""
+
+      }))
+         }
+    }  , [state]);
+   
+    const onPickDatePress = useCallback(day => {
+      setState(  prevState => ({
+      ...prevState,
+      date:day.dateString,
+      dateError:""
+  }))
+  
+  dateClose();
+  }, [state]);
+    
+    const openModalForImage=useCallback(() => { 
+      setMenuOptions(ModalManueOptions.ImagePickerOptions)
+      openImageModal()
+    }  , []);
+
   const {theme} = useTheme();
   return (
+ 
+       <Formik
+    initialValues={{   
+      firstName:"",
+      lastName:"",
+      motherName:"",
+      email: "",
+      password:"",
+       phone:"",
+       mobile:"" }}
+      validationSchema={validationSchema}
+
+    onSubmit={async (values) => {
+   
+     }}
+  >
+    {({errors, handleChange, handleBlur, handleSubmit, values,touched,}) => 
+      
+      (
     <ScrollView
       style={[styles.container, {backgroundColor: theme.background}]}
       scrollEventThrottle={16}
@@ -179,7 +288,7 @@ export default memo(() => {
       <Text size={11} marginTop={8} marginBottom={40}>
         Last updated: 01:29 PM Jan 04, 2020
       </Text>
-      <Layout style={styles.contentView}>
+      {/* <Layout style={styles.contentView}>
         <View style={styles.contentHeader}>
           <Image source={ICON.account} style={styles.contentHeaderIcon} />
           <Text marginLeft={16} bold size={15}>
@@ -189,10 +298,39 @@ export default memo(() => {
         <Line />
         <View style={styles.content}>
           <Image style={styles.avatar} source={AVATAR.avatar2} />
-          <InputItem label="Full Name" value={MY_RECORD_INFORMATION.name} />
+
+          {/* <InputItem label="Full Name" value={MY_RECORD_INFORMATION.name} /> */}
+          {/* <Text marginTop={24} marginBottom={4}>
+          First Name
+          </Text>
+          <TextInput
+            value={name}
+            borderColor={Colors.WhiteSmoke}
+            editable
+            onChangeText={setName}
+          />
+          <Text marginTop={24} marginBottom={4}>
+            Last Name
+          </Text>
+          <TextInput
+            value={name}
+            borderColor={Colors.WhiteSmoke}
+            editable
+            onChangeText={setName}
+          />
+        <Text marginTop={24} marginBottom={4}>
+            Mother Name
+          </Text>
+          <TextInput
+            value={name}
+            borderColor={Colors.WhiteSmoke}
+            editable
+            onChangeText={setName}
+          />
           <Text marginBottom={4} marginTop={24}>
             Birthday
           </Text>
+
           <TouchableOpacity
             activeOpacity={0.54}
             style={{...styles.touchRow, borderColor: theme.borderColor}}>
@@ -247,57 +385,38 @@ export default memo(() => {
             })}
           </TouchableOpacity>
         </View>
-      </Layout>
-      <View
-        style={[styles.contentView, {backgroundColor: theme.backgroundItem}]}>
-        <View style={styles.contentHeader}>
-          <Image source={ICON.guideName} style={styles.contentHeaderIcon} />
-          <Text marginLeft={16} bold size={15}>
-            Contact Information
-          </Text>
-        </View>
-        <View style={styles.content}>
-          <Text marginTop={24} marginBottom={4}>
-            Email
-          </Text>
-          <TextInput
-            value={contactEmail}
-            borderColor={Colors.WhiteSmoke}
-            editable
-            onChangeText={onChangeEmail}
-          />
-          <Text marginTop={24} marginBottom={4}>
-            Emergency Phone
-          </Text>
-          <View style={Theme.flexRow}>
-            <TouchableOpacity
-              activeOpacity={0.54}
-              style={[styles.touchSpace, {borderColor: theme.borderColor}]}
-              onPress={openContactPhoneModal}>
-              <Text>{contactCodeArea.code}</Text>
-              <Image source={ICON.arrowDown} />
-            </TouchableOpacity>
-            <TextInput
-              style={styles.phoneTextInput}
-              value={contactPhone}
-              borderColor={Colors.WhiteSmoke}
-              editable
-              onChangeText={onChangePhone}
-            />
-          </View>
-          <Text marginTop={24} marginBottom={4}>
-            Adress
-          </Text>
-          <TouchableOpacity
-            activeOpacity={0.54}
-            style={{...styles.touchRow, borderColor: theme.borderColor}}>
-            <Image source={ICON.pinMap} />
-            <Text marginLeft={12} size={15}>
-              150 Greene St, NY 10012, NY
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+     
+      </Layout> */} 
+    
+      <MyBasicInformation
+       onUploadAvatar={onUploadAvatar}
+       avatarSource={state.avatarSource}
+       openModalForImage={openModalForImage}
+       firstName={values.firstName}
+       lastName={values.lastName}
+       motherName={values.motherName}
+       birthday={state.date}
+       datePicker={dateOpen}
+       gender={gender}
+       openGenderPick={openGenderPick}
+       errors={errors}
+       touched={touched}
+     />
+     <MyContactInformation
+       email={values.email}
+       phone={values. phone}
+       mobile={values. mobile}
+       address={state.address}
+       city={state.city}
+       state={state.state}
+       zipCode={state.zipCode}
+       numbercode={contactCodeArea.code}
+       errors={errors}
+       touched={touched}
+       
+     />
+   
+{/* 
       <Layout style={styles.contentView}>
         <View style={styles.contentHeader}>
           <Image source={ICON.emergency} style={styles.contentHeaderIcon} />
@@ -345,7 +464,7 @@ export default memo(() => {
             <Image source={ICON.arrowDown} />
           </TouchableOpacity>
         </View>
-      </Layout>
+      </Layout> */}
       <Modal
         visible={contactPhoneModal}
         onRequestClose={closeContactPhoneModal}
@@ -396,7 +515,28 @@ export default memo(() => {
           />
         </ModalSlideBottom>
       </Modal>
+
+      <Modal visible={imageModalVisible} onRequestClose={closeImageModal} transparent>
+        <ModalSelect choices={menuOptions} close={closeImageModal} onPressItem={selectImage} />
+      </Modal>
+    
+      <Modal
+        visible={dateVisisblity}
+        onRequestClose={dateClose}
+        transparent
+        animationType="fade">
+        <ModalSlideBottom onClose={dateClose} transY={dateTransY}>
+          <Calendar onPress={onPickDatePress}  value={state.date=='Select Date'?"1999-01-01":state.date}/>
+        </ModalSlideBottom>
+      </Modal>
+
     </ScrollView>
+
+)
+
+}
+      </Formik>
+ 
   );
 });
 const styles = StyleSheet.create({
@@ -409,7 +549,6 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
     marginBottom: 16,
   },
-
   content: {
     paddingHorizontal: 24,
   },

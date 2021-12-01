@@ -21,7 +21,6 @@ const ButtonChangeCode = memo((props: ButtonChangeCodeProps) => {
   }, [props.onPress]);
   return (
     // <TouchableOpacity onPress={onShowModal}>
-    
       <Layout style={[styles.phoneAreaCode, {borderColor: theme.borderColor}]}>
         <Image source={codeArea.img} style={styles.flag} />
         <Text
