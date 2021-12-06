@@ -1,47 +1,42 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
  
-import {LoginAction} from '../../../Actions/SignIn/login'
+import {profileGetAction} from '../../../Actions/Profile/profileGetAction'
 
-export interface LoginState {
+export interface ProfileState {
   fetching: boolean|null,
   data: object|null,
   success: boolean|null,
   error: undefined|string
 }
 
-const initialState: LoginState = {
+const initialState: ProfileState = {
   fetching: null,
   data: null,
   success: null,
   error: undefined,
 }
-const logIn = createSlice({
-  name: 'Login',
+const Profile = createSlice({
+  name: 'Profile',
   initialState,
   reducers: {
-    signIn: (state) => { 
- 
+    udateImage: (state,action) => { 
+       state.data.user={...state.data.user,profile_pic:action.payload}
     },
-    signOut: (state) => {
-
-    },
- 
   },
    extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(LoginAction.pending, (state, action) => {
+    builder.addCase(profileGetAction.pending, (state, action) => {
       state.fetching=true
     })
-    builder.addCase(LoginAction.fulfilled, (state, action) => {
+    builder.addCase(profileGetAction.fulfilled, (state, action) => {
  
       state.fetching= false,
-      state.data=action.payload.data.data,
+      state.data=action.payload.data,
       state.error = undefined
       state.success= true
    })
-   builder.addCase(LoginAction.rejected, (state, action) => {
-    console.log(action)
-          state.success= false
+   builder.addCase(profileGetAction.rejected, (state, action) => {
+           state.success= false
         state.fetching=false
         state.error = action.payload.error
     
@@ -53,6 +48,6 @@ const logIn = createSlice({
 
 )
 // Action creators are generated for each case reducer function
-export const { signIn, signOut  } = logIn.actions
+export const { udateImage } = Profile.actions
 
-export default logIn.reducer
+export default Profile.reducer

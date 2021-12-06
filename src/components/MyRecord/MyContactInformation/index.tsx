@@ -27,11 +27,13 @@ interface MyContactProps {
   numbercode:string,
   errors:any;
   touched:any;
+  findAddress:()=>void,
+  setState:(text: any) => void | React.Dispatch<React.SetStateAction<any>>;
 }
 
 export default memo((props: MyContactProps) => {
 
-  const {  email, phone,mobile,address,numbercode,errors,touched}=props
+  const { zipCode,state,city, email, phone,mobile,address,numbercode,errors,touched,findAddress,setState}=props
     const { handleChange, handleBlur, } = useFormikContext();
 
   const {theme} = useTheme();
@@ -46,7 +48,7 @@ export default memo((props: MyContactProps) => {
         </View>
         <View style={styles.content}>
           <Text marginTop={24} marginBottom={4}>
-            Email
+            Email*
           </Text>
           <TextInput
             placeholder={"Email"}
@@ -55,7 +57,38 @@ export default memo((props: MyContactProps) => {
             editable
             onChangeText={handleChange('email')}
           />
-          <Text marginTop={24} marginBottom={4}>
+          <View style={{height:scale(24)}}>  
+            {errors.email && touched.email&& <Text style={{ color:"red",   }}>{errors.email}</Text> }
+           </View>
+        
+       
+          <Text  marginBottom={4}>
+            Mobile Number*
+          </Text>
+          <View style={Theme.flexRow}>
+            <TouchableOpacity
+              activeOpacity={0.54}
+              style={[styles.touchSpace, {borderColor: theme.borderColor}]}
+              // onPress={openContactPhoneModal}
+              >
+              <Text>{numbercode}</Text>
+              {/* <Image source={ICON.arrowDown} /> */}
+            </TouchableOpacity>
+            <TextInput
+             placeholder={"Mobile Number"}
+              style={styles.phoneTextInput}
+              value={mobile}
+              borderColor={Colors.WhiteSmoke}
+              editable
+              maxLength={10}
+              onChangeText={handleChange('mobile')}
+              keyboardType="numeric"
+                          />
+          </View>
+          <View style={{height:scale(24)}}>  
+            {errors.mobile && touched.mobile&& <Text style={{ color:"red",   }}>{errors.mobile}</Text> }
+           </View>
+          <Text marginBottom={4}>
          Phone Number
           </Text>
           <View style={Theme.flexRow}>
@@ -73,40 +106,27 @@ export default memo((props: MyContactProps) => {
               value={phone}
               borderColor={Colors.WhiteSmoke}
               editable
-              onChangeText={handleChange('phone')
+              keyboardType="numeric"
+              maxLength={10}
+              onChangeText={(phone)=>{
+                setState( ( prevState:any) => ({
+                  ...prevState,
+                  phone:phone 
+              }))
+              }
             }
             />
-          </View>
-          <Text marginTop={24} marginBottom={4}>
-            Mobile Number
-          </Text>
-          <View style={Theme.flexRow}>
-            <TouchableOpacity
-              activeOpacity={0.54}
-              style={[styles.touchSpace, {borderColor: theme.borderColor}]}
-              // onPress={openContactPhoneModal}
-              >
-              <Text>{numbercode}</Text>
-              {/* <Image source={ICON.arrowDown} /> */}
-            </TouchableOpacity>
-            <TextInput
-             placeholder={"Mobile Number"}
-              style={styles.phoneTextInput}
-              value={mobile}
-              borderColor={Colors.WhiteSmoke}
-              editable
-              onChangeText={handleChange('mobile')}
-                          />
           </View>
           <Text marginTop={24} marginBottom={4}>
             Adress
           </Text>
           <TouchableOpacity
+            onPress={findAddress}
             activeOpacity={0.54}
             style={{...styles.touchRow, borderColor: theme.borderColor}}>
             <Image source={ICON.pinMap} />
-            <Text marginLeft={12} size={15}>
-              150 Greene St, NY 10012, NY
+            <Text numberOfLines={1} marginLeft={12} marginRight={10} size={15}>
+             {address==""?"Select address":address}
             </Text>
           </TouchableOpacity>
           <Text marginTop={24} marginBottom={4}>
@@ -114,10 +134,15 @@ export default memo((props: MyContactProps) => {
           </Text>
           <TextInput
             placeholder={"City"}
-            value={email}
+            value={city}
             borderColor={Colors.WhiteSmoke}
             editable
-            onChangeText={handleChange('email')}
+            onChangeText={(city)=>{
+              setState( ( prevState:any) => ({
+                ...prevState,
+                city:city 
+            }))
+            }}
           />
            <Text marginTop={24} marginBottom={4}>
             Zip Code
@@ -125,20 +150,31 @@ export default memo((props: MyContactProps) => {
           <TextInput
             placeholder={"Zip Code"}
             style={{width:"50%"}}
-            value={email}
+            value={zipCode}
             borderColor={Colors.WhiteSmoke}
             editable
-            onChangeText={handleChange('email')}
+            keyboardType="numeric"
+            onChangeText={(zipCode)=>{
+              setState( ( prevState:any) => ({
+                ...prevState,
+                zipCode:zipCode 
+            }))
+            }}
           />
            <Text marginTop={24} marginBottom={4}>
             State
           </Text>
           <TextInput
             placeholder={"State"}
-            value={email}
+            value={state}
             borderColor={Colors.WhiteSmoke}
             editable
-            onChangeText={handleChange('email')}
+            onChangeText={(state)=>{
+              setState( ( prevState:any) => ({
+                ...prevState,
+                state:state 
+            }))
+            }}
           />
         </View>
       </Layout>

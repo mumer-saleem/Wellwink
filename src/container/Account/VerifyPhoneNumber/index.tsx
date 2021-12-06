@@ -27,8 +27,9 @@ interface VerifyPhoneNumberProps {}
 const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
   const dispatch=useAppDispatch();
   const reduxState=useAppSelector((state)=>state);
-  const signUpState=reduxState.signUp;
-  const sendOtpState=reduxState.sendOtp;
+  const LogInState=reduxState.LogIn.data.profileable;
+  const signupbject=reduxState.signUp.signupbject;
+    const sendOtpState=reduxState.sendOtp;
   const verifyOtpState=reduxState.verifyOtp;
 
   const [isVerified, setIsVerified] = useState(false);
@@ -38,9 +39,9 @@ const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
 
 
   const onSendAgain = useCallback(() => {
-  dispatch(smsOtpAction({id:signUpState.data?.hashid,type:'sms' })).then((res) => {
+  dispatch(smsOtpAction({id:LogInState.hashid,type:'sms' })).then((res) => {
     !sendOtpState.fetching&&res.type=="SendOtp/smsOtpAction/fulfilled"?navigateAction(): navigateError(res.payload)})
-  }, [signUpState.signupbject]);
+  }, [signupbject]);
 
   const navigateError = useCallback(async (action) => {
     action.error?alert(action.error):alert("Network Error")
@@ -112,9 +113,9 @@ const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
 
   const verification = useCallback((text:string) => {
     setCode(text);
-   text.length==6&&!verifyOtpState.fetching&&dispatch(smsOtpVerification({id:signUpState.data?.hashid,otp:text })).then((res) => {
+   text.length==6&&!verifyOtpState.fetching&&dispatch(smsOtpVerification({id:LogInState.hashid,otp:text })).then((res) => {
      res.type=="verifyOtp/smsOtpVerification/fulfilled"?VerificationAction(): VerificationError(res.payload)})
-  }, [signUpState.signupbject]);
+  }, [signupbject]);
 
   const VerificationAction = useCallback(async () => {
     setIsVerified(true)
@@ -124,7 +125,7 @@ const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
   }, []);
 
   return (
-    <Container style={styles.container} shoeActivityIndicator={signUpState.fetching}>
+    <Container style={styles.container} shoeActivityIndicator={(verifyOtpState.fetching||sendOtpState.fetching)}>
            <Text size={13} lineHeight={16} bold  >
           Step 5 of 5
         </Text>

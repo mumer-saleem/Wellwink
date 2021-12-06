@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React, {memo,useEffect} from 'react';
 import {TouchableOpacity, View, Image, StyleSheet} from 'react-native';
 import Text from 'elements/Text';
 import Theme from 'style/Theme';
@@ -16,8 +16,7 @@ import AvatarProfile from 'components/UpdateProfile/BasicInformation/AvatarProfi
 
 
 interface MyBasicProps {
-  onUploadAvatar?: () => void;
-  avatarSource:string,
+   avatarSource:string,
   openModalForImage: () => void;
   firstName:string,
   lastName:string,
@@ -31,10 +30,17 @@ interface MyBasicProps {
 }
 
 export default memo((props: MyBasicProps) => {
-  const {onUploadAvatar,avatarSource,openModalForImage,
+  const {avatarSource,openModalForImage,
     firstName,lastName,motherName,birthday,gender,
     openGenderPick,errors,touched,datePicker}=props
     const { handleChange, handleBlur, } = useFormikContext();
+    
+    useEffect(() => {
+ 
+     console.log(firstName,"firstName")
+    }, [firstName])
+
+    
 
   const {theme} = useTheme();
   return (
@@ -50,7 +56,7 @@ export default memo((props: MyBasicProps) => {
         <View style={styles.content}>
           {/* <Image style={styles.avatar} source={AVATAR.avatar2} /> */}
           {/* <InputItem label="Full Name" value={MY_RECORD_INFORMATION.name} /> */}
-         <AvatarProfile onPress={onUploadAvatar}  avatarSource={avatarSource} open={openModalForImage} />
+         <AvatarProfile   avatarSource={avatarSource} open={openModalForImage} />
 
           <Text marginTop={24} marginBottom={4}>
           First Name*
@@ -62,7 +68,10 @@ export default memo((props: MyBasicProps) => {
             editable
             onChangeText={handleChange('firstName')}
           />
-          <Text marginTop={24} marginBottom={4}>
+         <View style={{height:scale(24)}}>  
+            {errors.firstName && touched.firstName&& <Text style={{ color:"red",   }}>{errors.firstName}</Text> }
+           </View>
+          <Text   marginBottom={4}>
             Last Name*
           </Text>
           <TextInput
@@ -72,7 +81,10 @@ export default memo((props: MyBasicProps) => {
             editable
             onChangeText={handleChange('lastName')}
           />
-        <Text marginTop={24} marginBottom={4}>
+      <View style={{height:scale(24)}}>  
+            {errors.lastName && touched.lastName&& <Text style={{ color:"red",   }}>{errors.lastName}</Text> }
+           </View>
+        <Text  marginBottom={4}>
             Mother Name*
           </Text>
           <TextInput
@@ -82,7 +94,10 @@ export default memo((props: MyBasicProps) => {
             editable
             onChangeText={handleChange('motherName')}
           />
-          <Text marginBottom={4} marginTop={24}>
+         <View style={{height:scale(24)}}>  
+            {errors.motherName && touched.motherName&& <Text style={{ color:"red",}}>{errors.motherName}</Text> }
+           </View>
+          <Text marginBottom={4}>
             Birthday*
           </Text>
 
@@ -93,9 +108,7 @@ export default memo((props: MyBasicProps) => {
             <Image source={ICON.calendar} />
             <Text marginLeft={14}>{birthday}</Text>
           </TouchableOpacity>
-          
-          
-          
+        
           <Text marginTop={24} marginBottom={4}>
             Biological Sex*
           </Text>

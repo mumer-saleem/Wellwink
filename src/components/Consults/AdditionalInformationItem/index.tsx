@@ -17,7 +17,7 @@ const AdditionalInformationItem = memo(
     diagnosedConditions,
     medications,
     allergies,
-  }: AdditionalInformationItemProps) => {
+  }:AdditionalInformationItemProps) => {
     return (
       <Layout style={styles.container}>
         <View>

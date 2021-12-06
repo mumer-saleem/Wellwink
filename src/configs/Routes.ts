@@ -136,6 +136,8 @@ const Routes = {
   //AccountPaymentMethod: "AccountPaymentMethod",   duplicate
   AccountInviteFriendsForYou: "AccountInviteFriendsForYou",
   AccountInviteFriendsForFriend: "AccountInviteFriendsFriend",
+  Settings: "Settings",
+
 };
 
 export default Routes;

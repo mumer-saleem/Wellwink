@@ -134,4 +134,5 @@ export const ICON: any = {
   quote: require("images/Icon/ic_quote.png"),
   time: require("images/Icon/ic_time.png"),
   arrowLeft: require("images/Icon/ic_arrow_left.png"),
+  phone:require("images/Icon/ic_cancel_phone.png")
 };

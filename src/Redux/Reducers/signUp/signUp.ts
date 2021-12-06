@@ -34,7 +34,6 @@ const signUp = createSlice({
   initialState,
   reducers: {
     basicInfo: (state,action) => { 
- 
       state.signupbject=  {...state.signupbject,
         // imageurl:action.payload.imageurl,
         title:action.payload.title,
@@ -68,7 +67,7 @@ const signUp = createSlice({
     builder.addCase(SignUpAction.fulfilled, (state, action) => {
  
       state.fetching= false,
-      state.data=action.payload.data,
+      // state.data=action.payload.data,
       state.error = undefined
       state.success= true
    })

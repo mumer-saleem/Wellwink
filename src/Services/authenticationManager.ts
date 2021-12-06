@@ -53,7 +53,7 @@ export class AuthenticationManager {
     // }
 
     getAuthHeaders = () => {
-      return {
+        return {
         'Cache-Control': 'no-cache',
           'carrier': 'Mobile',
           'access-token': this._am._accessToken,
@@ -76,7 +76,8 @@ export class AuthenticationManager {
         return this._am
     }
 
-    setTokenResponse = async (tokenResponse:any) => { 
+    setTokenResponse = async (tokenResponse:any) => {
+
         const responseHeaders = tokenResponse.headers
         const responseData = tokenResponse.data
         this._am._accessToken = await SInfo.setItem('accessToken', responseHeaders['access-token'], sharedPreference)

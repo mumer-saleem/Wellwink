@@ -29,6 +29,7 @@ import ButtonIcon from 'elements/Buttons/ButtonIcon';
 import MyRecordProgressBar from 'components/MyRecord/MyRecordProgressBar';
 import Container from 'elements/Layout/Container';
 import Layout from 'elements/Layout/Layout';
+import ProfileHeader from 'elements/Headers/profileHeader';
 
 const PROFILE = [
   {
@@ -88,68 +89,97 @@ const PROFILE = [
 ];
 
 const MY_RECORD_CATEGORY = [
-  {
-    id: 0,
-    icon: ICON.additionalInformation,
-    name: 'Basic Information',
-    route: Routes.MyRecordBasicInformation,
-  },
-  {
-    id: 1,
-    icon: ICON.healthMetric,
-    name: 'Health Metrics',
-    route: Routes.MyRecordHealthMetric,
-  },
-  {
-    id: 2,
-    icon: ICON.condition,
-    name: 'Conditions & Symptoms',
-    route: Routes.MyRecordCondition,
-    number: '2',
-  },
-  {
-    id: 3,
-    icon: ICON.clinicVital,
-    name: 'Clinical Vitals',
-    route: '',
-    number: '2',
-  },
+ 
+    {
+      id: 0,
+      icon: ICON.healthMetric,
+      name: 'Problems',
+       number: '2',
+    },
+    {
+      id: 1,
+      icon: ICON.medication,
+      name: 'Medications',
+      route: '',
+      number: '2',
+    },
+    {
+      id: 2,
+      icon: ICON.allergies,
+      name: 'Allergies',
+      route: '',
+      number: '2',
+    },
+    {
+      id: 3,
+      icon: ICON.clinicVital,
+      name: 'Vitals',
+      route: '',
+      number: '2',
+    },
+  // {
+  //   id: 0,
+  //   icon: ICON.additionalInformation,
+  //   name: 'Basic Information',
+  //   route: Routes.MyRecordBasicInformation,
+  // },
+  // {
+  //   id: 1,
+  //   icon: ICON.healthMetric,
+  //   name: 'Problems',
+  //   route: Routes.MyRecordHealthMetric,
+  //   number: '2',
+  // },
+  // {
+  //   id: 2,
+  //   icon: ICON.condition,
+  //   name: 'Conditions & Symptoms',
+  //   route: Routes.MyRecordCondition,
+  //   number: '2',
+  // },
+  // {
+  //   id: 3,
+  //   icon: ICON.clinicVital,
+  //   name: 'Clinical Vitals',
+  //   route: '',
+  //   number: '2',
+  // },
 
-  {
-    id: 4,
-    icon: ICON.allergies,
-    name: 'Allergies',
-    route: '',
-    number: '2',
-  },
-  {
-    id: 5,
-    icon: ICON.vaccination,
-    name: 'Immunization',
-    route: '',
-    number: '2',
-  },
-  {
-    id: 6,
-    icon: ICON.labTest,
-    name: 'Lab Results',
-    route: '',
-    number: '2',
-  },
-  {
-    id: 7,
-    icon: ICON.medication,
-    name: 'Medications',
-    route: '',
-    number: '2',
-  },
-  {
-    id: 8,
-    icon: ICON.procedure,
-    name: 'Procedures',
-    route: '',
-    number: '2',
-  },
+  // {
+  //   id: 4,
+  //   icon: ICON.allergies,
+  //   name: 'Allergies',
+  //   route: '',
+  //   number: '2',
+  // },
+  // {
+  //   id: 5,
+  //   icon: ICON.vaccination,
+  //   name: 'Immunization',
+  //   route: '',
+  //   number: '2',
+  // },
+  // {
+  //   id: 6,
+  //   icon: ICON.labTest,
+  //   name: 'Lab Results',
+  //   route: '',
+  //   number: '2',
+  // },
+  // {
+  //   id: 7,
+  //   icon: ICON.medication,
+  //   name: 'Medications',
+  //   route: '',
+  //   number: '2',
+  // },
+  // {
+  //   id: 8,
+  //   icon: ICON.procedure,
+  //   name: 'Procedures',
+  //   route: '',
+  //   number: '2',
+  // },
 ];
 
 export default memo(() => {
@@ -331,17 +361,20 @@ export default memo(() => {
 
   return (
     <>
-      <Container style={styles.container}>
-        <Text size={24} bold marginTop={84} marginBottom={12} marginLeft={24}>
+   <Container style={styles.container}>
+      
+    <ProfileHeader/>
+   <Text size={24} bold marginTop={20} marginBottom={20}  marginLeft={24}>
           My Records
-        </Text>
+   </Text>
+        
         <FlatList
           keyExtractor={keyExtractor}
           data={renderData}
           scrollEventThrottle={16}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.flatList}
-          ListHeaderComponent={listHeaderComponent}
+          // ListHeaderComponent={listHeaderComponent}
           renderItem={renderItem}
           ListFooterComponent={listFooterComponent}
         />
@@ -385,7 +418,6 @@ const styles = StyleSheet.create({
   },
   flatList: {
     borderRadius: 12,
-    paddingTop: 40,
     paddingBottom: 180 + getBottomSpace(),
   },
   listFooter: {

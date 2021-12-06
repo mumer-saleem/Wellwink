@@ -23,7 +23,7 @@ const ForgetPassword = memo((props: ForgetPasswordProps) => {
   const [isValidEmail, setIsValidEmail] = useState(false);
   const dispatch=useAppDispatch();
   const reduxState=useAppSelector((state)=>state);
-  const forgetPasswordState=reduxState.ForgetPassword;
+  // const forgetPasswordState=reduxState.ForgetPassword;
 
   useEffect(() => {
   
@@ -33,8 +33,9 @@ const ForgetPassword = memo((props: ForgetPasswordProps) => {
  
 
   const onSendEmail = useCallback(() => {
-    !forgetPasswordState.fetching&&dispatch(forgetPasswordAction({email:email,redirect_url:''})).then((res) => {
-     res.type=="ForgetPassword/forgetPasswordAction/fulfilled"?navigateAction(res): navigateError(res.payload)})
+    // !forgetPasswordState.fetching&&
+    dispatch(forgetPasswordAction({email:email,redirect_url:''})).then((res) => {
+     res.type=="/fulfilled"?navigateAction(res): navigateError(res.payload)})
   }, [email]);
 
   const navigateError = useCallback(async (action) => {

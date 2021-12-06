@@ -100,6 +100,7 @@ const SignUp = memo((props: SignUpProps) => {
     ///
   }, []);
   const {theme} = useTheme();
+  
   useLayoutEffect(() => {
     setOptions({
       title: null,

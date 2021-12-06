@@ -7,7 +7,6 @@ import {useTheme} from 'configs/ChangeTheme';
 
 import { ICON } from "images/Icon";
 interface AvatarProfileProps {
-  onPress?: () => void;
   avatarSource:string,
   open: () => void;
 

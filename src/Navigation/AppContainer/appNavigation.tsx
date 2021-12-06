@@ -21,6 +21,7 @@ import TodayTasksDetail from 'container/TodayTasks/TodayTasksDetail';
 import OnBoarding from 'container/OnBoarding';
 import DoctorProfile from 'container/DoctorProfile';
 import AccountFiles from 'container/Setting/AccountFiles';
+import Settings from 'container/Setting/Settings';
 import AccountPaymentMethod from 'container/Setting/AccountPaymentMethod';
 import MyRecord from 'container/MyRecord/MyRecord';
 import MyRecordBasicInformation from 'container/MyRecord/MyRecordBasicInformation';
@@ -245,6 +246,7 @@ const AppNavigation = memo(() => {
       />
       <Stack.Screen name={Routes.DoctorProfile} component={DoctorProfile} />
       <Stack.Screen name={Routes.AccountFile} component={AccountFiles} />
+      <Stack.Screen name={Routes.Settings} component={Settings}  />
       <Stack.Screen name={Routes.HealthQuestion} component={HealthQuestion} />
       <Stack.Screen name={Routes.HealthSearch} component={HealthSearch} />
       <Stack.Screen name={Routes.SearchFilter} component={SearchFilter} />

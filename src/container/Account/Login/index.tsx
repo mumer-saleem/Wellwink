@@ -114,8 +114,8 @@ const Login = memo((props: LoginProps) => {
         </View>
         <Formik
             initialValues={{   
-              email: "mumersaleem79@gmail.com",
-              password:"Active123!" }}
+              email: "",
+              password:"" }}
             validationSchema={validationSchema}
             onSubmit={async (values) => {
 

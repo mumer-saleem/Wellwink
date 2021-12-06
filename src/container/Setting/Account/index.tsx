@@ -73,15 +73,15 @@ const Account = memo(() => {
       {/* </View> */}
     <ProfileHeader/>
     <Content
-      style={styles.container}
+      style={styles.content}
       scrollEventThrottle={16}
       bounces={false}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.contentContainerStyle}>
    
-      <Layout style={styles.content}>
+      <Layout style={styles.layout}>
         <AccountItem
-          route={Routes.AccountFile}
+          route={Routes.MyRecordBasicInformation}
           style={styles.firstView}
           icon={ICON.additional}
           name="Demographics"
@@ -112,6 +112,8 @@ const Account = memo(() => {
           style={styles.middleView}
           icon={ICON.setting}
           name="Setting"
+          route={Routes.Settings}
+
         />
         {/* <AccountItem
           onPress={toggleDarkMode}
@@ -209,10 +211,14 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: Colors.GrayBlue,
   },
-  content: {
+  layout: {
     marginHorizontal: 24,
     marginVertical: 8,
     borderRadius: 16,
+  },
+  content: {
+    flex: 1,
+    marginTop:30
   },
   firstView: {
     ...Theme.flexRowSpace,

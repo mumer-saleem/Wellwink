@@ -18,8 +18,11 @@ const ProfileHeader = memo(
   ({
  
   }: headerProps) => {
-  const LogIn = useAppSelector((state) =>state.LogIn)
-  const info=LogIn.data
+  const profile = useAppSelector((state) =>state.profile)
+  const info=profile.data.user
+
+
+
   // const [info, setIsSearch] = useState(false);
   // useEffect(()=>{
 
@@ -33,7 +36,7 @@ const ProfileHeader = memo(
          <Image source={{uri:info.profile_pic}} style={styles.avatar} />
         <View>
           <Text size={15} bold marginBottom={4}>
-          {info.profileable_name}
+          {profile.data.name}
           </Text>
           <Text style={styles.email}>{info.email}</Text>
           <Text style={styles.type}>{info.profileable_type}</Text>
@@ -52,7 +55,6 @@ const styles = StyleSheet.create({
   infoView: {
     ...Theme.flexRowSpace,
     marginHorizontal: 24,
-    marginBottom: 32,
    paddingTop: getStatusBarHeight(),
 
   },

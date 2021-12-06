@@ -17,5 +17,16 @@ export interface signupbject{
   phoneNumber:string|null,
   
   // imageurl:object|null,
-  
+}
+export interface GeoLocationAddress{
+  'complete_address': string ,
+  'street_no': string ,
+  'route': string ,
+  'city': string ,
+  'state': string ,
+  'zip_code': string ,
+  'placeID':string ,
+  'lat':string ,
+  'lng':string ,
+   
 }

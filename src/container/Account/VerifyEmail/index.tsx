@@ -25,7 +25,8 @@ interface VerifyEmail {}
 const VerifyEmailAddress = memo((props: VerifyEmail) => {
   const dispatch=useAppDispatch();
   const reduxState=useAppSelector((state)=>state);
-  const signUpState=reduxState.signUp;
+  const LogInState=reduxState.LogIn.data.profileable;
+  const signupbject=reduxState.signUp.signupbject;
   const sendOtpState=reduxState.sendOtp;
   const verifyOtpState=reduxState.verifyOtp;
 
@@ -56,9 +57,9 @@ const VerifyEmailAddress = memo((props: VerifyEmail) => {
   // return true;
   // }
   const onSendAgain = useCallback(() => {
-     !sendOtpState.fetching&&dispatch(emailOtpAction({id:signUpState.data?.hashid,type:'email' })).then((res) => {
+   dispatch(emailOtpAction({id:LogInState.hashid,type:'email' })).then((res) => {
      res.type=="SendOtp/emailOtpAction/fulfilled"?navigateAction(): navigateError(res.payload)})
-  }, [signUpState]);
+  }, [signupbject]);
 
   const navigateError = useCallback(async (action) => {
     action.error?alert(action.error):alert("Network Error")
@@ -106,9 +107,9 @@ const VerifyEmailAddress = memo((props: VerifyEmail) => {
 
   const verification = useCallback((text:string) => {
     setCode(text);
-   text.length==6&&!verifyOtpState.fetching&&dispatch(emailOtpVerification({id:signUpState.data?.hashid,otp:text })).then((res) => {
+   text.length==6&&!verifyOtpState.fetching&&dispatch(emailOtpVerification({id:LogInState.hashid,otp:text })).then((res) => {
      res.type=="verifyOtp/emailOtpVerification/fulfilled"?VerificationAction(): VerificationError(res.payload)})
-  }, [signUpState.signupbject]);
+  }, [signupbject]);
 
   const VerificationAction = useCallback(async () => {
     setIsVerified(true)

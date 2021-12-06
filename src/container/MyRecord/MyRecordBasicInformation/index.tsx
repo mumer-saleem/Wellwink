@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useLayoutEffect, useState} from 'react';
+import React, {memo, useCallback, useEffect,useLayoutEffect, useState} from 'react';
 import {
   TouchableOpacity,
   View,
@@ -28,9 +28,12 @@ import ModalChangeRelationship from 'components/ModalChangeRelationship';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
 import MyBasicInformation from 'components/MyRecord/MyBasicInformation';
 import MyContactInformation from 'components/MyRecord/MyContactInformation';
+import GeoLocation from 'components/GeoLocation';
+import {GeoLocationAddress} from 'type'
+import Moment from 'moment';
 
 import {useTheme} from 'configs/ChangeTheme';
-import Layout from 'elements/Layout/Layout';
+import {uploadImageAction} from 'Actions/UploadImage';
 import Line from 'elements/Layout/Line';
 import scale from 'utils/scale';
 import {CameraImage ,libraryImage} from 'utils/imagePiker';
@@ -38,7 +41,12 @@ import {ModalManueOptions} from 'configs/Data'
 import Container from 'elements/Layout/Container';
 import { Formik , useFormikContext, } from "formik";
 import * as Yup from "yup";
-import {EmailValidation,StrongPassword,PhoneValidation,StringValidation} from 'utils/validation';
+import {EmailValidation,PhoneValidation,StringValidation} from 'utils/validation';
+import PreferredMethods from 'components/MyRecord/PreferredMethods';
+import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
+import { State } from 'react-native-gesture-handler';
+import { actionUpdateProfile } from 'Actions/Profile/actionUpdateProfile';
 
 
 const MY_RECORD_INFORMATION = {
@@ -79,38 +87,62 @@ const MY_RECORD_INFORMATION = {
 };
 
 export default memo(() => {
+  const dispatch = useAppDispatch()
+
+  const profileInfo:any=useAppSelector((state)=>state.profile.data);
+  const UserInfo:any=profileInfo.user;
+
+  
   const validationSchema =  Yup.object().shape({
     firstName:StringValidation,
     lastName:StringValidation,
     motherName:StringValidation,
     email: EmailValidation, 
-     phone:PhoneValidation,
-     mobile:PhoneValidation,
+    mobile:PhoneValidation,
    });
   const {setOptions} = useNavigation();
   const [gender, setGender] = useState<any>(MY_RECORD_INFORMATION.gender);
   const [menuOptions, setMenuOptions] = useState({});
+ 
   const [state, setState] = useState({
-    avatarSource:"http://192.168.5.84:3000/ilaaj.png",
+    avatarSource:"",
     avatarSourcError:"",
     date:'Select Date',
     dateError:"",
-    address:"",
+    firstName:"",
+    lastName:"",
+    motherName:"",
+    email: "",
+    gender:"",
+    mobile:"",
+    phone:"",
+    address:"Select Address",
     state:"",
     city:"",
     zipCode:"",
+    lat:"",
+    lng:"",
+    emailSwitch:false,
+    smsSwitch:false,
+    bothSwitch:true,
+    preferredMethod:"",
+    mobileId:"",
+    phoneId:"",
+    addressId:"",
+    cityID:"",
+    profileAbleID:"",
+    patientId:"",
+    title:"",
   });
-
-
-  const [relationship, setRelationship] = useState(
-    MY_RECORD_INFORMATION.relationship,
-  );
+  // const [relationship, setRelationship] = useState(
+  //   MY_RECORD_INFORMATION.relationship,
+  // );
   const [contactCodeArea, setContactCodeArea] = useState(
     MY_RECORD_INFORMATION.contacPhoneCode,
   );
-  const [emergencyCodeArea, setEmergencyCodeArea] = useState(
-    MY_RECORD_INFORMATION.emergencyContactPhoneCode,
-  );
+  // const [emergencyCodeArea, setEmergencyCodeArea] = useState(
+  //   MY_RECORD_INFORMATION.emergencyContactPhoneCode,
+  // );
 
   const {
     visible: contactPhoneModal,
@@ -118,13 +150,20 @@ export default memo(() => {
     close: closeContactPhoneModal,
     transY: transYContact,
   } = useModalAnimation();
-
+  
   const {
-    visible: emergencyPhoneModal,
-    open: openEmergencyPhoneModal,
-    close: closeEmergencyPhoneModal,
-    transY: transYEmergency,
-  } = useModalAnimation();
+    visible: geoLocationVisible,
+    open: openGeoLocation,
+    close: CloseGeoLocation,
+    transY: transYGeo,
+   } = useModalAnimation();
+
+  // const {
+  //   visible: emergencyPhoneModal,
+  //   open: openEmergencyPhoneModal,
+  //   close: closeEmergencyPhoneModal,
+  //   transY: transYEmergency,
+  // } = useModalAnimation();
 
   const {
     visible: genderPick,
@@ -157,70 +196,39 @@ export default memo(() => {
     });
   }, [setOptions]);
   const {  visible:dateVisisblity,  open: dateOpen,  close: dateClose,  transY: dateTransY, } = useModalAnimation();
-
-  const [name, setName] = useState<any>(MY_RECORD_INFORMATION.name);
-  const [contactEmail, setContactEmail] = useState<any>(
-    MY_RECORD_INFORMATION.contactEmail,
-  );
-  const [contactPhone, setContactPhone] = useState<any>(
-    MY_RECORD_INFORMATION.contactPhone,
-  );
-  const [emergencyContactName, setEmergencyContactName] = useState<any>(
-    MY_RECORD_INFORMATION.emergencyContactName,
-  );
-  const [emergencyContactPhone, setEmergencyContactPhone] = useState<any>(
-    MY_RECORD_INFORMATION.emergencyContactPhone,
-  );
-
-  const onChangeContactCode = useCallback((item: TcodeArea) => {
-    setContactCodeArea(item);
-    closeContactPhoneModal();
-  }, []);
-  const onChangeEmergencyCode = useCallback((item: TcodeArea) => {
-    setEmergencyCodeArea(item);
-    closeEmergencyPhoneModal();
-  }, []);
-  const onChangeGender = useCallback(item => {
-    setGender(item.name);
-    closeGenderPick();
-  }, []);
-  const selectImageResource = useCallback(item => {
-    setGender(item.name);
-    closeGenderPick();
-  }, []);
-
  
+ 
+ 
+
+  const onChangeGender = useCallback(item => {
+    setState(prevState => ({
+      ...prevState,
+      gender:item.name
+  }))
+     closeGenderPick();
+  }, []);
+ 
+
   const onChangeRelationship = useCallback((item: categoryList) => {
     setRelationship(item);
     closeRelationPick();
   }, []);
-
-  const onChangeEmail = useCallback(value => {
-    setContactEmail(value);
-  }, []);
-  const onChangePhone = useCallback(value => {
-    setContactPhone(value);
-  }, []);
-  const onChangeEmergencyContactName = useCallback(value => {
-    setEmergencyContactName(value);
-  }, []);
-  const onChangeEmergencyContactPhone = useCallback(value => {
-    setEmergencyContactPhone(value);
-  }, []);
-    const onUploadAvatar = useCallback(async() => {
-    let response =  await CameraImage()
-   }, []);
+ 
+ 
     
-   
    const selectImage = useCallback(async(result) => {
-    switch (result?.id) {
+     switch (result?.id) {
       case 0:
      let result= await libraryImage()
+     console.log(result);
+     
         uploadImage(result?.assets)
         closeImageModal()
         break;
      case 1:
       let result1= await CameraImage()
+      console.log(result1);
+
       uploadImage(result1?.assets)
       closeImageModal()
           break;
@@ -229,9 +237,10 @@ export default memo(() => {
     } 
  
   }, []);
-   
+  
   const uploadImage = useCallback(async(result) => {
-         if(result[0]){
+    dispatch(uploadImageAction({id:UserInfo.id,file:result[0].uri}))
+    if(result[0]){
            setState(  prevState => ({
           ...prevState,
           avatarSource:result[0].uri,
@@ -251,40 +260,135 @@ export default memo(() => {
   dateClose();
   }, [state]);
     
-    const openModalForImage=useCallback(() => { 
+    const openModalForImage=useCallback(( ) => { 
       setMenuOptions(ModalManueOptions.ImagePickerOptions)
       openImageModal()
     }  , []);
+   
+    const onSelectAddress=useCallback((address:GeoLocationAddress) => { 
+
+      const {complete_address,city,state,zip_code,lat,lng}=address
+
+      setState(prevState => ({
+        ...prevState,
+        address:complete_address,
+        state:state,
+        city:city,
+        zipCode:zip_code,
+        lat:lat,
+        lng:lng,
+    }))
+      
+      CloseGeoLocation()
+    }  , []);
+
+    const setData=useCallback(() => { 
+      const {first_name,last_name,dob,gender,profile_pic,address,contact_numbers,email, profileable_id,id}=UserInfo;
+      const { patient_preferred_method,mother_name}=profileInfo;
+    let gender1 =  gender.charAt(0).toUpperCase() + gender.slice(1);
+      setState(  prevState => ({
+        ...prevState,
+        avatarSource:profile_pic,
+        avatarSourcError:"",
+        date:Moment(dob).format('YYYY-MM-DD'),
+        dateError:"",
+        gender:gender1,
+        firstName:first_name,
+        lastName:last_name,
+        motherName:mother_name,
+        email:email ,
+        mobile:contact_numbers[0].value,
+        phone:contact_numbers[1].value,
+        address:address.line_1,
+        state:address.city_area.city.state,
+        city:address.city_area.city.name,
+        zipCode:address.postal_code,
+        lat:address.city_area.city.lat,
+        lng:address.city_area.city.long,
+        emailSwitch:patient_preferred_method=="email"?true:false,
+        smsSwitch:patient_preferred_method=="sms"?true:false,
+        bothSwitch:patient_preferred_method=="sms_email"?true:false,
+        preferredMethod:patient_preferred_method,
+        mobileId:contact_numbers[0].id,
+        phoneId:contact_numbers[1].id,
+        addressId:address.id,
+        cityID:address.city_area.city.id,
+        profileAbleID:profileable_id,
+        patientId:id,
+        title:profileInfo.title
+    }))
+    }  , [State]);
+ 
+  useEffect(() => {
+    setData()
+  }, [])
+  
+
+  const updateProfile=useCallback((obj) => {
+   
+     dispatch(actionUpdateProfile(obj)).then((res) => {
+      res.type=="/fulfilled"?navigateAction(res): navigateError(res.payload)})
+    },[state])
+
+
+    const navigateError = useCallback(async (action) => {
+      
+       action.errors?alert(action.errors[0]):alert("Network Error")
+    }, []);
+  
+    const navigateAction = useCallback(async (res) => {
+       alert("Successfully updated ")
+     }, []);
 
   const {theme} = useTheme();
   return (
- 
-       <Formik
-    initialValues={{   
-      firstName:"",
-      lastName:"",
-      motherName:"",
-      email: "",
-      password:"",
-       phone:"",
-       mobile:"" }}
+
+      <Formik
+      enableReinitialize
+      initialValues={{   
+      firstName:state.firstName,
+      lastName:state.lastName,
+      motherName:state.motherName,
+      email:state.email,
+      mobile:state.mobile,
+       }}
       validationSchema={validationSchema}
 
     onSubmit={async (values) => {
-   
+       setState(  prevState => ({
+        ...prevState,
+        firstName:values.firstName,
+        lastName:values.lastName,
+        motherName:values.motherName,
+        email:values.email ,
+        mobile:values.mobile, 
+    }))
+    let obj={
+      ...state,    
+       firstName:values.firstName,
+      lastName:values.lastName,
+      motherName:values.motherName,
+      email:values.email ,
+      mobile:values.mobile, 
+    }
+
+    updateProfile(obj)
      }}
   >
     {({errors, handleChange, handleBlur, handleSubmit, values,touched,}) => 
       
       (
+     
     <ScrollView
       style={[styles.container, {backgroundColor: theme.background}]}
       scrollEventThrottle={16}
       showsVerticalScrollIndicator={false}
+      keyboardShouldPersistTaps={'always'}
       contentContainerStyle={{paddingBottom: getBottomSpace() + 40}}>
       <Text marginTop={24} bold size={24}>
         Basic Informations
       </Text>
+      
       <Text size={11} marginTop={8} marginBottom={40}>
         Last updated: 01:29 PM Jan 04, 2020
       </Text>
@@ -389,7 +493,6 @@ export default memo(() => {
       </Layout> */} 
     
       <MyBasicInformation
-       onUploadAvatar={onUploadAvatar}
        avatarSource={state.avatarSource}
        openModalForImage={openModalForImage}
        firstName={values.firstName}
@@ -397,24 +500,42 @@ export default memo(() => {
        motherName={values.motherName}
        birthday={state.date}
        datePicker={dateOpen}
-       gender={gender}
+       gender={state.gender}
        openGenderPick={openGenderPick}
        errors={errors}
        touched={touched}
      />
      <MyContactInformation
        email={values.email}
-       phone={values. phone}
-       mobile={values. mobile}
+       phone={state.phone}
+       mobile={values.mobile}
        address={state.address}
        city={state.city}
        state={state.state}
        zipCode={state.zipCode}
        numbercode={contactCodeArea.code}
+       findAddress={openGeoLocation}
        errors={errors}
        touched={touched}
+       setState={setState}
        
      />
+
+     <PreferredMethods
+       emailValue={state.emailSwitch}
+       smsValue={state.smsSwitch}
+       bothValue={state.bothSwitch}
+       setState={setState}
+     
+     />
+       <ButtonLinear
+          white
+          white
+          title={'Update'}
+          onPress={handleSubmit}
+          style={{marginTop: scale(24)}}
+        />
+
    
 {/* 
       <Layout style={styles.contentView}>
@@ -465,7 +586,7 @@ export default memo(() => {
           </TouchableOpacity>
         </View>
       </Layout> */}
-      <Modal
+      {/* <Modal
         visible={contactPhoneModal}
         onRequestClose={closeContactPhoneModal}
         transparent
@@ -478,8 +599,8 @@ export default memo(() => {
             phonesAreaCodes={phonesAreaCodes}
           />
         </ModalSlideBottom>
-      </Modal>
-      <Modal
+      </Modal> */}
+      {/* <Modal
         visible={emergencyPhoneModal}
         onRequestClose={closeEmergencyPhoneModal}
         transparent
@@ -492,7 +613,7 @@ export default memo(() => {
             phonesAreaCodes={phonesAreaCodes}
           />
         </ModalSlideBottom>
-      </Modal>
+      </Modal> */}
       <Modal
         visible={genderPick}
         onRequestClose={closeGenderPick}
@@ -504,7 +625,7 @@ export default memo(() => {
           close={closeGenderPick}
         />
       </Modal>
-      <Modal
+      {/* <Modal
         visible={relationPick}
         onRequestClose={closeRelationPick}
         transparent
@@ -514,7 +635,7 @@ export default memo(() => {
             onChangeRelationship={onChangeRelationship}
           />
         </ModalSlideBottom>
-      </Modal>
+      </Modal> */}
 
       <Modal visible={imageModalVisible} onRequestClose={closeImageModal} transparent>
         <ModalSelect choices={menuOptions} close={closeImageModal} onPressItem={selectImage} />
@@ -527,6 +648,20 @@ export default memo(() => {
         animationType="fade">
         <ModalSlideBottom onClose={dateClose} transY={dateTransY}>
           <Calendar onPress={onPickDatePress}  value={state.date=='Select Date'?"1999-01-01":state.date}/>
+        </ModalSlideBottom>
+      </Modal>
+
+      <Modal
+        visible={geoLocationVisible}
+        onRequestClose={openGeoLocation}
+        transparent
+        animationType={'none'}>
+        <ModalSlideBottom
+          onClose={CloseGeoLocation}
+          transY={transYGeo}>
+          <GeoLocation 
+          onSelect={onSelectAddress}
+          />
         </ModalSlideBottom>
       </Modal>
 

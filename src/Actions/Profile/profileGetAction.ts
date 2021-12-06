@@ -1,14 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import AuthManager from 'Services/authenticationManager'
-
+ 
 import api from 'Services/api'
 
-export const forgetPasswordAction = createAsyncThunk(
-  '',
-   async (arg: any, thunkAPI) => {
-    // const {email,url}=arg
-    try {
-      let response=  await api.create().postForgetPassword(arg) 
+export const profileGetAction = createAsyncThunk(
+  'Profile/profileGetAction',
+   async (id: string, thunkAPI) => {
+     try {
+      let response=  await api.create(AuthManager.getAuthHeaders()).getProfile(id) 
         return response;
   } catch (err:any) {
     if (!err.response) {
