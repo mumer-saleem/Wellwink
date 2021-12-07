@@ -26,6 +26,7 @@ import ProfileHeader from 'elements/Headers/profileHeader';
 import {useLayoutEffect} from 'react';
 import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
 import { CommonActions } from '@react-navigation/native';
+import AuthManager from 'Services/authenticationManager'
 
 
 export const ACCOUNT_SAMPLE = {
@@ -51,6 +52,7 @@ const Account = memo(() => {
     toggleTheme();
   };
   const signOut = () => {
+    AuthManager.revokeToken()
     navigation.dispatch({
       ...CommonActions.reset({
           index: 0,

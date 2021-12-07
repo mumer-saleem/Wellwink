@@ -27,6 +27,34 @@ export interface GeoLocationAddress{
   'zip_code': string ,
   'placeID':string ,
   'lat':string ,
-  'lng':string ,
-   
+  'lng':string ,  
+}
+export interface patientObject{
+  "patient": {
+    "avatarSource":string,
+    "dob":string,
+    "gender":string,
+    "firstName":string,
+    "lastName":string,
+    "motherName":string,
+    "email":string ,
+    "mobile":string,
+    "phone":string,
+    "address":string,
+    "state":string,
+    "city":string,
+    "zipCode":string,
+    "lat":string,
+    "lng":string,
+    "preferredMethod":string,
+    "mobileId":string,
+    "phoneId":string,
+    "addressId":string,
+    "cityID":string,
+    "profileAbleID":string,
+    'patientId':string,
+    "title":string,
+    "name":string,
+    "profileableType":string,
+}
 }

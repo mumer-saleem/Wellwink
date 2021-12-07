@@ -1,4 +1,4 @@
-import React, {memo, useCallback,useEffect} from 'react';
+import React, {memo, useCallback,useEffect,useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import Theme from 'style/Theme';
 import LinearColors from 'elements/LinearColors';
@@ -13,8 +13,9 @@ import {useNavigation} from '@react-navigation/native';
 import {ONBOARDING} from 'configs/Data';
 import Container from 'elements/Layout/Container';
 import SplashScreen from 'react-native-splash-screen'
-import {resetNavigation} from 'utils/BackHandler'
-
+// import {resetNavigation} from 'utils/BackHandler'
+import AuthManager from 'Services/authenticationManager'
+import { CommonActions } from '@react-navigation/native';
 
 interface OnBoardingProps {}
 
@@ -23,6 +24,9 @@ const {Value, event, set} = Animated;
 const OnBoarding = memo((props: OnBoardingProps) => {
   const scrollX = new Value(0);
   const {navigate} = useNavigation();
+  const navigation = useNavigation();
+  const [display, setDisplay] = useState(false);
+
   const onLogin = useCallback(() => {
     navigate(Routes.Login);
   }, [navigate]);
@@ -30,10 +34,43 @@ const OnBoarding = memo((props: OnBoardingProps) => {
     navigate(Routes.BasicInformation);
   }, [navigate]);
   const onGetHere = useCallback(() => {}, []);
+
+
+
+
+
+  const loginCheck = async () => {
+    AuthManager.getTokens().then(_res => {
+      console.log(_res,"getTokensgetTokensgetTokensgetTokens");
+      let authHeader = AuthManager.getAuthHeaders()
+      if (authHeader['access-token'] && authHeader['uid'] && authHeader['client']){
+      navigation.dispatch({
+        ...CommonActions.reset({
+            index: 0,
+            routes: [{ name: "MainTab" }],
+        }),
+      })
+      setTimeout(() => {
+        SplashScreen.hide()
+      }, 1000)  
+    }
+      else
+      setDisplay(true)
+      setTimeout(() => {
+        SplashScreen.hide()
+      }, 1000)    
+ 
+     })
+  }
+
+
   useEffect(() => {
-    SplashScreen.hide()
+    loginCheck()
   }, [])
+
+ 
   return (
+    
     <View style={styles.container}>
       <LinearColors
         style={StyleSheet.absoluteFillObject}
@@ -96,7 +133,9 @@ const OnBoarding = memo((props: OnBoardingProps) => {
         </View>
       </LinearColors>
     </View>
+      
   );
+      
 });
 
 export default OnBoarding;

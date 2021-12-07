@@ -18,11 +18,8 @@ const ProfileHeader = memo(
   ({
  
   }: headerProps) => {
-  const profile = useAppSelector((state) =>state.profile)
-  const info=profile.data.user
-
-
-
+  const profile = useAppSelector((state) =>state.profile.data?.patient)
+ 
   // const [info, setIsSearch] = useState(false);
   // useEffect(()=>{
 
@@ -33,13 +30,13 @@ const ProfileHeader = memo(
     return (
       <View style={[styles.infoView, {backgroundColor: theme.background}]}>
       <View style={Theme.flexRow}>
-         <Image source={{uri:info.profile_pic}} style={styles.avatar} />
+         <Image source={{uri:profile?.avatarSource}} style={styles.avatar} />
         <View>
           <Text size={15} bold marginBottom={4}>
-          {profile.data.name}
+          {profile?.name}
           </Text>
-          <Text style={styles.email}>{info.email}</Text>
-          <Text style={styles.type}>{info.profileable_type}</Text>
+          <Text style={styles.email}>{profile?.email}</Text>
+          <Text style={styles.type}>{profile?.profileableType}</Text>
         </View>
       </View>
       <Image source={ICON.arrDown} />

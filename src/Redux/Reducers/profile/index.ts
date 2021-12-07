@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
- 
+import { setProfileObject } from 'utils/setObjects'
+import { patientObject } from 'type'
 import {profileGetAction} from '../../../Actions/Profile/profileGetAction'
 
 export interface ProfileState {
   fetching: boolean|null,
-  data: object|null,
+  data: patientObject|null,
   success: boolean|null,
   error: undefined|string
 }
@@ -20,7 +21,7 @@ const Profile = createSlice({
   initialState,
   reducers: {
     udateImage: (state,action) => { 
-       state.data.user={...state.data.user,profile_pic:action.payload}
+       state.data.patient={...state.data?.patient,avatarSource:action.payload}
     },
   },
    extraReducers: (builder) => {
@@ -31,7 +32,7 @@ const Profile = createSlice({
     builder.addCase(profileGetAction.fulfilled, (state, action) => {
  
       state.fetching= false,
-      state.data=action.payload.data,
+      state.data=setProfileObject(action.payload.data),
       state.error = undefined
       state.success= true
    })

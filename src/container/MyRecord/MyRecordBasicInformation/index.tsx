@@ -89,8 +89,8 @@ const MY_RECORD_INFORMATION = {
 export default memo(() => {
   const dispatch = useAppDispatch()
 
-  const profileInfo:any=useAppSelector((state)=>state.profile.data);
-  const UserInfo:any=profileInfo.user;
+  const profileInfo=useAppSelector((state)=>state.profile.data?.patient);
+ 
 
   
   const validationSchema =  Yup.object().shape({
@@ -107,7 +107,7 @@ export default memo(() => {
   const [state, setState] = useState({
     avatarSource:"",
     avatarSourcError:"",
-    date:'Select Date',
+    dob:'Select Date',
     dateError:"",
     firstName:"",
     lastName:"",
@@ -239,7 +239,7 @@ export default memo(() => {
   }, []);
   
   const uploadImage = useCallback(async(result) => {
-    dispatch(uploadImageAction({id:UserInfo.id,file:result[0].uri}))
+    dispatch(uploadImageAction({id:profileInfo?.patientId,file:result[0].uri}))
     if(result[0]){
            setState(  prevState => ({
           ...prevState,
@@ -283,39 +283,14 @@ export default memo(() => {
     }  , []);
 
     const setData=useCallback(() => { 
-      const {first_name,last_name,dob,gender,profile_pic,address,contact_numbers,email, profileable_id,id}=UserInfo;
-      const { patient_preferred_method,mother_name}=profileInfo;
+ 
     let gender1 =  gender.charAt(0).toUpperCase() + gender.slice(1);
       setState(  prevState => ({
-        ...prevState,
-        avatarSource:profile_pic,
-        avatarSourcError:"",
-        date:Moment(dob).format('YYYY-MM-DD'),
-        dateError:"",
-        gender:gender1,
-        firstName:first_name,
-        lastName:last_name,
-        motherName:mother_name,
-        email:email ,
-        mobile:contact_numbers[0].value,
-        phone:contact_numbers[1].value,
-        address:address.line_1,
-        state:address.city_area.city.state,
-        city:address.city_area.city.name,
-        zipCode:address.postal_code,
-        lat:address.city_area.city.lat,
-        lng:address.city_area.city.long,
-        emailSwitch:patient_preferred_method=="email"?true:false,
-        smsSwitch:patient_preferred_method=="sms"?true:false,
-        bothSwitch:patient_preferred_method=="sms_email"?true:false,
-        preferredMethod:patient_preferred_method,
-        mobileId:contact_numbers[0].id,
-        phoneId:contact_numbers[1].id,
-        addressId:address.id,
-        cityID:address.city_area.city.id,
-        profileAbleID:profileable_id,
-        patientId:id,
-        title:profileInfo.title
+        ...prevState,...profileInfo, 
+        emailSwitch:profileInfo?.preferredMethod=="email"?true:false,
+        smsSwitch:profileInfo?.preferredMethod=="sms"?true:false,
+        bothSwitch:profileInfo?.preferredMethod=="sms_email"?true:false,
+   
     }))
     }  , [State]);
  
@@ -498,7 +473,7 @@ export default memo(() => {
        firstName={values.firstName}
        lastName={values.lastName}
        motherName={values.motherName}
-       birthday={state.date}
+       birthday={state.dob}
        datePicker={dateOpen}
        gender={state.gender}
        openGenderPick={openGenderPick}
@@ -647,7 +622,7 @@ export default memo(() => {
         transparent
         animationType="fade">
         <ModalSlideBottom onClose={dateClose} transY={dateTransY}>
-          <Calendar onPress={onPickDatePress}  value={state.date=='Select Date'?"1999-01-01":state.date}/>
+          <Calendar onPress={onPickDatePress}  value={state.dob=='Select Date'?"1999-01-01":state.dob}/>
         </ModalSlideBottom>
       </Modal>
 

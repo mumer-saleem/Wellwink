@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import AuthManager from 'Services/authenticationManager'
 import {profileGetAction} from 'Actions/Profile/profileGetAction'
-import {setProfileUpdateParams} from 'utils/setApiParams'
+import {setProfileUpdateParams} from 'utils/setObjects'
 
 
 import api from 'Services/api'

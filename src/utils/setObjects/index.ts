@@ -1,4 +1,5 @@
 import { object } from "yup/lib/locale"
+import Moment from 'moment';
 
 
 
@@ -133,5 +134,44 @@ export const setProfileUpdateParams=(obj:any)=>{
                 }
             }
         }
-         
    }
+
+
+   export const setProfileObject=(Data:any)=>{
+
+  const profileInfo=Data;
+  const UserInfo=profileInfo.user;
+    const {first_name,last_name,dob,gender,profile_pic,address,contact_numbers,email, profileable_id,id,profileable_type}=UserInfo;
+    const { patient_preferred_method,mother_name}=profileInfo;
+  let gender1 =  gender.charAt(0).toUpperCase() + gender.slice(1);
+    return {   
+           "patient": {
+            avatarSource:profile_pic,
+            dob:Moment(dob).format('YYYY-MM-DD'),
+            gender:gender1,
+            firstName:first_name,
+            lastName:last_name,
+            motherName:mother_name,
+            email:email ,
+            mobile:contact_numbers[0].value,
+            phone:contact_numbers[1].value,
+            address:address.line_1,
+            state:address.city_area.city.state,
+            city:address.city_area.city.name,
+            zipCode:address.postal_code,
+            lat:address.city_area.city.lat,
+            lng:address.city_area.city.long,
+            preferredMethod:patient_preferred_method,
+            mobileId:contact_numbers[0].id,
+            phoneId:contact_numbers[1].id,
+            addressId:address.id,
+            cityID:address.city_area.city.id,
+            profileAbleID:profileable_id,
+            patientId:id,
+            title:profileInfo.title,
+            name:profileInfo.name,
+            profileableType:profileable_type,
+        }
+             
+       }
+  }
