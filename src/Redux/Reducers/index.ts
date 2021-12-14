@@ -1,8 +1,8 @@
 import {combineReducers} from '@reduxjs/toolkit';
 import logIn from './login/signIn' 
 import signUp from './signUp/signUp' 
-import sendOtp from './otp/sendOtp' 
-import verifyOtp from './otp/verifyOtp' 
+import sendOtp from './Otp/sendOtp' 
+import verifyOtp from './Otp/verifyOtp' 
 import profile from './profile' 
 
  
