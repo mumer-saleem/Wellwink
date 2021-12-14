@@ -504,9 +504,13 @@ PODS:
   - RNScreens (3.9.0):
     - React-Core
     - React-RCTImage
+  - RNTwilioVoice (4.4.0):
+    - React-Core
+    - TwilioVoice (~> 5.2.0)
   - RNVectorIcons (9.0.0):
     - React-Core
   - TwilioVideo (4.6.2)
+  - TwilioVoice (5.2.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -575,6 +579,7 @@ DEPENDENCIES:
   - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNTwilioVoice (from `../node_modules/react-native-twilio-programmable-voice`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -607,6 +612,7 @@ SPEC REPOS:
     - OpenSSL-Universal
     - PromisesObjC
     - TwilioVideo
+    - TwilioVoice
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -690,6 +696,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNTwilioVoice:
+    :path: "../node_modules/react-native-twilio-programmable-voice"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   Yoga:
@@ -762,8 +770,10 @@ SPEC CHECKSUMS:
   RNFBMessaging: 842c9f93a4d0869f17e296e3ac8eb24787c3385c
   RNReanimated: 65583befd5706cc9c86ae9a081786181ced37b93
   RNScreens: 4d79118be80f79fa1f4aa131909a1d6e86280af3
+  RNTwilioVoice: c7daa56ef4b53298b084d699618d344c8fa99f04
   RNVectorIcons: 4143ba35feebab8fdbe6bc43d1e776b393d47ac8
   TwilioVideo: f8c75425bce3f41912bb24352154b0502d89a9b3
+  TwilioVoice: 99f69686a0962873114534ce561436117ed9ea35
   Yoga: 2b4a01651f42a32f82e6cef3830a3ba48088237f
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
