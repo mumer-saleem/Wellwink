@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import AuthManager from 'Services/authenticationManager'
 import {profileGetAction} from 'Actions/Profile/profileGetAction'
-
+ 
 import api from 'Services/api'
 
 export const LoginAction = createAsyncThunk(
@@ -11,7 +11,7 @@ export const LoginAction = createAsyncThunk(
     try {
       let response=  await api.create().userLogin(arg)
        await AuthManager.setTokenResponse(response)
-       thunkAPI.dispatch(profileGetAction(response.data.data.profileable.id))
+        thunkAPI.dispatch(profileGetAction(response.data.data.profileable.id))
        return response;
   } catch (err:any) {
     const hasErrResponse = (err as { response: { [key: string]: string } }).response;

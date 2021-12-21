@@ -5,7 +5,8 @@ const Constants = {
   width: Dimensions.get("window").width,
   height: Dimensions.get("window").height,
   FONTS_APP: "Mulish",
-  Welcometext:"Welcome to WellWink!"
+  Welcometext:"Welcome to WellWink!",
+
 };
 export default Constants;
 
@@ -29,6 +30,21 @@ export enum ConsultsStatus {
   canceled = 5,
 }
 
-
-
+// baseURL: "http://192.168.4.169:3000/",
+//  hjasasn 
+// baseURL: "http://192.168.5.84:3000/",
+// own
+export const apiConstants={
+  baseURL:"http://192.168.5.84:3000/",
+  headers : {
+    'X-Custom-Header': 'foobar'
+  },
+  videChannelName:"UserChannel",
+  videoURl:"ws://192.168.5.84:3000/cable",
+  chatChannelName:"",
+  chatURl:"",
+  PRESENCE_INTERVAL:60000,
+  timeout:3000,
+  
+}
  

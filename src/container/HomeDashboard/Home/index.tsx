@@ -1,4 +1,4 @@
-import React, {memo, useState, useCallback} from 'react';
+import React, {memo, useState, useCallback,useEffect} from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
 import {Colors, Routes} from 'configs';
 import Greeting from 'components/Home/Greeting';
@@ -12,16 +12,32 @@ import scale from 'utils/scale';
 import Layout from 'elements/Layout/Container';
 import Theme from 'style/Theme';
 import {useTheme} from 'configs/ChangeTheme';
-
+import {SubscribeVideoChannle,UnSubscribeVideoChannle} from 'Services/ActionCable/subscribeCannels';
+import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
 interface HomeProps {}
 
 const Home = memo((props: HomeProps) => {
+  const profile = useAppSelector((state) =>state.profile.data?.patient)
   const [searchKey, setSearchKey] = useState('');
   const {navigate} = useNavigation();
   const onTodayTask = useCallback(() => {
     navigate(Routes.TodayTask);
   }, [navigate]);
-  const {theme} = useTheme();
+
+ 
+
+
+  useEffect(() => {
+    
+    SubscribeVideoChannle(profile?.userId);
+    return () => {
+      UnSubscribeVideoChannle()       
+    }
+ 
+  }, [])
+ 
+
+
   return (
     <Layout style={styles.container}>
       <ScrollView
@@ -71,3 +87,4 @@ const styles = StyleSheet.create({
     marginBottom: scale(40, true),
   },
 });
+

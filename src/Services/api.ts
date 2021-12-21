@@ -1,22 +1,13 @@
 import axios from 'axios';
 import {signUp,SignIn,forgetPassword,sendOtp,verifyOtp,updateProfile} from 'type/apiParams'
+import {apiConstants} from 'configs/Const'
 
-const headers = {
-  'X-Custom-Header': 'foobar'
-}
-// baseURL: "http://192.168.4.169:3000/",
-//  hjasasn 
-// baseURL: "http://192.168.5.84:3000/",
-// own
+ 
 
-
-const create = (headers:any=headers ,baseURL = 'http://192.168.5.84:3000/') => { 
-
-
-
+const create = (headers:any=apiConstants.headers ,baseURL = apiConstants.baseURL) => {
      var instance = axios.create({
       baseURL:baseURL,
-      timeout: 3000,
+      timeout: apiConstants.timeout,
       headers: headers,
     });
 
@@ -29,9 +20,7 @@ const create = (headers:any=headers ,baseURL = 'http://192.168.5.84:3000/') => {
    const postForgetPassword = ( params:forgetPassword ) => {  return instance.post('api/v1/auth/password',params); }  
    const getProfile = ( id:string ) => { return instance.get('api/v1/patients/'+id); }  
    const postImageUpload = ( params:any, ) => {return instance.post('api/v1/attachments',params); }  
-   const putProfileUpdate = ( params:updateProfile,profileAbleID:string ) => {  
-     console.log(params,"paramsparamsparams",profileAbleID)
-    return instance.put('api/v1/patients/'+profileAbleID,params); }  
+   const putProfileUpdate = ( params:updateProfile,profileAbleID:string ) => {return instance.put('api/v1/patients/'+profileAbleID,params); }  
 
     return {
       userLogin, 

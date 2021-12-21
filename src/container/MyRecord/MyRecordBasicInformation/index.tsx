@@ -131,7 +131,7 @@ export default memo(() => {
     addressId:"",
     cityID:"",
     profileAbleID:"",
-    patientId:"",
+    userId:"",
     title:"",
   });
   // const [relationship, setRelationship] = useState(
@@ -239,7 +239,7 @@ export default memo(() => {
   }, []);
   
   const uploadImage = useCallback(async(result) => {
-    dispatch(uploadImageAction({id:profileInfo?.patientId,file:result[0].uri}))
+    dispatch(uploadImageAction({id:profileInfo?.userId,file:result[0].uri}))
     if(result[0]){
            setState(  prevState => ({
           ...prevState,

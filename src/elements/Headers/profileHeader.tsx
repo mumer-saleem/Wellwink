@@ -21,10 +21,9 @@ const ProfileHeader = memo(
   const profile = useAppSelector((state) =>state.profile.data?.patient)
  
   // const [info, setIsSearch] = useState(false);
-  // useEffect(()=>{
-
-  // },[LogIn.data])
-  
+ useEffect(() => {
+ console.log(profile?.avatarSource,"profile?.avatarSource")
+ }, [])
 
     const {theme} = useTheme();
     return (

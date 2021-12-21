@@ -35,13 +35,8 @@ const OnBoarding = memo((props: OnBoardingProps) => {
   }, [navigate]);
   const onGetHere = useCallback(() => {}, []);
 
-
-
-
-
   const loginCheck = async () => {
     AuthManager.getTokens().then(_res => {
-      console.log(_res,"getTokensgetTokensgetTokensgetTokens");
       let authHeader = AuthManager.getAuthHeaders()
       if (authHeader['access-token'] && authHeader['uid'] && authHeader['client']){
       navigation.dispatch({

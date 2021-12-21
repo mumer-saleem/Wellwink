@@ -52,7 +52,7 @@ export interface patientObject{
     "addressId":string,
     "cityID":string,
     "profileAbleID":string,
-    'patientId':string,
+    'userId':string,
     "title":string,
     "name":string,
     "profileableType":string,

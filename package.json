@@ -9,9 +9,9 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "clean": "watchman watch-del-all && rm -rf node_modules/ && yarn cache clean && yarn install"
-
   },
   "dependencies": {
+    "@kesha-antonov/react-native-action-cable": "^1.1.0",
     "@react-native-async-storage/async-storage": "^1.15.9",
     "@react-native-community/datetimepicker": "^3.5.2",
     "@react-native-community/masked-view": "^0.1.11",
