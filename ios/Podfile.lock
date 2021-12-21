@@ -52,12 +52,12 @@ PODS:
     - FirebaseCoreDiagnostics (~> 8.0)
     - GoogleUtilities/Environment (~> 7.6)
     - GoogleUtilities/Logger (~> 7.6)
-  - FirebaseCoreDiagnostics (8.9.0):
+  - FirebaseCoreDiagnostics (8.10.0):
     - GoogleDataTransport (~> 9.1)
     - GoogleUtilities/Environment (~> 7.6)
     - GoogleUtilities/Logger (~> 7.6)
     - nanopb (~> 2.30908.0)
-  - FirebaseInstallations (8.9.0):
+  - FirebaseInstallations (8.10.0):
     - FirebaseCore (~> 8.0)
     - GoogleUtilities/Environment (~> 7.6)
     - GoogleUtilities/UserDefaults (~> 7.6)
@@ -391,6 +391,9 @@ PODS:
     - React
   - react-native-splash-screen (3.2.0):
     - React
+  - react-native-twilio-video-webrtc (2.0.0):
+    - React
+    - TwilioVideo (~> 4.6)
   - React-perflogger (0.66.1)
   - React-RCTActionSheet (0.66.1):
     - React-Core/RCTActionSheetHeaders (= 0.66.1)
@@ -469,7 +472,7 @@ PODS:
   - RNFBApp (13.0.0):
     - Firebase/CoreOnly (= 8.9.0)
     - React-Core
-  - RNFBAuth (13.0.1):
+  - RNFBAuth (13.1.0):
     - Firebase/Auth (= 8.9.0)
     - React-Core
     - RNFBApp
@@ -513,6 +516,13 @@ PODS:
     - React-RCTImage
   - RNSVG (12.1.1):
     - React
+  - RNTwilioVoice (4.4.0):
+    - React-Core
+    - TwilioVoice (~> 5.2.0)
+  - RNVectorIcons (9.0.0):
+    - React-Core
+  - TwilioVideo (4.6.2)
+  - TwilioVoice (5.2.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -563,6 +573,7 @@ DEPENDENCIES:
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-sensitive-info (from `../node_modules/react-native-sensitive-info`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
+  - react-native-twilio-video-webrtc (from `../node_modules/react-native-twilio-video-webrtc`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -586,6 +597,8 @@ DEPENDENCIES:
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
+  - RNTwilioVoice (from `../node_modules/react-native-twilio-programmable-voice`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -616,6 +629,8 @@ SPEC REPOS:
     - nanopb
     - OpenSSL-Universal
     - PromisesObjC
+    - TwilioVideo
+    - TwilioVoice
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -663,6 +678,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-sensitive-info"
   react-native-splash-screen:
     :path: "../node_modules/react-native-splash-screen"
+  react-native-twilio-video-webrtc:
+    :path: "../node_modules/react-native-twilio-video-webrtc"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -709,6 +726,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   RNSVG:
     :path: "../node_modules/react-native-svg"
+  RNTwilioVoice:
+    :path: "../node_modules/react-native-twilio-programmable-voice"
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -723,8 +744,8 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: 4ab446ce08a3fe52e8a4303dd997cf26276bf968
   FirebaseAuth: 2b78b2a32c07b3ecfa4970bdf1d3632b8304099b
   FirebaseCore: 599ee609343eaf4941bd188f85e3aa077ffe325b
-  FirebaseCoreDiagnostics: 5daa63f1c1409d981a2d5007daa100b36eac6a34
-  FirebaseInstallations: caa7c8e0d3e2345b8829d2fa9ca1b4dfbf2fcc85
+  FirebaseCoreDiagnostics: 56fb7216d87e0e6ec2feddefa9d8a392fe8b2c18
+  FirebaseInstallations: 830327b45345ffc859eaa9c17bcd5ae893fd5425
   FirebaseMessaging: 82c4a48638f53f7b184f3cc9f6cd2cbe533ab316
   Flipper: 30e8eeeed6abdc98edaf32af0cda2f198be4b733
   Flipper-Boost-iOSX: fd1e2b8cbef7e662a122412d7ac5f5bea715403c
@@ -761,6 +782,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 5cf05f49df9d17261e40e518481f2e334c6cd4b5
   react-native-sensitive-info: 400c6e3d27945e15c8cddb5b4b92233c85ee06f8
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
+  react-native-twilio-video-webrtc: 88644618261216298b24891a4ccd224821b4e409
   React-perflogger: fcac6090a80e3d967791b4c7f1b1a017f9d4a398
   React-RCTActionSheet: caf5913d9f9e605f5467206cf9d1caa6d47d7ad6
   React-RCTAnimation: 6539e3bf594f6a529cd861985ba6548286ae1ead
@@ -778,15 +800,19 @@ SPEC CHECKSUMS:
   RNDateTimePicker: c9911be59b1f8670b9f244b85af3a7c295e175ed
   RNFBAnalytics: 1e0c9761622ca1a90be17b0ebc3f4372d93cb424
   RNFBApp: 7e150ce2ff2d8a0f9c85e33001a6943b3deacc65
-  RNFBAuth: 9dde42c89c204fe0f21956fa310320e65734e5ac
+  RNFBAuth: c2ca5ddfeb666bbc90dbf77437c5de5723896cce
   RNFBMessaging: 842c9f93a4d0869f17e296e3ac8eb24787c3385c
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReanimated: 65583befd5706cc9c86ae9a081786181ced37b93
   RNScreens: 4d79118be80f79fa1f4aa131909a1d6e86280af3
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
+  RNTwilioVoice: c7daa56ef4b53298b084d699618d344c8fa99f04
+  RNVectorIcons: 4143ba35feebab8fdbe6bc43d1e776b393d47ac8
+  TwilioVideo: f8c75425bce3f41912bb24352154b0502d89a9b3
+  TwilioVoice: 99f69686a0962873114534ce561436117ed9ea35
   Yoga: 2b4a01651f42a32f82e6cef3830a3ba48088237f
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 5996a4d324269e8c4e07e546bc016db62d6570be
+PODFILE CHECKSUM: 2f1e78d640993e615897c10e3b2acfebebf9258a
 
 COCOAPODS: 1.11.2
