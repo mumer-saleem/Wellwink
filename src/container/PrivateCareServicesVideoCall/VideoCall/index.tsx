@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useState} from 'react';
+import React, {memo, useCallback, useState,useRef,useEffect} from 'react';
 import {
   View,
   StyleSheet,
@@ -6,6 +6,7 @@ import {
   ImageBackground,
   Modal,
   Animated,
+  PermissionsAndroid,
 } from 'react-native';
 import Text from 'elements/Text';
 import {Colors, Routes} from 'configs';
@@ -28,6 +29,12 @@ import PrivateCareLiveChat from '../PrivateCareLiveChat';
 import {height} from 'configs/Const';
 import Container from 'elements/Layout/Container';
 import Layout from 'elements/Layout/Layout';
+ import {GetVideoCallPermissions} from 'utils';
+ import {
+  TwilioVideoLocalView,
+  TwilioVideoParticipantView,
+  TwilioVideo
+} from 'react-native-twilio-video-webrtc';
 
 export default memo(() => {
   const {navigate} = useNavigation();
@@ -36,6 +43,78 @@ export default memo(() => {
   const [typeModal, setTypeModal] = useState<number>();
   const [fileList, setFileList] = useState<any>([]);
   const {visible, open, close, transY} = useModalAnimation();
+  const [isAudioEnabled, setIsAudioEnabled] = useState(true);
+  const [isVideoEnabled, setIsVideoEnabled] = useState(true);
+  const [status, setStatus] = useState('disconnected');
+  const [participants, setParticipants] = useState(new Map());
+  const [videoTracks, setVideoTracks] = useState(new Map());
+  const [token, setToken] = useState('');
+  const twilioRef = useRef(null);
+
+  
+  const _onConnectButtonPress = () => {
+    // twilioRef.current.connect({ accessToken: token });
+    setStatus('connecting');
+    setAccepted(!accepted);
+  }
+  
+  const _onEndButtonPress = () => {
+    twilioRef.current.disconnect();
+  };
+
+  const _onMuteButtonPress = () => {
+    twilioRef.current
+      .setLocalAudioEnabled(!isAudioEnabled)
+      .then(isEnabled => setIsAudioEnabled(isEnabled));
+  };
+
+  const _onFlipButtonPress = () => {
+    twilioRef.current.flipCamera();
+  };
+
+  const _onRoomDidConnect = ({roomName, error}) => {
+    console.log('onRoomDidConnect: ', roomName);
+
+    setStatus('connected');
+  };
+
+  const _onRoomDidDisconnect = ({ roomName, error }) => {
+    console.log('[Disconnect]ERROR: ', error);
+
+    setStatus('disconnected');
+  };
+
+  const _onRoomDidFailToConnect = error => {
+    console.log('[FailToConnect]ERROR: ', error);
+
+    setStatus('disconnected');
+  };
+
+  const _onParticipantAddedVideoTrack = ({ participant, track }) => {
+    console.log('onParticipantAddedVideoTrack: ', participant, track);
+
+    setVideoTracks(
+      new Map([
+        ...videoTracks,
+        [
+          track.trackSid,
+          { participantSid: participant.sid, videoTrackSid: track.trackSid },
+        ],
+      ]),
+    );
+  };
+
+  const _onParticipantRemovedVideoTrack = ({ participant, track }) => {
+    console.log('onParticipantRemovedVideoTrack: ', participant, track);
+
+    const videoTracksLocal = videoTracks;
+    videoTracksLocal.delete(track.trackSid);
+
+    setVideoTracks(videoTracksLocal);
+  };
+
+
+
 
   useFocusEffect(
     useCallback(() => {
@@ -46,6 +125,7 @@ export default memo(() => {
   const onPressChat = () => {};
   const onPressAccept = () => {
     setAccepted(!accepted);
+    _onConnectButtonPress()
   };
   const openChat = () => {
     setTypeModal(1);
@@ -57,9 +137,10 @@ export default memo(() => {
   };
   const onPressVideo = () => {};
   const onPressMute = () => {};
-  const onPressDecline = () => {};
+  const onPressDecline = () => { };
   const onPressEnd = () => {
     setEnded(true);
+    _onEndButtonPress()
   };
   const onWriteReview = () => {
     navigate(Routes.ReviewDoctor);
@@ -67,6 +148,9 @@ export default memo(() => {
   const onGoToDashBoard = () => {
     navigate(Routes.MainTab);
   };
+  useEffect(() => {
+    GetVideoCallPermissions()
+  }, [])
   return (
     <Container style={styles.container}>
       {accepted && !ended ? (
@@ -100,14 +184,55 @@ export default memo(() => {
               onPress={onPressEnd}
             />
           </Layout>
-          <ImageBackground source={IMAGE.doctor} style={styles.imgDoctor}>
+
+          
+          {/* <ImageBackground source={IMAGE.doctor} style={styles.imgDoctor}>
             <Image source={IMAGE.patient} style={styles.imgPatient} />
-          </ImageBackground>
+          </ImageBackground> */}
+         <View  style={styles.imgDoctor}>
+           {
+        (status === 'connected' || status === 'connecting') &&
+          <View style={styles.imgDoctor}>
+          {
+            status === 'connected' &&
+            <View style={styles.imgDoctor}>
+              {
+                Array.from(videoTracks, ([trackSid, trackIdentifier]) => {
+                  return (
+                    <TwilioVideoParticipantView
+                      style={styles.imgDoctor}
+                      key={trackSid}
+                      trackIdentifier={trackIdentifier}
+                    />
+                  )
+                })
+              }
+            </View>
+          }
+    
+            <TwilioVideoLocalView
+              enabled={true}
+              style={styles.imgPatient}
+            />
+       
+        </View>
+      }
+
+         <TwilioVideo
+        ref={ twilioRef }
+        onRoomDidConnect={ _onRoomDidConnect }
+        onRoomDidDisconnect={ _onRoomDidDisconnect }
+        onRoomDidFailToConnect= { _onRoomDidFailToConnect }
+        onParticipantAddedVideoTrack={ _onParticipantAddedVideoTrack }
+        onParticipantRemovedVideoTrack= { _onParticipantRemovedVideoTrack }
+      />
+           </View>
+
           <VideoCallFooter
-            onPressChat={openChat}
+            // onPressChat={openChat}
             onPressVideo={onPressVideo}
-            onPressMute={onPressMute}
-            onPressAttach={openAttach}
+            onPressMute={_onMuteButtonPress}
+            onPressAttach={_onFlipButtonPress}
           />
         </>
       ) : !accepted && !ended ? (
@@ -124,9 +249,9 @@ export default memo(() => {
             </View>
           </View>
           <IncomingCallFooter
-            onPressAccept={onPressAccept}
+            onPressAccept={_onConnectButtonPress}
             onPressDecline={onPressDecline}
-            onPressChat={onPressChat}
+            // onPressChat={onPressChat}
           />
         </>
       ) : (

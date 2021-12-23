@@ -103,7 +103,7 @@ const VideoCallFooter = memo(
               color={Colors.White}
               marginTop={8}
             >
-              Shared Files
+            Flip
             </Text>
           </View>
         </View>

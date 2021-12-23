@@ -54,7 +54,7 @@ const IncomingCallFooter = memo(
             Accept
           </Text>
         </View>
-        <View>
+        {/* <View>
           <ButtonIcon
             style={styles.icon}
             backgroundColor={Colors.Malachite}
@@ -71,7 +71,7 @@ const IncomingCallFooter = memo(
           >
             Chat
           </Text>
-        </View>
+        </View> */}
       </View>
     );
   }

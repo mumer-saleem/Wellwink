@@ -41,12 +41,11 @@ const logIn = createSlice({
    })
    builder.addCase(LoginAction.rejected, (state, action) => {
     console.log(action)
-          state.success= false
+        state.success= false
         state.fetching=false
         state.error = action.payload.error
     
  })
- 
 }
 
 }

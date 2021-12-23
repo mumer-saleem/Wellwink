@@ -1,4 +1,11 @@
-export const handleReceived = (data) => {
+ import { store, } from 'Redux/ReduxPresist/ReduxPersist'
+ import {Colors, Routes} from 'configs';
+
+
+
+export const handleReceived = (data:any,navigation:any) => {
+ console.log(store.getState,"store.getStatestore.getStatestore.getState")  
+ 
   console.log(data,"handleReceived")
   switch(data.channel_action) {
    case 'video_call_cancelled': {
@@ -8,9 +15,8 @@ export const handleReceived = (data) => {
 
  }
  if(data.sub_type=="call_started"){
-  alert("video calling")
-
- }
+  navigation(Routes.VideoCall);
+  }
 }
 
 export const handleConnected=()=> {

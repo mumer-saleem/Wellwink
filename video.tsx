@@ -15,11 +15,7 @@ import {
   TwilioVideoParticipantView, //to get participant view
   TwilioVideo
 } from 'react-native-twilio-video-webrtc';
-// make sure you install vector icons and its dependencies
-// import MIcon from 'react-native-vector-icons/MaterialIcons';
-// import normalize from 'react-native-normalize';
-// import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-// import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+ 
 import SplashScreen from 'react-native-splash-screen'
 
 export async function GetAllPermissions() {
