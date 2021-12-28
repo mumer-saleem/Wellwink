@@ -1,5 +1,5 @@
 import React, {memo, useState, useCallback,useEffect} from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
+import {View, StyleSheet, ScrollView,AppState} from 'react-native';
 import {Colors, Routes} from 'configs';
 import Greeting from 'components/Home/Greeting';
 import SearchBox from 'elements/SearchBox';
@@ -19,9 +19,13 @@ import {GetVideoCallPermissions} from 'utils';
 interface HomeProps {}
 
 const Home = memo((props: HomeProps) => {
+  const dispatch = useAppDispatch()
   const profile = useAppSelector((state) =>state.profile.data?.patient)
   const [searchKey, setSearchKey] = useState('');
+  const [appState, setAppState] = React.useState(AppState.currentState)
+
   const {navigate} = useNavigation();
+  
   const onTodayTask = useCallback(() => {
     navigate(Routes.TodayTask);
   }, [navigate]);
@@ -35,8 +39,30 @@ const Home = memo((props: HomeProps) => {
     return () => {
       UnSubscribeVideoChannle()       
     }
-  }, [])
  
+
+  }, [profile?.userId])
+
+//   useEffect(() => {
+//     AppState.addEventListener('change', handleAppStateChange)
+
+//     setAppState(AppState.currentState)
+
+//     return AppState.removeEventListener('change')
+// },[])
+//   const handleAppStateChange = newState => {
+//     console.log(AppState.currentState)
+
+//     if (appState.match(/inactive|background/) && newState === 'active') {
+//       console.log(AppState.currentState,'App has come to the foreground!')
+//       // Show the splash screen
+//      } else {
+//       console.log(AppState.currentState,'App has gone to the background!')
+//       // do something in background
+//     }
+
+//     setAppState(newState)
+// }
 
 
   return (

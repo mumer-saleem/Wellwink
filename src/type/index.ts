@@ -58,3 +58,8 @@ export interface patientObject{
     "profileableType":string,
 }
 }
+export interface videoCallbject{
+   "callerFullName": string
+   "callerProfile": string
+   "roomNme": string
+}

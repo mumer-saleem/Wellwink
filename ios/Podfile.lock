@@ -472,7 +472,7 @@ PODS:
   - RNFBApp (13.0.0):
     - Firebase/CoreOnly (= 8.9.0)
     - React-Core
-  - RNFBAuth (13.1.0):
+  - RNFBAuth (13.0.1):
     - Firebase/Auth (= 8.9.0)
     - React-Core
     - RNFBApp
@@ -514,6 +514,11 @@ PODS:
   - RNScreens (3.9.0):
     - React-Core
     - React-RCTImage
+  - RNSound (0.11.1):
+    - React-Core
+    - RNSound/Core (= 0.11.1)
+  - RNSound/Core (0.11.1):
+    - React-Core
   - RNSVG (12.1.1):
     - React
   - RNTwilioVoice (4.4.0):
@@ -596,6 +601,7 @@ DEPENDENCIES:
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSound (from `../node_modules/react-native-sound`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNTwilioVoice (from `../node_modules/react-native-twilio-programmable-voice`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
@@ -724,6 +730,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSound:
+    :path: "../node_modules/react-native-sound"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   RNTwilioVoice:
@@ -800,11 +808,12 @@ SPEC CHECKSUMS:
   RNDateTimePicker: c9911be59b1f8670b9f244b85af3a7c295e175ed
   RNFBAnalytics: 1e0c9761622ca1a90be17b0ebc3f4372d93cb424
   RNFBApp: 7e150ce2ff2d8a0f9c85e33001a6943b3deacc65
-  RNFBAuth: c2ca5ddfeb666bbc90dbf77437c5de5723896cce
+  RNFBAuth: 9dde42c89c204fe0f21956fa310320e65734e5ac
   RNFBMessaging: 842c9f93a4d0869f17e296e3ac8eb24787c3385c
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReanimated: 65583befd5706cc9c86ae9a081786181ced37b93
   RNScreens: 4d79118be80f79fa1f4aa131909a1d6e86280af3
+  RNSound: 9253013eeaa051eab63d354fd4654f7aa67c82f0
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   RNTwilioVoice: c7daa56ef4b53298b084d699618d344c8fa99f04
   RNVectorIcons: 4143ba35feebab8fdbe6bc43d1e776b393d47ac8
@@ -813,6 +822,6 @@ SPEC CHECKSUMS:
   Yoga: 2b4a01651f42a32f82e6cef3830a3ba48088237f
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 2f1e78d640993e615897c10e3b2acfebebf9258a
+PODFILE CHECKSUM: 312e2ffed791faf2e48f57e0c7c2f268f38b71bb
 
 COCOAPODS: 1.11.2

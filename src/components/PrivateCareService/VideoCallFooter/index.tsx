@@ -24,7 +24,7 @@ const VideoCallFooter = memo(
       <View style={styles.container}>
         <View style={styles.slider} />
         <View style={Theme.flexRowSpace}>
-          <View>
+          {/* <View>
             <ButtonIcon
               style={styles.icon}
               icon="liveChat"
@@ -46,7 +46,7 @@ const VideoCallFooter = memo(
             >
               Chat
             </Text>
-          </View>
+          </View> */}
           <View>
             <ButtonIcon
               style={styles.icon}

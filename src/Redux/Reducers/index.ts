@@ -4,6 +4,8 @@ import signUp from './signUp/signUp'
 import sendOtp from './Otp/sendOtp' 
 import verifyOtp from './Otp/verifyOtp' 
 import profile from './profile' 
+import videoCall from './videoCall/videoCall' 
+
 
  
 
@@ -17,7 +19,8 @@ export const Reducers = combineReducers({
    signUp:signUp,
    sendOtp:sendOtp,
    verifyOtp:verifyOtp,
-   profile:profile
+   profile:profile,
+   videoCall:videoCall
    // ForgetPassword:ForgetPassword
 }
 )

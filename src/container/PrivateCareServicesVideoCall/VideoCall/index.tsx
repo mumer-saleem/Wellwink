@@ -35,9 +35,27 @@ import Layout from 'elements/Layout/Layout';
   TwilioVideoParticipantView,
   TwilioVideo
 } from 'react-native-twilio-video-webrtc';
+var Sound = require('react-native-sound');
+import KeepAwake from 'react-native-keep-awake';
+import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
+import {getAuthToken} from 'Actions/VideoCall/getAuthToken';
 
+var call = new Sound('call.mp3', Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+      console.log('failed to load the sound', error);
+      return;
+  }
+  
+  // loaded successfully
+  console.log('duration in seconds: ' + call.getDuration() + 'number of channels: ' + call.getNumberOfChannels());
+
+});
 export default memo(() => {
+  const videoCallbject = useAppSelector((state) =>state.videoCall.videoCallbject)
+  const dispatch=useAppDispatch();
+
   const {navigate} = useNavigation();
+  const navigation = useNavigation();
   const [accepted, setAccepted] = useState(false);
   const [ended, setEnded] = useState(false);
   const [typeModal, setTypeModal] = useState<number>();
@@ -48,13 +66,15 @@ export default memo(() => {
   const [status, setStatus] = useState('disconnected');
   const [participants, setParticipants] = useState(new Map());
   const [videoTracks, setVideoTracks] = useState(new Map());
-  const [token, setToken] = useState('');
-  const twilioRef = useRef(null);
-
-  
-  const _onConnectButtonPress = () => {
-    // twilioRef.current.connect({ accessToken: token });
+   const twilioRef = useRef(null);
+ 
+   const _onConnectButtonPress = () => {
     setStatus('connecting');
+     dispatch(getAuthToken()).then((res) => {
+     res.type=="/fulfilled"&&
+        twilioRef.current.connect({roomName: videoCallbject.roomNme, accessToken: res.payload.data.token })
+    })
+    call.stop();
     setAccepted(!accepted);
   }
   
@@ -67,7 +87,6 @@ export default memo(() => {
       .setLocalAudioEnabled(!isAudioEnabled)
       .then(isEnabled => setIsAudioEnabled(isEnabled));
   };
-
   const _onFlipButtonPress = () => {
     twilioRef.current.flipCamera();
   };
@@ -86,14 +105,12 @@ export default memo(() => {
 
   const _onRoomDidFailToConnect = error => {
     console.log('[FailToConnect]ERROR: ', error);
-
+    navigation.goBack();  
     setStatus('disconnected');
   };
 
   const _onParticipantAddedVideoTrack = ({ participant, track }) => {
-    console.log('onParticipantAddedVideoTrack: ', participant, track);
-
-    setVideoTracks(
+     setVideoTracks(
       new Map([
         ...videoTracks,
         [
@@ -103,18 +120,16 @@ export default memo(() => {
       ]),
     );
   };
-
   const _onParticipantRemovedVideoTrack = ({ participant, track }) => {
-    console.log('onParticipantRemovedVideoTrack: ', participant, track);
-
+  
     const videoTracksLocal = videoTracks;
+
     videoTracksLocal.delete(track.trackSid);
 
     setVideoTracks(videoTracksLocal);
+     navigation.goBack();  
+
   };
-
-
-
 
   useFocusEffect(
     useCallback(() => {
@@ -137,7 +152,10 @@ export default memo(() => {
   };
   const onPressVideo = () => {};
   const onPressMute = () => {};
-  const onPressDecline = () => { };
+  const onPressDecline = () => {
+    call.stop();
+    navigation.goBack();  
+   };
   const onPressEnd = () => {
     setEnded(true);
     _onEndButtonPress()
@@ -148,9 +166,17 @@ export default memo(() => {
   const onGoToDashBoard = () => {
     navigate(Routes.MainTab);
   };
+
   useEffect(() => {
+    // KeepAwake.activate();
+     call.play();
     GetVideoCallPermissions()
-  }, [])
+    
+  }, []) 
+
+  useEffect(() => {
+  }, [videoCallbject]) 
+
   return (
     <Container style={styles.container}>
       {accepted && !ended ? (
@@ -239,13 +265,13 @@ export default memo(() => {
         <>
           <View style={styles.callView}>
             <Text size={15} lineHeight={24} marginBottom={120}>
-              Incoming Call...
+            {videoCallbject.callerFullName} calling you.... 
             </Text>
             <View style={Theme.center}>
               <Animated.View style={styles.glow1} />
               <Animated.View style={styles.glow2} />
               <Animated.View style={styles.glow3} />
-              <Image source={AVATAR.doctor1} style={styles.avatar} />
+              <Image source={{uri:videoCallbject.callerProfile}} style={styles.avatar} />
             </View>
           </View>
           <IncomingCallFooter

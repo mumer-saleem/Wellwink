@@ -72,8 +72,7 @@ const signUp = createSlice({
       state.success= true
    })
    builder.addCase(SignUpAction.rejected, (state, action) => {
-     console.log(action,"sign up action action")
-          state.success= false
+           state.success= false
           state.fetching=false
           state.error = action.payload.error;
  })

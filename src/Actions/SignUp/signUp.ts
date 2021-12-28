@@ -8,9 +8,6 @@ import {LoginAction} from 'Actions/SignIn/login'
 import {emailOtpAction} from 'Actions/OtpActions/emailOtpAction'
 import {smsOtpAction} from 'Actions/OtpActions/smsOtpAction'
 import {setSignUpParams} from 'utils/setObjects'
-
-
-import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
  
 
 export const SignUpAction = createAsyncThunk(
