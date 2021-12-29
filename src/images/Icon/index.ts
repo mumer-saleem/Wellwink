@@ -131,6 +131,7 @@ export const ICON: any = {
   sound: require("images/Icon/ic_sound.png"),
   videoOff: require("images/Icon/ic_video_off.png"),
   mute: require("images/Icon/ic_mute.png"),
+  unmute: require("images/Icon/ic_Unmute.png"),
   quote: require("images/Icon/ic_quote.png"),
   time: require("images/Icon/ic_time.png"),
   arrowLeft: require("images/Icon/ic_arrow_left.png"),

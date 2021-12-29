@@ -49,3 +49,14 @@ export const SubscribeVideoChannle =  async (userId:string|undefined,navigation:
  .on( 'rejected',  handleDisconnected )
  .on( 'disconnected', handleDisconnected )
 } 
+
+export const disConnectActionCale =  async (userId:string|undefined,) => {
+  const connectActionCable = ActionCable.createConsumer(apiConstants.videoURl+'?aaaa=33333&user_id='+userId,apiConstants.videChannelName, { user_id:  userId });
+  console.log(connectActionCable.connection.isOpen(),"connectActionCable")
+  connectActionCable.disconnect()
+
+} 
+export const connectActionCale =  async (userId:string|undefined,) => {
+  const connectActionCable = ActionCable.createConsumer(apiConstants.videoURl+'?aaaa=33333&user_id='+userId,apiConstants.videChannelName, { user_id:  userId });
+  connectActionCable.open()
+}

@@ -8,18 +8,29 @@ import Theme from "style/Theme";
 
 interface VideoCallFooterProps {
   onPressChat?: () => void;
+  ChatEnable?: boolean;
   onPressVideo?: () => void;
+  isVideoEnabled?: boolean;
   onPressMute?: () => void;
+  isAudioEnabled?: boolean;
   onPressAttach?: () => void;
+  AttachEnable?: boolean;
+  onPressFlip?: () => void;
+ 
 }
 
 const VideoCallFooter = memo(
   ({
     onPressChat,
+    ChatEnable,
     onPressVideo,
+    isVideoEnabled,
     onPressMute,
+    isAudioEnabled,
     onPressAttach,
-  }: VideoCallFooterProps) => {
+    AttachEnable,
+    onPressFlip,
+   }: VideoCallFooterProps) => {
     return (
       <View style={styles.container}>
         <View style={styles.slider} />
@@ -50,7 +61,7 @@ const VideoCallFooter = memo(
           <View>
             <ButtonIcon
               style={styles.icon}
-              icon="videoOff"
+              icon={isVideoEnabled?"videoOff":"video"}
               iconStyle={styles.iconStyle}
               backgroundColor={Colors.WhiteOpacity}
               onPress={onPressVideo}
@@ -62,13 +73,14 @@ const VideoCallFooter = memo(
               color={Colors.White}
               marginTop={8}
             >
-              Off
+              {isVideoEnabled?"Off":"On"}
             </Text>
           </View>
           <View>
             <ButtonIcon
               style={styles.icon}
-              icon="mute"
+                
+              icon={isAudioEnabled?"mute":"unmute"}
               iconStyle={styles.iconStyle}
               backgroundColor={Colors.WhiteOpacity}
               onPress={onPressMute}
@@ -80,22 +92,22 @@ const VideoCallFooter = memo(
               color={Colors.White}
               marginTop={8}
             >
-              Mute
+           {isAudioEnabled?"Mute":"Unmute"}
             </Text>
           </View>
           <View>
             <ButtonIcon
               style={styles.icon}
-              icon="attach"
+              icon="themeMode"
               iconStyle={styles.iconStyle}
               backgroundColor={Colors.WhiteOpacity}
               onPress={onPressAttach}
             />
-            <View style={styles.notification}>
+            {/* <View style={styles.notification}>
               <Text size={11} lineHeight={14} center color={Colors.White}>
                 3
               </Text>
-            </View>
+            </View> */}
             <Text
               center
               size={11}

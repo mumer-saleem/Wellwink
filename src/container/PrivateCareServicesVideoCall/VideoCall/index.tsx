@@ -38,7 +38,8 @@ import Layout from 'elements/Layout/Layout';
 var Sound = require('react-native-sound');
 import KeepAwake from 'react-native-keep-awake';
 import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
-import {getAuthToken} from 'Actions/VideoCall/getAuthToken';
+ import {getAuthToken} from 'Actions/VideoCall/getAuthToken';
+
 
 var call = new Sound('call.mp3', Sound.MAIN_BUNDLE, (error) => {
   if (error) {
@@ -70,10 +71,10 @@ export default memo(() => {
  
    const _onConnectButtonPress = () => {
     setStatus('connecting');
-     dispatch(getAuthToken()).then((res) => {
-     res.type=="/fulfilled"&&
-        twilioRef.current.connect({roomName: videoCallbject.roomNme, accessToken: res.payload.data.token })
-    })
+    //  dispatch(getAuthToken()).then((res) => {
+    //  res.type=="/fulfilled"&&
+    //     twilioRef.current.connect({roomName: videoCallbject.roomNme, accessToken: res.payload.data.token })
+    // })
     call.stop();
     setAccepted(!accepted);
   }
@@ -83,7 +84,7 @@ export default memo(() => {
   };
 
   const _onMuteButtonPress = () => {
-    twilioRef.current
+     twilioRef.current
       .setLocalAudioEnabled(!isAudioEnabled)
       .then(isEnabled => setIsAudioEnabled(isEnabled));
   };
@@ -97,6 +98,7 @@ export default memo(() => {
     setStatus('connected');
   };
 
+
   const _onRoomDidDisconnect = ({ roomName, error }) => {
     console.log('[Disconnect]ERROR: ', error);
 
@@ -106,6 +108,7 @@ export default memo(() => {
   const _onRoomDidFailToConnect = error => {
     console.log('[FailToConnect]ERROR: ', error);
     navigation.goBack();  
+    KeepAwake.deactivate();
     setStatus('disconnected');
   };
 
@@ -121,14 +124,14 @@ export default memo(() => {
     );
   };
   const _onParticipantRemovedVideoTrack = ({ participant, track }) => {
-  
+    twilioRef.current.disconnect();
     const videoTracksLocal = videoTracks;
 
     videoTracksLocal.delete(track.trackSid);
 
     setVideoTracks(videoTracksLocal);
-     navigation.goBack();  
-
+    navigation.goBack();  
+    KeepAwake.deactivate();
   };
 
   useFocusEffect(
@@ -150,11 +153,17 @@ export default memo(() => {
     setTypeModal(2);
     open();
   };
-  const onPressVideo = () => {};
+  const onPressVideo = () => {
+    twilioRef.current
+    .setLocalVideoEnabled(!isVideoEnabled)
+    .then(isEnabled => setIsVideoEnabled(isEnabled));
+ 
+  };
   const onPressMute = () => {};
   const onPressDecline = () => {
     call.stop();
     navigation.goBack();  
+    KeepAwake.deactivate();
    };
   const onPressEnd = () => {
     setEnded(true);
@@ -164,11 +173,14 @@ export default memo(() => {
     navigate(Routes.ReviewDoctor);
   };
   const onGoToDashBoard = () => {
-    navigate(Routes.MainTab);
+    // navigate(Routes.MainTab);
+    navigation.goBack();  
+    KeepAwake.deactivate();
+
   };
 
   useEffect(() => {
-    // KeepAwake.activate();
+    KeepAwake.activate();
      call.play();
     GetVideoCallPermissions()
     
@@ -183,7 +195,8 @@ export default memo(() => {
         <>
           <Layout style={styles.header}>
             <View style={Theme.flexRow}>
-              <Image source={ICON.sound} />
+               <Image  source={{uri:videoCallbject.callerProfile}} style={{ width: 40, height: 40, borderRadius: 10 }}   />
+
               <View>
                 <Text
                   bold
@@ -191,21 +204,21 @@ export default memo(() => {
                   lineHeight={18}
                   marginLeft={8}
                   marginBottom={4}>
-                  Dr. Margaret Wells
+                  {videoCallbject.callerFullName} 
                 </Text>
                 <Text
                   size={11}
                   lineHeight={14}
                   color={Colors.GrayBlue}
                   marginLeft={8}>
-                  25:12 remaining (30 mins visit)
+                  25:12  
                 </Text>
               </View>
             </View>
             <ButtonIconHeader
               borderColor={Colors.RedNeonFuchsia}
               backgroundColor={Colors.RedNeonFuchsia}
-              tintColor={Colors.White}
+              tintColor={Colors.Red}
               icon="callOff"
               onPress={onPressEnd}
             />
@@ -257,7 +270,9 @@ export default memo(() => {
           <VideoCallFooter
             // onPressChat={openChat}
             onPressVideo={onPressVideo}
+            isVideoEnabled={isVideoEnabled}
             onPressMute={_onMuteButtonPress}
+            isAudioEnabled={isAudioEnabled}
             onPressAttach={_onFlipButtonPress}
           />
         </>
@@ -285,19 +300,20 @@ export default memo(() => {
           <Text center size={15} lineHeight={24} marginBottom={80}>
             Call Ended
           </Text>
-          <Image source={AVATAR.doctor1} style={styles.avatar} />
+          <Image  source={{uri:videoCallbject.callerProfile}} style={styles.avatar} />
           <Text bold size={20} lineHeight={24} marginVertical={48}>
-            Dr. Margaret Wells
+          {videoCallbject.callerFullName}
           </Text>
-          <ButtonBorder
+          {/* <ButtonBorder
             title="Write a review"
             color={Colors.GrayBlue}
             style={styles.endedButton}
             onPress={onWriteReview}
-          />
+          /> */}
           <ButtonLinear white 
             title="Go to Home Dashboard"
             styleButton={styles.endedButton}
+            width={270}
             onPress={onGoToDashBoard}
           />
         </View>
@@ -345,7 +361,7 @@ const styles = StyleSheet.create({
     height: 120,
   },
   endedButton: {
-    width: 240,
+    width: 300,
     marginBottom: 16,
   },
   chat: {

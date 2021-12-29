@@ -15,7 +15,7 @@ import {useTheme} from 'configs/ChangeTheme';
 import {SubscribeVideoChannle,UnSubscribeVideoChannle} from 'Services/ActionCable/subscribeCannels';
 import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
 import {GetVideoCallPermissions} from 'utils';
-
+ 
 interface HomeProps {}
 
 const Home = memo((props: HomeProps) => {
@@ -27,7 +27,8 @@ const Home = memo((props: HomeProps) => {
   const {navigate} = useNavigation();
   
   const onTodayTask = useCallback(() => {
-    navigate(Routes.TodayTask);
+    // navigate(Routes.TodayTask);
+    navigate(Routes.VideoCall);
   }, [navigate]);
 
  
