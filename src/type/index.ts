@@ -61,5 +61,6 @@ export interface patientObject{
 export interface videoCallbject{
    "callerFullName": string
    "callerProfile": string
-   "roomNme": string
+   "roomNme": string,
+   "callerId":string
 }

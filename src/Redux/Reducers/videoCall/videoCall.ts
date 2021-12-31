@@ -18,6 +18,7 @@ const initialState: videoCallState = {
   videoCallbject:{
     "callerFullName": "",
     "callerProfile": "",
+    "callerId": "",
     "roomNme": "",
   },
   success: null,

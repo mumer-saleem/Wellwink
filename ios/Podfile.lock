@@ -516,11 +516,11 @@ PODS:
   - RNScreens (3.9.0):
     - React-Core
     - React-RCTImage
-  - RNSound (0.11.1):
-    - React-Core
-    - RNSound/Core (= 0.11.1)
-  - RNSound/Core (0.11.1):
-    - React-Core
+  - RNSound (0.11.0):
+    - React
+    - RNSound/Core (= 0.11.0)
+  - RNSound/Core (0.11.0):
+    - React
   - RNSVG (12.1.1):
     - React
   - RNTwilioVoice (4.4.0):
@@ -819,7 +819,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReanimated: 65583befd5706cc9c86ae9a081786181ced37b93
   RNScreens: 4d79118be80f79fa1f4aa131909a1d6e86280af3
-  RNSound: 9253013eeaa051eab63d354fd4654f7aa67c82f0
+  RNSound: c980916b596cc15c8dcd2f6ecd3b13c4881dbe20
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   RNTwilioVoice: c7daa56ef4b53298b084d699618d344c8fa99f04
   RNVectorIcons: 4143ba35feebab8fdbe6bc43d1e776b393d47ac8

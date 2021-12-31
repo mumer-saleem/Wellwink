@@ -22,6 +22,8 @@ const create = (headers:any=apiConstants.headers ,baseURL = apiConstants.baseURL
    const postImageUpload = ( params:any, ) => {return instance.post('api/v1/attachments',params); }  
    const putProfileUpdate = ( params:updateProfile,profileAbleID:string ) => {return instance.put('api/v1/patients/'+profileAbleID,params); }  
    const getAuthToken = (   ) => {return instance.get('/api/v1/video/auth_token' ); }
+   const cancelCall= ( userId:string, callerId:string ) => {return instance.get('/video/broadcast_call_cancelled?patient_user_id=' + userId + '&caller_id=' + callerId ); }
+
 
 
     return {
@@ -35,7 +37,8 @@ const create = (headers:any=apiConstants.headers ,baseURL = apiConstants.baseURL
       getProfile,
       putProfileUpdate,
       postImageUpload,
-      getAuthToken
+      getAuthToken,
+      cancelCall
     }
   }
   // let's return back our create method as the default.

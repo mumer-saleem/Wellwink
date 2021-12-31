@@ -38,10 +38,11 @@ import Layout from 'elements/Layout/Layout';
 var Sound = require('react-native-sound');
 import KeepAwake from 'react-native-keep-awake';
 import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
+ import {cancelCallAction} from 'Actions/VideoCall/cancelCallAction';
  import {getAuthToken} from 'Actions/VideoCall/getAuthToken';
 
 
-var call = new Sound('call.mp3', Sound.MAIN_BUNDLE, (error) => {
+var call = new Sound('call.mp3', Sound.MAIN_BUNDLE, (error:any) => {
   if (error) {
       console.log('failed to load the sound', error);
       return;
@@ -53,6 +54,8 @@ var call = new Sound('call.mp3', Sound.MAIN_BUNDLE, (error) => {
 });
 export default memo(() => {
   const videoCallbject = useAppSelector((state) =>state.videoCall.videoCallbject)
+  const profile = useAppSelector((state) =>state.profile.data?.patient)
+
   const dispatch=useAppDispatch();
 
   const {navigate} = useNavigation();
@@ -71,10 +74,10 @@ export default memo(() => {
  
    const _onConnectButtonPress = () => {
     setStatus('connecting');
-    //  dispatch(getAuthToken()).then((res) => {
-    //  res.type=="/fulfilled"&&
-    //     twilioRef.current.connect({roomName: videoCallbject.roomNme, accessToken: res.payload.data.token })
-    // })
+     dispatch(getAuthToken()).then((res:any) => {
+     res.type=="/fulfilled"&&
+        twilioRef.current.connect({roomName: videoCallbject.roomNme, accessToken: res.payload.data.token })
+    })
     call.stop();
     setAccepted(!accepted);
   }
@@ -86,33 +89,33 @@ export default memo(() => {
   const _onMuteButtonPress = () => {
      twilioRef.current
       .setLocalAudioEnabled(!isAudioEnabled)
-      .then(isEnabled => setIsAudioEnabled(isEnabled));
+      .then((isEnabled:any) => setIsAudioEnabled(isEnabled));
   };
   const _onFlipButtonPress = () => {
     twilioRef.current.flipCamera();
   };
 
-  const _onRoomDidConnect = ({roomName, error}) => {
+  const _onRoomDidConnect = ({roomName, error}:any) => {
     console.log('onRoomDidConnect: ', roomName);
 
     setStatus('connected');
   };
 
 
-  const _onRoomDidDisconnect = ({ roomName, error }) => {
+  const _onRoomDidDisconnect = ({ roomName, error }:any) => {
     console.log('[Disconnect]ERROR: ', error);
 
     setStatus('disconnected');
   };
 
-  const _onRoomDidFailToConnect = error => {
+  const _onRoomDidFailToConnect =(error:any)=> {
     console.log('[FailToConnect]ERROR: ', error);
     navigation.goBack();  
     KeepAwake.deactivate();
     setStatus('disconnected');
   };
 
-  const _onParticipantAddedVideoTrack = ({ participant, track }) => {
+  const _onParticipantAddedVideoTrack = ({ participant, track }:any) => {
      setVideoTracks(
       new Map([
         ...videoTracks,
@@ -123,7 +126,7 @@ export default memo(() => {
       ]),
     );
   };
-  const _onParticipantRemovedVideoTrack = ({ participant, track }) => {
+  const _onParticipantRemovedVideoTrack = ({ participant, track }:any) => {
     twilioRef.current.disconnect();
     const videoTracksLocal = videoTracks;
 
@@ -154,19 +157,27 @@ export default memo(() => {
     open();
   };
   const onPressVideo = () => {
-    twilioRef.current
+     twilioRef.current
     .setLocalVideoEnabled(!isVideoEnabled)
-    .then(isEnabled => setIsVideoEnabled(isEnabled));
+    .then(
+      (isEnabled:any) =>{
+       setIsVideoEnabled(isEnabled);
+    } )
  
   };
   const onPressMute = () => {};
   const onPressDecline = () => {
-    call.stop();
-    navigation.goBack();  
-    KeepAwake.deactivate();
+      dispatch(cancelCallAction({userId:profile?.userId,callerId:videoCallbject?.callerId})).then((res) => {
+      res.type=="/fulfilled"&&
+      call.stop();
+      navigation.goBack();  
+      KeepAwake.deactivate();
+      })
+ 
    };
   const onPressEnd = () => {
-    setEnded(true);
+    // setEnded(true);
+    navigation.goBack(); 
     _onEndButtonPress()
   };
   const onWriteReview = () => {
@@ -176,16 +187,16 @@ export default memo(() => {
     // navigate(Routes.MainTab);
     navigation.goBack();  
     KeepAwake.deactivate();
-
   };
 
   useEffect(() => {
     KeepAwake.activate();
      call.play();
+
     GetVideoCallPermissions()
     
   }, []) 
-
+  
   useEffect(() => {
   }, [videoCallbject]) 
 
@@ -249,15 +260,12 @@ export default memo(() => {
             </View>
           }
     
-            <TwilioVideoLocalView
-              enabled={true}
-              style={styles.imgPatient}
-            />
+            <TwilioVideoLocalView enabled={isVideoEnabled} style={styles.imgPatient} />
        
         </View>
       }
 
-         <TwilioVideo
+        <TwilioVideo
         ref={ twilioRef }
         onRoomDidConnect={ _onRoomDidConnect }
         onRoomDidDisconnect={ _onRoomDidDisconnect }

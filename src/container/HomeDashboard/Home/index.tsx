@@ -44,26 +44,26 @@ const Home = memo((props: HomeProps) => {
 
   }, [profile?.userId])
 
-//   useEffect(() => {
-//     AppState.addEventListener('change', handleAppStateChange)
+  useEffect(() => {
+    AppState.addEventListener('change', handleAppStateChange)
 
-//     setAppState(AppState.currentState)
+    setAppState(AppState.currentState)
 
-//     return AppState.removeEventListener('change')
-// },[])
-//   const handleAppStateChange = newState => {
-//     console.log(AppState.currentState)
+    return AppState.removeEventListener('change',handleAppStateChange)
+},[])
+  const handleAppStateChange = (newState:any)=> {
+    console.log(AppState.currentState,"uddududududududududududududududududududududuud")
 
-//     if (appState.match(/inactive|background/) && newState === 'active') {
-//       console.log(AppState.currentState,'App has come to the foreground!')
-//       // Show the splash screen
-//      } else {
-//       console.log(AppState.currentState,'App has gone to the background!')
-//       // do something in background
-//     }
+    if (appState.match(/inactive|background/) && newState === 'active') {
+      console.log(AppState.currentState,'App has come to the foreground!')
+      // Show the splash screen
+     } else {
+      console.log(AppState.currentState,'App has gone to the background!')
+      // do something in background
+    }
 
-//     setAppState(newState)
-// }
+    setAppState(newState)
+}
 
 
   return (

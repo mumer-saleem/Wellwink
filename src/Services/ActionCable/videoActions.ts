@@ -15,12 +15,13 @@ export const handleReceived = (data:any,navigation:any) => {
       "callerFullName": data.caller_full_name,
       "callerProfile": data.caller_profile_pic,
       "roomNme": data.room_name,
+      "callerId": data.caller_id,
+
      }
     store.dispatch(setVideoCallbject(obj))
         navigation(Routes.VideoCall);
     break;
   }
-  
 
  }
  
