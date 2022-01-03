@@ -1,6 +1,8 @@
 import { 
   PermissionsAndroid,Platform
 } from 'react-native';
+import NetInfo from "@react-native-community/netinfo";
+import { store } from 'Redux/ReduxPresist/ReduxPersist'
 
 export async function GetVideoCallPermissions() {
   // it will ask the permission for user 
@@ -18,3 +20,18 @@ export async function GetVideoCallPermissions() {
   }
   return null;
   }
+
+  export const checkInternet = () => {
+
+
+    NetInfo.addEventListener(({ isConnected, isInternetReachable, }) => {
+ 
+        if (isInternetReachable == null) isInternetReachable = true
+
+        if (isConnected && isInternetReachable) {
+           return true
+         } else {
+          return false
+        }
+    });
+}

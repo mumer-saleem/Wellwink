@@ -10,7 +10,7 @@
 
 
 import { SafeAreaView, AppRegistry, StatusBar } from 'react-native'
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useMemo, useState,useEffect} from 'react';
 
 import { isIphoneX } from 'react-native-iphone-x-helper';
 import { Provider } from 'react-redux'
@@ -22,14 +22,29 @@ import {TMode, themes, ThemeContext} from './src/configs/ChangeTheme';
 import AppNavigation from './src/Navigation/AppContainer/appNavigation'
 import { store, persistor } from './src/Redux/ReduxPresist/ReduxPersist'
 import ModalDisconnect from 'components/ModalDisconnect';
+import {checkInternet} from 'utils';
+import NetInfo from "@react-native-community/netinfo";
 
  
  
  
- 
  const App = () => {
-  const isDisconnect = false;
-  const [mode, setMode] = useState<TMode>('dark');
+
+  let [isDisconnect, setIsDisconnect] = useState(false);
+  useEffect(() => {
+    NetInfo.addEventListener(({ isConnected, isInternetReachable, }) => {
+ 
+      if (isInternetReachable == null) isInternetReachable = true
+
+      if (isConnected && isInternetReachable) {
+        setIsDisconnect(true)
+        } else {
+        setIsDisconnect(false)
+      }
+  });
+  }, [isDisconnect])
+
+   const [mode, setMode] = useState<TMode>('dark');
 
   const toggleTheme = useCallback(() => {
     setMode((prevMode: string) => (prevMode === 'light' ? 'dark' : 'light'));
@@ -56,7 +71,7 @@ import ModalDisconnect from 'components/ModalDisconnect';
      <PersistGate loading={null} persistor={persistor}>
      <AppNavigation/>
       </PersistGate>
-          
+      {!isDisconnect && <ModalDisconnect />}
 
        </SafeAreaView>
       </ThemeContext.Provider>
@@ -66,14 +81,6 @@ import ModalDisconnect from 'components/ModalDisconnect';
    );
  };
  
-//  <StatusBar barStyle='dark-content' backgroundColor={Colors.White}></StatusBar>
-//  <Provider store={store}>
-//    <PersistGate loading={null} persistor={persistor}>
-//   <AppNavigation/>
-//    </PersistGate>
-//  </Provider>
-// </SafeAreaView>
-// );
  
  export default App;
  

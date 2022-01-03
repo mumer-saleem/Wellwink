@@ -25,11 +25,11 @@ const ModalDisconnect = memo((props: ModalDisconnectProps) => {
           There seem to be a problem with your connection.
         </Text>
         <Image source={IMAGE.noEntry} style={{alignSelf: 'center'}} />
-        <ButtonLinear white 
+        {/* <ButtonLinear white 
           title={'OK'}
           onPress={onPress}
           style={{width: '100%', marginTop: 40}}
-        />
+        /> */}
       </Layout>
     </View>
   );
