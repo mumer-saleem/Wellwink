@@ -85,8 +85,8 @@ export default memo(() => {
   const _onEndButtonPress = () => {
     twilioRef.current.disconnect();
   };
-
   const _onMuteButtonPress = () => {
+    
      twilioRef.current
       .setLocalAudioEnabled(!isAudioEnabled)
       .then((isEnabled:any) => setIsAudioEnabled(isEnabled));

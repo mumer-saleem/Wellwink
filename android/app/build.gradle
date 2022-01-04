@@ -198,6 +198,8 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.0.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation project(':react-native-twilio-video-webrtc')
+    implementation project(':react-native-push-notification')
+
     implementation 'com.android.support:multidex:2.0.1'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
