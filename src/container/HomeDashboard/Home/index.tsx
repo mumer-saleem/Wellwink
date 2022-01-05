@@ -13,8 +13,9 @@ import Layout from 'elements/Layout/Container';
 import Theme from 'style/Theme';
 import {useTheme} from 'configs/ChangeTheme';
 import {SubscribeVideoChannle,UnSubscribeVideoChannle} from 'Services/ActionCable/subscribeCannels';
-import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
+import  {useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
 import {GetVideoCallPermissions} from 'utils';
+import {awayUserAction } from "Actions/VideoCall/awayUserAction";
  
 interface HomeProps {}
 
@@ -25,6 +26,8 @@ const Home = memo((props: HomeProps) => {
   const [appState, setAppState] = React.useState(AppState.currentState)
 
   const {navigate} = useNavigation();
+  const navigation = useNavigation();
+
   
   const onTodayTask = useCallback(() => {
     // navigate(Routes.TodayTask);
@@ -36,7 +39,7 @@ const Home = memo((props: HomeProps) => {
 
   useEffect(() => {
     GetVideoCallPermissions()
-    SubscribeVideoChannle(profile?.userId,navigate);
+    SubscribeVideoChannle(profile?.userId,navigation);
     return () => {
       UnSubscribeVideoChannle()       
     }
@@ -51,17 +54,14 @@ const Home = memo((props: HomeProps) => {
 
     return AppState.removeEventListener('change',handleAppStateChange)
 },[])
-  const handleAppStateChange = (newState:any)=> {
-    console.log(AppState.currentState,"uddududududududududududududududududududududuud")
+  const handleAppStateChange = (newState:any)=> {  
 
-    if (appState.match(/inactive|background/) && newState === 'active') {
-      console.log(AppState.currentState,'App has come to the foreground!')
-      // Show the splash screen
+     if (AppState.currentState=="active") {
+      dispatch(awayUserAction(true))
      } else {
-      console.log(AppState.currentState,'App has gone to the background!')
-      // do something in background
-    }
-
+       dispatch(awayUserAction(false))
+            }
+            
     setAppState(newState)
 }
 

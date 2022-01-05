@@ -3,11 +3,11 @@
  import {setVideoCallbject} from 'Redux/Reducers/videoCall/videoCall';
 
 export const handleReceived = (data:any,navigation:any) => {
-  
+ const {navigate, setOptions, goBack}=navigation
   console.log(data,"handleReceived")
   switch(data.channel_action) {
    case 'video_call_cancelled': {
-     alert("video_call_cancelled")
+    goBack()
      break;
    }
    case 'video_call': {
@@ -19,7 +19,7 @@ export const handleReceived = (data:any,navigation:any) => {
 
      }
     store.dispatch(setVideoCallbject(obj))
-        navigation(Routes.VideoCall);
+    navigate(Routes.VideoCall);
     break;
   }
 

@@ -33,8 +33,7 @@ import NetInfo from "@react-native-community/netinfo";
   let [isDisconnect, setIsDisconnect] = useState(false);
   useEffect(() => {
     NetInfo.addEventListener(({ isConnected, isInternetReachable, }) => {
- 
-      if (isInternetReachable == null) isInternetReachable = true
+    if (isInternetReachable == null) isInternetReachable = true
 
       if (isConnected && isInternetReachable) {
         setIsDisconnect(true)
@@ -42,6 +41,19 @@ import NetInfo from "@react-native-community/netinfo";
         setIsDisconnect(false)
       }
   });
+  // Subscribe
+const unsubscribe = NetInfo.addEventListener(({ isConnected, isInternetReachable, }) => {
+  if (isInternetReachable == null) isInternetReachable = true
+
+  if (isConnected ) {
+    setIsDisconnect(true)
+    } else {
+    setIsDisconnect(false)
+  }
+});
+
+ return unsubscribe();
+ 
   }, [isDisconnect])
 
    const [mode, setMode] = useState<TMode>('dark');

@@ -32,10 +32,10 @@ export enum ConsultsStatus {
 
 // baseURL: "http://192.168.4.169:3000/",
 //  hjasasn 
-// baseURL: "http://192.168.5.84:3000/",
+// baseURL: "http://192.168.5.127:3000/",
 // own
 export const apiConstants={
-  baseURL:"http://192.168.5.84:3000/",
+  baseURL:"http://192.168.5.127:3000/",
   headers : {
     'X-Custom-Header': 'foobar'
   },

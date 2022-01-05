@@ -260,7 +260,7 @@ export default memo(() => {
             </View>
           }
     
-            <TwilioVideoLocalView enabled={isVideoEnabled} style={styles.imgPatient} />
+            <TwilioVideoLocalView enabled={true} style={styles.imgPatient} />
        
         </View>
       }

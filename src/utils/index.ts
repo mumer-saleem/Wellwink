@@ -29,7 +29,7 @@ export async function GetVideoCallPermissions() {
         if (isInternetReachable == null) isInternetReachable = true
 
         if (isConnected && isInternetReachable) {
-           return true
+            return true
          } else {
           return false
         }
