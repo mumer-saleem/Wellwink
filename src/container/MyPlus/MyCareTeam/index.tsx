@@ -1,10 +1,12 @@
-import React, {memo, useLayoutEffect} from 'react';
-import {View, StyleSheet, FlatList, Image} from 'react-native';
+import React, {memo, useLayoutEffect,useEffect} from 'react';
+import {View, StyleSheet, FlatList, Image, Alert} from 'react-native';
 import Text from 'elements/Text';
-import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import {useFocusEffect, useNavigation,} from '@react-navigation/native';
 import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
 import {Colors, Routes} from 'configs';
 import ButtonLinear from 'elements/Buttons/ButtonLinear';
+import ListWidget from 'elements/ListWidget';
+
 import keyExtractor from 'utils/keyExtractor';
 import {IN_NETWORK} from 'configs/Data';
 import ContactDoctorItem from 'components/ContactDoctorItem';
@@ -12,8 +14,11 @@ import {getBottomSpace} from 'react-native-iphone-x-helper';
 import {ICON} from 'images/Icon';
 import {useTheme} from 'configs/ChangeTheme'
 import Container from 'elements/Layout/Container';
+ 
 
 export default memo(() => {
+  
+
   const {setOptions, navigate} = useNavigation();
   const [myCareTeam, setMyCareTeam] = React.useState<any>([]);
 
@@ -22,6 +27,11 @@ export default memo(() => {
       setMyCareTeam(IN_NETWORK);
     }, []),
   );
+
+  
+
+
+
 
   const handlePressSearch = React.useCallback(() => {}, []);
   const {theme} = useTheme();
@@ -88,9 +98,18 @@ export default memo(() => {
         size={24}
         lineHeight={28}
         marginBottom={8}>
-        My Care Team
+        My Care Teams
       </Text>
-      <FlatList
+      <ListWidget
+         data={myCareTeam}
+         renderItem={renderItem}
+         showsVerticalScrollIndicator={false}
+         scrollEventThrottle={16}
+         keyExtractor={keyExtractor}
+         headerComponent={listHeaderComponent}
+         contentContainerStyle={styles.contentContainerStyle}
+      />
+      {/* <FlatList
         data={myCareTeam}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
@@ -98,7 +117,7 @@ export default memo(() => {
         keyExtractor={keyExtractor}
         ListHeaderComponent={listHeaderComponent}
         contentContainerStyle={styles.contentContainerStyle}
-      />
+      /> */}
     </Container>
   );
 });

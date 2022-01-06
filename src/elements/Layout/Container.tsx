@@ -13,17 +13,19 @@ interface Props extends ViewProps {
     | React.ReactNode
     | ((state: PressableStateCallbackType) => React.ReactNode);
   style?: ViewStyle;
-  shoeActivityIndicator:Boolean|null 
+  shoeActivityIndicator:Boolean|null ,
+  isVisible?:boolean|any 
 }
  
 
 const Container = (props: Props) => {
+  
   const {theme} = useTheme();
   return (
     <DefaultView style={[{backgroundColor: theme.background}, props.style]}>
       {props.children}
       {
-        props.isVisible&&(
+        props?.isVisible&&(
         <LoaderAbsolute/>
        )
        }

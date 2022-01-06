@@ -1,11 +1,11 @@
-import React, {memo, useLayoutEffect} from 'react';
-import {View, StyleSheet, FlatList} from 'react-native';
+import React, {memo, useLayoutEffect,useEffect,useCallback} from 'react';
+import {View, StyleSheet, FlatList,Alert} from 'react-native';
 import Text from 'elements/Text';
 import Theme from 'style/Theme';
 import scale from 'utils/scale';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
 import ButtonArrowRight from 'components/OnlineConsult/ButtonArrowRight';
-import ContactDoctorItem from 'components/ContactDoctorItem';
+import ContactDoctorItem from 'components/EnrolProgram';
 import {IN_NETWORK} from 'configs/Data';
 import {useNavigation} from '@react-navigation/native';
 import {Routes} from 'configs';
@@ -13,10 +13,18 @@ import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
 import Colors from 'configs/Colors';
 import keyExtractor from 'utils/keyExtractor';
 import {useTheme} from 'configs/ChangeTheme'
+import {enrolmentsAction} from "Actions/Enrolments";
+import {callRequestAction} from "Actions//VideoCall/callRequestAction";
 
+import  {useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
 import Container from 'elements/Layout/Container';
+import ListWidget from 'elements/ListWidget';
 
 const OnlineConsult = memo(() => {
+  const dispatch = useAppDispatch()
+  const profile = useAppSelector((state) =>state.profile.data?.patient)
+  const enrolProgram = useAppSelector((state) =>state.enrolProgram)
+
   const {navigate, setOptions} = useNavigation();
   const {theme} = useTheme();
   useLayoutEffect(() => {
@@ -58,30 +66,83 @@ const OnlineConsult = memo(() => {
       </View>
     );
   }, []);
+  useEffect(() => {
+     dispatch(enrolmentsAction(profile?.profileAbleID))
+   }, [])
+
+   const phoneCallRequest = useCallback((item) => {
+
+    
+ 
+  }, []);
+
+  const CallRequest = useCallback((id,type) => {
+    Alert.alert(
+      "Send Request",
+      "Are you sure you want to send "+type+" request?",
+      [
+   
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () =>  sendCallRequest(id,type), }
+      ]
+    );
+
+  }, []);
+
+  const sendCallRequest = useCallback((id,type) => {
+    dispatch(callRequestAction({id:id,type:type})).then((res) => {
+      res.type=="/fulfilled"?navigateAction(res): navigateError(res.payload)})
+  }, []);
+
+
+  const navigateError = useCallback(async (action) => {
+    action.errors?Alert.alert(action.errors[0]):Alert.alert("Network Error")
+ }, []);
+
+  
+ const navigateAction = useCallback(async (res) => {
+  // Alert.alert(res.payload.data.message)
+  }, []);
+
   const renderItem = React.useCallback(({item}) => {
-    return <ContactDoctorItem style={styles.item} verified={true} {...item} />;
+    return <ContactDoctorItem style={styles.item}  item={item}   CallRequest={CallRequest}   />;
   }, []);
   return (
-    <Container style={styles.container}>
+    <Container style={styles.container} isVisible={enrolProgram.fetching} >
       <Text
         size={24}
         lineHeight={28}
         bold
         marginBottom={scale(8)}
         marginTop={scale(24)}>
-        Online Consults
+       Enrol programs
       </Text>
-      <FlatList
-        data={IN_NETWORK}
+      <ListWidget
+        data={enrolProgram.data}
         renderItem={renderItem}
         keyExtractor={keyExtractor}
-        ListHeaderComponent={listHeaderComponent}
+        // ListHeaderComponent={listHeaderComponent}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           paddingTop: scale(16),
           paddingBottom: getBottomSpace() + scale(16),
         }}
       />
+      {/* <FlatList
+        data={enrolProgram}
+        renderItem={renderItem}
+        keyExtractor={keyExtractor}
+        // ListHeaderComponent={listHeaderComponent}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingTop: scale(16),
+          paddingBottom: getBottomSpace() + scale(16),
+        }}
+      /> */}
     </Container>
   );
 });

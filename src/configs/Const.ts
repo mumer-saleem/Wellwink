@@ -40,7 +40,7 @@ export const apiConstants={
     'X-Custom-Header': 'foobar'
   },
   videChannelName:"UserChannel",
-  videoURl:"ws://192.168.5.84:3000/cable",
+  videoURl:"ws://192.168.5.127:3000/cable",
   chatChannelName:"",
   chatURl:"",
   PRESENCE_INTERVAL:60000,

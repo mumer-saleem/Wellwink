@@ -24,6 +24,9 @@ const create = (headers:any=apiConstants.headers ,baseURL = apiConstants.baseURL
    const getAuthToken = (   ) => {return instance.get('/api/v1/video/auth_token' ); }
    const cancelCall= ( userId:string, callerId:string ) => {return instance.get('/video/broadcast_call_cancelled?patient_user_id=' + userId + '&caller_id=' + callerId ); }
    const postAwayUser=   ( params:any, ) => {return instance.post('api/v1/users/set_online_status',params); } 
+   const getEnrolments=   ( id:string ) => {return instance.get('api/v1/enrolments/patient_enrolments?id='+id); } 
+   const postCallRequest=   ( params:any, ) => {return instance.post('api/v1/enrolments/call_alert',params); } 
+
 
 
 
@@ -41,7 +44,9 @@ const create = (headers:any=apiConstants.headers ,baseURL = apiConstants.baseURL
       postImageUpload,
       getAuthToken,
       cancelCall,
-      postAwayUser
+      postAwayUser,
+      getEnrolments,
+      postCallRequest
     }
   }
   // let's return back our create method as the default.
