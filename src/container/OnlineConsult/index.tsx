@@ -77,9 +77,10 @@ const OnlineConsult = memo(() => {
   }, []);
 
   const CallRequest = useCallback((id,type) => {
+    let Type= type=="video"?"Video":"Phone"
     Alert.alert(
-      "Send Request",
-      "Are you sure you want to send "+type+" request?",
+      "Request a "+Type+" Call",
+      "Are you sure you want to request a "+type+" call?",
       [
    
         {
@@ -87,7 +88,7 @@ const OnlineConsult = memo(() => {
           onPress: () => console.log("Cancel Pressed"),
           style: "cancel"
         },
-        { text: "OK", onPress: () =>  sendCallRequest(id,type), }
+        { text: "Yes", onPress: () =>  sendCallRequest(id,type), }
       ]
     );
 

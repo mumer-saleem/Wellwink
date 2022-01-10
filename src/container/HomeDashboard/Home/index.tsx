@@ -30,8 +30,8 @@ const Home = memo((props: HomeProps) => {
 
   
   const onTodayTask = useCallback(() => {
-    // navigate(Routes.TodayTask);
-    navigate(Routes.VideoCall);
+    navigate(Routes.TodayTask);
+    // navigate(Routes.VideoCall);
   }, [navigate]);
 
  
