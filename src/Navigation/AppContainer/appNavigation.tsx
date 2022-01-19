@@ -87,6 +87,10 @@ import ServicesPayment from 'container/PrivateCareServicesVideoCall/ServicesPaym
 import PrivateCareLiveChat from 'container/PrivateCareServicesVideoCall/PrivateCareLiveChat';
 import VerifyEmail from 'container/Account/VerifyEmail';
 import { EmailValidation } from 'utils/validation';
+import  Vitals  from 'container/Vitals';
+import  VitalsConnection  from 'container/Vitals/VitalsConnection';
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -370,6 +374,10 @@ const AppNavigation = memo(() => {
       <Stack.Screen name={Routes.MyCareTeam} component={MyCareTeam} />
       <Stack.Screen name={Routes.FamilyRecord} component={FamilyRecord} />
       <Stack.Screen name={Routes.FamilyDetail} component={FamilyDetail} />
+      <Stack.Screen name={Routes.Vitals} component={Vitals} />
+      <Stack.Screen name={Routes.VitalsConnection} component={VitalsConnection} />
+
+
     </Stack.Navigator>
     </NavigationContainer>
   );

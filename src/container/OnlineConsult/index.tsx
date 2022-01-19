@@ -133,17 +133,7 @@ const OnlineConsult = memo(() => {
           paddingBottom: getBottomSpace() + scale(16),
         }}
       />
-      {/* <FlatList
-        data={enrolProgram}
-        renderItem={renderItem}
-        keyExtractor={keyExtractor}
-        // ListHeaderComponent={listHeaderComponent}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{
-          paddingTop: scale(16),
-          paddingBottom: getBottomSpace() + scale(16),
-        }}
-      /> */}
+  
     </Container>
   );
 });

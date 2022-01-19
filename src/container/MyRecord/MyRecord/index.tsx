@@ -114,7 +114,7 @@ const MY_RECORD_CATEGORY = [
       id: 3,
       icon: ICON.clinicVital,
       name: 'Vitals',
-      route: '',
+      route: Routes.Vitals,
       number: '2',
     },
   // {

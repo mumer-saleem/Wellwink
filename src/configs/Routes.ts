@@ -138,6 +138,10 @@ const Routes = {
   AccountInviteFriendsForFriend: "AccountInviteFriendsFriend",
   Settings: "Settings",
 
+  Vitals:"Vitals",
+  VitalsConnection:"VitalsConnection",
+
+
 };
 
 export default Routes;
