@@ -21,6 +21,8 @@ target 'wellwink' do
 
   pod 'react-native-keep-awake', :path => '../node_modules/react-native-keep-awake'
 
+  pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
+
   target 'wellwinkTests' do
     inherit! :complete
     # Pods for testing

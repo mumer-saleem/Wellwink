@@ -1,6 +1,7 @@
 import React, {memo, useState, useCallback,useEffect} from 'react';
-import {View, StyleSheet, ScrollView,AppState} from 'react-native';
-import {Colors, Routes} from 'configs';
+import {View, StyleSheet, ScrollView,AppState, Alert} from 'react-native';
+import { Routes} from 'configs';
+import {hasLocationPermission} from 'utils';
 import Greeting from 'components/Home/Greeting';
 import SearchBox from 'elements/SearchBox';
 import MainControl from 'components/Home/MainControl';
@@ -11,19 +12,23 @@ import IconNotification from 'components/Home/IconNotification';
 import scale from 'utils/scale';
 import Layout from 'elements/Layout/Container';
 import Theme from 'style/Theme';
-import {useTheme} from 'configs/ChangeTheme';
-import {SubscribeVideoChannle,UnSubscribeVideoChannle} from 'Services/ActionCable/subscribeCannels';
+ import {SubscribeVideoChannle,UnSubscribeVideoChannle} from 'Services/ActionCable/subscribeCannels';
 import  {useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
 import {GetVideoCallPermissions} from 'utils';
 import {awayUserAction } from "Actions/VideoCall/awayUserAction";
  
 interface HomeProps {}
 
-const Home = memo((props: HomeProps) => {
+const Home = memo((props: HomeProps) => {        
   const dispatch = useAppDispatch()
   const profile = useAppSelector((state) =>state.profile.data?.patient)
   const [searchKey, setSearchKey] = useState('');
   const [appState, setAppState] = React.useState(AppState.currentState)
+ 
+ 
+  
+  
+ 
 
   const {navigate} = useNavigation();
   const navigation = useNavigation();
@@ -49,7 +54,7 @@ const Home = memo((props: HomeProps) => {
 
   useEffect(() => {
     AppState.addEventListener('change', handleAppStateChange)
-
+    hasLocationPermission()
     setAppState(AppState.currentState)
 
     return AppState.removeEventListener('change',handleAppStateChange)

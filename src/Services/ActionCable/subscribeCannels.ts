@@ -27,7 +27,7 @@ export const UnSubscribeVideoChannle =  async () => {
 export const SubscribeVideoChannle =  async (userId:string|undefined,navigation:any,) => {
 
   const connectActionCable = ActionCable.createConsumer(apiConstants.videoURl+'?aaaa=33333&user_id='+userId,apiConstants.videChannelName, { user_id:  userId });
- ActionCable.startDebugging()
+//  ActionCable.startDebugging()
   const channel = cable.setChannel(
     apiConstants.videChannelName,
     connectActionCable.subscriptions.create(
