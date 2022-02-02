@@ -15,32 +15,38 @@ import keyExtractor from 'utils/keyExtractor';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
 import Layout from 'elements/Layout/Layout';
 import AccountItem from 'components/AccountItem';
-
+ 
 const VitalsList = [
  
   {
     id: 0,
     icon: ICON.clinicVital,
     name: 'Oximeter',
-     route: Routes.VitalsConnection,
+    deviceName: 'PRT Server',
+
+    // route: Routes.VitalsConnection,
   },
   {
     id: 1,
     icon: ICON.clinicVital,
-    name: 'device1',
-    route: '',
+    name: 'Thermometer',
+    deviceName: 'T101P��\u0002J�YX',
+    // route: Routes.VitalsConnection,
    },
   {
     id: 2,
     icon: ICON.clinicVital,
-    name: 'device2',
-    route: '',
+    name: 'Blood Pressure Monitor',
+    deviceName: 'Bioland-BPM',
+
+    // route: Routes.VitalsConnection,
    },
   {
     id: 3,
     icon: ICON.clinicVital,
-    name: 'device3',
-    route: '',
+    name: 'Bioland-BGM',
+    deviceName: 'Bioland-BGM',
+    // route: '',
    },
  
 ];
@@ -49,7 +55,7 @@ const VitalsList = [
 const Vitals = memo(() => {
   const dispatch = useAppDispatch()
  
-  const {navigate, setOptions} = useNavigation();
+  const {navigate, setOptions,} = useNavigation();
   const {theme} = useTheme();
   useLayoutEffect(() => {
     setOptions({
@@ -69,12 +75,19 @@ const Vitals = memo(() => {
       return (
         <Layout style={styles.content}>
           {data.map((item: any, index: any) => {
-            return <AccountItem key={index} {...item} />;
+            return <AccountItem key={index} {...item} onPress={()=>moveConnectionScreen(item)} />;
           })}
         </Layout>
       );
     } else return <View />;
   }, []);
+
+  const moveConnectionScreen = useCallback((item) => {
+   navigate(Routes.VitalsConnection,{"deviceName":item?.deviceName});
+   
+ 
+  }, []);
+
 
   const renderData = [{id: 0}, {id: 1, data: VitalsList}, {id: 2}];
 
