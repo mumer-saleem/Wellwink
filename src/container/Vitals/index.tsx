@@ -17,7 +17,6 @@ import Layout from 'elements/Layout/Layout';
 import AccountItem from 'components/AccountItem';
  
 const VitalsList = [
- 
   {
     id: 0,
     icon: ICON.clinicVital,
@@ -48,7 +47,13 @@ const VitalsList = [
     deviceName: 'Bioland-BGM',
     // route: '',
    },
- 
+   {
+    id: 4,
+    icon: ICON.clinicVital,
+    name: 'Body Scale',
+    deviceName: 'Body Scale',
+    // route: '',
+   },
 ];
 
 

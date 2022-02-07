@@ -20,7 +20,11 @@ import base64 from 'react-native-base64'
 var hex64 = require('hex64');
 import ButtonLinear from 'elements/Buttons/ButtonLinear';
 import useBackButton from 'hooks/useBackButton';
-
+import { 
+  checkBluetoothPermission,
+  checkBluetoothAvailability, 
+} from 'react-native-google-nearby-messages';
+ 
 const VitalsConnection = memo((props) => {
   const dispatch = useAppDispatch()
   const { navigate, setOptions, goBack } = useNavigation();
@@ -48,6 +52,21 @@ const VitalsConnection = memo((props) => {
       ),
     });
   }, [setOptions]);
+
+  const _checkPermissions = useCallback(async () => {
+    const permission = await checkBluetoothPermission();
+    // const available = await checkBluetoothAvailability();
+    if(!permission){
+      Alert.alert(
+        'Bluetooth Permissions:',
+        // `Granted: ${permission}, Available: ${available}`,
+        `BluetoothPermissions denied`,
+  
+      );
+    }
+ 
+  }, []);
+
 
   const stopDeviceScan = () => {
     bleManager.stopDeviceScan()
@@ -103,9 +122,6 @@ const VitalsConnection = memo((props) => {
  
 
   }
-
-
-
 
 
   const getValueIndex=()=>{
@@ -225,11 +241,7 @@ const VitalsConnection = memo((props) => {
     }
     return bytes;
   }
-  // useEffect(() =>{
-  //   var bytes = _base64ToArrayBuffer('/v0AYGFEBAAAAAAAAEENCg==')
-  //    console.log(bytes[3],",monitorCharacteristicForService");
-
-  //  },[])
+ 
   return (
     <Container style={styles.container} isVisible={deviceScan} >
 
@@ -324,3 +336,108 @@ const styles = StyleSheet.create({
     marginTop: scale(24),
   },
 });
+ 
+// import React, {useState, useCallback, useEffect} from 'react';
+// import {StyleSheet, Text, View, Alert} from 'react-native';
+// import {
+//   connect,
+//   publish,
+//   subscribe,
+//   checkBluetoothPermission,
+//   checkBluetoothAvailability,
+//   useNearbyErrorCallback,
+//   disconnect,
+// } from 'react-native-google-nearby-messages';
+ 
+// const API_KEY = '<yourapikey>';
+
+// export default function App() {
+//   const [nearbyMessage, setNearbyMessage] = useState('');
+
+//   useNearbyErrorCallback(
+//     useCallback((kind, message) => {
+//       Alert.alert(kind, message);
+//     }, []),
+//   );
+
+//   const _connect = useCallback(async () => {
+//     console.log('Connecting...');
+//     await connect({
+//       apiKey: "AIzaSyAaZeuZOGl5Pirp7CYyfjz8Ag88v-XKDO8",
+//       discoveryModes: ['broadcast', 'scan'],
+//       discoveryMediums: ['ble'],
+//     });
+//     console.log('Connected!');
+//     return () => disconnect();
+//   }, []);
+ 
+//   const _subscribe = useCallback(async () => {
+//     console.log('Subscribing...');
+//     await subscribe(
+//       (m) => {
+//         console.log(m,"hybgygiuyghiuyg");
+//         setNearbyMessage(m);
+//         console.log(`Found: ${JSON.stringify(m)}`);
+//       },
+//       (m) => { 
+//         setNearbyMessage('');
+//         console.log(`Lost: ${JSON.stringify(m)}`);
+//       },
+//     );
+//     console.log('Subscribed!');
+//   }, []);
+//   const _checkPermissions = useCallback(async () => {
+//     const permission = await checkBluetoothPermission();
+//     const available = await checkBluetoothAvailability();
+//     Alert.alert(
+//       'Bluetooth Permissions:',
+//       `Granted: ${permission}, Available: ${available}`,
+//     );
+//   }, []);
+
+//   useEffect(() => {
+//     const start = async () => {
+//       try {
+//         await _checkPermissions();
+//         await _connect();
+//         await _subscribe();
+//        } catch (e) {
+//         Alert.alert(
+//           'Unknown error occured while connecting!',
+//           JSON.stringify(e.message ?? e,"hbvuvv"),
+//         );
+//       }
+//     };
+
+//     start();
+//     return () => disconnect();
+//   }, [_connect, _subscribe, _checkPermissions]);
+
+//   return (
+//     <View style={styles.container}>
+//       <Text style={styles.welcome}>☆GoogleNearbyMessages example☆</Text>
+//       <Text style={styles.welcome}>Nearby Message:</Text>
+//       <Text style={styles.instructions}>{nearbyMessage}</Text>
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#F5FCFF',
+//   },
+//   welcome: {
+//     fontSize: 20,
+//     textAlign: 'center',
+//     margin: 10,
+//   },
+//   instructions: {
+//     textAlign: 'center',
+//     color: '#333333',
+//     marginBottom: 5,
+//   },
+// });
+ 

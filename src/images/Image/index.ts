@@ -60,4 +60,10 @@ export const IMAGE: any = {
   doctor: require("images/Image/img_doctor.png"),
   patient: require("images/Image/img_patient.png"),
   chatSuccessful: require("images/Image/img_chat_successful.png"),
+  thermo: require("images/Image/thermo.png"),
+  BGM : require("images/Image/BGM.png"),
+  bp: require("images/Image/bp.png"),
+  oximeter: require("images/Image/oximeter.png"),
+  
+
 };

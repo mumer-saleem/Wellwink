@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <uses-feature android:name="android.hardware.camera" android:required="false" />
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
     <uses-feature android:name="android.hardware.microphone" android:required="false" />
@@ -35,6 +36,9 @@
         <!-- Change the resource name to your App's accent color - or any other color you want -->
         <meta-data  android:name="com.dieam.reactnativepushnotification.notification_color"
             android:resource="@color/white"/> <!-- or @android:color/{name} to use a standard color -->
+        <meta-data
+            android:name="com.google.android.nearby.messages.API_KEY"
+            android:value="AIzaSyAaZeuZOGl5Pirp7CYyfjz8Ag88v-XKDO8" />
 
         <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationActions" />
         <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher" />
