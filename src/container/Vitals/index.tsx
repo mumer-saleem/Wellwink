@@ -11,6 +11,8 @@ import {AVATAR} from 'images/Avatar';
 import  {useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
 import Container from 'elements/Layout/Container';
 import {ICON} from 'images/Icon';
+import {IMAGE} from 'images/Image';
+
 import keyExtractor from 'utils/keyExtractor';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
 import Layout from 'elements/Layout/Layout';
@@ -19,40 +21,52 @@ import AccountItem from 'components/AccountItem';
 const VitalsList = [
   {
     id: 0,
-    icon: ICON.clinicVital,
+    icon: ICON.oxi,
     name: 'Oximeter',
     deviceName: 'PRT Server',
-
-    // route: Routes.VitalsConnection,
+    deviceImage: IMAGE.oximeter, 
+    description:"Remove any jewelry or fingernail polish on your finger if measuring from this location.Make sure your hand is warm, relaxed, and below heart level if attaching the device here.Place the device on your finger, earlobe, or toe.Keep the device on for as long as needed to monitor your pulse and oxygen saturation.Remove the device once the test is over."
   },
   {
     id: 1,
-    icon: ICON.clinicVital,
+    icon: ICON.temp,
     name: 'Thermometer',
     deviceName: 'T101P��\u0002J�YX',
-    // route: Routes.VitalsConnection,
+    deviceImage: IMAGE.thermo, 
+    description:"The first step to using a non-contact infrared thermometer is to evaluate your testing environment - it should be free of air drafts, out of direct sun, and away from radiant heat sources. The environmental temperature should be in line with the specifications in the manual for your thermometer. Best practice is to leave your thermometer in the testing environment for at least ten minutes prior to use so it can adjust to the environment."
+
+
    },
   {
     id: 2,
-    icon: ICON.clinicVital,
+    icon: ICON.bp,
     name: 'Blood Pressure Monitor',
-    deviceName: 'Bioland-BPM',
+    deviceName: 'Bioland-BPM', 
+    deviceImage: IMAGE.bp, 
+    description:"Push a Button Measurement with Fuzzy Logic Function Measurement Range 0 - 300mmHg, Pulse Rate 40 - 200/Minute Accuracy: Blood Pressure +/- 3 mmHg, Pulse +/- 5% Inflation/Deflation by Microcontroller Electric Pump System Large LCD Display Date/Time Clock, Systolic and Diastolic Pressure Level in One Display. 128 Automatic Memories Oscillometric Measuring Method Traveling Case for Unit Storage and Wrist-Pillow When Measurement Power Source: (AAA) x 2 Batteries(Included) Size/Weight - 77x72x38mm/140g (included battery)"
 
-    // route: Routes.VitalsConnection,
+
+ 
    },
   {
     id: 3,
-    icon: ICON.clinicVital,
+    icon: ICON.gluco,
     name: 'Bioland-BGM',
     deviceName: 'Bioland-BGM',
-    // route: '',
+    deviceImage: IMAGE.BGM, 
+    description:"Push a Button Measurement with Fuzzy Logic Function Measurement Range 0 - 300mmHg, Pulse Rate 40 - 200/Minute Accuracy: Blood Pressure +/- 3 mmHg, Pulse +/- 5% Inflation/Deflation by Microcontroller Electric Pump System Large LCD Display Date/Time Clock, Systolic and Diastolic Pressure Level in One Display. 128 Automatic Memories Oscillometric Measuring Method Traveling Case for Unit Storage and Wrist-Pillow When Measurement Power Source: (AAA) x 2 Batteries(Included) Size/Weight - 77x72x38mm/140g (included battery)"
+
+    
    },
    {
     id: 4,
-    icon: ICON.clinicVital,
+    icon: ICON.bodyScale,
     name: 'Body Scale',
     deviceName: 'Body Scale',
-    // route: '',
+    deviceImage: IMAGE.oximeter, 
+    description:""
+
+    
    },
 ];
 
@@ -88,7 +102,7 @@ const Vitals = memo(() => {
   }, []);
 
   const moveConnectionScreen = useCallback((item) => {
-   navigate(Routes.VitalsConnection,{"deviceName":item?.deviceName});
+   navigate(Routes.VitalsConnection,{"device":item});
    
  
   }, []);

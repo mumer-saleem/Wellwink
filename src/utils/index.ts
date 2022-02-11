@@ -129,3 +129,18 @@ export const hasLocationPermission = async () => {
 
  
   }
+
+  export const alertMessage = async (titile:any,description:any,titleOk:string,onPress:any,onCancel:any) => { 
+
+    Alert.alert(
+      titile?titile:"Note",
+      // "The data tested by the health medical device app is only for a health reference and not to be used for medical diagnosis. Please check with doctor before making any medical decision. We hereby declare that we are not responsible for consequences caused by improper operation for professional diagnosis or treatment.",
+      description,
+      [ 
+         { text: titleOk, onPress: onPress },
+         onCancel? {  text: "Cancel", onPress:onCancel,   style: "cancel"} : {},
+      ]
+    );
+
+  };
+  

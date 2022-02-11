@@ -135,5 +135,18 @@ export const ICON: any = {
   quote: require("images/Icon/ic_quote.png"),
   time: require("images/Icon/ic_time.png"),
   arrowLeft: require("images/Icon/ic_arrow_left.png"),
-  phone:require("images/Icon/ic_cancel_phone.png")
+  phone:require("images/Icon/ic_cancel_phone.png"),
+
+  bp:require("images/Icon/bp.png"),
+  oxi:require("images/Icon/oxi.png"),
+  temp:require("images/Icon/temp.png"),
+  bodyScale:require("images/Icon/bodyScale.png"),
+  gluco:require("images/Icon/gluco.png"),
+  
+  pulse:require("images/Icon/pulse.png"),
+  bloodpressure:require("images/Icon/bloodpressure.png"),
+  bloodCells:require("images/Icon/bloodCells.png"),
+  celsius:require("images/Icon/celsius.png"),
+  oxygenSymbol:require("images/Icon/oxygenSymbol.png"),
+
 };
