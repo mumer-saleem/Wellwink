@@ -27,7 +27,7 @@ interface VerifyPhoneNumberProps {}
 const VerifyPhoneNumber = memo((props: VerifyPhoneNumberProps) => {
   const dispatch=useAppDispatch();
   const reduxState=useAppSelector((state)=>state);
-  const LogInState=reduxState.LogIn.data.profileable;
+  const LogInState=reduxState.LogIn.data?.profileable;
   const signupbject=reduxState.signUp.signupbject;
     const sendOtpState=reduxState.sendOtp;
   const verifyOtpState=reduxState.verifyOtp;

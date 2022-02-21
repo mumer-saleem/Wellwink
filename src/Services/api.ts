@@ -26,6 +26,10 @@ const create = (headers:any=apiConstants.headers ,baseURL = apiConstants.baseURL
    const postAwayUser=   ( params:any, ) => {return instance.post('api/v1/users/set_online_status',params); } 
    const getEnrolments=   ( id:string ) => {return instance.get('api/v1/enrolments/patient_enrolments?id='+id); } 
    const postCallRequest=   ( params:any, ) => {return instance.post('api/v1/enrolments/call_alert',params); } 
+   const getVitalsLists=   (id:string ) => {return instance.get('api/v1/vitals/patient_vital_entry?patient_id='+id); } 
+   const postVitalsValues=   (params:any,) => {return instance.post('api/v1/vitals',params); } 
+
+
 
 
 
@@ -46,7 +50,9 @@ const create = (headers:any=apiConstants.headers ,baseURL = apiConstants.baseURL
       cancelCall,
       postAwayUser,
       getEnrolments,
-      postCallRequest
+      postCallRequest,
+      getVitalsLists,
+      postVitalsValues
     }
   }
   // let's return back our create method as the default.

@@ -175,3 +175,58 @@ export const setProfileUpdateParams=(obj:any)=>{
              
        }
   }
+ 
+
+export   const setVitalsValueParams=async(mainOBject:any)=>{
+    const {vitalsList,profileAbleID,date,userId }=mainOBject
+    let vital_entries_attributes:any[]=[];
+    vital_entries_attributes=await getVital_entries_attributes(vitalsList,mainOBject,vital_entries_attributes)
+    return {
+        "patient_vital": {
+            "creator_id": userId,
+            "patient_id": profileAbleID,
+            "reading_date": date,
+            "vital_entries_attributes": vital_entries_attributes
+        }
+    }
+
+       
+  }
+
+  const getVital_entries_attributes=async(vitalsList:any,mainOBject:any,entries_attributes:any[])=>{
+ 
+     for(let i=0;i<=vitalsList.length-1;i++){
+        entries_attributes.push({
+                "value":await getVitalValue(mainOBject,vitalsList[i].short),
+                "vital_id": vitalsList[i].id,
+                "_destroy": false,
+                "vital": vitalsList[i]
+
+        })
+    }
+
+    return entries_attributes;
+
+ }
+
+ const getVitalValue=async(obj:any,type:any)=>{
+    const {SPo2,PR,highblood,lowblood,temprature,glucometerValue}=obj;
+
+    switch(type) {
+        case "spo2":
+          return SPo2;
+        case "pulse":
+            return PR;
+       case "sbp":
+            return highblood;
+        case "dbp":
+            return lowblood ; 
+        case "temp":
+            return temprature;
+        case "rbg":
+            return glucometerValue;
+        default:
+            return null; 
+      }
+
+ }

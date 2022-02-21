@@ -192,7 +192,7 @@ const OtherInformation = memo((props: OtherInformationProps) => {
             setState(  prevState => ({
               ...prevState,
               motherName:text,
-              motherNameError:state.motherName.length<1?"Atleast 2 cherecters ":""
+              motherNameError:state.motherName.length<1?"At least two characters":""
       
           }))
         }}

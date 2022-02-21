@@ -17,6 +17,8 @@ import keyExtractor from 'utils/keyExtractor';
 import {getBottomSpace} from 'react-native-iphone-x-helper';
 import Layout from 'elements/Layout/Layout';
 import AccountItem from 'components/AccountItem';
+import {vitalsListsAction} from 'Actions/Vitals';
+
  
 const VitalsList = [
   {
@@ -73,7 +75,8 @@ const VitalsList = [
 
 const Vitals = memo(() => {
   const dispatch = useAppDispatch()
- 
+  const profileInfo=useAppSelector((state)=>state.profile.data?.patient);
+
   const {navigate, setOptions,} = useNavigation();
   const {theme} = useTheme();
   useLayoutEffect(() => {
@@ -107,6 +110,15 @@ const Vitals = memo(() => {
  
   }, []);
 
+  const getVitalsList = useCallback(() => {
+    dispatch(vitalsListsAction(profileInfo?.profileAbleID))
+    }, []);
+
+
+    useEffect(() => {
+      getVitalsList()
+ 
+   }, [])
 
   const renderData = [{id: 0}, {id: 1, data: VitalsList}, {id: 2}];
 

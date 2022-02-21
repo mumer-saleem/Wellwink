@@ -37,10 +37,7 @@ const BasicInformation = memo(() => {
     lastName:"",
     lastNameError:"",
     title:'Selelct Title',
-    titleError:"",
-    // imageurl:"state.first.second[someId].fourth = someValue;",
-    // avatarSource:"",
-    // avatarSourcError:""
+    titleError:"", 
   });
   
 
@@ -159,24 +156,7 @@ const BasicInformation = memo(() => {
     
     <Container style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* <Text
-          size={scale(13)}
-          lineHeight={scale(16)}
-          bold
-          marginTop={scale(32)}>
-          Step 1 of 3
-        </Text>
-        <Text
-          size={scale(24)}
-          lineHeight={scale(28)}
-          bold
-          marginTop={scale(16)}>
-          Your Profile
-        </Text>
-        <Text size={scale(13)} lineHeight={scale(22)} marginTop={scale(16)}>
-          Update your profile to get better the answer from
-          {'\n'}doctor.
-        </Text> */}
+  
 
      <Text size={24} lineHeight={28} bold marginTop={scale(32)}>
            {Constants.Welcometext} 
@@ -186,13 +166,6 @@ const BasicInformation = memo(() => {
           size={scale(13)}  lineHeight={scale(16)} bold marginTop={scale(10)} >
           Step 1 of 5
         </Text>
-
-         {/* <AvatarProfile onPress={onUploadAvatar}  avatarSource={state.avatarSource} open={openModalForImage} /> */}
-{/* 
-         <View style={{height:scale(24)}}> 
-        
-         {state.avatarSourcError!=""&&<Text style={{ color:"red",   }}>{state.avatarSourcError}</Text>}
-          </View> */}
         <InputApp
           title={'Title'}
           marginTop={scale(30)}
@@ -214,7 +187,7 @@ const BasicInformation = memo(() => {
              setState(  prevState => ({
             ...prevState,
             firstName:text,
-            firstNameError:state.firstName.length<1?"Atleast 2 cherecters ":""
+            firstNameError:state.firstName.length<1?"At least two characters":""
   
         }))}
         />
@@ -230,7 +203,7 @@ const BasicInformation = memo(() => {
             setState(  prevState => ({
               ...prevState,
               lastName:text,
-              lastNameError:state.lastName.length<1?"Atleast 2 cherecters ":""
+              lastNameError:state.lastName.length<1?"At least two characters":""
       
           }))
         }}

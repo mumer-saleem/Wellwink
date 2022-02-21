@@ -6,6 +6,8 @@ import verifyOtp from './Otp/verifyOtp'
 import profile from './profile' 
 import videoCall from './videoCall/videoCall' 
 import enrolProgram from './enrolmentProgramm' 
+import vitalsList from './vitalsList' 
+
 
 
 
@@ -23,8 +25,8 @@ export const Reducers = combineReducers({
    verifyOtp:verifyOtp,
    profile:profile,
    videoCall:videoCall,
-   enrolProgram:enrolProgram
-   // ForgetPassword:ForgetPassword
+   enrolProgram:enrolProgram,
+   vitalsList:vitalsList
 }
 )
 

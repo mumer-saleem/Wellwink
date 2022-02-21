@@ -12,13 +12,13 @@ import Theme from 'style/Theme';
 
 interface VitalsDeviceDataProps {
   deviceName?: string | undefined;
-  isConnected?: number;
-  SPo2?: number;
-  PR?: number;
-  temprature?:number;
-  highblood?: number;
-  lowblood?: number;
-  glucometerValue?: number;
+  isConnected?: number|null;
+  SPo2?:number|null;
+  PR?: number|null;
+  temprature?:number|null;
+  highblood?:number|null;
+  lowblood?: number|null;
+  glucometerValue?: number|null;
  
 }
 
@@ -35,7 +35,7 @@ const VitalsDeviceData = memo(({deviceName,PR,SPo2,temprature,lowblood,highblood
        }
          {deviceName === 'T101P��\u0002J�YX' && 
     <> 
-          <VitalDataItems  title="Celsius" description="Temprature" image={ICON.celsius} value={temprature}/>
+          <VitalDataItems  title="Fahrenheit" description="Temprature" image={ICON.fahrenheit} value={temprature}/>
   
      </>
       }

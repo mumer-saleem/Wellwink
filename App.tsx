@@ -48,7 +48,7 @@ const unsubscribe = NetInfo.addEventListener(({ isConnected, isInternetReachable
   if (isConnected ) {
     setIsDisconnect(true)
     } else {
-    setIsDisconnect(false)
+    setIsDisconnect(true)
   }
 });
 

@@ -4,7 +4,7 @@ import {LoginAction} from '../../../Actions/SignIn/login'
 
 export interface LoginState {
   fetching: boolean|null,
-  data: object|null,
+  data: any|null,
   success: boolean|null,
   error: undefined|string
 }

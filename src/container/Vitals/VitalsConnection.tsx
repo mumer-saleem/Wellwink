@@ -24,20 +24,23 @@ import {
 import {Colors} from 'configs';
 import Theme from 'style/Theme';
 import VitalsDeviceDataDispaly from './VitalsDeviceDataDispaly';
-
+import {sendVitalsValues} from 'Actions/Vitals/sendVitalsValues';
 
 var hex64 = require('hex64');
 
 const VitalsConnection = memo((props) => {
   const dispatch = useAppDispatch()
+  const profileInfo=useAppSelector((state)=>state.profile.data?.patient);
+  const vitalsList=useAppSelector((state)=>state.vitalsList);
+
   const { navigate, setOptions, goBack } = useNavigation();
   const [isConnected, setIsConnected] = useState(false)
-  const [SPo2, setSPo2] = useState<number>(0);
-  const [PR, setPR] = useState<number>(0);
-  const [highblood, setHighBlood] = useState<number>(0);
-  const [lowblood, setLowBlood] = useState<number>(0);
-  const [temprature, setTemprature] = useState<number>(0);
-  const [glucometerValue, setGlucometerValue] = useState<number>(0);
+  const [SPo2, setSPo2] = useState<number|null>(null);
+  const [PR, setPR] = useState<number|null>(null);
+  const [highblood, setHighBlood] = useState<number|null>(null);
+  const [lowblood, setLowBlood] = useState<number|null>(null);
+  const [temprature, setTemprature] = useState<number|null>(null);
+  const [glucometerValue, setGlucometerValue] = useState<number|null>(null);
   const [selectedDevice, setSelectedDevice] = useState<any>();
   const bleManager = new BleManager();
  
@@ -92,7 +95,9 @@ const VitalsConnection = memo((props) => {
     }  
     else if(devices.name==='T101P��\u0002J�YX'){
         let temp=new Int32Array(value.buffer);
-         setTemprature(temp[1]/10)
+    let preciseValue=parseInt(((temp[1]/10 + 32)* 9/5).toFixed(1))
+
+         setTemprature(preciseValue)
   
     } 
     else if(devices.name==='Bioland-BPM'){
@@ -213,13 +218,7 @@ const VitalsConnection = memo((props) => {
 const Refresh = () => { 
   
  }
-
-//  bleManager.onDeviceDisconnected(deviceUuid, (error, device) => {
-//   if (error) {
-//   console.log(error);
-//   }
-//   console.log(device,'Device is disconnected');
-//   });
+ 
 
   const subscription = bleManager.onStateChange((state) => {
     if (state === 'PoweredOn') {
@@ -237,7 +236,44 @@ const Refresh = () => {
 
   }, [])
 
+ 
 
+  const submitValue = useCallback(() => {
+
+    let date=new Date((Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString()
+    .substring(0, new Date((Date.now() - (new Date()).getTimezoneOffset() * 60000))
+    .toISOString().length - 1).replace(/\.\d+/, '');
+
+   let obj=
+    {
+      vitalsList:vitalsList.data,
+    profileAbleID:profileInfo?.profileAbleID,
+    date:date,
+    userId:profileInfo?.userId,
+    SPo2:SPo2,
+    PR:PR,
+    highblood:highblood,
+    lowblood:lowblood,
+    temprature:temprature,
+    glucometerValue:glucometerValue
+  
+  }
+
+     dispatch(sendVitalsValues(obj)).then((res) => {
+      res.type=="/fulfilled"?navigateAction(res): navigateError(res.payload)})
+  }, [SPo2,PR,highblood,lowblood,temprature,glucometerValue,profileInfo,vitalsList]);
+
+
+  const navigateError = useCallback(async (action) => {
+    action.errors?Alert.alert(action.errors[0]):Alert.alert("Network Error")
+ }, []);
+
+  
+ const navigateAction = useCallback(async (res) => {
+  Alert.alert("Results Submitted")
+  }, []);
+
+  
   
   useEffect(() => {
     console.log('useEffect', devices)
@@ -290,7 +326,7 @@ const Refresh = () => {
           <ButtonLinear
                 white
                 title={'Submit'}
-                onPress={startConnecting}
+                onPress={submitValue}
                 style={styles.buttonLinear}
               />
 

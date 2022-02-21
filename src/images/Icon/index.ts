@@ -146,7 +146,7 @@ export const ICON: any = {
   pulse:require("images/Icon/pulse.png"),
   bloodpressure:require("images/Icon/bloodpressure.png"),
   bloodCells:require("images/Icon/bloodCells.png"),
-  celsius:require("images/Icon/celsius.png"),
+  fahrenheit:require("images/Icon/fahrenheit.png"),
   oxygenSymbol:require("images/Icon/oxygenSymbol.png"),
 
 };
