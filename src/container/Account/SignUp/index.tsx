@@ -33,6 +33,8 @@ const SignUp = memo((props: SignUpProps) => {
   const signUpState=useAppSelector((state)=>state.signUp);
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumberError, setPhoneNumberError] = useState(' ');
+
   const [password, setPassword] = useState('');
   const [visiblePassword, setVisiblePassword] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
@@ -44,7 +46,7 @@ const SignUp = memo((props: SignUpProps) => {
   const validationSchema =  Yup.object().shape({
     email: EmailValidation,
     password:StrongPassword,
-    phoneNumber:PhoneValidation,
+    // phoneNumber:PhoneValidation,
   });
 
   const {navigate, setOptions} = useNavigation();
@@ -125,16 +127,21 @@ const SignUp = memo((props: SignUpProps) => {
             initialValues={{   
               email: "",
               password:"",
-              phoneNumber:"", }}
+              // phoneNumber:"", 
+            }}
               validationSchema={validationSchema}
             onSubmit={async (values) => {
-               dispatch(accountInfo({
+
+              if(phoneNumber.length<14){
+                setPhoneNumberError("Please Enter Valid Number")
+              }else{ 
+                dispatch(accountInfo({
                 email: values.email,
                 password:values.password,
-                phoneNumber:values.phoneNumber, 
+                phoneNumber:phoneNumber, 
                }))
-               &&onSignUp(values.email,values.password,values.phoneNumber)
-          
+               &&onSignUp(values.email,values.password,phoneNumber)
+              }
              }}
           >
             {({errors, handleChange, handleBlur, handleSubmit, values,touched,}) => 
@@ -146,8 +153,9 @@ const SignUp = memo((props: SignUpProps) => {
           setEmail,
           isValidEmail,
           codeArea,
-          phoneNumber:values.phoneNumber,
-          // setPhoneNumber,
+          phoneNumber:phoneNumber,
+          setPhoneNumber,
+          phoneNumberError,
           password:values.password,
           // setPassword,
           visiblePassword,

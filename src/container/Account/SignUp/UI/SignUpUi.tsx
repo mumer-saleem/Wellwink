@@ -19,15 +19,19 @@ import Content from 'elements/Layout/Content';
 import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
 import { useField, useFormikContext, ErrorMessage } from "formik";
 import {PasswordValidationCases} from "utils/validation";
+import {FormatPhone} from "utils/formatNumber";
+
 
 
 interface SignUpUiProps {
   email: string;
+  phoneNumberError: string;
+
   setEmail: Dispatch<SetStateAction<string>>;
   isValidEmail: boolean;
   codeArea: TcodeArea;
   phoneNumber: string;
-  // setPhoneNumber: Dispatch<SetStateAction<string>>;
+  setPhoneNumber: Dispatch<SetStateAction<string>>;
   password: string;
   // setPassword: Dispatch<SetStateAction<string>>;
   visiblePassword: boolean;
@@ -51,10 +55,10 @@ const SignUpUi = memo(
     isValidEmail,
     codeArea,
     phoneNumber,
-    // setPhoneNumber,
+    setPhoneNumber,
     password,
-    // setPassword,
-    visiblePassword,
+    phoneNumberError,
+        visiblePassword,
     onShowHidePassword,
     handleSubmit,
     onTermOfUse,
@@ -78,21 +82,8 @@ const SignUpUi = memo(
 
 
     const MobileNumberFormate=(text:string)=>{
-
-      var cleaned = ('' + text).replace(/\D/g, '')
-              var match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/)
-              if (match) {
-                   let number = ['(', match[2], ') ', match[3], '-', match[4]].join('');
-                  return number;
-               }
-               else {
-                var ret = text.replace('(','');
-                var ret1 = ret.replace(') ','');
-                var ret2 = ret1.replace('-','');
-                return ret2
-               }
-
-    }
+     
+     }
 
     useEffect(() => {
      const object = PasswordValidationCases(password)
@@ -148,18 +139,18 @@ const SignUpUi = memo(
           <TextInput
             value={phoneNumber}
             placeholder={"0000000000"}
-            onChangeText={handleChange('phoneNumber')}
+            onChangeText={(text:string)=>  setPhoneNumber(FormatPhone(text))}
             style={styles.phoneNumber}
             borderColor={Colors.Isabelline}
             editable
             keyboardType="numeric"
-            maxLength={10}
+            maxLength={14}
 
 
           />
         </View> 
         <View style={{height:scale(24)}}>  
-            {errors.phoneNumber && touched.phoneNumber&& <Text style={{ color:"red",   }}>{errors.phoneNumber}</Text> }
+            {phoneNumberError&& <Text style={{ color:"red",   }}>{phoneNumberError}</Text> }
            </View>
         <InputApp
           title={'Password'}
