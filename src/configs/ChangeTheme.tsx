@@ -49,6 +49,7 @@ export const ThemeContext = React.createContext({
 });
 
 export const useTheme = (): IThemeContext => {
+
   const {theme, toggleTheme} = useContext(ThemeContext);
   return {
     theme,

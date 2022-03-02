@@ -32,7 +32,7 @@ const IconNotification = memo((props: IconNotificationProps) => {
       ]}
       onPress={onGoToNotification}
       activeOpacity={0.54}>
-      <Layout
+      {/* <Layout
         style={{
           paddingHorizontal: 4,
           backgroundColor: Colors.RedNeonFuchsia,
@@ -47,7 +47,7 @@ const IconNotification = memo((props: IconNotificationProps) => {
         <Text white size={11} color={Colors.White}>
           3
         </Text>
-      </Layout>
+      </Layout> */}
       <Image
         source={require('images/Icon/ic_notification.png')}
         style={Theme.icons}

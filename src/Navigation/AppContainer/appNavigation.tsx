@@ -89,6 +89,8 @@ import VerifyEmail from 'container/Account/VerifyEmail';
 import { EmailValidation } from 'utils/validation';
 import  Vitals  from 'container/Vitals';
 import  VitalsConnection  from 'container/Vitals/VitalsConnection';
+import  About_Help  from 'components/About&Help';
+
 
 
 
@@ -131,6 +133,10 @@ const AppNavigation = memo(() => {
        <Stack.Screen
         name={Routes.VerifyEmail}
         component={VerifyEmail}
+      />
+          <Stack.Screen
+        name={Routes.About_Help}
+        component={About_Help}
       />
       <Stack.Screen
         name={Routes.SignUpSuccessful}

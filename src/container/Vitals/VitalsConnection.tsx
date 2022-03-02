@@ -197,7 +197,7 @@ const VitalsConnection = memo((props) => {
      device.monitorCharacteristicForService(characteristics[index].serviceUUID, characteristics[index].uuid, (error: any, characteristic: any) => {
       if (error) {
         console.log(error.message,"khjbjhbjs")
-        Alert.alert("Device is disConnected!!")
+        Alert.alert("Device is disconnected!!")
         return
       } 
      let value = _base64ToArrayBuffer(characteristic.value)
@@ -301,7 +301,7 @@ const Refresh = () => {
 {beforScanning&&!afterScanning&&
  <Container style={{...styles.container,...Theme.center,  }} >
     <Text size={20} lineHeight={24} bold  marginTop={scale(24)}  >{beforScanning&&deviceFound?"Device Found":"Scanning is in process"}</Text>
-      <Text size={14} lineHeight={16} marginTop={scale(10)}>{beforScanning&&deviceFound?'You can enable a device by click on it. Try again if trow error durring connecting':"Make sure Bluetooth is turned on and Wellwink app having location permissions as well as Bluetooth. In the list of paired devices, tap a paired but unconnected device. When your phone and the Bluetooth device are connected, the device shows as Connected."}</Text>
+      <Text size={14} lineHeight={16} marginTop={scale(10)}>{beforScanning&&deviceFound?'You can enable a device by click on it. Try again if throw error durring connecting':"Make sure Bluetooth is turned on and Wellwink app having location permissions as well as Bluetooth. In the list of paired devices, tap a paired but unconnected device. When your phone and the Bluetooth device are connected, the device shows as Connected."}</Text>
 
      <WaveIndicator color={Colors.TealBlue} size={400} />
      {beforScanning&&deviceFound&&

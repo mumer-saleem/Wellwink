@@ -27,9 +27,18 @@ const OnlineConsult = memo(() => {
 
   const {navigate, setOptions} = useNavigation();
   const {theme} = useTheme();
+  
+  
   useLayoutEffect(() => {
     setOptions({
       title: null,
+      headerStyle: {
+        shadowColor: 'transparent',
+        shadowRadius: 0,
+        shadowOffset: {height: 0},
+        elevation: 0,
+        backgroundColor: theme.background,
+      },
       headerBackground: () => (
         <View style={{flex: 1, backgroundColor: theme.background}} />
       ),
@@ -38,6 +47,8 @@ const OnlineConsult = memo(() => {
       ),
     });
   }, [setOptions]);
+
+
   const listHeaderComponent = React.useCallback(() => {
     return (
       <View>
@@ -110,7 +121,7 @@ const OnlineConsult = memo(() => {
   }, []);
 
   const renderItem = React.useCallback(({item}) => {
-    return <ContactDoctorItem style={styles.item}  item={item}   CallRequest={CallRequest}   />;
+    return <ContactDoctorItem style={styles.item}  item={item} CallRequest={CallRequest}   />;
   }, []);
   return (
     <Container style={styles.container} isVisible={enrolProgram.fetching} >
@@ -120,7 +131,7 @@ const OnlineConsult = memo(() => {
         bold
         marginBottom={scale(8)}
         marginTop={scale(24)}>
-       Enrol programs
+       Enrolled programs
       </Text>
       <ListWidget
         data={enrolProgram.data}

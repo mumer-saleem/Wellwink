@@ -94,28 +94,28 @@ const MY_RECORD_CATEGORY = [
       id: 0,
       icon: ICON.healthMetric,
       name: 'Problems',
-       number: '2',
+      //  number: '2',
     },
     {
       id: 1,
       icon: ICON.medication,
       name: 'Medications',
       route: '',
-      number: '2',
+      // number: '2',
     },
     {
       id: 2,
       icon: ICON.allergies,
       name: 'Allergies',
       route: '',
-      number: '2',
+      // number: '2',
     },
     {
       id: 3,
       icon: ICON.clinicVital,
       name: 'Vitals',
       route: Routes.Vitals,
-      number: '2',
+      // number: '2',
     },
   // {
   //   id: 0,
@@ -379,6 +379,7 @@ export default memo(() => {
           ListFooterComponent={listFooterComponent}
         />
       </Container>
+      
       <Layout style={{backgroundColor: 'red'}}>
         <Modal visible={visible} onRequestClose={close} transparent>
           <ModalSlideBottom onClose={close} transY={transY}>

@@ -1,6 +1,6 @@
 import React, {memo, useCallback, useEffect, useMemo, useState} from 'react';
 import {
-  View,
+  View,Linking,
   StyleSheet,
   Image,
   ScrollView,
@@ -52,6 +52,10 @@ const Account = memo(() => {
   const onInvite = () => {
     navigate(Routes.InviteFriendForYou);
   };
+  const moveToNextScreen=(name:string)=>{
+    navigate(Routes.About_Help,{"comming":name});
+
+  }
 
   const onEditButton = () => {};
 
@@ -95,7 +99,7 @@ const Account = memo(() => {
           <AccountItem
           style={styles.middleView}
           icon={ICON.clinicVital}
-          name="Emergerncy cnontact"
+          name="Emergerncy contact"
         />
             <AccountItem
           style={styles.middleView}
@@ -130,17 +134,25 @@ const Account = memo(() => {
         <AccountItem
           style={styles.firstView}
           icon={ICON.home}
-          name="About Doctor Plus"
+          name="About Wellwink"
+          onPress={()=>moveToNextScreen("About")}
+          // route={Routes.About_Help}
         />
         <AccountItem
           style={styles.middleView}
           icon={ICON.help}
           name="Help & Support"
+          onPress={()=>moveToNextScreen("Help")}
+
+          // route={Routes.About_Help}
+
         />
+
         <AccountItem
           style={styles.middleView}
           icon={ICON.term}
           name="Privacy and Policy"
+          onPress={()=>Linking.openURL(`https://wellwink.com/p&p`)}
         />
         <View
           style={[

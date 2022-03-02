@@ -18,7 +18,7 @@ interface SyncHealthProps {
 const SyncHealth = memo(
   ({style, healthData, onOpenHealthModal, onCloseHealth}: SyncHealthProps) => {
     return (
-      <Layout style={style}>
+      <View style={style}>
         <Text bold size={13} lineHeight={16} marginTop={16}>
           Sync with Health Services
         </Text>
@@ -50,7 +50,7 @@ const SyncHealth = memo(
             HIPAA Secure
           </Text>
         </View>
-      </Layout>
+      </View>
     );
   },
 );

@@ -73,6 +73,7 @@ export default memo(
               backgroundColor={Colors.BlueCrayola}
               icon={'message'}
               marginRight={16}
+              disabled={true}
               
             />
      
@@ -88,34 +89,7 @@ export default memo(
          onPress={()=>CallRequest(item.id,"video")} />
         </View>
 
-        {/* <View style={styles.avatarView}>
-          <Image style={styles.avatar} source={avatar} />
-          {online && (
-            <Layout style={styles.statusView}>
-              <View style={styles.circle} />
-            </Layout>
-          )}
-          {verified && (
-            <View style={styles.verified}>
-              <Image style={styles.iconVerified} source={ICON.verified} />
-              <Text
-                white
-                size={10}
-                marginLeft={2}
-                lineHeight={15}
-                bold
-                uppercase
-                color={Colors.White}>
-                care team
-              </Text>
-            </View>
-          )}
-          {care && (
-            <View style={styles.care}>
-              <Image style={styles.iconCare} source={ICON.careTeam} />
-            </View>
-          )}
-        </View> */}
+     
       </View>
     );
   },

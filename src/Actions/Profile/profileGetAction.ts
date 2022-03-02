@@ -7,7 +7,8 @@ export const profileGetAction = createAsyncThunk(
   'Profile/profileGetAction',
    async (id: string, thunkAPI) => {
      try {
-      let response=  await api.create(AuthManager.getAuthHeaders()).getProfile(id) 
+      let response=  await api.create(AuthManager.getAuthHeaders()).getProfile(id)
+       console.log(response,"responseresponseresponseresponseresponseresponseresponseresponseresponse");
         return response;
   } catch (err:any) {
     if (!err.response) {

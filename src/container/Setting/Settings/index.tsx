@@ -36,7 +36,7 @@ export const ACCOUNT_SAMPLE = {
   accountType: 'Standard Account',
 }; 
 const Account = memo(() => {
-  const {navigate, setOptions} = useNavigation();
+  const {navigate, setOptions ,goBack} = useNavigation();
   const [account, setAccount] = useState<any>([]);
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const navigation = useNavigation();
@@ -50,6 +50,7 @@ const Account = memo(() => {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     toggleTheme();
+    goBack()
   };
   const signOut = () => {
     AuthManager.revokeToken()
@@ -111,7 +112,7 @@ const Account = memo(() => {
           name="Dark Mode"
           isToggle={true}
           switchValue={darkMode}
-          // onValueChange={toggleDarkMode}
+          onValueChange={toggleDarkMode}
         />
       </Layout> 
     </Content>
