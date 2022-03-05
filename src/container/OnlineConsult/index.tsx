@@ -131,7 +131,7 @@ const OnlineConsult = memo(() => {
         bold
         marginBottom={scale(8)}
         marginTop={scale(24)}>
-       Enrolled programs
+       Enrolled Programs
       </Text>
       <ListWidget
         data={enrolProgram.data}

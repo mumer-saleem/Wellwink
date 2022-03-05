@@ -106,7 +106,7 @@ export const setProfileUpdateParams=(obj:any)=>{
                                 "id": obj.cityID,
                                 "state": obj.state
                             },
-                            "id": obj.addressId,
+                            "id": obj.cityAreaID,
                             "lat": obj.lat,
                             "long":obj.lng,
                             "name": "N/A" 
@@ -141,7 +141,7 @@ export const setProfileUpdateParams=(obj:any)=>{
 
   const profileInfo=Data;
   const UserInfo=profileInfo.user;
-    const {first_name,last_name,dob,gender,profile_pic,address,contact_numbers,email, profileable_id,id,profileable_type}=UserInfo;
+    const {first_name,last_name,dob,gender,profile_pic,address,contact_numbers,email, profileable_id,id,profileable_type,updated_at}=UserInfo;
     const { patient_preferred_method,mother_name}=profileInfo;
   let gender1 =  gender.charAt(0).toUpperCase() + gender.slice(1);
     return {   
@@ -166,11 +166,14 @@ export const setProfileUpdateParams=(obj:any)=>{
             phoneId:contact_numbers[1].id,
             addressId:address.id,
             cityID:address.city_area.city.id,
+            cityAreaID:address.city_area.id,
             profileAbleID:profileable_id,
             userId:id,
             title:profileInfo.title,
             name:profileInfo.name,
             profileableType:profileable_type,
+            updatedAt:updated_at,
+
         }
              
        }

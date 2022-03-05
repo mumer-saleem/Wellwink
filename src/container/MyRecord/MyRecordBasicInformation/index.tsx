@@ -30,7 +30,7 @@ import MyBasicInformation from 'components/MyRecord/MyBasicInformation';
 import MyContactInformation from 'components/MyRecord/MyContactInformation';
 import GeoLocation from 'components/GeoLocation';
 import {GeoLocationAddress} from 'type'
-import Moment from 'moment';
+import moment from 'moment';
 
 import {useTheme} from 'configs/ChangeTheme';
 import {uploadImageAction} from 'Actions/UploadImage';
@@ -130,9 +130,11 @@ export default memo(() => {
     phoneId:"",
     addressId:"",
     cityID:"",
+    cityAreaID:"",
     profileAbleID:"",
     userId:"",
     title:"",
+    updatedAt:"",
   });
   // const [relationship, setRelationship] = useState(
   //   MY_RECORD_INFORMATION.relationship,
@@ -209,10 +211,10 @@ export default memo(() => {
   }, []);
  
 
-  const onChangeRelationship = useCallback((item: categoryList) => {
-    setRelationship(item);
-    closeRelationPick();
-  }, []);
+  // const onChangeRelationship = useCallback((item: categoryList) => {
+  //   setRelationship(item);
+  //   closeRelationPick();
+  // }, []);
  
  
     
@@ -365,7 +367,7 @@ export default memo(() => {
       </Text>
       
       <Text size={11} marginTop={8} marginBottom={40}>
-        Last updated: 01:29 PM Jan 04, 2020
+        Last updated: {moment(state.updatedAt).format('MMM Do YY')}
       </Text>
     
     

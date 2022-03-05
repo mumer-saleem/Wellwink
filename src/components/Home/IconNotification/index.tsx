@@ -30,7 +30,7 @@ const IconNotification = memo((props: IconNotificationProps) => {
         props.style,
         {backgroundColor: theme.backgroundItem},
       ]}
-      onPress={onGoToNotification}
+      // onPress={onGoToNotification}
       activeOpacity={0.54}>
       {/* <Layout
         style={{

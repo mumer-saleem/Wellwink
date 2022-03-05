@@ -18,7 +18,7 @@ const Greeting = memo((props: GreetingProps) => {
       />
       <View style={{ justifyContent: "space-between", height: 40 }}>
         <Text size={17} lineHeight={20} bold>
-          Hi  {profile?.name},
+          Hi {profile?.name.charAt(0).toUpperCase() + profile?.name.slice(1)},
         </Text>
         <Text size={15} lineHeight={18}>
           How’re you today?

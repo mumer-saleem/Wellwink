@@ -178,6 +178,10 @@ const OtherInformation = memo((props: OtherInformationProps) => {
           onPress={()=>dateOpen()}
           editable={false}
         />
+
+            <View style={styles.BirthdayView}>
+          
+        </View> 
         <View style={{height:scale(24)}}> 
 
         {state.dateError!=""&&<Text style={{ color:"red",   }}>{state.dateError}</Text>}
@@ -246,5 +250,9 @@ const styles = StyleSheet.create({
   buttonLinear: {
     marginTop: scale(24),
   },
+  BirthdayView:{
+    ...Theme.flexRow,
+    marginTop: 4,
+  }
 });
  

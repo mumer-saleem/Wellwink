@@ -70,7 +70,7 @@ const ForgetPassword = memo((props: ForgetPasswordProps) => {
     <Container style={styles.container}>
       <View style={styles.content}>
         <Text type={'H2'} bold>
-          Forget Password
+          Forgot Password
         </Text>
         <Text type="P6" style={{marginTop: 16}}>
           Please enter your email below to receive your

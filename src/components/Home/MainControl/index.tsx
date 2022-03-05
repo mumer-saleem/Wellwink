@@ -9,8 +9,8 @@ import Container from 'elements/Layout/Container';
 const mainFeature = [
   {
     img: IMAGE.askFreeQuestion,
-    title: 'Ask a free health \nquestion',
-    route: Routes.HealthQuestion,
+    title: 'Record Vitals',
+    route: Routes.Vitals,
   },
   {
     img: IMAGE.bgShape,

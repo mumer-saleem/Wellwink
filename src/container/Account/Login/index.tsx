@@ -141,7 +141,7 @@ const Login = memo((props: LoginProps) => {
           />
            {errors.email==undefined &&  setEmail(values.email) }
            <View style={{height:scale(24)}}>       
-           {errors.email && touched.email&& <Text style={{ color:"red",   }}>{errors.email}</Text> }
+           {errors.email && touched.email&& <Text style={{ color:"red",}}>{errors.email}</Text> }
            </View>
  
           <InputApp
@@ -219,7 +219,7 @@ const Login = memo((props: LoginProps) => {
         </View> */}
   <TouchableOpacity style={styles.forgot} onPress={onForgotPassword}>
           <Text type="H6" color={Colors.GrayBlue} style={styles.textUnderline}>
-            Forget Password?
+            Forgot Password?
           </Text>
         </TouchableOpacity>
       <View style={styles.signUp}>

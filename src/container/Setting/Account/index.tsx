@@ -42,6 +42,7 @@ const Account = memo(() => {
       setAccount(ACCOUNT_SAMPLE);
     }, []),
   );
+
   const {theme, toggleTheme} = useTheme();
 
   const toggleDarkMode = () => {
@@ -54,11 +55,9 @@ const Account = memo(() => {
   };
   const moveToNextScreen=(name:string)=>{
     navigate(Routes.About_Help,{"comming":name});
-
   }
 
   const onEditButton = () => {};
-
   return (
     <Container style={styles.container}>
     {/* <View style={[styles.infoView, {backgroundColor: theme.background}]}>
@@ -99,7 +98,7 @@ const Account = memo(() => {
           <AccountItem
           style={styles.middleView}
           icon={ICON.clinicVital}
-          name="Emergerncy contact"
+          name="Emergency contact"
         />
             <AccountItem
           style={styles.middleView}
@@ -119,7 +118,8 @@ const Account = memo(() => {
           route={Routes.Settings}
 
         />
-        {/* <AccountItem
+       
+        { /* <AccountItem
           onPress={toggleDarkMode}
           style={[styles.lastView1, {borderBottomColor: theme.background}]}
           icon={ICON.themeMode}
@@ -128,6 +128,8 @@ const Account = memo(() => {
           switchValue={darkMode}
           onValueChange={toggleDarkMode}
         /> */}
+
+        
       </Layout>
 
       <Layout style={styles.content}>
