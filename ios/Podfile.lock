@@ -399,6 +399,8 @@ PODS:
   - react-native-ble-plx (2.0.3):
     - MultiplatformBleAdapter (= 0.1.9)
     - React-Core
+  - react-native-date-picker (4.2.0):
+    - React-Core
   - react-native-geolocation (2.0.2):
     - React
   - react-native-google-nearby-messages (1.0.22):
@@ -602,6 +604,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - react-native-ble-plx (from `../node_modules/react-native-ble-plx`)
+  - react-native-date-picker (from `../node_modules/react-native-date-picker`)
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
   - react-native-google-nearby-messages (from `../node_modules/react-native-google-nearby-messages`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
@@ -717,6 +720,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/logger"
   react-native-ble-plx:
     :path: "../node_modules/react-native-ble-plx"
+  react-native-date-picker:
+    :path: "../node_modules/react-native-date-picker"
   react-native-geolocation:
     :path: "../node_modules/@react-native-community/geolocation"
   react-native-google-nearby-messages:
@@ -844,6 +849,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 8c0517dee5e8c70cd6c3066f20213ff7ce54f176
   React-logger: bfddd3418dc1d45b77b822958f3e31422e2c179b
   react-native-ble-plx: f10240444452dfb2d2a13a0e4f58d7783e92d76e
+  react-native-date-picker: d83ab9cccbc497642a93fdca783ae76ecd6b17b6
   react-native-geolocation: cbd9d6bd06bac411eed2671810f454d4908484a8
   react-native-google-nearby-messages: ca7d14308252aa686ab093f27cda52fae86af6ef
   react-native-image-picker: 1dbc397ab78be161bf08bc4f3ad9c39bec12be11

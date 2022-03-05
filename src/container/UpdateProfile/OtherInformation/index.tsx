@@ -19,12 +19,11 @@ import {ICON} from 'images/Icon';
 import {useLayoutEffect} from 'react';
 import ButtonIconHeader from 'elements/Buttons/ButtonIconHeader';
 import {useTheme} from 'configs/ChangeTheme'
-import Container from 'elements/Layout/Container';
-import useModalAnimation from 'hooks/useModalAnimation';
-import ModalSlideBottom from 'components/ModalSlideBottom';
-import Calendar from 'components/Schedule/Calendar';
+import Container from 'elements/Layout/Container'; 
 import  { useAppDispatch,useAppSelector } from "Redux/ReduxPresist/ReduxPersist";
 import  { basicInfo, otherInfo } from "Redux/Reducers/signUp/signUp";
+import DatePicker from 'react-native-date-picker'
+import moment from 'moment';
 
 interface OtherInformationProps {}
 const genders = [
@@ -69,20 +68,13 @@ const OtherInformation = memo((props: OtherInformationProps) => {
  
   });
 
+  const [date, setDate] = useState(new Date())
+  const [open, setOpen] = useState(false)
+
 
   const {navigate, setOptions} = useNavigation();
-  const {  visible,  open: dateOpen,  close: dateClose,  transY: dateTransY, } = useModalAnimation();
-
-  const onPickDatePress = useCallback(day => {
-      setState(  prevState => ({
-      ...prevState,
-      date:day.dateString,
-      dateError:""
-
-  }))
-  
-  dateClose();
-  }, [state]);
+ 
+ 
  
   const isvalidate=useCallback(() => {
     const {motherName,motherNameError,date,dateError}=state
@@ -175,9 +167,28 @@ const OtherInformation = memo((props: OtherInformationProps) => {
           value={state.date}
            iconLeft={<Image source={ICON.calendar} style={Theme.icons} />}
           isShowIconLeft
-          onPress={()=>dateOpen()}
+          onPress={() => setOpen(true)} 
           editable={false}
         />
+       <DatePicker
+        modal
+        mode="date"
+        open={open}
+        date={date}
+        onConfirm={(date) => {
+          setOpen(false)
+          setState(  prevState => ({
+            ...prevState,
+            date:moment(date).format('DD-MM-YYYY'),
+            dateError:""
+      
+        }))
+        }}
+        onCancel={() => {
+          setOpen(false)
+        }}
+      />
+
 
             <View style={styles.BirthdayView}>
           
@@ -218,15 +229,7 @@ const OtherInformation = memo((props: OtherInformationProps) => {
           style={styles.buttonLinear}
         />
       </ScrollView>
-      <Modal
-        visible={visible}
-        onRequestClose={dateClose}
-        transparent
-        animationType="fade">
-        <ModalSlideBottom onClose={dateClose} transY={dateTransY}>
-          <Calendar onPress={onPickDatePress}  value={state.date=='Select Date'?"1999-01-01":state.date}/>
-        </ModalSlideBottom>
-      </Modal>
+   
     </Container>
   );
 });

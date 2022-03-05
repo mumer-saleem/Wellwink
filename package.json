@@ -41,6 +41,7 @@
     "react-native-base64": "^0.2.1",
     "react-native-ble-plx": "^2.0.3",
     "react-native-calendars": "^1.1268.0",
+    "react-native-date-picker": "^4.2.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-google-nearby-messages": "^1.0.22",
     "react-native-google-places-autocomplete": "^2.4.1",
