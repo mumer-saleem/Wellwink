@@ -58,7 +58,7 @@ const SignUpUi = memo(
     setPhoneNumber,
     password,
     phoneNumberError,
-        visiblePassword,
+    visiblePassword,
     onShowHidePassword,
     handleSubmit,
     onTermOfUse,
@@ -113,7 +113,7 @@ const SignUpUi = memo(
         Give your email address and phone number for your account verification.
         </Text>
         <InputApp
-          value={email}
+          value={email.trim()}
           onChangeText={handleChange('email')}
           title={'Email'}
 

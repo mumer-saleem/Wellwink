@@ -56,7 +56,7 @@ const AboutHelp = memo((props) => {
            style={styles.item}>
             <View style={styles.iconFollow}>
             <Image
-              source={ICON.additional}
+              source={ICON.location_icon}
               style={{ 
                 width: scale(90, true),
                 height: scale(90, true), 
@@ -72,7 +72,7 @@ const AboutHelp = memo((props) => {
            style={styles.item}>
             <View style={styles.iconFollow}>
             <Image
-              source={ICON.phone}
+              source={ICON.call_icon}
               style={{ 
                 width: scale(90, true),
                 height: scale(90, true), 
@@ -89,7 +89,7 @@ const AboutHelp = memo((props) => {
            style={styles.item}>
             <View style={styles.iconFollow}>
             <Image
-              source={ICON.message}
+              source={ICON.email_icon}
               style={{ 
                 width: scale(90, true),
                 height: scale(90, true), 
@@ -124,8 +124,7 @@ const styles = StyleSheet.create({
   },
   iconFollow: {
     ...Theme.center,
-    backgroundColor: Colors.Platinum,
-    borderRadius: 12,
+     borderRadius: 12,
     width: scale(90, true),
     height: scale(90, true), 
   },

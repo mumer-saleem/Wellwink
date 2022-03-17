@@ -99,11 +99,16 @@ const Account = memo(() => {
           style={styles.middleView}
           icon={ICON.clinicVital}
           name="Emergency contact"
+          route={Routes.showEmerrgencyContacts}
+
         />
             <AccountItem
           style={styles.middleView}
           icon={ICON.addedCareTeam}
           name="Insurance"
+          route={Routes.ShoeInsurance}
+
+           
         />
           <AccountItem
           style={styles.middleView}

@@ -90,6 +90,13 @@ import { EmailValidation } from 'utils/validation';
 import  Vitals  from 'container/Vitals';
 import  VitalsConnection  from 'container/Vitals/VitalsConnection';
 import  About_Help  from 'components/About&Help';
+import  shoeInsurance  from 'components/Insurance/shoeInsurance';
+import  showEmerrgencyContacts  from 'components/EmergencyContacts/showEmerrgencyContacts';
+import  addEmergencyContact  from 'components/EmergencyContacts/addEmergencyContact';
+
+
+
+
 
 
 
@@ -130,6 +137,14 @@ const AppNavigation = memo(() => {
         name={Routes.VerifyPhoneNumber}
         component={VerifyPhoneNumber}
       />
+        <Stack.Screen
+        name={Routes.showEmerrgencyContacts}
+        component={showEmerrgencyContacts}
+      />
+          <Stack.Screen
+        name={Routes.AddEmerrgencyContacts}
+        component={addEmergencyContact}
+      />
        <Stack.Screen
         name={Routes.VerifyEmail}
         component={VerifyEmail}
@@ -146,6 +161,10 @@ const AppNavigation = memo(() => {
       <Stack.Screen
         name={Routes.BasicInformation}
         component={BasicInformation}
+      />
+        <Stack.Screen
+        name={Routes.ShoeInsurance}
+        component={shoeInsurance}
       />
       <Stack.Screen name={Routes.FollowTopic} component={FollowTopic} />
       <Stack.Screen

@@ -148,5 +148,12 @@ export const ICON: any = {
   bloodCells:require("images/Icon/bloodCells.png"),
   fahrenheit:require("images/Icon/fahrenheit.png"),
   oxygenSymbol:require("images/Icon/oxygenSymbol.png"),
+  add:require("images/Icon/ic_add_16.png"),
+
+  call_icon:require("images/Icon/call-icon.png"),
+  location_icon:require("images/Icon/location-icon.png"),
+  email_icon:require("images/Icon/email-2-icon.png"),
+
+
 
 };

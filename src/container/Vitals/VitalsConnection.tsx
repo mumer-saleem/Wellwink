@@ -304,14 +304,14 @@ const Refresh = () => {
       <Text size={14} lineHeight={16} marginTop={scale(10)}>{beforScanning&&deviceFound?'You can enable a device by clicking on it. Try again if it throws an error during connecting.':"Make sure Bluetooth is turned on and Wellwink app having location permissions as well as Bluetooth. In the list of paired devices, tap a paired but unconnected device. When your phone and the Bluetooth device are connected, the device shows as Connected."}</Text>
 
      <WaveIndicator color={Colors.TealBlue} size={400} />
-     {/* {beforScanning&&deviceFound&& */}
-     <TouchableOpacity style={{ position:"absolute", bottom:200,right:200}} onPress={startConnecting}> 
+     {beforScanning&&deviceFound&&
+     <TouchableOpacity style={{ position:"absolute", bottom:220,}} onPress={startConnecting}> 
       <Image
         source={selectedDevice?.deviceImage}
         style={styles.successImage}
       />
       </TouchableOpacity>
-    
+      } 
  </Container>
       }
 

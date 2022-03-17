@@ -189,40 +189,4 @@ const styles = StyleSheet.create({
 });
 
 
-   {/* <Text marginTop={24} marginBottom={4}>
-            Language
-          </Text>
-          <TouchableOpacity
-            activeOpacity={0.54}
-            style={{...styles.touchLanguage, borderColor: theme.borderColor}}>
-            <View style={{height: 24}} />
-            {MY_RECORD_INFORMATION.language.map((item, index) => {
-              const [show, setShow] = useState<boolean>(true);
-              const {language} = item;
-              return (
-                <View key={index}>
-                  {show ? (
-                    <TouchableOpacity
-                      style={styles.language}
-                      onPress={() => {
-                        setShow(false);
-                      }}>
-                      <Text
-                        white
-                        color={Colors.White}
-                        size={11}
-                        marginRight={4}>
-                        {language}
-                      </Text>
-                      <Image
-                        style={{width: 12, height: 12}}
-                        source={ICON.close}
-                      />
-                    </TouchableOpacity>
-                  ) : (
-                    <></>
-                  )}
-                </View>
-              );
-            })}
-          </TouchableOpacity> */}
+ 

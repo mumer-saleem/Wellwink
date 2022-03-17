@@ -140,7 +140,11 @@ const Routes = {
 
   Vitals:"Vitals",
   VitalsConnection:"VitalsConnection",
-  About_Help:"About_Help"
+  About_Help:"About_Help",
+  ShoeInsurance:"ShoeInsurance",
+  showEmerrgencyContacts:"showEmerrgencyContacts",
+  AddEmerrgencyContacts:"AddEmerrgencyContacts"
+
 
 
 };

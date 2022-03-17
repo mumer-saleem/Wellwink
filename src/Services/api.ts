@@ -28,10 +28,10 @@ const create = (headers:any=apiConstants.headers ,baseURL = apiConstants.baseURL
    const postCallRequest=   ( params:any, ) => {return instance.post('api/v1/enrolments/call_alert',params); } 
    const getVitalsLists=   (id:string ) => {return instance.get('api/v1/vitals/patient_vital_entry?patient_id='+id); } 
    const postVitalsValues=   (params:any,) => {return instance.post('api/v1/vitals',params); } 
-   const getInsurance=   (id:any,) => {return instance.post('api/v1/insurance/patient_insurances?patient_id='+id); } 
-   const getPatientContacts=   (id:any,) => {return instance.post('api/v1/patients/contact?id='+id); } 
-   const deletePatientContact=   (id:any,) => {return instance.post('api/v1/patients/contact?id='+id); } 
-   const postPAtientContact=   (params:any,) => {return instance.post('api/v1/patients/contact',params); } 
+   const getInsurance=   (id:any,) => {return instance.get('api/v1/insurance/patient_insurances?patient_id='+id); } 
+   const getPatientContacts=   (id:any,) => { return instance.get('api/v1/patients/contacts?id='+id); } 
+   const deletePatientContact=   (id:any,) => {return instance.delete('api/v1/patients/contact?id='+id); } 
+   const postPatientContact=   (params:any,) => {return instance.post('api/v1/patients/contact',params); } 
 
 
 
@@ -56,7 +56,7 @@ const create = (headers:any=apiConstants.headers ,baseURL = apiConstants.baseURL
       getInsurance,
       getPatientContacts,
       deletePatientContact,
-      postPAtientContact,
+      postPatientContact,
 
     }
   }

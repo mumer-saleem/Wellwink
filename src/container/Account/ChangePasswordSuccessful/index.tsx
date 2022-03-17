@@ -29,7 +29,7 @@ const ChangePasswordSuccessful = memo(
           password when logging in.
         </Text>
         <ButtonLinear white 
-          title="Log In Now"
+          title="Sign In Now"
           style={styles.buttonLinear}
           onPress={onGoToLogin}
         />

@@ -1819,6 +1819,33 @@ export const ModalManueOptions = {
     },
 
   ],
+   relationOptions : [
+    {
+      id: 0,
+      name: 'Father',
+    },
+    {
+      id: 1,
+      name: 'Mother',
+    },
+    {
+      id: 2,
+      name: 'Sister',
+    },
+    {
+      id: 3,
+      name: 'Brother',
+    },
+    {
+      id: 4,
+      name: 'Spouse',
+    },
+    {
+      id: 5,
+      name: 'Legal Guardian',
+    },
 
-};
+
+  ],
+ };
  

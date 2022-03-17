@@ -129,7 +129,7 @@ const Login = memo((props: LoginProps) => {
           <InputApp
             title={'Email'}
             placeholder={'Enter Email'}
-            value={values.email}
+            value={values.email.trim()}
             onChangeText={ handleChange("email") }
             icon={
               <Image
@@ -170,7 +170,7 @@ const Login = memo((props: LoginProps) => {
         <ButtonLinear
           white
           white
-          title={'Log In'}
+          title={'Sign In'}
           onPress={handleSubmit}
           style={{marginTop: scale(24)}}
         />

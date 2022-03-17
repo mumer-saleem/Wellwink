@@ -233,3 +233,25 @@ export   const setVitalsValueParams=async(mainOBject:any)=>{
       }
 
  }
+ 
+export   const setContactParams=async(mainOBject:any,id:any)=>{
+ 
+    const {firstName,phone,relationID, }=mainOBject
+      return  {
+        "contact": {
+            "contact_type": "emergency",
+            "name": firstName,
+            "relationship_id": relationID,
+            "source_id": id,
+            "source_type": "Patient",
+            "contact_number_attributes": {
+                "custom_loaded": true,
+                "hashid": "",
+                "type": "phone",
+                "value": phone
+            }
+            }
+    }
+
+       
+  }

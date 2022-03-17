@@ -98,7 +98,7 @@ const OnBoarding = memo((props: OnBoardingProps) => {
         <DotProgress numberOfDots={ONBOARDING.length} scrollX={scrollX} />
         <ButtonText
           white
-          title={'Log in'}
+          title={'Sign in'}
           style={styles.loginButton}
           titleColor={Colors.White}
           textProps={{bold: true}}

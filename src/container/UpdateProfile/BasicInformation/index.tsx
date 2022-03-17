@@ -49,8 +49,7 @@ const BasicInformation = memo(() => {
     if(firstName==''||lastName==''||title=='Selelct Title' ){
       setState(  prevState => ({...prevState,  firstNameError:firstName==""?"Required":"", lastNameError:lastName==""?"Required":"", 
        titleError:title=="Selelct Title"?"Required":"",
-      //  avatarSourcError:avatarSource==""?"Required":"",
-       })  )
+        })  )
        return false
  
   }
@@ -68,10 +67,7 @@ const BasicInformation = memo(() => {
     }))
   }, [state]);
 
-  // const onUploadAvatar = useCallback(async() => {
-  //   let response =  await CameraImage()
-  //  }, []);
-  
+ 
   useLayoutEffect(() => {
     setOptions({
       title: null,
@@ -100,23 +96,7 @@ const BasicInformation = memo(() => {
 
   }, [menuOptions]);
 
-  // const selectImage = useCallback(async(result) => {
-  //   switch (result?.id) {
-  //     case 0:
-  //    let result= await libraryImage()
-  //       uploadImage(result?.assets)
-  //       close()
-  //       break;
-  //    case 1:
-  //     let result1= await CameraImage()
-  //     uploadImage(result1?.assets)
-  //     close()
-  //         break;
-  //     default:
-  //       break;
-  //   } 
  
-  // }, []);
 
    const selectTitle = useCallback(async(result) => {
       // setTitle(result.name)
@@ -128,21 +108,8 @@ const BasicInformation = memo(() => {
     }))
   }, [state]);
 
-  // const uploadImage = useCallback(async(result) => {
-  //        if(result[0]){
-  //          setState(  prevState => ({
-  //         ...prevState,
-  //         avatarSource:result[0].uri,
-  //         avatarSourcError:""
-
-  //     }))
-  //        }
-  //   }  , [state]);
+ 
   
-    const openModalForImage=useCallback(() => { 
-      setMenuOptions(ModalManueOptions.ImagePickerOptions)
-      open()
-    }  , []);
   
     const openModalForTitle=useCallback(() => { 
       setMenuOptions(ModalManueOptions.titileOptions)
@@ -232,7 +199,7 @@ const BasicInformation = memo(() => {
             color={Colors.BlueCrayola}
             semiBold
             onPress={onGoToLogin}>
-            Log in
+            Sign in
           </Text>
         </Text>
         </View>
